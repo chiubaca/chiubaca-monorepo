@@ -2,21 +2,31 @@
   "name": "chiubaca.com",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/chiubaca.com/src",
-  "projectType": "library",
+  "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
+      "executor": "nx:run-commands",
       "options": {
-        "outputPath": "dist/apps/chiubaca.com",
-        "main": "apps/chiubaca.com/src/index.ts",
-        "tsConfig": "apps/chiubaca.com/tsconfig.lib.json",
-        "assets": ["apps/chiubaca.com/*.md"]
+        "command": "npx astro --root apps/chiubaca.com build"
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx astro --root apps/chiubaca.com check"
+      }
+    },
+    "format": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prettier --write ./apps/chiubaca.com check"
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx astro --root apps/chiubaca.com dev"
+      }
     }
   },
   "tags": []
