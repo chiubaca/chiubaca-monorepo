@@ -1,0 +1,23 @@
+{
+  "name": "chiubaca.com",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/chiubaca.com/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/chiubaca.com",
+        "main": "apps/chiubaca.com/src/index.ts",
+        "tsConfig": "apps/chiubaca.com/tsconfig.lib.json",
+        "assets": ["apps/chiubaca.com/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": []
+}
