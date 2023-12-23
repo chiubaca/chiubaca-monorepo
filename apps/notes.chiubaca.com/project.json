@@ -4,6 +4,18 @@
   "sourceRoot": "apps/note.chiubaca.com/src",
   "projectType": "application",
   "targets": {
+    "download-notes": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "git clone https://github.com/chiubaca/learning tmp"
+      }
+    },
+    "moves-notes": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "mv tmp/* apps/notes.chiubaca.com/src/content/ && rm -rf tmp"
+      }
+    },
     "build": {
       "executor": "nx:run-commands",
       "options": {
