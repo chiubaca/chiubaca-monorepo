@@ -1,0 +1,33 @@
+{
+  "name": "notes.chiubaca.com",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/note.chiubaca.com/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx astro --root apps/notes.chiubaca.com build"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx astro --root apps/notes.chiubaca.com check"
+      }
+    },
+    "format": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prettier --write ./apps/notes.chiubaca.com"
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx astro --root apps/notes.chiubaca.com dev"
+      }
+    }
+  },
+  "tags": []
+}
