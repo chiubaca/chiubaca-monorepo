@@ -19,7 +19,7 @@
     "format": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "prettier --write ./apps/chiubaca.com check"
+        "command": "prettier --write ./apps/chiubaca.com"
       }
     },
     "serve": {

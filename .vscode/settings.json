@@ -1,0 +1,10 @@
+{
+  "eslint.enable": true, 
+  "eslint.run": "onSave",
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+  },
+}

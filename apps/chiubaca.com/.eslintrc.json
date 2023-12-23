@@ -1,29 +1,17 @@
 {
-  "extends": ["../../.eslintrc.json", "plugin:astro/recommended"],
-  "ignorePatterns": ["!**/*"],
+  "extends": ["../../.eslintrc.json", "plugin:astro/recommended", "prettier"],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx", "*.astro"],
+      "files": ["*.astro"],
+      "plugins": ["astro"],
       "parser": "astro-eslint-parser",
       "parserOptions": {
         "parser": "@typescript-eslint/parser",
-        "extraFileExtensions": [".astro"]
+        "extraFileExtensions": [".astro"],
+        "sourceType": "module"
       },
-      "rules": {}
-    },
-    {
-      "files": ["*.ts", "*.tsx"],
-      "rules": {}
-    },
-    {
-      "files": ["*.js", "*.jsx"],
-      "rules": {}
-    },
-    {
-      "files": ["*.json"],
-      "parser": "jsonc-eslint-parser",
       "rules": {
-        "@nx/dependency-checks": "error"
+        "prettier/prettier": "on"
       }
     }
   ]
