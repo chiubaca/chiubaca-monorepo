@@ -1,18 +1,32 @@
 ---
 import { Header } from "@chiubaca-ui";
 
-const x = "asd";
-const g = "dasd";
+import { noteTypes } from "../common/types";
+
+const noteTypeTitles = Object.values(noteTypes.enum).map((noteType) => {
+  return noteType;
+});
 ---
 
-<!-- Below is your "component template." It's just HTML, but with
-     some magic sprinkled in to help you build great templates. -->
 <html>
   <body>
     <Header />
-    <h1>Hello, NOTES.chiubaca.com!!</h1>
+    <h1>notes.chiubaca.com</h1>
   </body>
+
+  <ul>
+    {
+      noteTypeTitles.map((title) => {
+        return (
+          <a href={title}>
+            <li>{title} notes</li>
+          </a>
+        );
+      })
+    }
+  </ul>
 </html>
+
 <style>
   h1 {
     color: orange;

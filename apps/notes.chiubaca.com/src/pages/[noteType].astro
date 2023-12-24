@@ -1,0 +1,39 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import { noteTypes } from "../common/types";
+
+export function getStaticPaths() {
+  const noteTypeTitles = Object.values(noteTypes.enum).map((noteType) => {
+    return noteType;
+  });
+
+  const paths = noteTypeTitles.map((noteType) => {
+    return { params: { noteType } };
+  });
+
+  return paths;
+}
+
+const { noteType } = Astro.params;
+
+const notes = await getCollection(noteType);
+
+const processedNotes = notes.map((note) => {
+  return { title: note.slug, content: note.body };
+});
+---
+
+<h1>Hello {noteType}</h1>
+
+{
+  processedNotes.map((note) => {
+    return (
+      <div>
+        <h2> {note.title}</h2>
+        <div>{note.content}</div>
+      </div>
+    );
+  })
+}
+
+<!-- <Content /> -->
