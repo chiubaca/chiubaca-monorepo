@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+import type { PossiblePaths } from "../common/types";
+
+interface Props {
+  path: PossiblePaths;
+}
+
+const { path } = Astro.props;
+const titles = await getCollection(path);
+---
+
+<div>Hello listing page: {path}!!</div>
+{
+  titles.map((title) => {
+    return (
+      <h2>
+        <a href={`${title.collection}/${title.slug}`}>{title.slug}</a>
+      </h2>
+    );
+  })
+}

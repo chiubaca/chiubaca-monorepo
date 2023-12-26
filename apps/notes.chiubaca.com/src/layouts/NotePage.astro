@@ -1,0 +1,11 @@
+---
+import type { PossiblePaths } from "../common/types";
+
+interface Props {
+  path: PossiblePaths;
+}
+
+const { path } = Astro.props;
+---
+
+<div>Hello Notepage {path}!!</div>

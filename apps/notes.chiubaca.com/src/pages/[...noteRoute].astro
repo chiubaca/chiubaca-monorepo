@@ -1,9 +1,13 @@
 ---
 import { getCollection } from "astro:content";
-import { noteTypes, NoteTypes } from "../common/types";
+
+import ListingPage from "../layouts/ListingPage.astro";
+import NotePage from "../layouts/NotePage.astro";
+
+import { noteTypes, type PossiblePaths } from "../common/types";
 
 type Route = {
-  params: { noteRoute: NoteTypes | `${NoteTypes}/${string}` };
+  params: { noteRoute: PossiblePaths };
 };
 
 export async function getStaticPaths() {
@@ -45,4 +49,4 @@ const isIndexPage =
 
 <h1>Hello {noteRoute}</h1>
 
-{isIndexPage ? <> Render an index page </> : <> Render a note page </>}
+{isIndexPage ? <ListingPage path={noteRoute} /> : <NotePage path={noteRoute} />}
