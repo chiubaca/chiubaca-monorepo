@@ -5,7 +5,8 @@
   "scripts": {},
   "private": true,
   "dependencies": {
-    "astro": "^4.0.7"
+    "astro": "^4.0.7",
+    "frontmatter-file-batcher": "^0.0.1-beta.0"
   },
   "devDependencies": {
     "@nx/eslint": "17.2.7",
