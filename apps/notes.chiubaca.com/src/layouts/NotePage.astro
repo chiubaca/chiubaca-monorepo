@@ -1,11 +1,23 @@
 ---
-import type { PossiblePaths } from "../common/types";
+import { getEntry } from "astro:content";
+import type { SlugPaths, NoteTypes } from "../common/types";
 
 interface Props {
-  path: PossiblePaths;
+  path: SlugPaths;
 }
 
 const { path } = Astro.props;
+
+const pathSplit = path.split("/");
+const noteType = pathSplit[0] as NoteTypes;
+const slug = pathSplit[1];
+const entry = await getEntry(noteType, slug);
+
+if (!entry) return;
+
+const { Content } = await entry.render();
 ---
 
-<div>Hello Notepage {path}!!</div>
+<div>Hello Note page {path}!!</div>
+
+<Content />

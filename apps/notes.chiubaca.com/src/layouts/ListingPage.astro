@@ -1,12 +1,13 @@
 ---
 import { getCollection } from "astro:content";
-import type { PossiblePaths } from "../common/types";
+import type { NoteTypes } from "../common/types";
 
 interface Props {
-  path: PossiblePaths;
+  path: NoteTypes;
 }
 
 const { path } = Astro.props;
+
 const titles = await getCollection(path);
 ---
 

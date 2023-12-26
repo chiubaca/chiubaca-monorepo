@@ -4,10 +4,10 @@ import { getCollection } from "astro:content";
 import ListingPage from "../layouts/ListingPage.astro";
 import NotePage from "../layouts/NotePage.astro";
 
-import { noteTypes, type PossiblePaths } from "../common/types";
+import { noteTypes, type AllPaths } from "../common/types";
 
 type Route = {
-  params: { noteRoute: PossiblePaths };
+  params: { noteRoute: AllPaths };
 };
 
 export async function getStaticPaths() {
