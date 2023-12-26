@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+import { noteTypes, NoteTypes } from "../common/types";
+
+type Route = {
+  params: { noteRoute: NoteTypes | `${NoteTypes}/${string}` };
+};
+
+export async function getStaticPaths() {
+  const noteTypeTitles = Object.values(noteTypes.enum).map(
+    (noteType) => noteType,
+  );
+
+  const makeAllRoutes = noteTypeTitles.map(async (noteType) => {
+    const notes = await getCollection(noteType);
+
+    const noteTypePaths = notes.map(
+      (note) => `${noteType}/${note.slug}` as const,
+    );
+
+    return noteTypePaths;
+  });
+
+  const allRoutes = await Promise.all(makeAllRoutes);
+
+  const slugPaths: Route[] = allRoutes
+    .flat()
+    .map((path) => ({ params: { noteRoute: path } }));
+
+  const indexPaths: Route[] = noteTypeTitles.map((noteType) => ({
+    params: { noteRoute: noteType },
+  }));
+
+  return [...indexPaths, ...slugPaths];
+}
+
+const { noteRoute } = Astro.params;
+
+const isIndexPage =
+  noteRoute === "fleeting-notes" ||
+  noteRoute === "literature-notes" ||
+  noteRoute === "permanent-notes" ||
+  noteRoute === "index-notes";
+---
+
+<h1>Hello {noteRoute}</h1>
+
+{isIndexPage ? <> Render an index page </> : <> Render a note page </>}
