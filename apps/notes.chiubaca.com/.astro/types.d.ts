@@ -175,6134 +175,6134 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"fleeting-notes": {
-"20200910.md": {
-	id: "20200910.md";
-  slug: "20200910";
+"2020-09-10.md": {
+	id: "2020-09-10.md";
+  slug: "2020-09-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200911.md": {
-	id: "20200911.md";
-  slug: "20200911";
+"2020-09-11.md": {
+	id: "2020-09-11.md";
+  slug: "2020-09-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200912.md": {
-	id: "20200912.md";
-  slug: "20200912";
+"2020-09-12.md": {
+	id: "2020-09-12.md";
+  slug: "2020-09-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200913.md": {
-	id: "20200913.md";
-  slug: "20200913";
+"2020-09-13.md": {
+	id: "2020-09-13.md";
+  slug: "2020-09-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200914.md": {
-	id: "20200914.md";
-  slug: "20200914";
+"2020-09-14.md": {
+	id: "2020-09-14.md";
+  slug: "2020-09-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200915.md": {
-	id: "20200915.md";
-  slug: "20200915";
+"2020-09-15.md": {
+	id: "2020-09-15.md";
+  slug: "2020-09-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200916.md": {
-	id: "20200916.md";
-  slug: "20200916";
+"2020-09-16.md": {
+	id: "2020-09-16.md";
+  slug: "2020-09-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200917.md": {
-	id: "20200917.md";
-  slug: "20200917";
+"2020-09-17.md": {
+	id: "2020-09-17.md";
+  slug: "2020-09-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200918.md": {
-	id: "20200918.md";
-  slug: "20200918";
+"2020-09-18.md": {
+	id: "2020-09-18.md";
+  slug: "2020-09-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200919.md": {
-	id: "20200919.md";
-  slug: "20200919";
+"2020-09-19.md": {
+	id: "2020-09-19.md";
+  slug: "2020-09-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200920.md": {
-	id: "20200920.md";
-  slug: "20200920";
+"2020-09-20.md": {
+	id: "2020-09-20.md";
+  slug: "2020-09-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200922.md": {
-	id: "20200922.md";
-  slug: "20200922";
+"2020-09-22.md": {
+	id: "2020-09-22.md";
+  slug: "2020-09-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200923.md": {
-	id: "20200923.md";
-  slug: "20200923";
+"2020-09-23.md": {
+	id: "2020-09-23.md";
+  slug: "2020-09-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200924.md": {
-	id: "20200924.md";
-  slug: "20200924";
+"2020-09-24.md": {
+	id: "2020-09-24.md";
+  slug: "2020-09-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200925.md": {
-	id: "20200925.md";
-  slug: "20200925";
+"2020-09-25.md": {
+	id: "2020-09-25.md";
+  slug: "2020-09-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200926.md": {
-	id: "20200926.md";
-  slug: "20200926";
+"2020-09-26.md": {
+	id: "2020-09-26.md";
+  slug: "2020-09-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200927.md": {
-	id: "20200927.md";
-  slug: "20200927";
+"2020-09-27.md": {
+	id: "2020-09-27.md";
+  slug: "2020-09-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200928.md": {
-	id: "20200928.md";
-  slug: "20200928";
+"2020-09-28.md": {
+	id: "2020-09-28.md";
+  slug: "2020-09-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200929.md": {
-	id: "20200929.md";
-  slug: "20200929";
+"2020-09-29.md": {
+	id: "2020-09-29.md";
+  slug: "2020-09-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20200930.md": {
-	id: "20200930.md";
-  slug: "20200930";
+"2020-09-30.md": {
+	id: "2020-09-30.md";
+  slug: "2020-09-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201001.md": {
-	id: "20201001.md";
-  slug: "20201001";
+"2020-10-01.md": {
+	id: "2020-10-01.md";
+  slug: "2020-10-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201002.md": {
-	id: "20201002.md";
-  slug: "20201002";
+"2020-10-02.md": {
+	id: "2020-10-02.md";
+  slug: "2020-10-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201003.md": {
-	id: "20201003.md";
-  slug: "20201003";
+"2020-10-03.md": {
+	id: "2020-10-03.md";
+  slug: "2020-10-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201004.md": {
-	id: "20201004.md";
-  slug: "20201004";
+"2020-10-04.md": {
+	id: "2020-10-04.md";
+  slug: "2020-10-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201005.md": {
-	id: "20201005.md";
-  slug: "20201005";
+"2020-10-05.md": {
+	id: "2020-10-05.md";
+  slug: "2020-10-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201006.md": {
-	id: "20201006.md";
-  slug: "20201006";
+"2020-10-06.md": {
+	id: "2020-10-06.md";
+  slug: "2020-10-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201007.md": {
-	id: "20201007.md";
-  slug: "20201007";
+"2020-10-07.md": {
+	id: "2020-10-07.md";
+  slug: "2020-10-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201008.md": {
-	id: "20201008.md";
-  slug: "20201008";
+"2020-10-08.md": {
+	id: "2020-10-08.md";
+  slug: "2020-10-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201009.md": {
-	id: "20201009.md";
-  slug: "20201009";
+"2020-10-09.md": {
+	id: "2020-10-09.md";
+  slug: "2020-10-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201010.md": {
-	id: "20201010.md";
-  slug: "20201010";
+"2020-10-10.md": {
+	id: "2020-10-10.md";
+  slug: "2020-10-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201011.md": {
-	id: "20201011.md";
-  slug: "20201011";
+"2020-10-11.md": {
+	id: "2020-10-11.md";
+  slug: "2020-10-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201012.md": {
-	id: "20201012.md";
-  slug: "20201012";
+"2020-10-12.md": {
+	id: "2020-10-12.md";
+  slug: "2020-10-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201013.md": {
-	id: "20201013.md";
-  slug: "20201013";
+"2020-10-13.md": {
+	id: "2020-10-13.md";
+  slug: "2020-10-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201014.md": {
-	id: "20201014.md";
-  slug: "20201014";
+"2020-10-14.md": {
+	id: "2020-10-14.md";
+  slug: "2020-10-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201015.md": {
-	id: "20201015.md";
-  slug: "20201015";
+"2020-10-15.md": {
+	id: "2020-10-15.md";
+  slug: "2020-10-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201016.md": {
-	id: "20201016.md";
-  slug: "20201016";
+"2020-10-16.md": {
+	id: "2020-10-16.md";
+  slug: "2020-10-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201017.md": {
-	id: "20201017.md";
-  slug: "20201017";
+"2020-10-17.md": {
+	id: "2020-10-17.md";
+  slug: "2020-10-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201018.md": {
-	id: "20201018.md";
-  slug: "20201018";
+"2020-10-18.md": {
+	id: "2020-10-18.md";
+  slug: "2020-10-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201019.md": {
-	id: "20201019.md";
-  slug: "20201019";
+"2020-10-19.md": {
+	id: "2020-10-19.md";
+  slug: "2020-10-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201020.md": {
-	id: "20201020.md";
-  slug: "20201020";
+"2020-10-20.md": {
+	id: "2020-10-20.md";
+  slug: "2020-10-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201021.md": {
-	id: "20201021.md";
-  slug: "20201021";
+"2020-10-21.md": {
+	id: "2020-10-21.md";
+  slug: "2020-10-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201022.md": {
-	id: "20201022.md";
-  slug: "20201022";
+"2020-10-22.md": {
+	id: "2020-10-22.md";
+  slug: "2020-10-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201023.md": {
-	id: "20201023.md";
-  slug: "20201023";
+"2020-10-23.md": {
+	id: "2020-10-23.md";
+  slug: "2020-10-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201024.md": {
-	id: "20201024.md";
-  slug: "20201024";
+"2020-10-24.md": {
+	id: "2020-10-24.md";
+  slug: "2020-10-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201025.md": {
-	id: "20201025.md";
-  slug: "20201025";
+"2020-10-25.md": {
+	id: "2020-10-25.md";
+  slug: "2020-10-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201026.md": {
-	id: "20201026.md";
-  slug: "20201026";
+"2020-10-26.md": {
+	id: "2020-10-26.md";
+  slug: "2020-10-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201027.md": {
-	id: "20201027.md";
-  slug: "20201027";
+"2020-10-27.md": {
+	id: "2020-10-27.md";
+  slug: "2020-10-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201028.md": {
-	id: "20201028.md";
-  slug: "20201028";
+"2020-10-28.md": {
+	id: "2020-10-28.md";
+  slug: "2020-10-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201029.md": {
-	id: "20201029.md";
-  slug: "20201029";
+"2020-10-29.md": {
+	id: "2020-10-29.md";
+  slug: "2020-10-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201030.md": {
-	id: "20201030.md";
-  slug: "20201030";
+"2020-10-30.md": {
+	id: "2020-10-30.md";
+  slug: "2020-10-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201031.md": {
-	id: "20201031.md";
-  slug: "20201031";
+"2020-10-31.md": {
+	id: "2020-10-31.md";
+  slug: "2020-10-31";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201101.md": {
-	id: "20201101.md";
-  slug: "20201101";
+"2020-11-01.md": {
+	id: "2020-11-01.md";
+  slug: "2020-11-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201102.md": {
-	id: "20201102.md";
-  slug: "20201102";
+"2020-11-02.md": {
+	id: "2020-11-02.md";
+  slug: "2020-11-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201103.md": {
-	id: "20201103.md";
-  slug: "20201103";
+"2020-11-03.md": {
+	id: "2020-11-03.md";
+  slug: "2020-11-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201104.md": {
-	id: "20201104.md";
-  slug: "20201104";
+"2020-11-04.md": {
+	id: "2020-11-04.md";
+  slug: "2020-11-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201105.md": {
-	id: "20201105.md";
-  slug: "20201105";
+"2020-11-05.md": {
+	id: "2020-11-05.md";
+  slug: "2020-11-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201106.md": {
-	id: "20201106.md";
-  slug: "20201106";
+"2020-11-06.md": {
+	id: "2020-11-06.md";
+  slug: "2020-11-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201107.md": {
-	id: "20201107.md";
-  slug: "20201107";
+"2020-11-07.md": {
+	id: "2020-11-07.md";
+  slug: "2020-11-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201108.md": {
-	id: "20201108.md";
-  slug: "20201108";
+"2020-11-08.md": {
+	id: "2020-11-08.md";
+  slug: "2020-11-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201109.md": {
-	id: "20201109.md";
-  slug: "20201109";
+"2020-11-09.md": {
+	id: "2020-11-09.md";
+  slug: "2020-11-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201110.md": {
-	id: "20201110.md";
-  slug: "20201110";
+"2020-11-10.md": {
+	id: "2020-11-10.md";
+  slug: "2020-11-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201111.md": {
-	id: "20201111.md";
-  slug: "20201111";
+"2020-11-11.md": {
+	id: "2020-11-11.md";
+  slug: "2020-11-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201112.md": {
-	id: "20201112.md";
-  slug: "20201112";
+"2020-11-12.md": {
+	id: "2020-11-12.md";
+  slug: "2020-11-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201113.md": {
-	id: "20201113.md";
-  slug: "20201113";
+"2020-11-13.md": {
+	id: "2020-11-13.md";
+  slug: "2020-11-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201114.md": {
-	id: "20201114.md";
-  slug: "20201114";
+"2020-11-14.md": {
+	id: "2020-11-14.md";
+  slug: "2020-11-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201115.md": {
-	id: "20201115.md";
-  slug: "20201115";
+"2020-11-15.md": {
+	id: "2020-11-15.md";
+  slug: "2020-11-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201116.md": {
-	id: "20201116.md";
-  slug: "20201116";
+"2020-11-16.md": {
+	id: "2020-11-16.md";
+  slug: "2020-11-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201117.md": {
-	id: "20201117.md";
-  slug: "20201117";
+"2020-11-17.md": {
+	id: "2020-11-17.md";
+  slug: "2020-11-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201118.md": {
-	id: "20201118.md";
-  slug: "20201118";
+"2020-11-18.md": {
+	id: "2020-11-18.md";
+  slug: "2020-11-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201119.md": {
-	id: "20201119.md";
-  slug: "20201119";
+"2020-11-19.md": {
+	id: "2020-11-19.md";
+  slug: "2020-11-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201120.md": {
-	id: "20201120.md";
-  slug: "20201120";
+"2020-11-20.md": {
+	id: "2020-11-20.md";
+  slug: "2020-11-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201121.md": {
-	id: "20201121.md";
-  slug: "20201121";
+"2020-11-21.md": {
+	id: "2020-11-21.md";
+  slug: "2020-11-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201122.md": {
-	id: "20201122.md";
-  slug: "20201122";
+"2020-11-22.md": {
+	id: "2020-11-22.md";
+  slug: "2020-11-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201123.md": {
-	id: "20201123.md";
-  slug: "20201123";
+"2020-11-23.md": {
+	id: "2020-11-23.md";
+  slug: "2020-11-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201124.md": {
-	id: "20201124.md";
-  slug: "20201124";
+"2020-11-24.md": {
+	id: "2020-11-24.md";
+  slug: "2020-11-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201125.md": {
-	id: "20201125.md";
-  slug: "20201125";
+"2020-11-25.md": {
+	id: "2020-11-25.md";
+  slug: "2020-11-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201126.md": {
-	id: "20201126.md";
-  slug: "20201126";
+"2020-11-26.md": {
+	id: "2020-11-26.md";
+  slug: "2020-11-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201127.md": {
-	id: "20201127.md";
-  slug: "20201127";
+"2020-11-27.md": {
+	id: "2020-11-27.md";
+  slug: "2020-11-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201128.md": {
-	id: "20201128.md";
-  slug: "20201128";
+"2020-11-28.md": {
+	id: "2020-11-28.md";
+  slug: "2020-11-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201129.md": {
-	id: "20201129.md";
-  slug: "20201129";
+"2020-11-29.md": {
+	id: "2020-11-29.md";
+  slug: "2020-11-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201130.md": {
-	id: "20201130.md";
-  slug: "20201130";
+"2020-11-30.md": {
+	id: "2020-11-30.md";
+  slug: "2020-11-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201201.md": {
-	id: "20201201.md";
-  slug: "20201201";
+"2020-12-01.md": {
+	id: "2020-12-01.md";
+  slug: "2020-12-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201202.md": {
-	id: "20201202.md";
-  slug: "20201202";
+"2020-12-02.md": {
+	id: "2020-12-02.md";
+  slug: "2020-12-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201203.md": {
-	id: "20201203.md";
-  slug: "20201203";
+"2020-12-03.md": {
+	id: "2020-12-03.md";
+  slug: "2020-12-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201204.md": {
-	id: "20201204.md";
-  slug: "20201204";
+"2020-12-04.md": {
+	id: "2020-12-04.md";
+  slug: "2020-12-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201205.md": {
-	id: "20201205.md";
-  slug: "20201205";
+"2020-12-05.md": {
+	id: "2020-12-05.md";
+  slug: "2020-12-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201206.md": {
-	id: "20201206.md";
-  slug: "20201206";
+"2020-12-06.md": {
+	id: "2020-12-06.md";
+  slug: "2020-12-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201207.md": {
-	id: "20201207.md";
-  slug: "20201207";
+"2020-12-07.md": {
+	id: "2020-12-07.md";
+  slug: "2020-12-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201208.md": {
-	id: "20201208.md";
-  slug: "20201208";
+"2020-12-08.md": {
+	id: "2020-12-08.md";
+  slug: "2020-12-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201209.md": {
-	id: "20201209.md";
-  slug: "20201209";
+"2020-12-09.md": {
+	id: "2020-12-09.md";
+  slug: "2020-12-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201210.md": {
-	id: "20201210.md";
-  slug: "20201210";
+"2020-12-10.md": {
+	id: "2020-12-10.md";
+  slug: "2020-12-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201211.md": {
-	id: "20201211.md";
-  slug: "20201211";
+"2020-12-11.md": {
+	id: "2020-12-11.md";
+  slug: "2020-12-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201212.md": {
-	id: "20201212.md";
-  slug: "20201212";
+"2020-12-12.md": {
+	id: "2020-12-12.md";
+  slug: "2020-12-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201213.md": {
-	id: "20201213.md";
-  slug: "20201213";
+"2020-12-13.md": {
+	id: "2020-12-13.md";
+  slug: "2020-12-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201214.md": {
-	id: "20201214.md";
-  slug: "20201214";
+"2020-12-14.md": {
+	id: "2020-12-14.md";
+  slug: "2020-12-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201215.md": {
-	id: "20201215.md";
-  slug: "20201215";
+"2020-12-15.md": {
+	id: "2020-12-15.md";
+  slug: "2020-12-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201216.md": {
-	id: "20201216.md";
-  slug: "20201216";
+"2020-12-16.md": {
+	id: "2020-12-16.md";
+  slug: "2020-12-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201217.md": {
-	id: "20201217.md";
-  slug: "20201217";
+"2020-12-17.md": {
+	id: "2020-12-17.md";
+  slug: "2020-12-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201218.md": {
-	id: "20201218.md";
-  slug: "20201218";
+"2020-12-18.md": {
+	id: "2020-12-18.md";
+  slug: "2020-12-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201219.md": {
-	id: "20201219.md";
-  slug: "20201219";
+"2020-12-19.md": {
+	id: "2020-12-19.md";
+  slug: "2020-12-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201220.md": {
-	id: "20201220.md";
-  slug: "20201220";
+"2020-12-20.md": {
+	id: "2020-12-20.md";
+  slug: "2020-12-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201221.md": {
-	id: "20201221.md";
-  slug: "20201221";
+"2020-12-21.md": {
+	id: "2020-12-21.md";
+  slug: "2020-12-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201222.md": {
-	id: "20201222.md";
-  slug: "20201222";
+"2020-12-22.md": {
+	id: "2020-12-22.md";
+  slug: "2020-12-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201223.md": {
-	id: "20201223.md";
-  slug: "20201223";
+"2020-12-23.md": {
+	id: "2020-12-23.md";
+  slug: "2020-12-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201224.md": {
-	id: "20201224.md";
-  slug: "20201224";
+"2020-12-24.md": {
+	id: "2020-12-24.md";
+  slug: "2020-12-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201225.md": {
-	id: "20201225.md";
-  slug: "20201225";
+"2020-12-25.md": {
+	id: "2020-12-25.md";
+  slug: "2020-12-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201226.md": {
-	id: "20201226.md";
-  slug: "20201226";
+"2020-12-26.md": {
+	id: "2020-12-26.md";
+  slug: "2020-12-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201227.md": {
-	id: "20201227.md";
-  slug: "20201227";
+"2020-12-27.md": {
+	id: "2020-12-27.md";
+  slug: "2020-12-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201228.md": {
-	id: "20201228.md";
-  slug: "20201228";
+"2020-12-28.md": {
+	id: "2020-12-28.md";
+  slug: "2020-12-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201229.md": {
-	id: "20201229.md";
-  slug: "20201229";
+"2020-12-29.md": {
+	id: "2020-12-29.md";
+  slug: "2020-12-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201230.md": {
-	id: "20201230.md";
-  slug: "20201230";
+"2020-12-30.md": {
+	id: "2020-12-30.md";
+  slug: "2020-12-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20201231.md": {
-	id: "20201231.md";
-  slug: "20201231";
+"2020-12-31.md": {
+	id: "2020-12-31.md";
+  slug: "2020-12-31";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210101.md": {
-	id: "20210101.md";
-  slug: "20210101";
+"2021-01-01.md": {
+	id: "2021-01-01.md";
+  slug: "2021-01-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210102.md": {
-	id: "20210102.md";
-  slug: "20210102";
+"2021-01-02.md": {
+	id: "2021-01-02.md";
+  slug: "2021-01-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210103.md": {
-	id: "20210103.md";
-  slug: "20210103";
+"2021-01-03.md": {
+	id: "2021-01-03.md";
+  slug: "2021-01-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210104.md": {
-	id: "20210104.md";
-  slug: "20210104";
+"2021-01-04.md": {
+	id: "2021-01-04.md";
+  slug: "2021-01-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210105.md": {
-	id: "20210105.md";
-  slug: "20210105";
+"2021-01-05.md": {
+	id: "2021-01-05.md";
+  slug: "2021-01-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210106.md": {
-	id: "20210106.md";
-  slug: "20210106";
+"2021-01-06.md": {
+	id: "2021-01-06.md";
+  slug: "2021-01-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210107.md": {
-	id: "20210107.md";
-  slug: "20210107";
+"2021-01-07.md": {
+	id: "2021-01-07.md";
+  slug: "2021-01-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210108.md": {
-	id: "20210108.md";
-  slug: "20210108";
+"2021-01-08.md": {
+	id: "2021-01-08.md";
+  slug: "2021-01-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210109.md": {
-	id: "20210109.md";
-  slug: "20210109";
+"2021-01-09.md": {
+	id: "2021-01-09.md";
+  slug: "2021-01-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210110.md": {
-	id: "20210110.md";
-  slug: "20210110";
+"2021-01-10.md": {
+	id: "2021-01-10.md";
+  slug: "2021-01-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210111.md": {
-	id: "20210111.md";
-  slug: "20210111";
+"2021-01-11.md": {
+	id: "2021-01-11.md";
+  slug: "2021-01-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210112.md": {
-	id: "20210112.md";
-  slug: "20210112";
+"2021-01-12.md": {
+	id: "2021-01-12.md";
+  slug: "2021-01-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210113.md": {
-	id: "20210113.md";
-  slug: "20210113";
+"2021-01-13.md": {
+	id: "2021-01-13.md";
+  slug: "2021-01-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210114.md": {
-	id: "20210114.md";
-  slug: "20210114";
+"2021-01-14.md": {
+	id: "2021-01-14.md";
+  slug: "2021-01-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210115.md": {
-	id: "20210115.md";
-  slug: "20210115";
+"2021-01-15.md": {
+	id: "2021-01-15.md";
+  slug: "2021-01-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210116.md": {
-	id: "20210116.md";
-  slug: "20210116";
+"2021-01-16.md": {
+	id: "2021-01-16.md";
+  slug: "2021-01-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210117.md": {
-	id: "20210117.md";
-  slug: "20210117";
+"2021-01-17.md": {
+	id: "2021-01-17.md";
+  slug: "2021-01-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210118.md": {
-	id: "20210118.md";
-  slug: "20210118";
+"2021-01-18.md": {
+	id: "2021-01-18.md";
+  slug: "2021-01-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210119.md": {
-	id: "20210119.md";
-  slug: "20210119";
+"2021-01-19.md": {
+	id: "2021-01-19.md";
+  slug: "2021-01-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210120.md": {
-	id: "20210120.md";
-  slug: "20210120";
+"2021-01-20.md": {
+	id: "2021-01-20.md";
+  slug: "2021-01-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210121.md": {
-	id: "20210121.md";
-  slug: "20210121";
+"2021-01-21.md": {
+	id: "2021-01-21.md";
+  slug: "2021-01-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210122.md": {
-	id: "20210122.md";
-  slug: "20210122";
+"2021-01-22.md": {
+	id: "2021-01-22.md";
+  slug: "2021-01-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210123.md": {
-	id: "20210123.md";
-  slug: "20210123";
+"2021-01-23.md": {
+	id: "2021-01-23.md";
+  slug: "2021-01-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210124.md": {
-	id: "20210124.md";
-  slug: "20210124";
+"2021-01-24.md": {
+	id: "2021-01-24.md";
+  slug: "2021-01-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210125.md": {
-	id: "20210125.md";
-  slug: "20210125";
+"2021-01-25.md": {
+	id: "2021-01-25.md";
+  slug: "2021-01-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210126.md": {
-	id: "20210126.md";
-  slug: "20210126";
+"2021-01-26.md": {
+	id: "2021-01-26.md";
+  slug: "2021-01-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210127.md": {
-	id: "20210127.md";
-  slug: "20210127";
+"2021-01-27.md": {
+	id: "2021-01-27.md";
+  slug: "2021-01-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210128.md": {
-	id: "20210128.md";
-  slug: "20210128";
+"2021-01-28.md": {
+	id: "2021-01-28.md";
+  slug: "2021-01-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210129.md": {
-	id: "20210129.md";
-  slug: "20210129";
+"2021-01-29.md": {
+	id: "2021-01-29.md";
+  slug: "2021-01-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210130.md": {
-	id: "20210130.md";
-  slug: "20210130";
+"2021-01-30.md": {
+	id: "2021-01-30.md";
+  slug: "2021-01-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210131.md": {
-	id: "20210131.md";
-  slug: "20210131";
+"2021-01-31.md": {
+	id: "2021-01-31.md";
+  slug: "2021-01-31";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210201.md": {
-	id: "20210201.md";
-  slug: "20210201";
+"2021-02-01.md": {
+	id: "2021-02-01.md";
+  slug: "2021-02-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210202.md": {
-	id: "20210202.md";
-  slug: "20210202";
+"2021-02-02.md": {
+	id: "2021-02-02.md";
+  slug: "2021-02-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210203.md": {
-	id: "20210203.md";
-  slug: "20210203";
+"2021-02-03.md": {
+	id: "2021-02-03.md";
+  slug: "2021-02-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210204.md": {
-	id: "20210204.md";
-  slug: "20210204";
+"2021-02-04.md": {
+	id: "2021-02-04.md";
+  slug: "2021-02-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210205.md": {
-	id: "20210205.md";
-  slug: "20210205";
+"2021-02-05.md": {
+	id: "2021-02-05.md";
+  slug: "2021-02-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210206.md": {
-	id: "20210206.md";
-  slug: "20210206";
+"2021-02-06.md": {
+	id: "2021-02-06.md";
+  slug: "2021-02-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210207.md": {
-	id: "20210207.md";
-  slug: "20210207";
+"2021-02-07.md": {
+	id: "2021-02-07.md";
+  slug: "2021-02-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210208.md": {
-	id: "20210208.md";
-  slug: "20210208";
+"2021-02-08.md": {
+	id: "2021-02-08.md";
+  slug: "2021-02-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210209.md": {
-	id: "20210209.md";
-  slug: "20210209";
+"2021-02-09.md": {
+	id: "2021-02-09.md";
+  slug: "2021-02-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210210.md": {
-	id: "20210210.md";
-  slug: "20210210";
+"2021-02-10.md": {
+	id: "2021-02-10.md";
+  slug: "2021-02-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210211.md": {
-	id: "20210211.md";
-  slug: "20210211";
+"2021-02-11.md": {
+	id: "2021-02-11.md";
+  slug: "2021-02-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210212.md": {
-	id: "20210212.md";
-  slug: "20210212";
+"2021-02-12.md": {
+	id: "2021-02-12.md";
+  slug: "2021-02-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210213.md": {
-	id: "20210213.md";
-  slug: "20210213";
+"2021-02-13.md": {
+	id: "2021-02-13.md";
+  slug: "2021-02-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210214.md": {
-	id: "20210214.md";
-  slug: "20210214";
+"2021-02-14.md": {
+	id: "2021-02-14.md";
+  slug: "2021-02-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210215.md": {
-	id: "20210215.md";
-  slug: "20210215";
+"2021-02-15.md": {
+	id: "2021-02-15.md";
+  slug: "2021-02-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210216.md": {
-	id: "20210216.md";
-  slug: "20210216";
+"2021-02-16.md": {
+	id: "2021-02-16.md";
+  slug: "2021-02-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210217.md": {
-	id: "20210217.md";
-  slug: "20210217";
+"2021-02-17.md": {
+	id: "2021-02-17.md";
+  slug: "2021-02-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210218.md": {
-	id: "20210218.md";
-  slug: "20210218";
+"2021-02-18.md": {
+	id: "2021-02-18.md";
+  slug: "2021-02-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210219.md": {
-	id: "20210219.md";
-  slug: "20210219";
+"2021-02-19.md": {
+	id: "2021-02-19.md";
+  slug: "2021-02-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210220.md": {
-	id: "20210220.md";
-  slug: "20210220";
+"2021-02-20.md": {
+	id: "2021-02-20.md";
+  slug: "2021-02-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210221.md": {
-	id: "20210221.md";
-  slug: "20210221";
+"2021-02-21.md": {
+	id: "2021-02-21.md";
+  slug: "2021-02-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210222.md": {
-	id: "20210222.md";
-  slug: "20210222";
+"2021-02-22.md": {
+	id: "2021-02-22.md";
+  slug: "2021-02-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210223.md": {
-	id: "20210223.md";
-  slug: "20210223";
+"2021-02-23.md": {
+	id: "2021-02-23.md";
+  slug: "2021-02-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210224.md": {
-	id: "20210224.md";
-  slug: "20210224";
+"2021-02-24.md": {
+	id: "2021-02-24.md";
+  slug: "2021-02-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210225.md": {
-	id: "20210225.md";
-  slug: "20210225";
+"2021-02-25.md": {
+	id: "2021-02-25.md";
+  slug: "2021-02-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210226.md": {
-	id: "20210226.md";
-  slug: "20210226";
+"2021-02-26.md": {
+	id: "2021-02-26.md";
+  slug: "2021-02-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210227.md": {
-	id: "20210227.md";
-  slug: "20210227";
+"2021-02-27.md": {
+	id: "2021-02-27.md";
+  slug: "2021-02-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210228.md": {
-	id: "20210228.md";
-  slug: "20210228";
+"2021-02-28.md": {
+	id: "2021-02-28.md";
+  slug: "2021-02-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210301.md": {
-	id: "20210301.md";
-  slug: "20210301";
+"2021-03-01.md": {
+	id: "2021-03-01.md";
+  slug: "2021-03-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210302.md": {
-	id: "20210302.md";
-  slug: "20210302";
+"2021-03-02.md": {
+	id: "2021-03-02.md";
+  slug: "2021-03-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210303.md": {
-	id: "20210303.md";
-  slug: "20210303";
+"2021-03-03.md": {
+	id: "2021-03-03.md";
+  slug: "2021-03-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210304.md": {
-	id: "20210304.md";
-  slug: "20210304";
+"2021-03-04.md": {
+	id: "2021-03-04.md";
+  slug: "2021-03-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210305.md": {
-	id: "20210305.md";
-  slug: "20210305";
+"2021-03-05.md": {
+	id: "2021-03-05.md";
+  slug: "2021-03-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210306.md": {
-	id: "20210306.md";
-  slug: "20210306";
+"2021-03-06.md": {
+	id: "2021-03-06.md";
+  slug: "2021-03-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210307.md": {
-	id: "20210307.md";
-  slug: "20210307";
+"2021-03-07.md": {
+	id: "2021-03-07.md";
+  slug: "2021-03-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210308.md": {
-	id: "20210308.md";
-  slug: "20210308";
+"2021-03-08.md": {
+	id: "2021-03-08.md";
+  slug: "2021-03-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210309.md": {
-	id: "20210309.md";
-  slug: "20210309";
+"2021-03-09.md": {
+	id: "2021-03-09.md";
+  slug: "2021-03-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210310.md": {
-	id: "20210310.md";
-  slug: "20210310";
+"2021-03-10.md": {
+	id: "2021-03-10.md";
+  slug: "2021-03-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210311.md": {
-	id: "20210311.md";
-  slug: "20210311";
+"2021-03-11.md": {
+	id: "2021-03-11.md";
+  slug: "2021-03-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210312.md": {
-	id: "20210312.md";
-  slug: "20210312";
+"2021-03-12.md": {
+	id: "2021-03-12.md";
+  slug: "2021-03-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210313.md": {
-	id: "20210313.md";
-  slug: "20210313";
+"2021-03-13.md": {
+	id: "2021-03-13.md";
+  slug: "2021-03-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210314.md": {
-	id: "20210314.md";
-  slug: "20210314";
+"2021-03-14.md": {
+	id: "2021-03-14.md";
+  slug: "2021-03-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210315.md": {
-	id: "20210315.md";
-  slug: "20210315";
+"2021-03-15.md": {
+	id: "2021-03-15.md";
+  slug: "2021-03-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210316.md": {
-	id: "20210316.md";
-  slug: "20210316";
+"2021-03-16.md": {
+	id: "2021-03-16.md";
+  slug: "2021-03-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210317.md": {
-	id: "20210317.md";
-  slug: "20210317";
+"2021-03-17.md": {
+	id: "2021-03-17.md";
+  slug: "2021-03-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210318.md": {
-	id: "20210318.md";
-  slug: "20210318";
+"2021-03-18.md": {
+	id: "2021-03-18.md";
+  slug: "2021-03-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210319.md": {
-	id: "20210319.md";
-  slug: "20210319";
+"2021-03-19.md": {
+	id: "2021-03-19.md";
+  slug: "2021-03-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210320.md": {
-	id: "20210320.md";
-  slug: "20210320";
+"2021-03-20.md": {
+	id: "2021-03-20.md";
+  slug: "2021-03-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210321.md": {
-	id: "20210321.md";
-  slug: "20210321";
+"2021-03-21.md": {
+	id: "2021-03-21.md";
+  slug: "2021-03-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210322.md": {
-	id: "20210322.md";
-  slug: "20210322";
+"2021-03-22.md": {
+	id: "2021-03-22.md";
+  slug: "2021-03-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210323.md": {
-	id: "20210323.md";
-  slug: "20210323";
+"2021-03-23.md": {
+	id: "2021-03-23.md";
+  slug: "2021-03-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210324.md": {
-	id: "20210324.md";
-  slug: "20210324";
+"2021-03-24.md": {
+	id: "2021-03-24.md";
+  slug: "2021-03-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210325.md": {
-	id: "20210325.md";
-  slug: "20210325";
+"2021-03-25.md": {
+	id: "2021-03-25.md";
+  slug: "2021-03-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210326.md": {
-	id: "20210326.md";
-  slug: "20210326";
+"2021-03-26.md": {
+	id: "2021-03-26.md";
+  slug: "2021-03-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210327.md": {
-	id: "20210327.md";
-  slug: "20210327";
+"2021-03-27.md": {
+	id: "2021-03-27.md";
+  slug: "2021-03-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210328.md": {
-	id: "20210328.md";
-  slug: "20210328";
+"2021-03-28.md": {
+	id: "2021-03-28.md";
+  slug: "2021-03-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210329.md": {
-	id: "20210329.md";
-  slug: "20210329";
+"2021-03-29.md": {
+	id: "2021-03-29.md";
+  slug: "2021-03-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210330.md": {
-	id: "20210330.md";
-  slug: "20210330";
+"2021-03-30.md": {
+	id: "2021-03-30.md";
+  slug: "2021-03-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210331.md": {
-	id: "20210331.md";
-  slug: "20210331";
+"2021-03-31.md": {
+	id: "2021-03-31.md";
+  slug: "2021-03-31";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210401.md": {
-	id: "20210401.md";
-  slug: "20210401";
+"2021-04-01.md": {
+	id: "2021-04-01.md";
+  slug: "2021-04-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210402.md": {
-	id: "20210402.md";
-  slug: "20210402";
+"2021-04-02.md": {
+	id: "2021-04-02.md";
+  slug: "2021-04-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210403.md": {
-	id: "20210403.md";
-  slug: "20210403";
+"2021-04-03.md": {
+	id: "2021-04-03.md";
+  slug: "2021-04-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210404.md": {
-	id: "20210404.md";
-  slug: "20210404";
+"2021-04-04.md": {
+	id: "2021-04-04.md";
+  slug: "2021-04-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210405.md": {
-	id: "20210405.md";
-  slug: "20210405";
+"2021-04-05.md": {
+	id: "2021-04-05.md";
+  slug: "2021-04-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210406.md": {
-	id: "20210406.md";
-  slug: "20210406";
+"2021-04-06.md": {
+	id: "2021-04-06.md";
+  slug: "2021-04-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210407.md": {
-	id: "20210407.md";
-  slug: "20210407";
+"2021-04-07.md": {
+	id: "2021-04-07.md";
+  slug: "2021-04-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210408.md": {
-	id: "20210408.md";
-  slug: "20210408";
+"2021-04-08.md": {
+	id: "2021-04-08.md";
+  slug: "2021-04-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210409.md": {
-	id: "20210409.md";
-  slug: "20210409";
+"2021-04-09.md": {
+	id: "2021-04-09.md";
+  slug: "2021-04-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210410.md": {
-	id: "20210410.md";
-  slug: "20210410";
+"2021-04-10.md": {
+	id: "2021-04-10.md";
+  slug: "2021-04-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210411.md": {
-	id: "20210411.md";
-  slug: "20210411";
+"2021-04-11.md": {
+	id: "2021-04-11.md";
+  slug: "2021-04-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210412.md": {
-	id: "20210412.md";
-  slug: "20210412";
+"2021-04-12.md": {
+	id: "2021-04-12.md";
+  slug: "2021-04-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210413.md": {
-	id: "20210413.md";
-  slug: "20210413";
+"2021-04-13.md": {
+	id: "2021-04-13.md";
+  slug: "2021-04-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210414.md": {
-	id: "20210414.md";
-  slug: "20210414";
+"2021-04-14.md": {
+	id: "2021-04-14.md";
+  slug: "2021-04-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210415.md": {
-	id: "20210415.md";
-  slug: "20210415";
+"2021-04-15.md": {
+	id: "2021-04-15.md";
+  slug: "2021-04-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210416.md": {
-	id: "20210416.md";
-  slug: "20210416";
+"2021-04-16.md": {
+	id: "2021-04-16.md";
+  slug: "2021-04-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210417.md": {
-	id: "20210417.md";
-  slug: "20210417";
+"2021-04-17.md": {
+	id: "2021-04-17.md";
+  slug: "2021-04-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210418.md": {
-	id: "20210418.md";
-  slug: "20210418";
+"2021-04-18.md": {
+	id: "2021-04-18.md";
+  slug: "2021-04-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210419.md": {
-	id: "20210419.md";
-  slug: "20210419";
+"2021-04-19.md": {
+	id: "2021-04-19.md";
+  slug: "2021-04-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210420.md": {
-	id: "20210420.md";
-  slug: "20210420";
+"2021-04-20.md": {
+	id: "2021-04-20.md";
+  slug: "2021-04-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210421.md": {
-	id: "20210421.md";
-  slug: "20210421";
+"2021-04-21.md": {
+	id: "2021-04-21.md";
+  slug: "2021-04-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210422.md": {
-	id: "20210422.md";
-  slug: "20210422";
+"2021-04-22.md": {
+	id: "2021-04-22.md";
+  slug: "2021-04-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210423.md": {
-	id: "20210423.md";
-  slug: "20210423";
+"2021-04-23.md": {
+	id: "2021-04-23.md";
+  slug: "2021-04-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210424.md": {
-	id: "20210424.md";
-  slug: "20210424";
+"2021-04-24.md": {
+	id: "2021-04-24.md";
+  slug: "2021-04-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210425.md": {
-	id: "20210425.md";
-  slug: "20210425";
+"2021-04-25.md": {
+	id: "2021-04-25.md";
+  slug: "2021-04-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210426.md": {
-	id: "20210426.md";
-  slug: "20210426";
+"2021-04-26.md": {
+	id: "2021-04-26.md";
+  slug: "2021-04-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210427.md": {
-	id: "20210427.md";
-  slug: "20210427";
+"2021-04-27.md": {
+	id: "2021-04-27.md";
+  slug: "2021-04-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210428.md": {
-	id: "20210428.md";
-  slug: "20210428";
+"2021-04-28.md": {
+	id: "2021-04-28.md";
+  slug: "2021-04-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210429.md": {
-	id: "20210429.md";
-  slug: "20210429";
+"2021-04-29.md": {
+	id: "2021-04-29.md";
+  slug: "2021-04-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210430.md": {
-	id: "20210430.md";
-  slug: "20210430";
+"2021-04-30.md": {
+	id: "2021-04-30.md";
+  slug: "2021-04-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210501.md": {
-	id: "20210501.md";
-  slug: "20210501";
+"2021-05-01.md": {
+	id: "2021-05-01.md";
+  slug: "2021-05-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210502.md": {
-	id: "20210502.md";
-  slug: "20210502";
+"2021-05-02.md": {
+	id: "2021-05-02.md";
+  slug: "2021-05-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210503.md": {
-	id: "20210503.md";
-  slug: "20210503";
+"2021-05-03.md": {
+	id: "2021-05-03.md";
+  slug: "2021-05-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210504.md": {
-	id: "20210504.md";
-  slug: "20210504";
+"2021-05-04.md": {
+	id: "2021-05-04.md";
+  slug: "2021-05-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210505.md": {
-	id: "20210505.md";
-  slug: "20210505";
+"2021-05-05.md": {
+	id: "2021-05-05.md";
+  slug: "2021-05-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210506.md": {
-	id: "20210506.md";
-  slug: "20210506";
+"2021-05-06.md": {
+	id: "2021-05-06.md";
+  slug: "2021-05-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210507.md": {
-	id: "20210507.md";
-  slug: "20210507";
+"2021-05-07.md": {
+	id: "2021-05-07.md";
+  slug: "2021-05-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210508.md": {
-	id: "20210508.md";
-  slug: "20210508";
+"2021-05-08.md": {
+	id: "2021-05-08.md";
+  slug: "2021-05-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210509.md": {
-	id: "20210509.md";
-  slug: "20210509";
+"2021-05-09.md": {
+	id: "2021-05-09.md";
+  slug: "2021-05-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210510.md": {
-	id: "20210510.md";
-  slug: "20210510";
+"2021-05-10.md": {
+	id: "2021-05-10.md";
+  slug: "2021-05-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210511.md": {
-	id: "20210511.md";
-  slug: "20210511";
+"2021-05-11.md": {
+	id: "2021-05-11.md";
+  slug: "2021-05-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210512.md": {
-	id: "20210512.md";
-  slug: "20210512";
+"2021-05-12.md": {
+	id: "2021-05-12.md";
+  slug: "2021-05-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210513.md": {
-	id: "20210513.md";
-  slug: "20210513";
+"2021-05-13.md": {
+	id: "2021-05-13.md";
+  slug: "2021-05-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210514.md": {
-	id: "20210514.md";
-  slug: "20210514";
+"2021-05-14.md": {
+	id: "2021-05-14.md";
+  slug: "2021-05-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210515.md": {
-	id: "20210515.md";
-  slug: "20210515";
+"2021-05-15.md": {
+	id: "2021-05-15.md";
+  slug: "2021-05-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210516.md": {
-	id: "20210516.md";
-  slug: "20210516";
+"2021-05-16.md": {
+	id: "2021-05-16.md";
+  slug: "2021-05-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210517.md": {
-	id: "20210517.md";
-  slug: "20210517";
+"2021-05-17.md": {
+	id: "2021-05-17.md";
+  slug: "2021-05-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210518.md": {
-	id: "20210518.md";
-  slug: "20210518";
+"2021-05-18.md": {
+	id: "2021-05-18.md";
+  slug: "2021-05-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210519.md": {
-	id: "20210519.md";
-  slug: "20210519";
+"2021-05-19.md": {
+	id: "2021-05-19.md";
+  slug: "2021-05-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210520.md": {
-	id: "20210520.md";
-  slug: "20210520";
+"2021-05-20.md": {
+	id: "2021-05-20.md";
+  slug: "2021-05-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210521.md": {
-	id: "20210521.md";
-  slug: "20210521";
+"2021-05-21.md": {
+	id: "2021-05-21.md";
+  slug: "2021-05-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210522.md": {
-	id: "20210522.md";
-  slug: "20210522";
+"2021-05-22.md": {
+	id: "2021-05-22.md";
+  slug: "2021-05-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210523.md": {
-	id: "20210523.md";
-  slug: "20210523";
+"2021-05-23.md": {
+	id: "2021-05-23.md";
+  slug: "2021-05-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210524.md": {
-	id: "20210524.md";
-  slug: "20210524";
+"2021-05-24.md": {
+	id: "2021-05-24.md";
+  slug: "2021-05-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210525.md": {
-	id: "20210525.md";
-  slug: "20210525";
+"2021-05-25.md": {
+	id: "2021-05-25.md";
+  slug: "2021-05-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210526.md": {
-	id: "20210526.md";
-  slug: "20210526";
+"2021-05-26.md": {
+	id: "2021-05-26.md";
+  slug: "2021-05-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210527.md": {
-	id: "20210527.md";
-  slug: "20210527";
+"2021-05-27.md": {
+	id: "2021-05-27.md";
+  slug: "2021-05-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210528.md": {
-	id: "20210528.md";
-  slug: "20210528";
+"2021-05-28.md": {
+	id: "2021-05-28.md";
+  slug: "2021-05-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210529.md": {
-	id: "20210529.md";
-  slug: "20210529";
+"2021-05-29.md": {
+	id: "2021-05-29.md";
+  slug: "2021-05-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210530.md": {
-	id: "20210530.md";
-  slug: "20210530";
+"2021-05-30.md": {
+	id: "2021-05-30.md";
+  slug: "2021-05-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210531.md": {
-	id: "20210531.md";
-  slug: "20210531";
+"2021-05-31.md": {
+	id: "2021-05-31.md";
+  slug: "2021-05-31";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210601.md": {
-	id: "20210601.md";
-  slug: "20210601";
+"2021-06-01.md": {
+	id: "2021-06-01.md";
+  slug: "2021-06-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210602.md": {
-	id: "20210602.md";
-  slug: "20210602";
+"2021-06-02.md": {
+	id: "2021-06-02.md";
+  slug: "2021-06-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210603.md": {
-	id: "20210603.md";
-  slug: "20210603";
+"2021-06-03.md": {
+	id: "2021-06-03.md";
+  slug: "2021-06-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210604.md": {
-	id: "20210604.md";
-  slug: "20210604";
+"2021-06-04.md": {
+	id: "2021-06-04.md";
+  slug: "2021-06-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210605.md": {
-	id: "20210605.md";
-  slug: "20210605";
+"2021-06-05.md": {
+	id: "2021-06-05.md";
+  slug: "2021-06-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210606.md": {
-	id: "20210606.md";
-  slug: "20210606";
+"2021-06-06.md": {
+	id: "2021-06-06.md";
+  slug: "2021-06-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210607.md": {
-	id: "20210607.md";
-  slug: "20210607";
+"2021-06-07.md": {
+	id: "2021-06-07.md";
+  slug: "2021-06-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210608.md": {
-	id: "20210608.md";
-  slug: "20210608";
+"2021-06-08.md": {
+	id: "2021-06-08.md";
+  slug: "2021-06-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210609.md": {
-	id: "20210609.md";
-  slug: "20210609";
+"2021-06-09.md": {
+	id: "2021-06-09.md";
+  slug: "2021-06-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210610.md": {
-	id: "20210610.md";
-  slug: "20210610";
+"2021-06-10.md": {
+	id: "2021-06-10.md";
+  slug: "2021-06-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210611.md": {
-	id: "20210611.md";
-  slug: "20210611";
+"2021-06-11.md": {
+	id: "2021-06-11.md";
+  slug: "2021-06-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210612.md": {
-	id: "20210612.md";
-  slug: "20210612";
+"2021-06-12.md": {
+	id: "2021-06-12.md";
+  slug: "2021-06-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210613.md": {
-	id: "20210613.md";
-  slug: "20210613";
+"2021-06-13.md": {
+	id: "2021-06-13.md";
+  slug: "2021-06-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210614.md": {
-	id: "20210614.md";
-  slug: "20210614";
+"2021-06-14.md": {
+	id: "2021-06-14.md";
+  slug: "2021-06-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210615.md": {
-	id: "20210615.md";
-  slug: "20210615";
+"2021-06-15.md": {
+	id: "2021-06-15.md";
+  slug: "2021-06-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210616.md": {
-	id: "20210616.md";
-  slug: "20210616";
+"2021-06-16.md": {
+	id: "2021-06-16.md";
+  slug: "2021-06-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210617.md": {
-	id: "20210617.md";
-  slug: "20210617";
+"2021-06-17.md": {
+	id: "2021-06-17.md";
+  slug: "2021-06-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210618.md": {
-	id: "20210618.md";
-  slug: "20210618";
+"2021-06-18.md": {
+	id: "2021-06-18.md";
+  slug: "2021-06-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210619.md": {
-	id: "20210619.md";
-  slug: "20210619";
+"2021-06-19.md": {
+	id: "2021-06-19.md";
+  slug: "2021-06-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210620.md": {
-	id: "20210620.md";
-  slug: "20210620";
+"2021-06-20.md": {
+	id: "2021-06-20.md";
+  slug: "2021-06-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210621.md": {
-	id: "20210621.md";
-  slug: "20210621";
+"2021-06-21.md": {
+	id: "2021-06-21.md";
+  slug: "2021-06-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210622.md": {
-	id: "20210622.md";
-  slug: "20210622";
+"2021-06-22.md": {
+	id: "2021-06-22.md";
+  slug: "2021-06-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210623.md": {
-	id: "20210623.md";
-  slug: "20210623";
+"2021-06-23.md": {
+	id: "2021-06-23.md";
+  slug: "2021-06-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210624.md": {
-	id: "20210624.md";
-  slug: "20210624";
+"2021-06-24.md": {
+	id: "2021-06-24.md";
+  slug: "2021-06-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210625.md": {
-	id: "20210625.md";
-  slug: "20210625";
+"2021-06-25.md": {
+	id: "2021-06-25.md";
+  slug: "2021-06-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210626.md": {
-	id: "20210626.md";
-  slug: "20210626";
+"2021-06-26.md": {
+	id: "2021-06-26.md";
+  slug: "2021-06-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210627.md": {
-	id: "20210627.md";
-  slug: "20210627";
+"2021-06-27.md": {
+	id: "2021-06-27.md";
+  slug: "2021-06-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210628.md": {
-	id: "20210628.md";
-  slug: "20210628";
+"2021-06-28.md": {
+	id: "2021-06-28.md";
+  slug: "2021-06-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210629.md": {
-	id: "20210629.md";
-  slug: "20210629";
+"2021-06-29.md": {
+	id: "2021-06-29.md";
+  slug: "2021-06-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210630.md": {
-	id: "20210630.md";
-  slug: "20210630";
+"2021-06-30.md": {
+	id: "2021-06-30.md";
+  slug: "2021-06-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210701.md": {
-	id: "20210701.md";
-  slug: "20210701";
+"2021-07-01.md": {
+	id: "2021-07-01.md";
+  slug: "2021-07-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210702.md": {
-	id: "20210702.md";
-  slug: "20210702";
+"2021-07-02.md": {
+	id: "2021-07-02.md";
+  slug: "2021-07-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210703.md": {
-	id: "20210703.md";
-  slug: "20210703";
+"2021-07-03.md": {
+	id: "2021-07-03.md";
+  slug: "2021-07-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210704.md": {
-	id: "20210704.md";
-  slug: "20210704";
+"2021-07-04.md": {
+	id: "2021-07-04.md";
+  slug: "2021-07-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210705.md": {
-	id: "20210705.md";
-  slug: "20210705";
+"2021-07-05.md": {
+	id: "2021-07-05.md";
+  slug: "2021-07-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210706.md": {
-	id: "20210706.md";
-  slug: "20210706";
+"2021-07-06.md": {
+	id: "2021-07-06.md";
+  slug: "2021-07-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210707.md": {
-	id: "20210707.md";
-  slug: "20210707";
+"2021-07-07.md": {
+	id: "2021-07-07.md";
+  slug: "2021-07-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210708.md": {
-	id: "20210708.md";
-  slug: "20210708";
+"2021-07-08.md": {
+	id: "2021-07-08.md";
+  slug: "2021-07-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210709.md": {
-	id: "20210709.md";
-  slug: "20210709";
+"2021-07-09.md": {
+	id: "2021-07-09.md";
+  slug: "2021-07-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210710.md": {
-	id: "20210710.md";
-  slug: "20210710";
+"2021-07-10.md": {
+	id: "2021-07-10.md";
+  slug: "2021-07-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210711.md": {
-	id: "20210711.md";
-  slug: "20210711";
+"2021-07-11.md": {
+	id: "2021-07-11.md";
+  slug: "2021-07-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210712.md": {
-	id: "20210712.md";
-  slug: "20210712";
+"2021-07-12.md": {
+	id: "2021-07-12.md";
+  slug: "2021-07-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210713.md": {
-	id: "20210713.md";
-  slug: "20210713";
+"2021-07-13.md": {
+	id: "2021-07-13.md";
+  slug: "2021-07-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210714.md": {
-	id: "20210714.md";
-  slug: "20210714";
+"2021-07-14.md": {
+	id: "2021-07-14.md";
+  slug: "2021-07-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210715.md": {
-	id: "20210715.md";
-  slug: "20210715";
+"2021-07-15.md": {
+	id: "2021-07-15.md";
+  slug: "2021-07-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210716.md": {
-	id: "20210716.md";
-  slug: "20210716";
+"2021-07-16.md": {
+	id: "2021-07-16.md";
+  slug: "2021-07-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210717.md": {
-	id: "20210717.md";
-  slug: "20210717";
+"2021-07-17.md": {
+	id: "2021-07-17.md";
+  slug: "2021-07-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210718.md": {
-	id: "20210718.md";
-  slug: "20210718";
+"2021-07-18.md": {
+	id: "2021-07-18.md";
+  slug: "2021-07-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210719.md": {
-	id: "20210719.md";
-  slug: "20210719";
+"2021-07-19.md": {
+	id: "2021-07-19.md";
+  slug: "2021-07-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210720.md": {
-	id: "20210720.md";
-  slug: "20210720";
+"2021-07-20.md": {
+	id: "2021-07-20.md";
+  slug: "2021-07-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210721.md": {
-	id: "20210721.md";
-  slug: "20210721";
+"2021-07-21.md": {
+	id: "2021-07-21.md";
+  slug: "2021-07-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210722.md": {
-	id: "20210722.md";
-  slug: "20210722";
+"2021-07-22.md": {
+	id: "2021-07-22.md";
+  slug: "2021-07-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210723.md": {
-	id: "20210723.md";
-  slug: "20210723";
+"2021-07-23.md": {
+	id: "2021-07-23.md";
+  slug: "2021-07-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210724.md": {
-	id: "20210724.md";
-  slug: "20210724";
+"2021-07-24.md": {
+	id: "2021-07-24.md";
+  slug: "2021-07-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210725.md": {
-	id: "20210725.md";
-  slug: "20210725";
+"2021-07-25.md": {
+	id: "2021-07-25.md";
+  slug: "2021-07-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210726.md": {
-	id: "20210726.md";
-  slug: "20210726";
+"2021-07-26.md": {
+	id: "2021-07-26.md";
+  slug: "2021-07-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210727.md": {
-	id: "20210727.md";
-  slug: "20210727";
+"2021-07-27.md": {
+	id: "2021-07-27.md";
+  slug: "2021-07-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210728.md": {
-	id: "20210728.md";
-  slug: "20210728";
+"2021-07-28.md": {
+	id: "2021-07-28.md";
+  slug: "2021-07-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210729.md": {
-	id: "20210729.md";
-  slug: "20210729";
+"2021-07-29.md": {
+	id: "2021-07-29.md";
+  slug: "2021-07-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210730.md": {
-	id: "20210730.md";
-  slug: "20210730";
+"2021-07-30.md": {
+	id: "2021-07-30.md";
+  slug: "2021-07-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210731.md": {
-	id: "20210731.md";
-  slug: "20210731";
+"2021-07-31.md": {
+	id: "2021-07-31.md";
+  slug: "2021-07-31";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210801.md": {
-	id: "20210801.md";
-  slug: "20210801";
+"2021-08-01.md": {
+	id: "2021-08-01.md";
+  slug: "2021-08-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210802.md": {
-	id: "20210802.md";
-  slug: "20210802";
+"2021-08-02.md": {
+	id: "2021-08-02.md";
+  slug: "2021-08-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210803.md": {
-	id: "20210803.md";
-  slug: "20210803";
+"2021-08-03.md": {
+	id: "2021-08-03.md";
+  slug: "2021-08-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210804.md": {
-	id: "20210804.md";
-  slug: "20210804";
+"2021-08-04.md": {
+	id: "2021-08-04.md";
+  slug: "2021-08-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210805.md": {
-	id: "20210805.md";
-  slug: "20210805";
+"2021-08-05.md": {
+	id: "2021-08-05.md";
+  slug: "2021-08-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210806.md": {
-	id: "20210806.md";
-  slug: "20210806";
+"2021-08-06.md": {
+	id: "2021-08-06.md";
+  slug: "2021-08-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210807.md": {
-	id: "20210807.md";
-  slug: "20210807";
+"2021-08-07.md": {
+	id: "2021-08-07.md";
+  slug: "2021-08-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210808.md": {
-	id: "20210808.md";
-  slug: "20210808";
+"2021-08-08.md": {
+	id: "2021-08-08.md";
+  slug: "2021-08-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210809.md": {
-	id: "20210809.md";
-  slug: "20210809";
+"2021-08-09.md": {
+	id: "2021-08-09.md";
+  slug: "2021-08-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210810.md": {
-	id: "20210810.md";
-  slug: "20210810";
+"2021-08-10.md": {
+	id: "2021-08-10.md";
+  slug: "2021-08-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210811.md": {
-	id: "20210811.md";
-  slug: "20210811";
+"2021-08-11.md": {
+	id: "2021-08-11.md";
+  slug: "2021-08-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210812.md": {
-	id: "20210812.md";
-  slug: "20210812";
+"2021-08-12.md": {
+	id: "2021-08-12.md";
+  slug: "2021-08-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210813.md": {
-	id: "20210813.md";
-  slug: "20210813";
+"2021-08-13.md": {
+	id: "2021-08-13.md";
+  slug: "2021-08-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210814.md": {
-	id: "20210814.md";
-  slug: "20210814";
+"2021-08-14.md": {
+	id: "2021-08-14.md";
+  slug: "2021-08-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210815.md": {
-	id: "20210815.md";
-  slug: "20210815";
+"2021-08-15.md": {
+	id: "2021-08-15.md";
+  slug: "2021-08-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210816.md": {
-	id: "20210816.md";
-  slug: "20210816";
+"2021-08-16.md": {
+	id: "2021-08-16.md";
+  slug: "2021-08-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210817.md": {
-	id: "20210817.md";
-  slug: "20210817";
+"2021-08-17.md": {
+	id: "2021-08-17.md";
+  slug: "2021-08-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210818.md": {
-	id: "20210818.md";
-  slug: "20210818";
+"2021-08-18.md": {
+	id: "2021-08-18.md";
+  slug: "2021-08-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210819.md": {
-	id: "20210819.md";
-  slug: "20210819";
+"2021-08-19.md": {
+	id: "2021-08-19.md";
+  slug: "2021-08-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210820.md": {
-	id: "20210820.md";
-  slug: "20210820";
+"2021-08-20.md": {
+	id: "2021-08-20.md";
+  slug: "2021-08-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210821.md": {
-	id: "20210821.md";
-  slug: "20210821";
+"2021-08-21.md": {
+	id: "2021-08-21.md";
+  slug: "2021-08-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210822.md": {
-	id: "20210822.md";
-  slug: "20210822";
+"2021-08-22.md": {
+	id: "2021-08-22.md";
+  slug: "2021-08-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210823.md": {
-	id: "20210823.md";
-  slug: "20210823";
+"2021-08-23.md": {
+	id: "2021-08-23.md";
+  slug: "2021-08-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210824.md": {
-	id: "20210824.md";
-  slug: "20210824";
+"2021-08-24.md": {
+	id: "2021-08-24.md";
+  slug: "2021-08-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210825.md": {
-	id: "20210825.md";
-  slug: "20210825";
+"2021-08-25.md": {
+	id: "2021-08-25.md";
+  slug: "2021-08-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210826.md": {
-	id: "20210826.md";
-  slug: "20210826";
+"2021-08-26.md": {
+	id: "2021-08-26.md";
+  slug: "2021-08-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210827.md": {
-	id: "20210827.md";
-  slug: "20210827";
+"2021-08-27.md": {
+	id: "2021-08-27.md";
+  slug: "2021-08-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210828.md": {
-	id: "20210828.md";
-  slug: "20210828";
+"2021-08-28.md": {
+	id: "2021-08-28.md";
+  slug: "2021-08-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210829.md": {
-	id: "20210829.md";
-  slug: "20210829";
+"2021-08-29.md": {
+	id: "2021-08-29.md";
+  slug: "2021-08-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210830.md": {
-	id: "20210830.md";
-  slug: "20210830";
+"2021-08-30.md": {
+	id: "2021-08-30.md";
+  slug: "2021-08-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210831.md": {
-	id: "20210831.md";
-  slug: "20210831";
+"2021-08-31.md": {
+	id: "2021-08-31.md";
+  slug: "2021-08-31";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210901.md": {
-	id: "20210901.md";
-  slug: "20210901";
+"2021-09-01.md": {
+	id: "2021-09-01.md";
+  slug: "2021-09-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210902.md": {
-	id: "20210902.md";
-  slug: "20210902";
+"2021-09-02.md": {
+	id: "2021-09-02.md";
+  slug: "2021-09-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210903.md": {
-	id: "20210903.md";
-  slug: "20210903";
+"2021-09-03.md": {
+	id: "2021-09-03.md";
+  slug: "2021-09-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210904.md": {
-	id: "20210904.md";
-  slug: "20210904";
+"2021-09-04.md": {
+	id: "2021-09-04.md";
+  slug: "2021-09-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210905.md": {
-	id: "20210905.md";
-  slug: "20210905";
+"2021-09-05.md": {
+	id: "2021-09-05.md";
+  slug: "2021-09-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210906.md": {
-	id: "20210906.md";
-  slug: "20210906";
+"2021-09-06.md": {
+	id: "2021-09-06.md";
+  slug: "2021-09-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210907.md": {
-	id: "20210907.md";
-  slug: "20210907";
+"2021-09-07.md": {
+	id: "2021-09-07.md";
+  slug: "2021-09-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210908.md": {
-	id: "20210908.md";
-  slug: "20210908";
+"2021-09-08.md": {
+	id: "2021-09-08.md";
+  slug: "2021-09-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210909.md": {
-	id: "20210909.md";
-  slug: "20210909";
+"2021-09-09.md": {
+	id: "2021-09-09.md";
+  slug: "2021-09-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210910.md": {
-	id: "20210910.md";
-  slug: "20210910";
+"2021-09-10.md": {
+	id: "2021-09-10.md";
+  slug: "2021-09-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210911.md": {
-	id: "20210911.md";
-  slug: "20210911";
+"2021-09-11.md": {
+	id: "2021-09-11.md";
+  slug: "2021-09-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210912.md": {
-	id: "20210912.md";
-  slug: "20210912";
+"2021-09-12.md": {
+	id: "2021-09-12.md";
+  slug: "2021-09-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210913.md": {
-	id: "20210913.md";
-  slug: "20210913";
+"2021-09-13.md": {
+	id: "2021-09-13.md";
+  slug: "2021-09-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210914.md": {
-	id: "20210914.md";
-  slug: "20210914";
+"2021-09-14.md": {
+	id: "2021-09-14.md";
+  slug: "2021-09-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210915.md": {
-	id: "20210915.md";
-  slug: "20210915";
+"2021-09-15.md": {
+	id: "2021-09-15.md";
+  slug: "2021-09-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210916.md": {
-	id: "20210916.md";
-  slug: "20210916";
+"2021-09-16.md": {
+	id: "2021-09-16.md";
+  slug: "2021-09-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210917.md": {
-	id: "20210917.md";
-  slug: "20210917";
+"2021-09-17.md": {
+	id: "2021-09-17.md";
+  slug: "2021-09-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210918.md": {
-	id: "20210918.md";
-  slug: "20210918";
+"2021-09-18.md": {
+	id: "2021-09-18.md";
+  slug: "2021-09-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210919.md": {
-	id: "20210919.md";
-  slug: "20210919";
+"2021-09-19.md": {
+	id: "2021-09-19.md";
+  slug: "2021-09-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210920.md": {
-	id: "20210920.md";
-  slug: "20210920";
+"2021-09-20.md": {
+	id: "2021-09-20.md";
+  slug: "2021-09-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210921.md": {
-	id: "20210921.md";
-  slug: "20210921";
+"2021-09-21.md": {
+	id: "2021-09-21.md";
+  slug: "2021-09-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210922.md": {
-	id: "20210922.md";
-  slug: "20210922";
+"2021-09-22.md": {
+	id: "2021-09-22.md";
+  slug: "2021-09-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210923.md": {
-	id: "20210923.md";
-  slug: "20210923";
+"2021-09-23.md": {
+	id: "2021-09-23.md";
+  slug: "2021-09-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210924.md": {
-	id: "20210924.md";
-  slug: "20210924";
+"2021-09-24.md": {
+	id: "2021-09-24.md";
+  slug: "2021-09-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210925.md": {
-	id: "20210925.md";
-  slug: "20210925";
+"2021-09-25.md": {
+	id: "2021-09-25.md";
+  slug: "2021-09-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210926.md": {
-	id: "20210926.md";
-  slug: "20210926";
+"2021-09-26.md": {
+	id: "2021-09-26.md";
+  slug: "2021-09-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210927.md": {
-	id: "20210927.md";
-  slug: "20210927";
+"2021-09-27.md": {
+	id: "2021-09-27.md";
+  slug: "2021-09-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210928.md": {
-	id: "20210928.md";
-  slug: "20210928";
+"2021-09-28.md": {
+	id: "2021-09-28.md";
+  slug: "2021-09-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210929.md": {
-	id: "20210929.md";
-  slug: "20210929";
+"2021-09-29.md": {
+	id: "2021-09-29.md";
+  slug: "2021-09-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20210930.md": {
-	id: "20210930.md";
-  slug: "20210930";
+"2021-09-30.md": {
+	id: "2021-09-30.md";
+  slug: "2021-09-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211001.md": {
-	id: "20211001.md";
-  slug: "20211001";
+"2021-10-01.md": {
+	id: "2021-10-01.md";
+  slug: "2021-10-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211002.md": {
-	id: "20211002.md";
-  slug: "20211002";
+"2021-10-02.md": {
+	id: "2021-10-02.md";
+  slug: "2021-10-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211003.md": {
-	id: "20211003.md";
-  slug: "20211003";
+"2021-10-03.md": {
+	id: "2021-10-03.md";
+  slug: "2021-10-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211004.md": {
-	id: "20211004.md";
-  slug: "20211004";
+"2021-10-04.md": {
+	id: "2021-10-04.md";
+  slug: "2021-10-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211005.md": {
-	id: "20211005.md";
-  slug: "20211005";
+"2021-10-05.md": {
+	id: "2021-10-05.md";
+  slug: "2021-10-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211006.md": {
-	id: "20211006.md";
-  slug: "20211006";
+"2021-10-06.md": {
+	id: "2021-10-06.md";
+  slug: "2021-10-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211007.md": {
-	id: "20211007.md";
-  slug: "20211007";
+"2021-10-07.md": {
+	id: "2021-10-07.md";
+  slug: "2021-10-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211008.md": {
-	id: "20211008.md";
-  slug: "20211008";
+"2021-10-08.md": {
+	id: "2021-10-08.md";
+  slug: "2021-10-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211009.md": {
-	id: "20211009.md";
-  slug: "20211009";
+"2021-10-09.md": {
+	id: "2021-10-09.md";
+  slug: "2021-10-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211010.md": {
-	id: "20211010.md";
-  slug: "20211010";
+"2021-10-10.md": {
+	id: "2021-10-10.md";
+  slug: "2021-10-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211011.md": {
-	id: "20211011.md";
-  slug: "20211011";
+"2021-10-11.md": {
+	id: "2021-10-11.md";
+  slug: "2021-10-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211012.md": {
-	id: "20211012.md";
-  slug: "20211012";
+"2021-10-12.md": {
+	id: "2021-10-12.md";
+  slug: "2021-10-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211013.md": {
-	id: "20211013.md";
-  slug: "20211013";
+"2021-10-13.md": {
+	id: "2021-10-13.md";
+  slug: "2021-10-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211014.md": {
-	id: "20211014.md";
-  slug: "20211014";
+"2021-10-14.md": {
+	id: "2021-10-14.md";
+  slug: "2021-10-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211015.md": {
-	id: "20211015.md";
-  slug: "20211015";
+"2021-10-15.md": {
+	id: "2021-10-15.md";
+  slug: "2021-10-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211016.md": {
-	id: "20211016.md";
-  slug: "20211016";
+"2021-10-16.md": {
+	id: "2021-10-16.md";
+  slug: "2021-10-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211017.md": {
-	id: "20211017.md";
-  slug: "20211017";
+"2021-10-17.md": {
+	id: "2021-10-17.md";
+  slug: "2021-10-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211018.md": {
-	id: "20211018.md";
-  slug: "20211018";
+"2021-10-18.md": {
+	id: "2021-10-18.md";
+  slug: "2021-10-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211019.md": {
-	id: "20211019.md";
-  slug: "20211019";
+"2021-10-19.md": {
+	id: "2021-10-19.md";
+  slug: "2021-10-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211020.md": {
-	id: "20211020.md";
-  slug: "20211020";
+"2021-10-20.md": {
+	id: "2021-10-20.md";
+  slug: "2021-10-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211021.md": {
-	id: "20211021.md";
-  slug: "20211021";
+"2021-10-21.md": {
+	id: "2021-10-21.md";
+  slug: "2021-10-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211022.md": {
-	id: "20211022.md";
-  slug: "20211022";
+"2021-10-22.md": {
+	id: "2021-10-22.md";
+  slug: "2021-10-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211023.md": {
-	id: "20211023.md";
-  slug: "20211023";
+"2021-10-23.md": {
+	id: "2021-10-23.md";
+  slug: "2021-10-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211024.md": {
-	id: "20211024.md";
-  slug: "20211024";
+"2021-10-24.md": {
+	id: "2021-10-24.md";
+  slug: "2021-10-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211025.md": {
-	id: "20211025.md";
-  slug: "20211025";
+"2021-10-25.md": {
+	id: "2021-10-25.md";
+  slug: "2021-10-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211026.md": {
-	id: "20211026.md";
-  slug: "20211026";
+"2021-10-26.md": {
+	id: "2021-10-26.md";
+  slug: "2021-10-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211027.md": {
-	id: "20211027.md";
-  slug: "20211027";
+"2021-10-27.md": {
+	id: "2021-10-27.md";
+  slug: "2021-10-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211028.md": {
-	id: "20211028.md";
-  slug: "20211028";
+"2021-10-28.md": {
+	id: "2021-10-28.md";
+  slug: "2021-10-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211029.md": {
-	id: "20211029.md";
-  slug: "20211029";
+"2021-10-29.md": {
+	id: "2021-10-29.md";
+  slug: "2021-10-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211030.md": {
-	id: "20211030.md";
-  slug: "20211030";
+"2021-10-30.md": {
+	id: "2021-10-30.md";
+  slug: "2021-10-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211031.md": {
-	id: "20211031.md";
-  slug: "20211031";
+"2021-10-31.md": {
+	id: "2021-10-31.md";
+  slug: "2021-10-31";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211101.md": {
-	id: "20211101.md";
-  slug: "20211101";
+"2021-11-01.md": {
+	id: "2021-11-01.md";
+  slug: "2021-11-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211102.md": {
-	id: "20211102.md";
-  slug: "20211102";
+"2021-11-02.md": {
+	id: "2021-11-02.md";
+  slug: "2021-11-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211103.md": {
-	id: "20211103.md";
-  slug: "20211103";
+"2021-11-03.md": {
+	id: "2021-11-03.md";
+  slug: "2021-11-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211104.md": {
-	id: "20211104.md";
-  slug: "20211104";
+"2021-11-04.md": {
+	id: "2021-11-04.md";
+  slug: "2021-11-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211105.md": {
-	id: "20211105.md";
-  slug: "20211105";
+"2021-11-05.md": {
+	id: "2021-11-05.md";
+  slug: "2021-11-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211106.md": {
-	id: "20211106.md";
-  slug: "20211106";
+"2021-11-06.md": {
+	id: "2021-11-06.md";
+  slug: "2021-11-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211107.md": {
-	id: "20211107.md";
-  slug: "20211107";
+"2021-11-07.md": {
+	id: "2021-11-07.md";
+  slug: "2021-11-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211108.md": {
-	id: "20211108.md";
-  slug: "20211108";
+"2021-11-08.md": {
+	id: "2021-11-08.md";
+  slug: "2021-11-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211109.md": {
-	id: "20211109.md";
-  slug: "20211109";
+"2021-11-09.md": {
+	id: "2021-11-09.md";
+  slug: "2021-11-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211110.md": {
-	id: "20211110.md";
-  slug: "20211110";
+"2021-11-10.md": {
+	id: "2021-11-10.md";
+  slug: "2021-11-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211111.md": {
-	id: "20211111.md";
-  slug: "20211111";
+"2021-11-11.md": {
+	id: "2021-11-11.md";
+  slug: "2021-11-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211112.md": {
-	id: "20211112.md";
-  slug: "20211112";
+"2021-11-12.md": {
+	id: "2021-11-12.md";
+  slug: "2021-11-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211113.md": {
-	id: "20211113.md";
-  slug: "20211113";
+"2021-11-13.md": {
+	id: "2021-11-13.md";
+  slug: "2021-11-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211114.md": {
-	id: "20211114.md";
-  slug: "20211114";
+"2021-11-14.md": {
+	id: "2021-11-14.md";
+  slug: "2021-11-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211115.md": {
-	id: "20211115.md";
-  slug: "20211115";
+"2021-11-15.md": {
+	id: "2021-11-15.md";
+  slug: "2021-11-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211116.md": {
-	id: "20211116.md";
-  slug: "20211116";
+"2021-11-16.md": {
+	id: "2021-11-16.md";
+  slug: "2021-11-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211117.md": {
-	id: "20211117.md";
-  slug: "20211117";
+"2021-11-17.md": {
+	id: "2021-11-17.md";
+  slug: "2021-11-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211118.md": {
-	id: "20211118.md";
-  slug: "20211118";
+"2021-11-18.md": {
+	id: "2021-11-18.md";
+  slug: "2021-11-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211119.md": {
-	id: "20211119.md";
-  slug: "20211119";
+"2021-11-19.md": {
+	id: "2021-11-19.md";
+  slug: "2021-11-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211120.md": {
-	id: "20211120.md";
-  slug: "20211120";
+"2021-11-20.md": {
+	id: "2021-11-20.md";
+  slug: "2021-11-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211121.md": {
-	id: "20211121.md";
-  slug: "20211121";
+"2021-11-21.md": {
+	id: "2021-11-21.md";
+  slug: "2021-11-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211122.md": {
-	id: "20211122.md";
-  slug: "20211122";
+"2021-11-22.md": {
+	id: "2021-11-22.md";
+  slug: "2021-11-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211123.md": {
-	id: "20211123.md";
-  slug: "20211123";
+"2021-11-23.md": {
+	id: "2021-11-23.md";
+  slug: "2021-11-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211124.md": {
-	id: "20211124.md";
-  slug: "20211124";
+"2021-11-24.md": {
+	id: "2021-11-24.md";
+  slug: "2021-11-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211125.md": {
-	id: "20211125.md";
-  slug: "20211125";
+"2021-11-25.md": {
+	id: "2021-11-25.md";
+  slug: "2021-11-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211126.md": {
-	id: "20211126.md";
-  slug: "20211126";
+"2021-11-26.md": {
+	id: "2021-11-26.md";
+  slug: "2021-11-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211127.md": {
-	id: "20211127.md";
-  slug: "20211127";
+"2021-11-27.md": {
+	id: "2021-11-27.md";
+  slug: "2021-11-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211128.md": {
-	id: "20211128.md";
-  slug: "20211128";
+"2021-11-28.md": {
+	id: "2021-11-28.md";
+  slug: "2021-11-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211129.md": {
-	id: "20211129.md";
-  slug: "20211129";
+"2021-11-29.md": {
+	id: "2021-11-29.md";
+  slug: "2021-11-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211130.md": {
-	id: "20211130.md";
-  slug: "20211130";
+"2021-11-30.md": {
+	id: "2021-11-30.md";
+  slug: "2021-11-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211201.md": {
-	id: "20211201.md";
-  slug: "20211201";
+"2021-12-01.md": {
+	id: "2021-12-01.md";
+  slug: "2021-12-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211202.md": {
-	id: "20211202.md";
-  slug: "20211202";
+"2021-12-02.md": {
+	id: "2021-12-02.md";
+  slug: "2021-12-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211203.md": {
-	id: "20211203.md";
-  slug: "20211203";
+"2021-12-03.md": {
+	id: "2021-12-03.md";
+  slug: "2021-12-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211204.md": {
-	id: "20211204.md";
-  slug: "20211204";
+"2021-12-04.md": {
+	id: "2021-12-04.md";
+  slug: "2021-12-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211205.md": {
-	id: "20211205.md";
-  slug: "20211205";
+"2021-12-05.md": {
+	id: "2021-12-05.md";
+  slug: "2021-12-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211206.md": {
-	id: "20211206.md";
-  slug: "20211206";
+"2021-12-06.md": {
+	id: "2021-12-06.md";
+  slug: "2021-12-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211207.md": {
-	id: "20211207.md";
-  slug: "20211207";
+"2021-12-07.md": {
+	id: "2021-12-07.md";
+  slug: "2021-12-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211208.md": {
-	id: "20211208.md";
-  slug: "20211208";
+"2021-12-08.md": {
+	id: "2021-12-08.md";
+  slug: "2021-12-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211209.md": {
-	id: "20211209.md";
-  slug: "20211209";
+"2021-12-09.md": {
+	id: "2021-12-09.md";
+  slug: "2021-12-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211210.md": {
-	id: "20211210.md";
-  slug: "20211210";
+"2021-12-10.md": {
+	id: "2021-12-10.md";
+  slug: "2021-12-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211211.md": {
-	id: "20211211.md";
-  slug: "20211211";
+"2021-12-11.md": {
+	id: "2021-12-11.md";
+  slug: "2021-12-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211212.md": {
-	id: "20211212.md";
-  slug: "20211212";
+"2021-12-12.md": {
+	id: "2021-12-12.md";
+  slug: "2021-12-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211213.md": {
-	id: "20211213.md";
-  slug: "20211213";
+"2021-12-13.md": {
+	id: "2021-12-13.md";
+  slug: "2021-12-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211214.md": {
-	id: "20211214.md";
-  slug: "20211214";
+"2021-12-14.md": {
+	id: "2021-12-14.md";
+  slug: "2021-12-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211215.md": {
-	id: "20211215.md";
-  slug: "20211215";
+"2021-12-15.md": {
+	id: "2021-12-15.md";
+  slug: "2021-12-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211216.md": {
-	id: "20211216.md";
-  slug: "20211216";
+"2021-12-16.md": {
+	id: "2021-12-16.md";
+  slug: "2021-12-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211217.md": {
-	id: "20211217.md";
-  slug: "20211217";
+"2021-12-17.md": {
+	id: "2021-12-17.md";
+  slug: "2021-12-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211218.md": {
-	id: "20211218.md";
-  slug: "20211218";
+"2021-12-18.md": {
+	id: "2021-12-18.md";
+  slug: "2021-12-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211219.md": {
-	id: "20211219.md";
-  slug: "20211219";
+"2021-12-19.md": {
+	id: "2021-12-19.md";
+  slug: "2021-12-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211220.md": {
-	id: "20211220.md";
-  slug: "20211220";
+"2021-12-20.md": {
+	id: "2021-12-20.md";
+  slug: "2021-12-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211221.md": {
-	id: "20211221.md";
-  slug: "20211221";
+"2021-12-21.md": {
+	id: "2021-12-21.md";
+  slug: "2021-12-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211222.md": {
-	id: "20211222.md";
-  slug: "20211222";
+"2021-12-22.md": {
+	id: "2021-12-22.md";
+  slug: "2021-12-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211223.md": {
-	id: "20211223.md";
-  slug: "20211223";
+"2021-12-23.md": {
+	id: "2021-12-23.md";
+  slug: "2021-12-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211224.md": {
-	id: "20211224.md";
-  slug: "20211224";
+"2021-12-24.md": {
+	id: "2021-12-24.md";
+  slug: "2021-12-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211225.md": {
-	id: "20211225.md";
-  slug: "20211225";
+"2021-12-25.md": {
+	id: "2021-12-25.md";
+  slug: "2021-12-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211226.md": {
-	id: "20211226.md";
-  slug: "20211226";
+"2021-12-26.md": {
+	id: "2021-12-26.md";
+  slug: "2021-12-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211227.md": {
-	id: "20211227.md";
-  slug: "20211227";
+"2021-12-27.md": {
+	id: "2021-12-27.md";
+  slug: "2021-12-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211228.md": {
-	id: "20211228.md";
-  slug: "20211228";
+"2021-12-28.md": {
+	id: "2021-12-28.md";
+  slug: "2021-12-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211229.md": {
-	id: "20211229.md";
-  slug: "20211229";
+"2021-12-29.md": {
+	id: "2021-12-29.md";
+  slug: "2021-12-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211230.md": {
-	id: "20211230.md";
-  slug: "20211230";
+"2021-12-30.md": {
+	id: "2021-12-30.md";
+  slug: "2021-12-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20211231.md": {
-	id: "20211231.md";
-  slug: "20211231";
+"2021-12-31.md": {
+	id: "2021-12-31.md";
+  slug: "2021-12-31";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220101.md": {
-	id: "20220101.md";
-  slug: "20220101";
+"2022-01-01.md": {
+	id: "2022-01-01.md";
+  slug: "2022-01-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220102.md": {
-	id: "20220102.md";
-  slug: "20220102";
+"2022-01-02.md": {
+	id: "2022-01-02.md";
+  slug: "2022-01-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220103.md": {
-	id: "20220103.md";
-  slug: "20220103";
+"2022-01-03.md": {
+	id: "2022-01-03.md";
+  slug: "2022-01-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220104.md": {
-	id: "20220104.md";
-  slug: "20220104";
+"2022-01-04.md": {
+	id: "2022-01-04.md";
+  slug: "2022-01-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220105.md": {
-	id: "20220105.md";
-  slug: "20220105";
+"2022-01-05.md": {
+	id: "2022-01-05.md";
+  slug: "2022-01-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220106.md": {
-	id: "20220106.md";
-  slug: "20220106";
+"2022-01-06.md": {
+	id: "2022-01-06.md";
+  slug: "2022-01-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220107.md": {
-	id: "20220107.md";
-  slug: "20220107";
+"2022-01-07.md": {
+	id: "2022-01-07.md";
+  slug: "2022-01-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220108.md": {
-	id: "20220108.md";
-  slug: "20220108";
+"2022-01-08.md": {
+	id: "2022-01-08.md";
+  slug: "2022-01-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220109.md": {
-	id: "20220109.md";
-  slug: "20220109";
+"2022-01-09.md": {
+	id: "2022-01-09.md";
+  slug: "2022-01-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220110.md": {
-	id: "20220110.md";
-  slug: "20220110";
+"2022-01-10.md": {
+	id: "2022-01-10.md";
+  slug: "2022-01-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220111.md": {
-	id: "20220111.md";
-  slug: "20220111";
+"2022-01-11.md": {
+	id: "2022-01-11.md";
+  slug: "2022-01-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220112.md": {
-	id: "20220112.md";
-  slug: "20220112";
+"2022-01-12.md": {
+	id: "2022-01-12.md";
+  slug: "2022-01-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220113.md": {
-	id: "20220113.md";
-  slug: "20220113";
+"2022-01-13.md": {
+	id: "2022-01-13.md";
+  slug: "2022-01-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220114.md": {
-	id: "20220114.md";
-  slug: "20220114";
+"2022-01-14.md": {
+	id: "2022-01-14.md";
+  slug: "2022-01-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220115.md": {
-	id: "20220115.md";
-  slug: "20220115";
+"2022-01-15.md": {
+	id: "2022-01-15.md";
+  slug: "2022-01-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220116.md": {
-	id: "20220116.md";
-  slug: "20220116";
+"2022-01-16.md": {
+	id: "2022-01-16.md";
+  slug: "2022-01-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220117.md": {
-	id: "20220117.md";
-  slug: "20220117";
+"2022-01-17.md": {
+	id: "2022-01-17.md";
+  slug: "2022-01-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220118.md": {
-	id: "20220118.md";
-  slug: "20220118";
+"2022-01-18.md": {
+	id: "2022-01-18.md";
+  slug: "2022-01-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220119.md": {
-	id: "20220119.md";
-  slug: "20220119";
+"2022-01-19.md": {
+	id: "2022-01-19.md";
+  slug: "2022-01-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220120.md": {
-	id: "20220120.md";
-  slug: "20220120";
+"2022-01-20.md": {
+	id: "2022-01-20.md";
+  slug: "2022-01-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220121.md": {
-	id: "20220121.md";
-  slug: "20220121";
+"2022-01-21.md": {
+	id: "2022-01-21.md";
+  slug: "2022-01-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220122.md": {
-	id: "20220122.md";
-  slug: "20220122";
+"2022-01-22.md": {
+	id: "2022-01-22.md";
+  slug: "2022-01-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220123.md": {
-	id: "20220123.md";
-  slug: "20220123";
+"2022-01-23.md": {
+	id: "2022-01-23.md";
+  slug: "2022-01-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220124.md": {
-	id: "20220124.md";
-  slug: "20220124";
+"2022-01-24.md": {
+	id: "2022-01-24.md";
+  slug: "2022-01-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220125.md": {
-	id: "20220125.md";
-  slug: "20220125";
+"2022-01-25.md": {
+	id: "2022-01-25.md";
+  slug: "2022-01-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220126.md": {
-	id: "20220126.md";
-  slug: "20220126";
+"2022-01-26.md": {
+	id: "2022-01-26.md";
+  slug: "2022-01-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220127.md": {
-	id: "20220127.md";
-  slug: "20220127";
+"2022-01-27.md": {
+	id: "2022-01-27.md";
+  slug: "2022-01-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220128.md": {
-	id: "20220128.md";
-  slug: "20220128";
+"2022-01-28.md": {
+	id: "2022-01-28.md";
+  slug: "2022-01-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220129.md": {
-	id: "20220129.md";
-  slug: "20220129";
+"2022-01-29.md": {
+	id: "2022-01-29.md";
+  slug: "2022-01-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220130.md": {
-	id: "20220130.md";
-  slug: "20220130";
+"2022-01-30.md": {
+	id: "2022-01-30.md";
+  slug: "2022-01-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220131.md": {
-	id: "20220131.md";
-  slug: "20220131";
+"2022-01-31.md": {
+	id: "2022-01-31.md";
+  slug: "2022-01-31";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220201.md": {
-	id: "20220201.md";
-  slug: "20220201";
+"2022-02-01.md": {
+	id: "2022-02-01.md";
+  slug: "2022-02-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220202.md": {
-	id: "20220202.md";
-  slug: "20220202";
+"2022-02-02.md": {
+	id: "2022-02-02.md";
+  slug: "2022-02-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220203.md": {
-	id: "20220203.md";
-  slug: "20220203";
+"2022-02-03.md": {
+	id: "2022-02-03.md";
+  slug: "2022-02-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220204.md": {
-	id: "20220204.md";
-  slug: "20220204";
+"2022-02-04.md": {
+	id: "2022-02-04.md";
+  slug: "2022-02-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220205.md": {
-	id: "20220205.md";
-  slug: "20220205";
+"2022-02-05.md": {
+	id: "2022-02-05.md";
+  slug: "2022-02-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220206.md": {
-	id: "20220206.md";
-  slug: "20220206";
+"2022-02-06.md": {
+	id: "2022-02-06.md";
+  slug: "2022-02-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220207.md": {
-	id: "20220207.md";
-  slug: "20220207";
+"2022-02-07.md": {
+	id: "2022-02-07.md";
+  slug: "2022-02-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220208.md": {
-	id: "20220208.md";
-  slug: "20220208";
+"2022-02-08.md": {
+	id: "2022-02-08.md";
+  slug: "2022-02-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220209.md": {
-	id: "20220209.md";
-  slug: "20220209";
+"2022-02-09.md": {
+	id: "2022-02-09.md";
+  slug: "2022-02-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220210.md": {
-	id: "20220210.md";
-  slug: "20220210";
+"2022-02-10.md": {
+	id: "2022-02-10.md";
+  slug: "2022-02-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220211.md": {
-	id: "20220211.md";
-  slug: "20220211";
+"2022-02-11.md": {
+	id: "2022-02-11.md";
+  slug: "2022-02-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220212.md": {
-	id: "20220212.md";
-  slug: "20220212";
+"2022-02-12.md": {
+	id: "2022-02-12.md";
+  slug: "2022-02-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220213.md": {
-	id: "20220213.md";
-  slug: "20220213";
+"2022-02-13.md": {
+	id: "2022-02-13.md";
+  slug: "2022-02-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220214.md": {
-	id: "20220214.md";
-  slug: "20220214";
+"2022-02-14.md": {
+	id: "2022-02-14.md";
+  slug: "2022-02-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220215.md": {
-	id: "20220215.md";
-  slug: "20220215";
+"2022-02-15.md": {
+	id: "2022-02-15.md";
+  slug: "2022-02-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220216.md": {
-	id: "20220216.md";
-  slug: "20220216";
+"2022-02-16.md": {
+	id: "2022-02-16.md";
+  slug: "2022-02-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220217.md": {
-	id: "20220217.md";
-  slug: "20220217";
+"2022-02-17.md": {
+	id: "2022-02-17.md";
+  slug: "2022-02-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220218.md": {
-	id: "20220218.md";
-  slug: "20220218";
+"2022-02-18.md": {
+	id: "2022-02-18.md";
+  slug: "2022-02-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220219.md": {
-	id: "20220219.md";
-  slug: "20220219";
+"2022-02-19.md": {
+	id: "2022-02-19.md";
+  slug: "2022-02-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220220.md": {
-	id: "20220220.md";
-  slug: "20220220";
+"2022-02-20.md": {
+	id: "2022-02-20.md";
+  slug: "2022-02-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220221.md": {
-	id: "20220221.md";
-  slug: "20220221";
+"2022-02-21.md": {
+	id: "2022-02-21.md";
+  slug: "2022-02-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220222.md": {
-	id: "20220222.md";
-  slug: "20220222";
+"2022-02-22.md": {
+	id: "2022-02-22.md";
+  slug: "2022-02-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220223.md": {
-	id: "20220223.md";
-  slug: "20220223";
+"2022-02-23.md": {
+	id: "2022-02-23.md";
+  slug: "2022-02-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220224.md": {
-	id: "20220224.md";
-  slug: "20220224";
+"2022-02-24.md": {
+	id: "2022-02-24.md";
+  slug: "2022-02-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220225.md": {
-	id: "20220225.md";
-  slug: "20220225";
+"2022-02-25.md": {
+	id: "2022-02-25.md";
+  slug: "2022-02-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220226.md": {
-	id: "20220226.md";
-  slug: "20220226";
+"2022-02-26.md": {
+	id: "2022-02-26.md";
+  slug: "2022-02-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220227.md": {
-	id: "20220227.md";
-  slug: "20220227";
+"2022-02-27.md": {
+	id: "2022-02-27.md";
+  slug: "2022-02-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220228.md": {
-	id: "20220228.md";
-  slug: "20220228";
+"2022-02-28.md": {
+	id: "2022-02-28.md";
+  slug: "2022-02-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220301.md": {
-	id: "20220301.md";
-  slug: "20220301";
+"2022-03-01.md": {
+	id: "2022-03-01.md";
+  slug: "2022-03-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220302.md": {
-	id: "20220302.md";
-  slug: "20220302";
+"2022-03-02.md": {
+	id: "2022-03-02.md";
+  slug: "2022-03-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220303.md": {
-	id: "20220303.md";
-  slug: "20220303";
+"2022-03-03.md": {
+	id: "2022-03-03.md";
+  slug: "2022-03-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220304.md": {
-	id: "20220304.md";
-  slug: "20220304";
+"2022-03-04.md": {
+	id: "2022-03-04.md";
+  slug: "2022-03-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220305.md": {
-	id: "20220305.md";
-  slug: "20220305";
+"2022-03-05.md": {
+	id: "2022-03-05.md";
+  slug: "2022-03-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220306.md": {
-	id: "20220306.md";
-  slug: "20220306";
+"2022-03-06.md": {
+	id: "2022-03-06.md";
+  slug: "2022-03-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220307.md": {
-	id: "20220307.md";
-  slug: "20220307";
+"2022-03-07.md": {
+	id: "2022-03-07.md";
+  slug: "2022-03-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220308.md": {
-	id: "20220308.md";
-  slug: "20220308";
+"2022-03-08.md": {
+	id: "2022-03-08.md";
+  slug: "2022-03-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220309.md": {
-	id: "20220309.md";
-  slug: "20220309";
+"2022-03-09.md": {
+	id: "2022-03-09.md";
+  slug: "2022-03-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220310.md": {
-	id: "20220310.md";
-  slug: "20220310";
+"2022-03-10.md": {
+	id: "2022-03-10.md";
+  slug: "2022-03-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220311.md": {
-	id: "20220311.md";
-  slug: "20220311";
+"2022-03-11.md": {
+	id: "2022-03-11.md";
+  slug: "2022-03-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220312.md": {
-	id: "20220312.md";
-  slug: "20220312";
+"2022-03-12.md": {
+	id: "2022-03-12.md";
+  slug: "2022-03-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220313.md": {
-	id: "20220313.md";
-  slug: "20220313";
+"2022-03-13.md": {
+	id: "2022-03-13.md";
+  slug: "2022-03-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220314.md": {
-	id: "20220314.md";
-  slug: "20220314";
+"2022-03-14.md": {
+	id: "2022-03-14.md";
+  slug: "2022-03-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220315.md": {
-	id: "20220315.md";
-  slug: "20220315";
+"2022-03-15.md": {
+	id: "2022-03-15.md";
+  slug: "2022-03-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220316.md": {
-	id: "20220316.md";
-  slug: "20220316";
+"2022-03-16.md": {
+	id: "2022-03-16.md";
+  slug: "2022-03-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220317.md": {
-	id: "20220317.md";
-  slug: "20220317";
+"2022-03-17.md": {
+	id: "2022-03-17.md";
+  slug: "2022-03-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220318.md": {
-	id: "20220318.md";
-  slug: "20220318";
+"2022-03-18.md": {
+	id: "2022-03-18.md";
+  slug: "2022-03-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220319.md": {
-	id: "20220319.md";
-  slug: "20220319";
+"2022-03-19.md": {
+	id: "2022-03-19.md";
+  slug: "2022-03-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220320.md": {
-	id: "20220320.md";
-  slug: "20220320";
+"2022-03-20.md": {
+	id: "2022-03-20.md";
+  slug: "2022-03-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220321.md": {
-	id: "20220321.md";
-  slug: "20220321";
+"2022-03-21.md": {
+	id: "2022-03-21.md";
+  slug: "2022-03-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220322.md": {
-	id: "20220322.md";
-  slug: "20220322";
+"2022-03-22.md": {
+	id: "2022-03-22.md";
+  slug: "2022-03-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220323.md": {
-	id: "20220323.md";
-  slug: "20220323";
+"2022-03-23.md": {
+	id: "2022-03-23.md";
+  slug: "2022-03-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220324.md": {
-	id: "20220324.md";
-  slug: "20220324";
+"2022-03-24.md": {
+	id: "2022-03-24.md";
+  slug: "2022-03-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220325.md": {
-	id: "20220325.md";
-  slug: "20220325";
+"2022-03-25.md": {
+	id: "2022-03-25.md";
+  slug: "2022-03-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220326.md": {
-	id: "20220326.md";
-  slug: "20220326";
+"2022-03-26.md": {
+	id: "2022-03-26.md";
+  slug: "2022-03-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220327.md": {
-	id: "20220327.md";
-  slug: "20220327";
+"2022-03-27.md": {
+	id: "2022-03-27.md";
+  slug: "2022-03-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220328.md": {
-	id: "20220328.md";
-  slug: "20220328";
+"2022-03-28.md": {
+	id: "2022-03-28.md";
+  slug: "2022-03-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220329.md": {
-	id: "20220329.md";
-  slug: "20220329";
+"2022-03-29.md": {
+	id: "2022-03-29.md";
+  slug: "2022-03-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220330.md": {
-	id: "20220330.md";
-  slug: "20220330";
+"2022-03-30.md": {
+	id: "2022-03-30.md";
+  slug: "2022-03-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220331.md": {
-	id: "20220331.md";
-  slug: "20220331";
+"2022-03-31.md": {
+	id: "2022-03-31.md";
+  slug: "2022-03-31";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220401.md": {
-	id: "20220401.md";
-  slug: "20220401";
+"2022-04-01.md": {
+	id: "2022-04-01.md";
+  slug: "2022-04-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220402.md": {
-	id: "20220402.md";
-  slug: "20220402";
+"2022-04-02.md": {
+	id: "2022-04-02.md";
+  slug: "2022-04-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220403.md": {
-	id: "20220403.md";
-  slug: "20220403";
+"2022-04-03.md": {
+	id: "2022-04-03.md";
+  slug: "2022-04-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220404.md": {
-	id: "20220404.md";
-  slug: "20220404";
+"2022-04-04.md": {
+	id: "2022-04-04.md";
+  slug: "2022-04-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220405.md": {
-	id: "20220405.md";
-  slug: "20220405";
+"2022-04-05.md": {
+	id: "2022-04-05.md";
+  slug: "2022-04-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220406.md": {
-	id: "20220406.md";
-  slug: "20220406";
+"2022-04-06.md": {
+	id: "2022-04-06.md";
+  slug: "2022-04-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220407.md": {
-	id: "20220407.md";
-  slug: "20220407";
+"2022-04-07.md": {
+	id: "2022-04-07.md";
+  slug: "2022-04-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220408.md": {
-	id: "20220408.md";
-  slug: "20220408";
+"2022-04-08.md": {
+	id: "2022-04-08.md";
+  slug: "2022-04-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220409.md": {
-	id: "20220409.md";
-  slug: "20220409";
+"2022-04-09.md": {
+	id: "2022-04-09.md";
+  slug: "2022-04-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220410.md": {
-	id: "20220410.md";
-  slug: "20220410";
+"2022-04-10.md": {
+	id: "2022-04-10.md";
+  slug: "2022-04-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220411.md": {
-	id: "20220411.md";
-  slug: "20220411";
+"2022-04-11.md": {
+	id: "2022-04-11.md";
+  slug: "2022-04-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220412.md": {
-	id: "20220412.md";
-  slug: "20220412";
+"2022-04-12.md": {
+	id: "2022-04-12.md";
+  slug: "2022-04-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220413.md": {
-	id: "20220413.md";
-  slug: "20220413";
+"2022-04-13.md": {
+	id: "2022-04-13.md";
+  slug: "2022-04-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220414.md": {
-	id: "20220414.md";
-  slug: "20220414";
+"2022-04-14.md": {
+	id: "2022-04-14.md";
+  slug: "2022-04-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220415.md": {
-	id: "20220415.md";
-  slug: "20220415";
+"2022-04-15.md": {
+	id: "2022-04-15.md";
+  slug: "2022-04-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220416.md": {
-	id: "20220416.md";
-  slug: "20220416";
+"2022-04-16.md": {
+	id: "2022-04-16.md";
+  slug: "2022-04-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220417.md": {
-	id: "20220417.md";
-  slug: "20220417";
+"2022-04-17.md": {
+	id: "2022-04-17.md";
+  slug: "2022-04-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220418.md": {
-	id: "20220418.md";
-  slug: "20220418";
+"2022-04-18.md": {
+	id: "2022-04-18.md";
+  slug: "2022-04-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220419.md": {
-	id: "20220419.md";
-  slug: "20220419";
+"2022-04-19.md": {
+	id: "2022-04-19.md";
+  slug: "2022-04-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220420.md": {
-	id: "20220420.md";
-  slug: "20220420";
+"2022-04-20.md": {
+	id: "2022-04-20.md";
+  slug: "2022-04-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220421.md": {
-	id: "20220421.md";
-  slug: "20220421";
+"2022-04-21.md": {
+	id: "2022-04-21.md";
+  slug: "2022-04-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220422.md": {
-	id: "20220422.md";
-  slug: "20220422";
+"2022-04-22.md": {
+	id: "2022-04-22.md";
+  slug: "2022-04-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220423.md": {
-	id: "20220423.md";
-  slug: "20220423";
+"2022-04-23.md": {
+	id: "2022-04-23.md";
+  slug: "2022-04-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220424.md": {
-	id: "20220424.md";
-  slug: "20220424";
+"2022-04-24.md": {
+	id: "2022-04-24.md";
+  slug: "2022-04-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220425.md": {
-	id: "20220425.md";
-  slug: "20220425";
+"2022-04-25.md": {
+	id: "2022-04-25.md";
+  slug: "2022-04-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220426.md": {
-	id: "20220426.md";
-  slug: "20220426";
+"2022-04-26.md": {
+	id: "2022-04-26.md";
+  slug: "2022-04-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220427.md": {
-	id: "20220427.md";
-  slug: "20220427";
+"2022-04-27.md": {
+	id: "2022-04-27.md";
+  slug: "2022-04-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220428.md": {
-	id: "20220428.md";
-  slug: "20220428";
+"2022-04-28.md": {
+	id: "2022-04-28.md";
+  slug: "2022-04-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220429.md": {
-	id: "20220429.md";
-  slug: "20220429";
+"2022-04-29.md": {
+	id: "2022-04-29.md";
+  slug: "2022-04-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220430.md": {
-	id: "20220430.md";
-  slug: "20220430";
+"2022-04-30.md": {
+	id: "2022-04-30.md";
+  slug: "2022-04-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220501.md": {
-	id: "20220501.md";
-  slug: "20220501";
+"2022-05-01.md": {
+	id: "2022-05-01.md";
+  slug: "2022-05-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220502.md": {
-	id: "20220502.md";
-  slug: "20220502";
+"2022-05-02.md": {
+	id: "2022-05-02.md";
+  slug: "2022-05-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220503.md": {
-	id: "20220503.md";
-  slug: "20220503";
+"2022-05-03.md": {
+	id: "2022-05-03.md";
+  slug: "2022-05-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220504.md": {
-	id: "20220504.md";
-  slug: "20220504";
+"2022-05-04.md": {
+	id: "2022-05-04.md";
+  slug: "2022-05-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220505.md": {
-	id: "20220505.md";
-  slug: "20220505";
+"2022-05-05.md": {
+	id: "2022-05-05.md";
+  slug: "2022-05-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220506.md": {
-	id: "20220506.md";
-  slug: "20220506";
+"2022-05-06.md": {
+	id: "2022-05-06.md";
+  slug: "2022-05-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220507.md": {
-	id: "20220507.md";
-  slug: "20220507";
+"2022-05-07.md": {
+	id: "2022-05-07.md";
+  slug: "2022-05-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220508.md": {
-	id: "20220508.md";
-  slug: "20220508";
+"2022-05-08.md": {
+	id: "2022-05-08.md";
+  slug: "2022-05-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220509.md": {
-	id: "20220509.md";
-  slug: "20220509";
+"2022-05-09.md": {
+	id: "2022-05-09.md";
+  slug: "2022-05-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220510.md": {
-	id: "20220510.md";
-  slug: "20220510";
+"2022-05-10.md": {
+	id: "2022-05-10.md";
+  slug: "2022-05-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220511.md": {
-	id: "20220511.md";
-  slug: "20220511";
+"2022-05-11.md": {
+	id: "2022-05-11.md";
+  slug: "2022-05-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220512.md": {
-	id: "20220512.md";
-  slug: "20220512";
+"2022-05-12.md": {
+	id: "2022-05-12.md";
+  slug: "2022-05-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220513.md": {
-	id: "20220513.md";
-  slug: "20220513";
+"2022-05-13.md": {
+	id: "2022-05-13.md";
+  slug: "2022-05-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220514.md": {
-	id: "20220514.md";
-  slug: "20220514";
+"2022-05-14.md": {
+	id: "2022-05-14.md";
+  slug: "2022-05-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220515.md": {
-	id: "20220515.md";
-  slug: "20220515";
+"2022-05-15.md": {
+	id: "2022-05-15.md";
+  slug: "2022-05-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220516.md": {
-	id: "20220516.md";
-  slug: "20220516";
+"2022-05-16.md": {
+	id: "2022-05-16.md";
+  slug: "2022-05-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220517.md": {
-	id: "20220517.md";
-  slug: "20220517";
+"2022-05-17.md": {
+	id: "2022-05-17.md";
+  slug: "2022-05-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220518.md": {
-	id: "20220518.md";
-  slug: "20220518";
+"2022-05-18.md": {
+	id: "2022-05-18.md";
+  slug: "2022-05-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220519.md": {
-	id: "20220519.md";
-  slug: "20220519";
+"2022-05-19.md": {
+	id: "2022-05-19.md";
+  slug: "2022-05-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220520.md": {
-	id: "20220520.md";
-  slug: "20220520";
+"2022-05-20.md": {
+	id: "2022-05-20.md";
+  slug: "2022-05-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220521.md": {
-	id: "20220521.md";
-  slug: "20220521";
+"2022-05-21.md": {
+	id: "2022-05-21.md";
+  slug: "2022-05-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220522.md": {
-	id: "20220522.md";
-  slug: "20220522";
+"2022-05-22.md": {
+	id: "2022-05-22.md";
+  slug: "2022-05-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220523.md": {
-	id: "20220523.md";
-  slug: "20220523";
+"2022-05-23.md": {
+	id: "2022-05-23.md";
+  slug: "2022-05-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220524.md": {
-	id: "20220524.md";
-  slug: "20220524";
+"2022-05-24.md": {
+	id: "2022-05-24.md";
+  slug: "2022-05-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220525.md": {
-	id: "20220525.md";
-  slug: "20220525";
+"2022-05-25.md": {
+	id: "2022-05-25.md";
+  slug: "2022-05-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220526.md": {
-	id: "20220526.md";
-  slug: "20220526";
+"2022-05-26.md": {
+	id: "2022-05-26.md";
+  slug: "2022-05-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220527.md": {
-	id: "20220527.md";
-  slug: "20220527";
+"2022-05-27.md": {
+	id: "2022-05-27.md";
+  slug: "2022-05-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220528.md": {
-	id: "20220528.md";
-  slug: "20220528";
+"2022-05-28.md": {
+	id: "2022-05-28.md";
+  slug: "2022-05-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220529.md": {
-	id: "20220529.md";
-  slug: "20220529";
+"2022-05-29.md": {
+	id: "2022-05-29.md";
+  slug: "2022-05-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220530.md": {
-	id: "20220530.md";
-  slug: "20220530";
+"2022-05-30.md": {
+	id: "2022-05-30.md";
+  slug: "2022-05-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220531.md": {
-	id: "20220531.md";
-  slug: "20220531";
+"2022-05-31.md": {
+	id: "2022-05-31.md";
+  slug: "2022-05-31";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220601.md": {
-	id: "20220601.md";
-  slug: "20220601";
+"2022-06-01.md": {
+	id: "2022-06-01.md";
+  slug: "2022-06-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220602.md": {
-	id: "20220602.md";
-  slug: "20220602";
+"2022-06-02.md": {
+	id: "2022-06-02.md";
+  slug: "2022-06-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220603.md": {
-	id: "20220603.md";
-  slug: "20220603";
+"2022-06-03.md": {
+	id: "2022-06-03.md";
+  slug: "2022-06-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220604.md": {
-	id: "20220604.md";
-  slug: "20220604";
+"2022-06-04.md": {
+	id: "2022-06-04.md";
+  slug: "2022-06-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220605.md": {
-	id: "20220605.md";
-  slug: "20220605";
+"2022-06-05.md": {
+	id: "2022-06-05.md";
+  slug: "2022-06-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220606.md": {
-	id: "20220606.md";
-  slug: "20220606";
+"2022-06-06.md": {
+	id: "2022-06-06.md";
+  slug: "2022-06-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220607.md": {
-	id: "20220607.md";
-  slug: "20220607";
+"2022-06-07.md": {
+	id: "2022-06-07.md";
+  slug: "2022-06-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220608.md": {
-	id: "20220608.md";
-  slug: "20220608";
+"2022-06-08.md": {
+	id: "2022-06-08.md";
+  slug: "2022-06-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220609.md": {
-	id: "20220609.md";
-  slug: "20220609";
+"2022-06-09.md": {
+	id: "2022-06-09.md";
+  slug: "2022-06-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220610.md": {
-	id: "20220610.md";
-  slug: "20220610";
+"2022-06-10.md": {
+	id: "2022-06-10.md";
+  slug: "2022-06-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220611.md": {
-	id: "20220611.md";
-  slug: "20220611";
+"2022-06-11.md": {
+	id: "2022-06-11.md";
+  slug: "2022-06-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220612.md": {
-	id: "20220612.md";
-  slug: "20220612";
+"2022-06-12.md": {
+	id: "2022-06-12.md";
+  slug: "2022-06-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220613.md": {
-	id: "20220613.md";
-  slug: "20220613";
+"2022-06-13.md": {
+	id: "2022-06-13.md";
+  slug: "2022-06-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220614.md": {
-	id: "20220614.md";
-  slug: "20220614";
+"2022-06-14.md": {
+	id: "2022-06-14.md";
+  slug: "2022-06-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220615.md": {
-	id: "20220615.md";
-  slug: "20220615";
+"2022-06-15.md": {
+	id: "2022-06-15.md";
+  slug: "2022-06-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220616.md": {
-	id: "20220616.md";
-  slug: "20220616";
+"2022-06-16.md": {
+	id: "2022-06-16.md";
+  slug: "2022-06-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220617.md": {
-	id: "20220617.md";
-  slug: "20220617";
+"2022-06-17.md": {
+	id: "2022-06-17.md";
+  slug: "2022-06-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220618.md": {
-	id: "20220618.md";
-  slug: "20220618";
+"2022-06-18.md": {
+	id: "2022-06-18.md";
+  slug: "2022-06-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220619.md": {
-	id: "20220619.md";
-  slug: "20220619";
+"2022-06-19.md": {
+	id: "2022-06-19.md";
+  slug: "2022-06-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220620.md": {
-	id: "20220620.md";
-  slug: "20220620";
+"2022-06-20.md": {
+	id: "2022-06-20.md";
+  slug: "2022-06-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220621.md": {
-	id: "20220621.md";
-  slug: "20220621";
+"2022-06-21.md": {
+	id: "2022-06-21.md";
+  slug: "2022-06-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220622.md": {
-	id: "20220622.md";
-  slug: "20220622";
+"2022-06-22.md": {
+	id: "2022-06-22.md";
+  slug: "2022-06-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220623.md": {
-	id: "20220623.md";
-  slug: "20220623";
+"2022-06-23.md": {
+	id: "2022-06-23.md";
+  slug: "2022-06-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220624.md": {
-	id: "20220624.md";
-  slug: "20220624";
+"2022-06-24.md": {
+	id: "2022-06-24.md";
+  slug: "2022-06-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220625.md": {
-	id: "20220625.md";
-  slug: "20220625";
+"2022-06-25.md": {
+	id: "2022-06-25.md";
+  slug: "2022-06-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220626.md": {
-	id: "20220626.md";
-  slug: "20220626";
+"2022-06-26.md": {
+	id: "2022-06-26.md";
+  slug: "2022-06-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220627.md": {
-	id: "20220627.md";
-  slug: "20220627";
+"2022-06-27.md": {
+	id: "2022-06-27.md";
+  slug: "2022-06-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220628.md": {
-	id: "20220628.md";
-  slug: "20220628";
+"2022-06-28.md": {
+	id: "2022-06-28.md";
+  slug: "2022-06-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220629.md": {
-	id: "20220629.md";
-  slug: "20220629";
+"2022-06-29.md": {
+	id: "2022-06-29.md";
+  slug: "2022-06-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220630.md": {
-	id: "20220630.md";
-  slug: "20220630";
+"2022-06-30.md": {
+	id: "2022-06-30.md";
+  slug: "2022-06-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220701.md": {
-	id: "20220701.md";
-  slug: "20220701";
+"2022-07-01.md": {
+	id: "2022-07-01.md";
+  slug: "2022-07-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220702.md": {
-	id: "20220702.md";
-  slug: "20220702";
+"2022-07-02.md": {
+	id: "2022-07-02.md";
+  slug: "2022-07-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220703.md": {
-	id: "20220703.md";
-  slug: "20220703";
+"2022-07-03.md": {
+	id: "2022-07-03.md";
+  slug: "2022-07-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220704.md": {
-	id: "20220704.md";
-  slug: "20220704";
+"2022-07-04.md": {
+	id: "2022-07-04.md";
+  slug: "2022-07-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220705.md": {
-	id: "20220705.md";
-  slug: "20220705";
+"2022-07-05.md": {
+	id: "2022-07-05.md";
+  slug: "2022-07-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220706.md": {
-	id: "20220706.md";
-  slug: "20220706";
+"2022-07-06.md": {
+	id: "2022-07-06.md";
+  slug: "2022-07-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220707.md": {
-	id: "20220707.md";
-  slug: "20220707";
+"2022-07-07.md": {
+	id: "2022-07-07.md";
+  slug: "2022-07-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220708.md": {
-	id: "20220708.md";
-  slug: "20220708";
+"2022-07-08.md": {
+	id: "2022-07-08.md";
+  slug: "2022-07-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220709.md": {
-	id: "20220709.md";
-  slug: "20220709";
+"2022-07-09.md": {
+	id: "2022-07-09.md";
+  slug: "2022-07-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220710.md": {
-	id: "20220710.md";
-  slug: "20220710";
+"2022-07-10.md": {
+	id: "2022-07-10.md";
+  slug: "2022-07-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220711.md": {
-	id: "20220711.md";
-  slug: "20220711";
+"2022-07-11.md": {
+	id: "2022-07-11.md";
+  slug: "2022-07-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220712.md": {
-	id: "20220712.md";
-  slug: "20220712";
+"2022-07-12.md": {
+	id: "2022-07-12.md";
+  slug: "2022-07-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220713.md": {
-	id: "20220713.md";
-  slug: "20220713";
+"2022-07-13.md": {
+	id: "2022-07-13.md";
+  slug: "2022-07-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220714.md": {
-	id: "20220714.md";
-  slug: "20220714";
+"2022-07-14.md": {
+	id: "2022-07-14.md";
+  slug: "2022-07-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220715.md": {
-	id: "20220715.md";
-  slug: "20220715";
+"2022-07-15.md": {
+	id: "2022-07-15.md";
+  slug: "2022-07-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220716.md": {
-	id: "20220716.md";
-  slug: "20220716";
+"2022-07-16.md": {
+	id: "2022-07-16.md";
+  slug: "2022-07-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220717.md": {
-	id: "20220717.md";
-  slug: "20220717";
+"2022-07-17.md": {
+	id: "2022-07-17.md";
+  slug: "2022-07-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220718.md": {
-	id: "20220718.md";
-  slug: "20220718";
+"2022-07-18.md": {
+	id: "2022-07-18.md";
+  slug: "2022-07-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220719.md": {
-	id: "20220719.md";
-  slug: "20220719";
+"2022-07-19.md": {
+	id: "2022-07-19.md";
+  slug: "2022-07-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220720.md": {
-	id: "20220720.md";
-  slug: "20220720";
+"2022-07-20.md": {
+	id: "2022-07-20.md";
+  slug: "2022-07-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220721.md": {
-	id: "20220721.md";
-  slug: "20220721";
+"2022-07-21.md": {
+	id: "2022-07-21.md";
+  slug: "2022-07-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220722.md": {
-	id: "20220722.md";
-  slug: "20220722";
+"2022-07-22.md": {
+	id: "2022-07-22.md";
+  slug: "2022-07-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220723.md": {
-	id: "20220723.md";
-  slug: "20220723";
+"2022-07-23.md": {
+	id: "2022-07-23.md";
+  slug: "2022-07-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220724.md": {
-	id: "20220724.md";
-  slug: "20220724";
+"2022-07-24.md": {
+	id: "2022-07-24.md";
+  slug: "2022-07-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220725.md": {
-	id: "20220725.md";
-  slug: "20220725";
+"2022-07-25.md": {
+	id: "2022-07-25.md";
+  slug: "2022-07-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220726.md": {
-	id: "20220726.md";
-  slug: "20220726";
+"2022-07-26.md": {
+	id: "2022-07-26.md";
+  slug: "2022-07-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220727.md": {
-	id: "20220727.md";
-  slug: "20220727";
+"2022-07-27.md": {
+	id: "2022-07-27.md";
+  slug: "2022-07-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220728.md": {
-	id: "20220728.md";
-  slug: "20220728";
+"2022-07-28.md": {
+	id: "2022-07-28.md";
+  slug: "2022-07-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220729.md": {
-	id: "20220729.md";
-  slug: "20220729";
+"2022-07-29.md": {
+	id: "2022-07-29.md";
+  slug: "2022-07-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220730.md": {
-	id: "20220730.md";
-  slug: "20220730";
+"2022-07-30.md": {
+	id: "2022-07-30.md";
+  slug: "2022-07-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220731.md": {
-	id: "20220731.md";
-  slug: "20220731";
+"2022-07-31.md": {
+	id: "2022-07-31.md";
+  slug: "2022-07-31";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220801.md": {
-	id: "20220801.md";
-  slug: "20220801";
+"2022-08-01.md": {
+	id: "2022-08-01.md";
+  slug: "2022-08-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220802.md": {
-	id: "20220802.md";
-  slug: "20220802";
+"2022-08-02.md": {
+	id: "2022-08-02.md";
+  slug: "2022-08-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220803.md": {
-	id: "20220803.md";
-  slug: "20220803";
+"2022-08-03.md": {
+	id: "2022-08-03.md";
+  slug: "2022-08-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220804.md": {
-	id: "20220804.md";
-  slug: "20220804";
+"2022-08-04.md": {
+	id: "2022-08-04.md";
+  slug: "2022-08-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220805.md": {
-	id: "20220805.md";
-  slug: "20220805";
+"2022-08-05.md": {
+	id: "2022-08-05.md";
+  slug: "2022-08-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220806.md": {
-	id: "20220806.md";
-  slug: "20220806";
+"2022-08-06.md": {
+	id: "2022-08-06.md";
+  slug: "2022-08-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220807.md": {
-	id: "20220807.md";
-  slug: "20220807";
+"2022-08-07.md": {
+	id: "2022-08-07.md";
+  slug: "2022-08-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220808.md": {
-	id: "20220808.md";
-  slug: "20220808";
+"2022-08-08.md": {
+	id: "2022-08-08.md";
+  slug: "2022-08-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220809.md": {
-	id: "20220809.md";
-  slug: "20220809";
+"2022-08-09.md": {
+	id: "2022-08-09.md";
+  slug: "2022-08-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220810.md": {
-	id: "20220810.md";
-  slug: "20220810";
+"2022-08-10.md": {
+	id: "2022-08-10.md";
+  slug: "2022-08-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220811.md": {
-	id: "20220811.md";
-  slug: "20220811";
+"2022-08-11.md": {
+	id: "2022-08-11.md";
+  slug: "2022-08-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220812.md": {
-	id: "20220812.md";
-  slug: "20220812";
+"2022-08-12.md": {
+	id: "2022-08-12.md";
+  slug: "2022-08-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220813.md": {
-	id: "20220813.md";
-  slug: "20220813";
+"2022-08-13.md": {
+	id: "2022-08-13.md";
+  slug: "2022-08-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220814.md": {
-	id: "20220814.md";
-  slug: "20220814";
+"2022-08-14.md": {
+	id: "2022-08-14.md";
+  slug: "2022-08-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220815.md": {
-	id: "20220815.md";
-  slug: "20220815";
+"2022-08-15.md": {
+	id: "2022-08-15.md";
+  slug: "2022-08-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220816.md": {
-	id: "20220816.md";
-  slug: "20220816";
+"2022-08-16.md": {
+	id: "2022-08-16.md";
+  slug: "2022-08-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220817.md": {
-	id: "20220817.md";
-  slug: "20220817";
+"2022-08-17.md": {
+	id: "2022-08-17.md";
+  slug: "2022-08-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220818.md": {
-	id: "20220818.md";
-  slug: "20220818";
+"2022-08-18.md": {
+	id: "2022-08-18.md";
+  slug: "2022-08-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220819.md": {
-	id: "20220819.md";
-  slug: "20220819";
+"2022-08-19.md": {
+	id: "2022-08-19.md";
+  slug: "2022-08-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220820.md": {
-	id: "20220820.md";
-  slug: "20220820";
+"2022-08-20.md": {
+	id: "2022-08-20.md";
+  slug: "2022-08-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220821.md": {
-	id: "20220821.md";
-  slug: "20220821";
+"2022-08-21.md": {
+	id: "2022-08-21.md";
+  slug: "2022-08-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220822.md": {
-	id: "20220822.md";
-  slug: "20220822";
+"2022-08-22.md": {
+	id: "2022-08-22.md";
+  slug: "2022-08-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220823.md": {
-	id: "20220823.md";
-  slug: "20220823";
+"2022-08-23.md": {
+	id: "2022-08-23.md";
+  slug: "2022-08-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220824.md": {
-	id: "20220824.md";
-  slug: "20220824";
+"2022-08-24.md": {
+	id: "2022-08-24.md";
+  slug: "2022-08-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220825.md": {
-	id: "20220825.md";
-  slug: "20220825";
+"2022-08-25.md": {
+	id: "2022-08-25.md";
+  slug: "2022-08-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220826.md": {
-	id: "20220826.md";
-  slug: "20220826";
+"2022-08-26.md": {
+	id: "2022-08-26.md";
+  slug: "2022-08-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220827.md": {
-	id: "20220827.md";
-  slug: "20220827";
+"2022-08-27.md": {
+	id: "2022-08-27.md";
+  slug: "2022-08-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220828.md": {
-	id: "20220828.md";
-  slug: "20220828";
+"2022-08-28.md": {
+	id: "2022-08-28.md";
+  slug: "2022-08-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220829.md": {
-	id: "20220829.md";
-  slug: "20220829";
+"2022-08-29.md": {
+	id: "2022-08-29.md";
+  slug: "2022-08-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220830.md": {
-	id: "20220830.md";
-  slug: "20220830";
+"2022-08-30.md": {
+	id: "2022-08-30.md";
+  slug: "2022-08-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220831.md": {
-	id: "20220831.md";
-  slug: "20220831";
+"2022-08-31.md": {
+	id: "2022-08-31.md";
+  slug: "2022-08-31";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220901.md": {
-	id: "20220901.md";
-  slug: "20220901";
+"2022-09-01.md": {
+	id: "2022-09-01.md";
+  slug: "2022-09-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220902.md": {
-	id: "20220902.md";
-  slug: "20220902";
+"2022-09-02.md": {
+	id: "2022-09-02.md";
+  slug: "2022-09-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220903.md": {
-	id: "20220903.md";
-  slug: "20220903";
+"2022-09-03.md": {
+	id: "2022-09-03.md";
+  slug: "2022-09-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220904.md": {
-	id: "20220904.md";
-  slug: "20220904";
+"2022-09-04.md": {
+	id: "2022-09-04.md";
+  slug: "2022-09-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220905.md": {
-	id: "20220905.md";
-  slug: "20220905";
+"2022-09-05.md": {
+	id: "2022-09-05.md";
+  slug: "2022-09-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220906.md": {
-	id: "20220906.md";
-  slug: "20220906";
+"2022-09-06.md": {
+	id: "2022-09-06.md";
+  slug: "2022-09-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220907.md": {
-	id: "20220907.md";
-  slug: "20220907";
+"2022-09-07.md": {
+	id: "2022-09-07.md";
+  slug: "2022-09-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220908.md": {
-	id: "20220908.md";
-  slug: "20220908";
+"2022-09-08.md": {
+	id: "2022-09-08.md";
+  slug: "2022-09-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220909.md": {
-	id: "20220909.md";
-  slug: "20220909";
+"2022-09-09.md": {
+	id: "2022-09-09.md";
+  slug: "2022-09-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220910.md": {
-	id: "20220910.md";
-  slug: "20220910";
+"2022-09-10.md": {
+	id: "2022-09-10.md";
+  slug: "2022-09-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220911.md": {
-	id: "20220911.md";
-  slug: "20220911";
+"2022-09-11.md": {
+	id: "2022-09-11.md";
+  slug: "2022-09-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220912.md": {
-	id: "20220912.md";
-  slug: "20220912";
+"2022-09-12.md": {
+	id: "2022-09-12.md";
+  slug: "2022-09-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220913.md": {
-	id: "20220913.md";
-  slug: "20220913";
+"2022-09-13.md": {
+	id: "2022-09-13.md";
+  slug: "2022-09-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220914.md": {
-	id: "20220914.md";
-  slug: "20220914";
+"2022-09-14.md": {
+	id: "2022-09-14.md";
+  slug: "2022-09-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220915.md": {
-	id: "20220915.md";
-  slug: "20220915";
+"2022-09-15.md": {
+	id: "2022-09-15.md";
+  slug: "2022-09-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220916.md": {
-	id: "20220916.md";
-  slug: "20220916";
+"2022-09-16.md": {
+	id: "2022-09-16.md";
+  slug: "2022-09-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220917.md": {
-	id: "20220917.md";
-  slug: "20220917";
+"2022-09-17.md": {
+	id: "2022-09-17.md";
+  slug: "2022-09-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220918.md": {
-	id: "20220918.md";
-  slug: "20220918";
+"2022-09-18.md": {
+	id: "2022-09-18.md";
+  slug: "2022-09-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220919.md": {
-	id: "20220919.md";
-  slug: "20220919";
+"2022-09-19.md": {
+	id: "2022-09-19.md";
+  slug: "2022-09-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220920.md": {
-	id: "20220920.md";
-  slug: "20220920";
+"2022-09-20.md": {
+	id: "2022-09-20.md";
+  slug: "2022-09-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220921.md": {
-	id: "20220921.md";
-  slug: "20220921";
+"2022-09-21.md": {
+	id: "2022-09-21.md";
+  slug: "2022-09-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220922.md": {
-	id: "20220922.md";
-  slug: "20220922";
+"2022-09-22.md": {
+	id: "2022-09-22.md";
+  slug: "2022-09-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220923.md": {
-	id: "20220923.md";
-  slug: "20220923";
+"2022-09-23.md": {
+	id: "2022-09-23.md";
+  slug: "2022-09-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220924.md": {
-	id: "20220924.md";
-  slug: "20220924";
+"2022-09-24.md": {
+	id: "2022-09-24.md";
+  slug: "2022-09-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220925.md": {
-	id: "20220925.md";
-  slug: "20220925";
+"2022-09-25.md": {
+	id: "2022-09-25.md";
+  slug: "2022-09-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220926.md": {
-	id: "20220926.md";
-  slug: "20220926";
+"2022-09-26.md": {
+	id: "2022-09-26.md";
+  slug: "2022-09-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220927.md": {
-	id: "20220927.md";
-  slug: "20220927";
+"2022-09-27.md": {
+	id: "2022-09-27.md";
+  slug: "2022-09-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220928.md": {
-	id: "20220928.md";
-  slug: "20220928";
+"2022-09-28.md": {
+	id: "2022-09-28.md";
+  slug: "2022-09-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220929.md": {
-	id: "20220929.md";
-  slug: "20220929";
+"2022-09-29.md": {
+	id: "2022-09-29.md";
+  slug: "2022-09-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20220930.md": {
-	id: "20220930.md";
-  slug: "20220930";
+"2022-09-30.md": {
+	id: "2022-09-30.md";
+  slug: "2022-09-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221001.md": {
-	id: "20221001.md";
-  slug: "20221001";
+"2022-10-01.md": {
+	id: "2022-10-01.md";
+  slug: "2022-10-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221002.md": {
-	id: "20221002.md";
-  slug: "20221002";
+"2022-10-02.md": {
+	id: "2022-10-02.md";
+  slug: "2022-10-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221003.md": {
-	id: "20221003.md";
-  slug: "20221003";
+"2022-10-03.md": {
+	id: "2022-10-03.md";
+  slug: "2022-10-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221007.md": {
-	id: "20221007.md";
-  slug: "20221007";
+"2022-10-07.md": {
+	id: "2022-10-07.md";
+  slug: "2022-10-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221008.md": {
-	id: "20221008.md";
-  slug: "20221008";
+"2022-10-08.md": {
+	id: "2022-10-08.md";
+  slug: "2022-10-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221009.md": {
-	id: "20221009.md";
-  slug: "20221009";
+"2022-10-09.md": {
+	id: "2022-10-09.md";
+  slug: "2022-10-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221010.md": {
-	id: "20221010.md";
-  slug: "20221010";
+"2022-10-10.md": {
+	id: "2022-10-10.md";
+  slug: "2022-10-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221011.md": {
-	id: "20221011.md";
-  slug: "20221011";
+"2022-10-11.md": {
+	id: "2022-10-11.md";
+  slug: "2022-10-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221012.md": {
-	id: "20221012.md";
-  slug: "20221012";
+"2022-10-12.md": {
+	id: "2022-10-12.md";
+  slug: "2022-10-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221013.md": {
-	id: "20221013.md";
-  slug: "20221013";
+"2022-10-13.md": {
+	id: "2022-10-13.md";
+  slug: "2022-10-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221014.md": {
-	id: "20221014.md";
-  slug: "20221014";
+"2022-10-14.md": {
+	id: "2022-10-14.md";
+  slug: "2022-10-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221015.md": {
-	id: "20221015.md";
-  slug: "20221015";
+"2022-10-15.md": {
+	id: "2022-10-15.md";
+  slug: "2022-10-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221016.md": {
-	id: "20221016.md";
-  slug: "20221016";
+"2022-10-16.md": {
+	id: "2022-10-16.md";
+  slug: "2022-10-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221017.md": {
-	id: "20221017.md";
-  slug: "20221017";
+"2022-10-17.md": {
+	id: "2022-10-17.md";
+  slug: "2022-10-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221018.md": {
-	id: "20221018.md";
-  slug: "20221018";
+"2022-10-18.md": {
+	id: "2022-10-18.md";
+  slug: "2022-10-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221019.md": {
-	id: "20221019.md";
-  slug: "20221019";
+"2022-10-19.md": {
+	id: "2022-10-19.md";
+  slug: "2022-10-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221020.md": {
-	id: "20221020.md";
-  slug: "20221020";
+"2022-10-20.md": {
+	id: "2022-10-20.md";
+  slug: "2022-10-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221021.md": {
-	id: "20221021.md";
-  slug: "20221021";
+"2022-10-21.md": {
+	id: "2022-10-21.md";
+  slug: "2022-10-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221022.md": {
-	id: "20221022.md";
-  slug: "20221022";
+"2022-10-22.md": {
+	id: "2022-10-22.md";
+  slug: "2022-10-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221023.md": {
-	id: "20221023.md";
-  slug: "20221023";
+"2022-10-23.md": {
+	id: "2022-10-23.md";
+  slug: "2022-10-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221024.md": {
-	id: "20221024.md";
-  slug: "20221024";
+"2022-10-24.md": {
+	id: "2022-10-24.md";
+  slug: "2022-10-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221025.md": {
-	id: "20221025.md";
-  slug: "20221025";
+"2022-10-25.md": {
+	id: "2022-10-25.md";
+  slug: "2022-10-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221026.md": {
-	id: "20221026.md";
-  slug: "20221026";
+"2022-10-26.md": {
+	id: "2022-10-26.md";
+  slug: "2022-10-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221027.md": {
-	id: "20221027.md";
-  slug: "20221027";
+"2022-10-27.md": {
+	id: "2022-10-27.md";
+  slug: "2022-10-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221028.md": {
-	id: "20221028.md";
-  slug: "20221028";
+"2022-10-28.md": {
+	id: "2022-10-28.md";
+  slug: "2022-10-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221029.md": {
-	id: "20221029.md";
-  slug: "20221029";
+"2022-10-29.md": {
+	id: "2022-10-29.md";
+  slug: "2022-10-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221030.md": {
-	id: "20221030.md";
-  slug: "20221030";
+"2022-10-30.md": {
+	id: "2022-10-30.md";
+  slug: "2022-10-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221031.md": {
-	id: "20221031.md";
-  slug: "20221031";
+"2022-10-31.md": {
+	id: "2022-10-31.md";
+  slug: "2022-10-31";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221101.md": {
-	id: "20221101.md";
-  slug: "20221101";
+"2022-11-01.md": {
+	id: "2022-11-01.md";
+  slug: "2022-11-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221102.md": {
-	id: "20221102.md";
-  slug: "20221102";
+"2022-11-02.md": {
+	id: "2022-11-02.md";
+  slug: "2022-11-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221103.md": {
-	id: "20221103.md";
-  slug: "20221103";
+"2022-11-03.md": {
+	id: "2022-11-03.md";
+  slug: "2022-11-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221104.md": {
-	id: "20221104.md";
-  slug: "20221104";
+"2022-11-04.md": {
+	id: "2022-11-04.md";
+  slug: "2022-11-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221105.md": {
-	id: "20221105.md";
-  slug: "20221105";
+"2022-11-05.md": {
+	id: "2022-11-05.md";
+  slug: "2022-11-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221106.md": {
-	id: "20221106.md";
-  slug: "20221106";
+"2022-11-06.md": {
+	id: "2022-11-06.md";
+  slug: "2022-11-06";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221107.md": {
-	id: "20221107.md";
-  slug: "20221107";
+"2022-11-07.md": {
+	id: "2022-11-07.md";
+  slug: "2022-11-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221108.md": {
-	id: "20221108.md";
-  slug: "20221108";
+"2022-11-08.md": {
+	id: "2022-11-08.md";
+  slug: "2022-11-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221109.md": {
-	id: "20221109.md";
-  slug: "20221109";
+"2022-11-09.md": {
+	id: "2022-11-09.md";
+  slug: "2022-11-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221110.md": {
-	id: "20221110.md";
-  slug: "20221110";
+"2022-11-10.md": {
+	id: "2022-11-10.md";
+  slug: "2022-11-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221111.md": {
-	id: "20221111.md";
-  slug: "20221111";
+"2022-11-11.md": {
+	id: "2022-11-11.md";
+  slug: "2022-11-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221112.md": {
-	id: "20221112.md";
-  slug: "20221112";
+"2022-11-12.md": {
+	id: "2022-11-12.md";
+  slug: "2022-11-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221113.md": {
-	id: "20221113.md";
-  slug: "20221113";
+"2022-11-13.md": {
+	id: "2022-11-13.md";
+  slug: "2022-11-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221114.md": {
-	id: "20221114.md";
-  slug: "20221114";
+"2022-11-14.md": {
+	id: "2022-11-14.md";
+  slug: "2022-11-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221115.md": {
-	id: "20221115.md";
-  slug: "20221115";
+"2022-11-15.md": {
+	id: "2022-11-15.md";
+  slug: "2022-11-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221116.md": {
-	id: "20221116.md";
-  slug: "20221116";
+"2022-11-16.md": {
+	id: "2022-11-16.md";
+  slug: "2022-11-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221117.md": {
-	id: "20221117.md";
-  slug: "20221117";
+"2022-11-17.md": {
+	id: "2022-11-17.md";
+  slug: "2022-11-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221118.md": {
-	id: "20221118.md";
-  slug: "20221118";
+"2022-11-18.md": {
+	id: "2022-11-18.md";
+  slug: "2022-11-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221119.md": {
-	id: "20221119.md";
-  slug: "20221119";
+"2022-11-19.md": {
+	id: "2022-11-19.md";
+  slug: "2022-11-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221120.md": {
-	id: "20221120.md";
-  slug: "20221120";
+"2022-11-20.md": {
+	id: "2022-11-20.md";
+  slug: "2022-11-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221121.md": {
-	id: "20221121.md";
-  slug: "20221121";
+"2022-11-21.md": {
+	id: "2022-11-21.md";
+  slug: "2022-11-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221122.md": {
-	id: "20221122.md";
-  slug: "20221122";
+"2022-11-22.md": {
+	id: "2022-11-22.md";
+  slug: "2022-11-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221123.md": {
-	id: "20221123.md";
-  slug: "20221123";
+"2022-11-23.md": {
+	id: "2022-11-23.md";
+  slug: "2022-11-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221124.md": {
-	id: "20221124.md";
-  slug: "20221124";
+"2022-11-24.md": {
+	id: "2022-11-24.md";
+  slug: "2022-11-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221125.md": {
-	id: "20221125.md";
-  slug: "20221125";
+"2022-11-25.md": {
+	id: "2022-11-25.md";
+  slug: "2022-11-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221126.md": {
-	id: "20221126.md";
-  slug: "20221126";
+"2022-11-26.md": {
+	id: "2022-11-26.md";
+  slug: "2022-11-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221127.md": {
-	id: "20221127.md";
-  slug: "20221127";
+"2022-11-27.md": {
+	id: "2022-11-27.md";
+  slug: "2022-11-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221128.md": {
-	id: "20221128.md";
-  slug: "20221128";
+"2022-11-28.md": {
+	id: "2022-11-28.md";
+  slug: "2022-11-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221129.md": {
-	id: "20221129.md";
-  slug: "20221129";
+"2022-11-29.md": {
+	id: "2022-11-29.md";
+  slug: "2022-11-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221130.md": {
-	id: "20221130.md";
-  slug: "20221130";
+"2022-11-30.md": {
+	id: "2022-11-30.md";
+  slug: "2022-11-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221201.md": {
-	id: "20221201.md";
-  slug: "20221201";
+"2022-12-01.md": {
+	id: "2022-12-01.md";
+  slug: "2022-12-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221202.md": {
-	id: "20221202.md";
-  slug: "20221202";
+"2022-12-02.md": {
+	id: "2022-12-02.md";
+  slug: "2022-12-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221212.md": {
-	id: "20221212.md";
-  slug: "20221212";
+"2022-12-12.md": {
+	id: "2022-12-12.md";
+  slug: "2022-12-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221216.md": {
-	id: "20221216.md";
-  slug: "20221216";
+"2022-12-16.md": {
+	id: "2022-12-16.md";
+  slug: "2022-12-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221217.md": {
-	id: "20221217.md";
-  slug: "20221217";
+"2022-12-17.md": {
+	id: "2022-12-17.md";
+  slug: "2022-12-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221218.md": {
-	id: "20221218.md";
-  slug: "20221218";
+"2022-12-18.md": {
+	id: "2022-12-18.md";
+  slug: "2022-12-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221221.md": {
-	id: "20221221.md";
-  slug: "20221221";
+"2022-12-21.md": {
+	id: "2022-12-21.md";
+  slug: "2022-12-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221227.md": {
-	id: "20221227.md";
-  slug: "20221227";
+"2022-12-27.md": {
+	id: "2022-12-27.md";
+  slug: "2022-12-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20221228.md": {
-	id: "20221228.md";
-  slug: "20221228";
+"2022-12-28.md": {
+	id: "2022-12-28.md";
+  slug: "2022-12-28";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230103.md": {
-	id: "20230103.md";
-  slug: "20230103";
+"2023-01-03.md": {
+	id: "2023-01-03.md";
+  slug: "2023-01-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230104.md": {
-	id: "20230104.md";
-  slug: "20230104";
+"2023-01-04.md": {
+	id: "2023-01-04.md";
+  slug: "2023-01-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230107.md": {
-	id: "20230107.md";
-  slug: "20230107";
+"2023-01-07.md": {
+	id: "2023-01-07.md";
+  slug: "2023-01-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230108.md": {
-	id: "20230108.md";
-  slug: "20230108";
+"2023-01-08.md": {
+	id: "2023-01-08.md";
+  slug: "2023-01-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230109.md": {
-	id: "20230109.md";
-  slug: "20230109";
+"2023-01-09.md": {
+	id: "2023-01-09.md";
+  slug: "2023-01-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230110.md": {
-	id: "20230110.md";
-  slug: "20230110";
+"2023-01-10.md": {
+	id: "2023-01-10.md";
+  slug: "2023-01-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230111.md": {
-	id: "20230111.md";
-  slug: "20230111";
+"2023-01-11.md": {
+	id: "2023-01-11.md";
+  slug: "2023-01-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230112.md": {
-	id: "20230112.md";
-  slug: "20230112";
+"2023-01-12.md": {
+	id: "2023-01-12.md";
+  slug: "2023-01-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230113.md": {
-	id: "20230113.md";
-  slug: "20230113";
+"2023-01-13.md": {
+	id: "2023-01-13.md";
+  slug: "2023-01-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230114.md": {
-	id: "20230114.md";
-  slug: "20230114";
+"2023-01-14.md": {
+	id: "2023-01-14.md";
+  slug: "2023-01-14";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230115.md": {
-	id: "20230115.md";
-  slug: "20230115";
+"2023-01-15.md": {
+	id: "2023-01-15.md";
+  slug: "2023-01-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230124.md": {
-	id: "20230124.md";
-  slug: "20230124";
+"2023-01-24.md": {
+	id: "2023-01-24.md";
+  slug: "2023-01-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230129.md": {
-	id: "20230129.md";
-  slug: "20230129";
+"2023-01-29.md": {
+	id: "2023-01-29.md";
+  slug: "2023-01-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230201.md": {
-	id: "20230201.md";
-  slug: "20230201";
+"2023-02-01.md": {
+	id: "2023-02-01.md";
+  slug: "2023-02-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230305.md": {
-	id: "20230305.md";
-  slug: "20230305";
+"2023-03-05.md": {
+	id: "2023-03-05.md";
+  slug: "2023-03-05";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230519.md": {
-	id: "20230519.md";
-  slug: "20230519";
+"2023-05-19.md": {
+	id: "2023-05-19.md";
+  slug: "2023-05-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230520.md": {
-	id: "20230520.md";
-  slug: "20230520";
+"2023-05-20.md": {
+	id: "2023-05-20.md";
+  slug: "2023-05-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230521.md": {
-	id: "20230521.md";
-  slug: "20230521";
+"2023-05-21.md": {
+	id: "2023-05-21.md";
+  slug: "2023-05-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230522.md": {
-	id: "20230522.md";
-  slug: "20230522";
+"2023-05-22.md": {
+	id: "2023-05-22.md";
+  slug: "2023-05-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230523.md": {
-	id: "20230523.md";
-  slug: "20230523";
+"2023-05-23.md": {
+	id: "2023-05-23.md";
+  slug: "2023-05-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230525.md": {
-	id: "20230525.md";
-  slug: "20230525";
+"2023-05-25.md": {
+	id: "2023-05-25.md";
+  slug: "2023-05-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230527.md": {
-	id: "20230527.md";
-  slug: "20230527";
+"2023-05-27.md": {
+	id: "2023-05-27.md";
+  slug: "2023-05-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230601.md": {
-	id: "20230601.md";
-  slug: "20230601";
+"2023-06-01.md": {
+	id: "2023-06-01.md";
+  slug: "2023-06-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230612.md": {
-	id: "20230612.md";
-  slug: "20230612";
+"2023-06-12.md": {
+	id: "2023-06-12.md";
+  slug: "2023-06-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230620.md": {
-	id: "20230620.md";
-  slug: "20230620";
+"2023-06-20.md": {
+	id: "2023-06-20.md";
+  slug: "2023-06-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230704.md": {
-	id: "20230704.md";
-  slug: "20230704";
+"2023-07-04.md": {
+	id: "2023-07-04.md";
+  slug: "2023-07-04";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230820.md": {
-	id: "20230820.md";
-  slug: "20230820";
+"2023-08-20.md": {
+	id: "2023-08-20.md";
+  slug: "2023-08-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230826.md": {
-	id: "20230826.md";
-  slug: "20230826";
+"2023-08-26.md": {
+	id: "2023-08-26.md";
+  slug: "2023-08-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230910.md": {
-	id: "20230910.md";
-  slug: "20230910";
+"2023-09-10.md": {
+	id: "2023-09-10.md";
+  slug: "2023-09-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230912.md": {
-	id: "20230912.md";
-  slug: "20230912";
+"2023-09-12.md": {
+	id: "2023-09-12.md";
+  slug: "2023-09-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230918.md": {
-	id: "20230918.md";
-  slug: "20230918";
+"2023-09-18.md": {
+	id: "2023-09-18.md";
+  slug: "2023-09-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230921.md": {
-	id: "20230921.md";
-  slug: "20230921";
+"2023-09-21.md": {
+	id: "2023-09-21.md";
+  slug: "2023-09-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20230927.md": {
-	id: "20230927.md";
-  slug: "20230927";
+"2023-09-27.md": {
+	id: "2023-09-27.md";
+  slug: "2023-09-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231002.md": {
-	id: "20231002.md";
-  slug: "20231002";
+"2023-10-02.md": {
+	id: "2023-10-02.md";
+  slug: "2023-10-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231003.md": {
-	id: "20231003.md";
-  slug: "20231003";
+"2023-10-03.md": {
+	id: "2023-10-03.md";
+  slug: "2023-10-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231008.md": {
-	id: "20231008.md";
-  slug: "20231008";
+"2023-10-08.md": {
+	id: "2023-10-08.md";
+  slug: "2023-10-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231009.md": {
-	id: "20231009.md";
-  slug: "20231009";
+"2023-10-09.md": {
+	id: "2023-10-09.md";
+  slug: "2023-10-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231010.md": {
-	id: "20231010.md";
-  slug: "20231010";
+"2023-10-10.md": {
+	id: "2023-10-10.md";
+  slug: "2023-10-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231016.md": {
-	id: "20231016.md";
-  slug: "20231016";
+"2023-10-16.md": {
+	id: "2023-10-16.md";
+  slug: "2023-10-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231017.md": {
-	id: "20231017.md";
-  slug: "20231017";
+"2023-10-17.md": {
+	id: "2023-10-17.md";
+  slug: "2023-10-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231018.md": {
-	id: "20231018.md";
-  slug: "20231018";
+"2023-10-18.md": {
+	id: "2023-10-18.md";
+  slug: "2023-10-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231019.md": {
-	id: "20231019.md";
-  slug: "20231019";
+"2023-10-19.md": {
+	id: "2023-10-19.md";
+  slug: "2023-10-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231020.md": {
-	id: "20231020.md";
-  slug: "20231020";
+"2023-10-20.md": {
+	id: "2023-10-20.md";
+  slug: "2023-10-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231021.md": {
-	id: "20231021.md";
-  slug: "20231021";
+"2023-10-21.md": {
+	id: "2023-10-21.md";
+  slug: "2023-10-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231022.md": {
-	id: "20231022.md";
-  slug: "20231022";
+"2023-10-22.md": {
+	id: "2023-10-22.md";
+  slug: "2023-10-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231023.md": {
-	id: "20231023.md";
-  slug: "20231023";
+"2023-10-23.md": {
+	id: "2023-10-23.md";
+  slug: "2023-10-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231024.md": {
-	id: "20231024.md";
-  slug: "20231024";
+"2023-10-24.md": {
+	id: "2023-10-24.md";
+  slug: "2023-10-24";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231025.md": {
-	id: "20231025.md";
-  slug: "20231025";
+"2023-10-25.md": {
+	id: "2023-10-25.md";
+  slug: "2023-10-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231026.md": {
-	id: "20231026.md";
-  slug: "20231026";
+"2023-10-26.md": {
+	id: "2023-10-26.md";
+  slug: "2023-10-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231027.md": {
-	id: "20231027.md";
-  slug: "20231027";
+"2023-10-27.md": {
+	id: "2023-10-27.md";
+  slug: "2023-10-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231030.md": {
-	id: "20231030.md";
-  slug: "20231030";
+"2023-10-30.md": {
+	id: "2023-10-30.md";
+  slug: "2023-10-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231102.md": {
-	id: "20231102.md";
-  slug: "20231102";
+"2023-11-02.md": {
+	id: "2023-11-02.md";
+  slug: "2023-11-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231112.md": {
-	id: "20231112.md";
-  slug: "20231112";
+"2023-11-12.md": {
+	id: "2023-11-12.md";
+  slug: "2023-11-12";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231116.md": {
-	id: "20231116.md";
-  slug: "20231116";
+"2023-11-16.md": {
+	id: "2023-11-16.md";
+  slug: "2023-11-16";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231117.md": {
-	id: "20231117.md";
-  slug: "20231117";
+"2023-11-17.md": {
+	id: "2023-11-17.md";
+  slug: "2023-11-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231203.md": {
-	id: "20231203.md";
-  slug: "20231203";
+"2023-12-03.md": {
+	id: "2023-12-03.md";
+  slug: "2023-12-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231215.md": {
-	id: "20231215.md";
-  slug: "20231215";
+"2023-12-15.md": {
+	id: "2023-12-15.md";
+  slug: "2023-12-15";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231219.md": {
-	id: "20231219.md";
-  slug: "20231219";
+"2023-12-19.md": {
+	id: "2023-12-19.md";
+  slug: "2023-12-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"20231221.md": {
-	id: "20231221.md";
-  slug: "20231221";
+"2023-12-21.md": {
+	id: "2023-12-21.md";
+  slug: "2023-12-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
