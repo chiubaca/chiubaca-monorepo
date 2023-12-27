@@ -16,6 +16,12 @@
         "command": "bash apps/notes.chiubaca.com/scripts/move-notes.sh"
       }
     },
+    "process-notes": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node apps/notes.chiubaca.com/scripts/process-md-files.mjs"
+      }
+    },
     "build": {
       "executor": "nx:run-commands",
       "options": {

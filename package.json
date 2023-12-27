@@ -7,7 +7,12 @@
   "dependencies": {
     "@astrojs/check": "^0.3.4",
     "astro": "^4.0.7",
-    "frontmatter-file-batcher": "^0.0.1-beta.0"
+    "frontmatter-file-batcher": "^0.0.1-beta.0",
+    "remark-frontmatter": "^5.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-stringify": "^11.0.0",
+    "to-vfile": "^8.0.0",
+    "unified": "^11.0.4"
   },
   "devDependencies": {
     "@nx/eslint": "17.2.7",
