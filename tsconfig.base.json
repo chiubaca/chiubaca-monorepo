@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "jsx": "react",
     "strictNullChecks": true,
     "rootDir": ".",
     "sourceMap": true,
@@ -16,7 +17,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@chiubaca-ui": ["libs/chiubaca-ui"],
+      "@chiubaca-ui": ["libs/chiubaca-ui"]
     }
   },
   "exclude": ["node_modules", "tmp"]
