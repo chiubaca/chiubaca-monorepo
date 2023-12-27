@@ -16,8 +16,5 @@ export const collections = {
   [noteTypes.enum["fleeting-notes"]]: noteCollection,
   [noteTypes.enum["index-notes"]]: noteCollection,
   [noteTypes.enum["literature-notes"]]: noteCollection,
-  [noteTypes.enum['permanent-notes']]: noteCollection,
+  [noteTypes.enum["permanent-notes"]]: noteCollection,
 };
-
-
-
