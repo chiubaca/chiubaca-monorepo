@@ -1,6 +1,6 @@
-// loop over all files in tmp/fleeting-notes
-// the file name is a date in the format 20231024.md but it
-// needs to be updated to 2023-10-24.md
+/**
+ * Update the file names of all fleeting notes to be in the format YYYY-MM-DD from YYYYMMDD.md.  
+ */
 const fs = require("fs");
 const path = require("path");
 
@@ -21,4 +21,6 @@ fs.readdirSync(fleetingNotesDir).forEach((filename) => {
     path.join(fleetingNotesDir, filename),
     path.join(fleetingNotesDir, newFilename),
   );
+  
+  console.log(`Updated ${filename} to, ${newFilename}`);
 });

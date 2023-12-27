@@ -1,7 +1,8 @@
-// Remove the layout property frontmatter from all markdown files.
+/**
+ * Remove the layout property frontmatter from all markdown files.
+ */
 
 const { read, batch } = require("frontmatter-file-batcher");
-
 
 batch("tmp/**/**.md", 100, async ({ goods, actions }) => {
  
@@ -12,6 +13,6 @@ batch("tmp/**/**.md", 100, async ({ goods, actions }) => {
 
   await save(goods);
  
-  console.log("Just saved:", goods.path);
+  console.log("Removed layout property from:", goods.path);
 
 });
