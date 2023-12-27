@@ -5,3 +5,8 @@
 
 # Ignore content in astro content dir
 apps/notes.chiubaca.com/src/content/**/*.md
+
+# Ignore any files inside  directory named .astro
+**/.astro
+
+
