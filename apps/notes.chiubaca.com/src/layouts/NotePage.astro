@@ -15,9 +15,11 @@ const entry = await getEntry(noteType, slug);
 
 if (!entry) return;
 
+const date = entry.data.publish_date;
+
 const { Content } = await entry.render();
 ---
 
-<div>Hello Note page {path}!!</div>
+<div>Hello Note page {path}!! {date}</div>
 
 <Content />

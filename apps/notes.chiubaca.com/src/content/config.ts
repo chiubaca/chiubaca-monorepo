@@ -5,10 +5,10 @@ import { noteTypes } from "../common/types";
 
 const noteCollection = defineCollection({
   type: "content",
-  // schema: z.object({
-  //   publish_date: z.number(),
-  // }),
-  schema: z.any()
+  schema: z.object({
+    publish_date: z.string().transform((d) => new Date(d)),
+  }),
+  // schema: z.any()
 });
 
 // 3. Export a single `collections` object to register your collection(s)
