@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import type { NoteTypes } from "../common/types";
+
+interface Props {
+  path: NoteTypes;
+}
+
+const { path } = Astro.props;
+
+const noteCollection = await getCollection(path);
+
+const sortedNoteCollectionByLatestFirst = noteCollection.sort((a, b) =>
+  a.data.publish_date > b.data.publish_date ? -1 : 1,
+);
+---
+
+<div>Hello Custom fleeting notes listing page: {path}!!</div>
+{
+  sortedNoteCollectionByLatestFirst.map((note) => {
+    return (
+      <h2>
+        <a href={`${note.collection}/${note.slug}`}>{note.slug}</a>
+      </h2>
+    );
+  })
+}

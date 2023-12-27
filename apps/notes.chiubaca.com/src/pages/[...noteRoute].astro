@@ -1,8 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 
-import ListingPage from "../layouts/ListingPage.astro";
-import NotePage from "../layouts/NotePage.astro";
+import NotePage from "../components/NotePage.astro";
+import ListingPage from "../components/ListingPage.astro";
+import FleetingNotesListingPage from "../components/FleetingNotesListingPage.astro";
 
 import { noteTypes, type AllPaths } from "../common/types";
 
@@ -40,13 +41,23 @@ export async function getStaticPaths() {
 
 const { noteRoute } = Astro.params;
 
-const isIndexPage =
+const isListingPage =
   noteRoute === "fleeting-notes" ||
   noteRoute === "literature-notes" ||
   noteRoute === "permanent-notes" ||
   noteRoute === "index-notes";
+
+const isFleetingNotesCollection = noteRoute === "fleeting-notes";
 ---
 
-<h1>Hello {noteRoute}</h1>
-
-{isIndexPage ? <ListingPage path={noteRoute} /> : <NotePage path={noteRoute} />}
+{
+  isListingPage ? (
+    isFleetingNotesCollection ? (
+      <FleetingNotesListingPage path={noteRoute} />
+    ) : (
+      <ListingPage path={noteRoute} />
+    )
+  ) : (
+    <NotePage path={noteRoute} />
+  )
+}
