@@ -17,11 +17,15 @@ const sortedNoteCollectionByLatestFirst = noteCollection.sort((a, b) =>
 
 <div>Hello Custom fleeting notes listing page: {path}!!</div>
 {
-  sortedNoteCollectionByLatestFirst.map((note) => {
+  sortedNoteCollectionByLatestFirst.map(async (note) => {
+    const { Content } = await note.render();
     return (
-      <h2>
-        <a href={`${note.collection}/${note.slug}`}>{note.slug}</a>
-      </h2>
+      <>
+        <h2>
+          <a href={`${note.collection}/${note.slug}`}>{note.slug}</a>
+        </h2>
+        <Content />
+      </>
     );
   })
 }
