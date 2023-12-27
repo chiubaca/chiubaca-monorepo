@@ -7,6 +7,12 @@
       "options": {
         "command": "bash tools/md-conversion/run-scripts.sh"
       }
+    },
+    "format": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prettier --write tools/md-conversion"
+      }
     }
   },
   "tags": []
