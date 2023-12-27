@@ -11,7 +11,7 @@
         "sourceType": "module"
       },
       "rules": {
-        "prettier/prettier": "on"
+        "prettier/prettier": 2
       }
     }
   ]
