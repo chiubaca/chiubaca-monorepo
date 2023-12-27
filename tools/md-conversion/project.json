@@ -13,6 +13,9 @@
       "options": {
         "command": "prettier --write tools/md-conversion"
       }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": []

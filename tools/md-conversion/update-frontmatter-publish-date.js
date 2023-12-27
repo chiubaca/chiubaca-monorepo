@@ -1,11 +1,11 @@
 /**
  * Update the publish date in the frontmatter of all markdown files to 'YYYY-MM-DD'.
  */
-const { read, batch } = require("frontmatter-file-batcher");
+const { batch } = require("frontmatter-file-batcher");
 
 batch("tmp/**/**.md", 100, async ({ goods, actions }) => {
   try {
-    const { update, save } = actions;
+    const { save } = actions;
 
     if (!goods.data["publish_date"]) {
       console.log("No publish date found for:", goods.path);
