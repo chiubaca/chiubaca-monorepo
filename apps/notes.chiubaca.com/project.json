@@ -13,7 +13,7 @@
     "moves-notes": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "mv tmp/fleeting-notes tmp/index-notes tmp/permanent-notes apps/notes.chiubaca.com/src/content/ && rm -rf tmp"
+        "command": "bash apps/notes.chiubaca.com/scripts/move-notes.sh"
       }
     },
     "build": {
