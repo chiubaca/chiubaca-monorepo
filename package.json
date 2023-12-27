@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@nx/eslint": "17.2.7",
+    "@nx/eslint-plugin": "^17.2.7",
     "@nx/js": "17.2.7",
     "@nx/workspace": "17.2.7",
     "@swc-node/register": "~1.6.7",

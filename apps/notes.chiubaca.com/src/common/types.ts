@@ -1,5 +1,4 @@
 import { z } from "astro/zod";
-import type { getEntryBySlug } from "astro:content";
 
 export const noteTypes = z.enum([
   "fleeting-notes",

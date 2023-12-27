@@ -1,18 +1,5 @@
 {
-  "extends": ["../../.eslintrc.json", "plugin:astro/recommended", "prettier"],
-  "overrides": [
-    {
-      "files": ["*.astro"],
-      "plugins": ["astro"],
-      "parser": "astro-eslint-parser",
-      "parserOptions": {
-        "parser": "@typescript-eslint/parser",
-        "extraFileExtensions": [".astro"],
-        "sourceType": "module"
-      },
-      "rules": {
-        "prettier/prettier": 2
-      }
-    }
-  ]
+  "extends": ["../../.eslintrc.json"],
+  "ignorePatterns": ["**/*.mjs"],
+  "overrides": []
 }
