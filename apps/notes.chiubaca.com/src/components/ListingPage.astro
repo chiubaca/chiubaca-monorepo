@@ -9,15 +9,11 @@ interface Props {
 const { path } = Astro.props;
 
 const noteCollection = await getCollection(path);
-
-const sortedNoteCollectionByLatestFirst = noteCollection.sort((a, b) =>
-  a.data.publish_date > b.data.publish_date ? -1 : 1,
-);
 ---
 
 <div>Hello listing page: {path}!!</div>
 {
-  sortedNoteCollectionByLatestFirst.map((note) => {
+  noteCollection.map((note) => {
     return (
       <h2>
         <a href={`${note.collection}/${note.slug}`}>{note.slug}</a>
