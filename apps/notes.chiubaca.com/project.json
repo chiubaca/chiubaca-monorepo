@@ -1,7 +1,7 @@
 {
   "name": "notes.chiubaca.com",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/note.chiubaca.com/src",
+  "sourceRoot": "apps/notes.chiubaca.com/src",
   "projectType": "application",
   "targets": {
     "download-notes": {

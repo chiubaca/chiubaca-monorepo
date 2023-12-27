@@ -2,6 +2,6 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  outDir: "../../dist/apps/note.chiubaca.com",
+  outDir: "../../dist/apps/notes.chiubaca.com",
   integrations: [],
 });
