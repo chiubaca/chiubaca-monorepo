@@ -5,7 +5,7 @@ import NotePage from "../layouts/NotePage.astro";
 import ListingPage from "../layouts/ListingPage.astro";
 import FleetingNotesListingPage from "../layouts/FleetingNotesListingPage.astro";
 
-import { noteTypes, type AllPaths } from "../common/types";
+import { noteTypes, type AllPaths, NoteTypes } from "../common/types";
 
 type Route = {
   params: { noteRoute: AllPaths };
@@ -41,23 +41,24 @@ export async function getStaticPaths() {
 
 const { noteRoute } = Astro.params;
 
-const isListingPage =
-  noteRoute === "fleeting-notes" ||
-  noteRoute === "literature-notes" ||
-  noteRoute === "permanent-notes" ||
-  noteRoute === "index-notes";
+const LISTING_PAGE_COMPONENT_LOOKUP: Record<NoteTypes, any> = {
+  "fleeting-notes": FleetingNotesListingPage,
+  "literature-notes": ListingPage,
+  "permanent-notes": ListingPage,
+  "index-notes": ListingPage,
+};
 
-const isFleetingNotesCollection = noteRoute === "fleeting-notes";
+function routeHandler(noteRoute: AllPaths) {
+  // return the listing page component if we have a match
+  if (LISTING_PAGE_COMPONENT_LOOKUP[noteRoute]) {
+    return { PageComponent: LISTING_PAGE_COMPONENT_LOOKUP[noteRoute] };
+  }
+  // otherwise we're on a slug page e.g /fleeting-notes/01-01-2023
+  // so render a single Note.
+  return { PageComponent: NotePage };
+}
+
+const { PageComponent } = routeHandler(noteRoute);
 ---
 
-{
-  isListingPage ? (
-    isFleetingNotesCollection ? (
-      <FleetingNotesListingPage />
-    ) : (
-      <ListingPage path={noteRoute} />
-    )
-  ) : (
-    <NotePage path={noteRoute} />
-  )
-}
+<PageComponent path={noteRoute} />
