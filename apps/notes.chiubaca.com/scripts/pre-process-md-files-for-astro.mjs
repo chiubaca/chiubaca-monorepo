@@ -18,6 +18,10 @@ const updateImageUrls = (markdownAst) => {
   if (markdownAst.children) {
     for (let child of markdownAst.children) {
       if (child.type === "image") {
+        // skip images which are externally hosted.
+        if (child.url.startsWith("https")) {
+          return;
+        }
         const originalUrl = child.url;
         const newUrl = "/" + originalUrl;
         child.url = newUrl;
