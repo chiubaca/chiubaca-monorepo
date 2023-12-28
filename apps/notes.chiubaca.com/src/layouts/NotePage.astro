@@ -1,6 +1,7 @@
 ---
 import { getEntry } from "astro:content";
 import type { SlugPaths, NoteTypes } from "../common/types";
+import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
   path: SlugPaths;
@@ -20,6 +21,12 @@ const date = entry.data.publish_date;
 const { Content } = await entry.render();
 ---
 
-<div>Hello Note page {path}!! {date}</div>
+<BaseLayout>
+  <Content />
 
-<Content />
+  <a
+    href={`https://github.com/chiubaca/learning/blob/main/${noteType}/${slug}.md`}
+  >
+    Edit on GitHub ✏️
+  </a>
+</BaseLayout>

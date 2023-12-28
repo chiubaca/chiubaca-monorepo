@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import type { NoteTypes } from "../common/types";
+import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
   path: NoteTypes;
@@ -15,17 +16,20 @@ const sortedNoteCollectionByLatestFirst = noteCollection.sort((a, b) =>
 );
 ---
 
-<div>Hello Custom fleeting notes listing page: {path}!!</div>
-{
-  sortedNoteCollectionByLatestFirst.map(async (note) => {
-    const { Content } = await note.render();
-    return (
-      <>
-        <h2>
-          <a href={`${note.collection}/${note.slug}`}>{note.slug}</a>
-        </h2>
-        <Content />
-      </>
-    );
-  })
-}
+<BaseLayout title="Fleeting Notes">
+  {
+    sortedNoteCollectionByLatestFirst.map(async (note) => {
+      const { Content } = await note.render();
+      return (
+        <>
+          <h2>
+            <a class="link link-hover" href={`${note.collection}/${note.slug}`}>
+              {note.slug}
+            </a>
+          </h2>
+          <Content />
+        </>
+      );
+    })
+  }
+</BaseLayout>

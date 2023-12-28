@@ -1,28 +1,54 @@
 ---
-import { Header } from "@chiubaca-ui";
-
 import { noteTypes } from "../common/types";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const noteTypeTitles = Object.values(noteTypes.enum).map((noteType) => {
   return noteType;
 });
 ---
 
-<html>
-  <body>
-    <Header />
-    <h1 class="text-2xl text-fuchsia-700">notes.chiubaca.com</h1>
-  </body>
+<BaseLayout>
+  <main class="">
+    <ul class="flex flex-col">
+      {
+        noteTypeTitles.map((title) => {
+          switch (title) {
+            case "fleeting-notes":
+              return (
+                <a class="link link-hover" href={title}>
+                  <li>📝 All Fleeting Notes</li>
+                </a>
+              );
+            case "literature-notes":
+              return (
+                <a class="link link-hover" href={title}>
+                  <li>📚 All Literature Notes</li>
+                </a>
+              );
+            case "permanent-notes":
+              return (
+                <a class="link link-hover" href={title}>
+                  <li>🧠 Permanent Notes</li>
+                </a>
+              );
+            case "index-notes":
+              return (
+                <a class="link link-hover" href={title}>
+                  <li>🔢 Index Notes</li>
+                </a>
+              );
 
-  <ul>
-    {
-      noteTypeTitles.map((title) => {
-        return (
-          <a href={title}>
-            <li>{title} notes</li>
-          </a>
-        );
-      })
-    }
-  </ul>
-</html>
+            default:
+              break;
+          }
+
+          return (
+            <a class="link link-hover" href={title}>
+              <li>{title} notes</li>
+            </a>
+          );
+        })
+      }
+    </ul>
+  </main>
+</BaseLayout>
