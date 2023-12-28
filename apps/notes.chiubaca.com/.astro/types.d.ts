@@ -6323,20 +6323,6 @@ declare module 'astro:content' {
   collection: "index-notes";
   data: InferEntrySchema<"index-notes">
 } & { render(): Render[".md"] };
-"Business Ideas.md": {
-	id: "Business Ideas.md";
-  slug: "business-ideas";
-  body: string;
-  collection: "index-notes";
-  data: InferEntrySchema<"index-notes">
-} & { render(): Render[".md"] };
-"Svelte.md": {
-	id: "Svelte.md";
-  slug: "svelte";
-  body: string;
-  collection: "index-notes";
-  data: InferEntrySchema<"index-notes">
-} & { render(): Render[".md"] };
 "Three-js.md": {
 	id: "Three-js.md";
   slug: "three-js";
@@ -6347,6 +6333,20 @@ declare module 'astro:content' {
 "Zettelkasten.md": {
 	id: "Zettelkasten.md";
   slug: "zettelkasten";
+  body: string;
+  collection: "index-notes";
+  data: InferEntrySchema<"index-notes">
+} & { render(): Render[".md"] };
+"business-ideas.md": {
+	id: "business-ideas.md";
+  slug: "business-ideas";
+  body: string;
+  collection: "index-notes";
+  data: InferEntrySchema<"index-notes">
+} & { render(): Render[".md"] };
+"svelte.md": {
+	id: "svelte.md";
+  slug: "svelte";
   body: string;
   collection: "index-notes";
   data: InferEntrySchema<"index-notes">
@@ -6491,6 +6491,13 @@ declare module 'astro:content' {
 "remix-basics.md": {
 	id: "remix-basics.md";
   slug: "remix-basics";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
+"resources.md": {
+	id: "resources.md";
+  slug: "resources";
   body: string;
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
