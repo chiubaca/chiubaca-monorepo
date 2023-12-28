@@ -1,15 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import type { NoteTypes } from "../common/types";
 import BaseLayout from "./BaseLayout.astro";
 
-interface Props {
-  path: NoteTypes;
-}
-
-const { path } = Astro.props;
-
-const noteCollection = await getCollection(path);
+const noteCollection = await getCollection("fleeting-notes");
 
 const sortedNoteCollectionByLatestFirst = noteCollection.sort((a, b) =>
   a.data.publish_date > b.data.publish_date ? -1 : 1,

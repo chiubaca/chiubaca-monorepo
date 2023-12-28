@@ -4,7 +4,7 @@ import type { NoteTypes } from "../common/types";
 import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
-  path: NoteTypes;
+  path: Exclude<NoteTypes, "fleeting-notes">;
 }
 
 const { path } = Astro.props;
@@ -12,20 +12,18 @@ const { path } = Astro.props;
 const noteCollection = await getCollection(path);
 ---
 
-<BaseLayout>
+<BaseLayout title={path}>
   <main class="flex flex-col">
     {
       noteCollection.map((note) => {
         return (
           <h2>
             <a class="link link-hover" href={`${note.collection}/${note.slug}`}>
-              {note.slug}
+              {note.data.title}
             </a>
           </h2>
         );
       })
     }
-
-    <footer>links go here</footer>
   </main>
 </BaseLayout>
