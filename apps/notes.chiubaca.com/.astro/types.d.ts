@@ -6314,6 +6314,13 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
+"2023-12-28.md": {
+	id: "2023-12-28.md";
+  slug: "2023-12-28";
+  body: string;
+  collection: "fleeting-notes";
+  data: InferEntrySchema<"fleeting-notes">
+} & { render(): Render[".md"] };
 };
 "index-notes": {
 "Astro.md": {
@@ -6356,13 +6363,6 @@ declare module 'astro:content' {
 "all-things-vector-tiles.md": {
 	id: "all-things-vector-tiles.md";
   slug: "all-things-vector-tiles";
-  body: string;
-  collection: "literature-notes";
-  data: InferEntrySchema<"literature-notes">
-} & { render(): Render[".md"] };
-"building-a-headless-dropshipping-site.md": {
-	id: "building-a-headless-dropshipping-site.md";
-  slug: "building-a-headless-dropshipping-site";
   body: string;
   collection: "literature-notes";
   data: InferEntrySchema<"literature-notes">
@@ -6446,23 +6446,9 @@ declare module 'astro:content' {
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
 } & { render(): Render[".md"] };
-"holograpic-cards-tilt-effect.md": {
-	id: "holograpic-cards-tilt-effect.md";
-  slug: "holograpic-cards-tilt-effect";
-  body: string;
-  collection: "permanent-notes";
-  data: InferEntrySchema<"permanent-notes">
-} & { render(): Render[".md"] };
 "must-have-mac-apps.md": {
 	id: "must-have-mac-apps.md";
   slug: "must-have-mac-apps";
-  body: string;
-  collection: "permanent-notes";
-  data: InferEntrySchema<"permanent-notes">
-} & { render(): Render[".md"] };
-"nextjs-vs-remix.md": {
-	id: "nextjs-vs-remix.md";
-  slug: "nextjs-vs-remix";
   body: string;
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
