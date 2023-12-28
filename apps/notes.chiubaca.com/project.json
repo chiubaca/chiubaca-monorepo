@@ -16,10 +16,10 @@
         "command": "bash apps/notes.chiubaca.com/scripts/move-notes.sh"
       }
     },
-    "process-notes": {
+    "pre-process-md-files-for-astro": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "node apps/notes.chiubaca.com/scripts/process-md-files.mjs"
+        "command": "node apps/notes.chiubaca.com/scripts/pre-process-md-files-for-astro.mjs"
       }
     },
     "build": {
