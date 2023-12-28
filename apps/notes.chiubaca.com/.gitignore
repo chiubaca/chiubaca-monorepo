@@ -2,3 +2,4 @@ src/content/**/*
 !src/content/config.ts
 
 public/*
+!public/.gitkeep
