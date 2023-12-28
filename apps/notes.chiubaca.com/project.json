@@ -31,7 +31,7 @@
     "ci:build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx nx run notes.chiubaca.com:download-notes && npx nx run notes.chiubaca.com:moves-notes &&  npx nx run notes.chiubaca.com:pre-process-md-files-for-astro && npx astro --root apps/notes.chiubaca.com build"
+        "command": "npx nx run notes.chiubaca.com:download-notes && npx nx run notes.chiubaca.com:moves-notes &&  npx nx run notes.chiubaca.com:pre-process-md-files-for-astro && npx astro --root apps/notes.chiubaca.com build && rm -rf tmp"
       }
     },
     "lint": {
