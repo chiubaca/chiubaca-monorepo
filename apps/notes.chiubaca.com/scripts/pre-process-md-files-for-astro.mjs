@@ -10,6 +10,8 @@ import { read } from "to-vfile";
 const CONTENT_DIR = "apps/notes.chiubaca.com/src/content";
 
 /**
+ * In obsidian we reference image in its relative folder.
+ * In the website we need it relative to the root of the website.
  * This convert markdown images from 'image.png' to '/image.png'
  * So that it can reference its image from the root of the website.
  * @param {import('unist').Parent} markdownAst
@@ -30,6 +32,30 @@ const updateImageUrls = (markdownAst) => {
         );
       }
       updateImageUrls(child);
+    }
+  }
+};
+
+/**
+ * Obsidian links from one md to another but in the website-
+ * they're html files, therefore we need to remove any .md extensions.
+ * @param {import('unist').Parent} markdownAst
+ */
+const removeMdExtensionFromLinks = (markdownAst) => {
+  if (markdownAst.children) {
+    for (let child of markdownAst.children) {
+      if (child.type === "link") {
+        // check if link has an extension that ends in .md
+        if (!child.url.endsWith(".md")) return;
+
+        const originalUrl = child.url;
+        const newUrl = originalUrl.replace(".md", "");
+        child.url = newUrl;
+        console.log(
+          `MD mutation: Updated link url from ${originalUrl} to ${newUrl}`,
+        );
+      }
+      removeMdExtensionFromLinks(child);
     }
   }
 };
@@ -73,6 +99,7 @@ const markdownMutations = (markDownAst) => {
   //👇ADD MORE MD MUTATIONS HERE👇
 
   updateImageUrls(markDownAst);
+  removeMdExtensionFromLinks(markDownAst);
 
   //👆ADD MORE MD MUTATIONS HERE👆
 };
