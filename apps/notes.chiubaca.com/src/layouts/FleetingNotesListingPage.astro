@@ -10,19 +10,24 @@ const sortedNoteCollectionByLatestFirst = noteCollection.sort((a, b) =>
 ---
 
 <BaseLayout title="Fleeting Notes">
-  {
-    sortedNoteCollectionByLatestFirst.map(async (note) => {
-      const { Content } = await note.render();
-      return (
-        <>
-          <h2>
-            <a class="link link-hover" href={`${note.collection}/${note.slug}`}>
-              {note.slug}
-            </a>
-          </h2>
-          <Content />
-        </>
-      );
-    })
-  }
+  <main>
+    {
+      sortedNoteCollectionByLatestFirst.map(async (note) => {
+        const { Content } = await note.render();
+        return (
+          <article class="prose m-10 ">
+            <h2>
+              <a
+                class="link link-hover text-lg underline"
+                href={`${note.collection}/${note.slug}`}
+              >
+                {note.slug}
+              </a>
+            </h2>
+            <Content />
+          </article>
+        );
+      })
+    }
+  </main>
 </BaseLayout>

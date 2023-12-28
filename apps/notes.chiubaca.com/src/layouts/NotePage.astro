@@ -22,11 +22,15 @@ const { Content } = await entry.render();
 ---
 
 <BaseLayout>
-  <Content />
+  <article class="prose m-10 mx-auto">
+    <Content />
+  </article>
 
-  <a
-    href={`https://github.com/chiubaca/learning/blob/main/${noteType}/${slug}.md`}
-  >
-    Edit on GitHub ✏️
-  </a>
+  <div class="text-center link link-hover pt-3">
+    <a
+      href={`https://github.com/chiubaca/learning/blob/main/${noteType}/${slug}.md`}
+    >
+      Edit on GitHub ✏️
+    </a>
+  </div>
 </BaseLayout>
