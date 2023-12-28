@@ -38,10 +38,12 @@ const updateImageUrls = (markdownAst) => {
 
 /**
  * Obsidian links from one md to another but in the website-
- * they're html files, therefore we need to remove any .md extensions.
+ * they're html files, therefore we need to remove any .md extensions
+ * and also turn into html absolute paths .
+ * e.g 'fleeting-notes/2022-01-01.md' converted to '/fleeting-notes/2022-01-01'
  * @param {import('unist').Parent} markdownAst
  */
-const removeMdExtensionFromLinks = (markdownAst) => {
+const updateBackLinkUrls = (markdownAst) => {
   if (markdownAst.children) {
     for (let child of markdownAst.children) {
       if (child.type === "link") {
@@ -49,13 +51,13 @@ const removeMdExtensionFromLinks = (markdownAst) => {
         if (!child.url.endsWith(".md")) return;
 
         const originalUrl = child.url;
-        const newUrl = originalUrl.replace(".md", "");
+        const newUrl = "/" + originalUrl.replace(".md", "");
         child.url = newUrl;
         console.log(
           `MD mutation: Updated link url from ${originalUrl} to ${newUrl}`,
         );
       }
-      removeMdExtensionFromLinks(child);
+      updateBackLinkUrls(child);
     }
   }
 };
@@ -99,7 +101,7 @@ const markdownMutations = (markDownAst) => {
   //👇ADD MORE MD MUTATIONS HERE👇
 
   updateImageUrls(markDownAst);
-  removeMdExtensionFromLinks(markDownAst);
+  updateBackLinkUrls(markDownAst);
 
   //👆ADD MORE MD MUTATIONS HERE👆
 };
