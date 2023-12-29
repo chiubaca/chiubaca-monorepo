@@ -17,7 +17,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@chiubaca-ui": ["libs/chiubaca-ui"]
+      "@chiubaca-ui": ["libs/chiubaca-ui"],
+      "@shared/types": ["libs/shared/types.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

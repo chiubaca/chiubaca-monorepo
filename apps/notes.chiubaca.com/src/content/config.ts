@@ -1,7 +1,7 @@
 // 1. Import utilities from `astro:content`
 import { defineCollection } from "astro:content";
 import z from "astro/zod";
-import { noteTypes } from "../common/types";
+import { noteTypes } from "../../../../libs/shared/types";
 
 const fleetingNoteCollection = defineCollection({
   type: "content",

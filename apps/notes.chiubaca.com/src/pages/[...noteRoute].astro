@@ -5,7 +5,7 @@ import NotePage from "../layouts/NotePage.astro";
 import ListingPage from "../layouts/ListingPage.astro";
 import FleetingNotesListingPage from "../layouts/FleetingNotesListingPage.astro";
 
-import { noteTypes, type AllPaths, NoteTypes } from "../common/types";
+import { noteTypes, type AllPaths, NoteTypes } from "@shared/types";
 
 type Route = {
   params: { noteRoute: AllPaths };
@@ -62,3 +62,4 @@ const { PageComponent } = routeHandler(noteRoute);
 ---
 
 <PageComponent path={noteRoute} />
+ ../../../../libs/shared/types
