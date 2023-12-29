@@ -4,6 +4,12 @@
   "sourceRoot": "apps/chiubaca.com/src",
   "projectType": "application",
   "targets": {
+    "move-permanent-notes": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "mv tmp/permanent-notes apps/chiubaca.com/src/content/permanent-notes"
+      }
+    },
     "build": {
       "executor": "nx:run-commands",
       "options": {
