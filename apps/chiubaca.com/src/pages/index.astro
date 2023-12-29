@@ -1,5 +1,10 @@
 ---
 import { Header } from "@chiubaca-ui";
+import { getCollection } from "astro:content";
+
+const blogs = await getCollection("permanent-notes");
+
+const liveBlogs = blogs.filter((blog) => blog.data.status === "live");
 ---
 
 <!-- Below is your "component template." It's just HTML, but with
@@ -8,6 +13,14 @@ import { Header } from "@chiubaca-ui";
   <body>
     <Header />
     <h1>Hello, chiubaca.com!!</h1>
+
+    <ul>
+      {
+        liveBlogs.map((blog) => {
+          return <li>{blog.data.title}</li>;
+        })
+      }
+    </ul>
   </body>
 </html>
 <style>

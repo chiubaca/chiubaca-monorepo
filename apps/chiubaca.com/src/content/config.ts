@@ -8,6 +8,7 @@ const noteCollection = defineCollection({
   schema: z.object({
     publish_date: z.union([z.string(), z.date()]).transform((d) => new Date(d)),
     title: z.string(),
+    status: z.enum(["draft", "live"]),
   }),
 });
 
