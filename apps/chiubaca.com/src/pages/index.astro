@@ -1,32 +1,30 @@
 ---
 import { Header } from "@chiubaca-ui";
 import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const blogs = await getCollection("permanent-notes");
 
 const liveBlogs = blogs.filter((blog) => blog.data.status === "live");
 ---
 
-<!-- Below is your "component template." It's just HTML, but with
-     some magic sprinkled in to help you build great templates. -->
-<html>
-  <body>
-    <Header />
-    <h1>chiubaca.com</h1>
+<BaseLayout>
+  <Header />
+  <h1>chiubaca.com</h1>
 
-    <ul>
-      {
-        liveBlogs.map((blog) => {
-          return (
-            <a class="link link-hover" href={blog.slug}>
-              <li>{blog.data.title}</li>
-            </a>
-          );
-        })
-      }
-    </ul>
-  </body>
-</html>
+  <ul>
+    {
+      liveBlogs.map((blog) => {
+        return (
+          <a class="link link-hover" href={blog.slug}>
+            <li>{blog.data.title}</li>
+          </a>
+        );
+      })
+    }
+  </ul>
+</BaseLayout>
+
 <style>
   h1 {
     color: orange;

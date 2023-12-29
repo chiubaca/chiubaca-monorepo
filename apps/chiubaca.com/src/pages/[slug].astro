@@ -1,0 +1,28 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const blogs = await getCollection("permanent-notes");
+
+  const slugPaths = blogs.map((blog) => {
+    return {
+      params: { slug: blog.slug },
+    };
+  });
+  return slugPaths;
+}
+
+const { slug } = Astro.params;
+
+const entry = await getEntry("permanent-notes", slug);
+const { Content } = await entry.render();
+---
+
+<BaseLayout>
+  <article class="prose m-10 mx-auto">
+    <h1>{entry.data.title}</h1>
+
+    <Content />
+  </article>
+</BaseLayout>
