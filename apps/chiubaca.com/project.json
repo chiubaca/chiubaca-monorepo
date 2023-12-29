@@ -19,7 +19,7 @@
     "ci:build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx nx run chiubaca.com:move-permanent-notes && npx astro --root apps/chiubaca.com build"
+        "command": "npx nx run tools/note-utils:download-notes && npx nx run chiubaca.com:move-permanent-notes && npx astro --root apps/chiubaca.com build"
       }
     },
     "lint": {
