@@ -2,6 +2,12 @@
   "name": "tools/note-utils",
   "sourceRoot": "tools/note-utils",
   "targets": {
+    "download-notes": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "git clone https://github.com/chiubaca/learning tmp"
+      }
+    },
     "create-fleeting-note": {
       "executor": "nx:run-commands",
       "options": {
