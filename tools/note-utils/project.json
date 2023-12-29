@@ -1,0 +1,22 @@
+{
+  "name": "tools/note-utils",
+  "sourceRoot": "tools/note-utils",
+  "targets": {
+    "create-fleeting-note": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node tools/note-utils/create-fleeting-note.js"
+      }
+    },
+    "format": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prettier --write tools/md-conversion"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  },
+  "tags": []
+}
