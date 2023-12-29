@@ -12,12 +12,16 @@ const liveBlogs = blogs.filter((blog) => blog.data.status === "live");
 <html>
   <body>
     <Header />
-    <h1>Hello, chiubaca.com!!</h1>
+    <h1>chiubaca.com</h1>
 
     <ul>
       {
         liveBlogs.map((blog) => {
-          return <li>{blog.data.title}</li>;
+          return (
+            <a class="link link-hover" href={blog.slug}>
+              <li>{blog.data.title}</li>
+            </a>
+          );
         })
       }
     </ul>
