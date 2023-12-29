@@ -13,7 +13,7 @@ const fleetingNoteCollection = defineCollection({
 const noteCollection = defineCollection({
   type: "content",
   schema: z.object({
-    publish_date: z.string().transform((d) => new Date(d)),
+    publish_date: z.union([z.string(), z.date()]).transform((d) => new Date(d)),
     title: z.string(),
   }),
 });
