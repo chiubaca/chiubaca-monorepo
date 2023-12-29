@@ -6,7 +6,7 @@ import { noteTypes } from "../common/types";
 const fleetingNoteCollection = defineCollection({
   type: "content",
   schema: z.object({
-    publish_date: z.string().transform((d) => new Date(d)),
+    publish_date: z.union([z.string(), z.date()]).transform((d) => new Date(d)),
   }),
 });
 
