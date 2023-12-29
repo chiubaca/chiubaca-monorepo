@@ -18,5 +18,5 @@ jobs:
       - run: npx nx run tools/note-utils:create-fleeting-note
         env:
           GH_KEY: ${{ secrets.GH_KEY }}
-          NAME: $NAME
-          EMAIL: $EMAIL
+          NAME: ${{ secrets.NAME }}
+          EMAIL: ${{ secrets.EMAIL }}
