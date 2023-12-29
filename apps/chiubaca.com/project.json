@@ -16,6 +16,12 @@
         "command": "npx astro --root apps/chiubaca.com build"
       }
     },
+    "ci:build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx nx run chiubaca.com:move-permanent-notes && npx astro --root apps/chiubaca.com build"
+      }
+    },
     "lint": {
       "executor": "nx:run-commands",
       "options": {
