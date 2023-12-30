@@ -3,19 +3,39 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const fleetingNotes = await getCollection("fleeting-notes");
+const permanentNotes = await getCollection("permanent-notes");
+const litNotes = await getCollection("literature-notes");
 
 type Note = {
   collection: string;
   slug: string;
   tags: string[];
 };
-const notes: Note[] = fleetingNotes.map((c) => {
+const fnotes: Note[] = fleetingNotes.map((c) => {
   return {
     collection: c.collection,
     slug: c.slug,
     tags: c.data.tags,
   };
 });
+
+const pnotes: Note[] = permanentNotes.map((c) => {
+  return {
+    collection: c.collection,
+    slug: c.slug,
+    tags: c.data.tags,
+  };
+});
+
+const lnotes: Note[] = litNotes.map((c) => {
+  return {
+    collection: c.collection,
+    slug: c.slug,
+    tags: c.data.tags,
+  };
+});
+
+const allNotes: Note[] = [...fnotes, ...pnotes, ...lnotes];
 
 type NotesGroupedByTag = {
   tag: string;
@@ -42,13 +62,13 @@ function groupNotesByTag(notes: Note[]): NotesGroupedByTag[] {
   });
 }
 
-const indexedNotes = groupNotesByTag(notes);
+const indexedNotes = groupNotesByTag(allNotes);
 ---
 
 <BaseLayout>
   Indexed Notes
 
-  <main class="grid grid-cols-5 text-center">
+  <main class="">
     {
       indexedNotes.map((tag) => {
         return (
