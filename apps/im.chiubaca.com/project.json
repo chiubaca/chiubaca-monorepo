@@ -1,0 +1,14 @@
+{
+  "name": "im.chiubaca.com",
+  "sourceRoot": "apps/im.chiubaca.com",
+  "projectType": "application",
+  "targets": {
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx vite apps/im.chiubaca.com --open"
+      }
+    }
+  },
+  "tags": []
+}
