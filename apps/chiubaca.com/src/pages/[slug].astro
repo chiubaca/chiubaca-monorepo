@@ -23,6 +23,10 @@ const { Content } = await entry.render();
   <article class="prose m-10 mx-auto">
     <h1>{entry.data.title}</h1>
 
+    <div class="flex items-center justify-center my-10 gap-2">
+      {entry.data.tags.map((tag) => <span class="badge ">{tag}</span>)}
+    </div>
+
     <Content />
   </article>
 </BaseLayout>
