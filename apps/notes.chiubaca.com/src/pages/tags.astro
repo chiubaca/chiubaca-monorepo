@@ -53,33 +53,61 @@ function groupNotesByTag(notes: Note[]): NotesGroupedByTag[] {
   });
 }
 
-const indexedNotes = groupNotesByTag(flattenedNotes);
+const indexedNotes = groupNotesByTag(flattenedNotes).sort((a, b) =>
+  a.tag.localeCompare(b.tag),
+);
+
+const tagNameAndCount = indexedNotes.map((note) => {
+  return {
+    tagName: note.tag,
+    count: note.notes.length,
+  };
+});
 ---
 
 <BaseLayout>
-  Indexed Notes
+  <h1 class="text-3xl p-5">Notes by tag</h1>
 
-  <main class="">
-    {
-      indexedNotes.map((tag) => {
-        return (
-          <div class="">
-            <h2 class="text-2xl py-2"> {tag.tag}</h2>
-            <ul>
-              {tag.notes.map((note) => {
-                return (
-                  <a
-                    class="hover:link hover:link-underline"
-                    href={`/${note.collection}/${note.slug}`}
-                  >
-                    <li> {note.slug} </li>
-                  </a>
-                );
-              })}
-            </ul>
-          </div>
-        );
-      })
-    }
+  <main class="relative">
+    <div class="flex gap-2 flex-wrap p-10 bg-slate-500 z-10">
+      {
+        tagNameAndCount.map((tag) => {
+          return (
+            <a href={`#${tag.tagName}`}>
+              <span class="badge flex gap-2 hover:bg-sky-800">
+                {tag.tagName}
+                <sup>{tag.count}</sup>
+              </span>
+            </a>
+          );
+        })
+      }
+    </div>
+
+    <div class="relative">
+      {
+        indexedNotes.map((tag) => {
+          return (
+            <div class="sticky">
+              <h2 id={tag.tag} class="text-2xl py-2 sticky top-0 bg-sky-800">
+                {tag.tag}
+              </h2>
+              <ul>
+                {tag.notes.map((note) => {
+                  return (
+                    <a
+                      class="hover:link hover:link-underline"
+                      href={`/${note.collection}/${note.slug}`}
+                    >
+                      <li> {note.slug} </li>
+                    </a>
+                  );
+                })}
+              </ul>
+            </div>
+          );
+        })
+      }
+    </div>
   </main>
 </BaseLayout>
