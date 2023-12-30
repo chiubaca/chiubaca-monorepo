@@ -1,5 +1,4 @@
 ---
-import { Header } from "@chiubaca-ui";
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -9,10 +8,7 @@ const liveBlogs = blogs.filter((blog) => blog.data.status === "live");
 ---
 
 <BaseLayout>
-  <Header />
-  <h1>chiubaca.com</h1>
-
-  <ul>
+  <ul class="px-10 mx-auto">
     {
       liveBlogs.map((blog) => {
         return (

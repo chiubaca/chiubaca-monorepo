@@ -11,12 +11,13 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <slot name="head" />
-    <title>Alex's Blog {title && `| ${title}`}</title>
+    <title>chiubaca.com {title && `| ${title}`}</title>
   </head>
   <body class="h-screen">
-    <header class="text-lg link link-hover">
-      <a href="/">Alexs Blog</a>
+    <header class="text-3xl link link-hoverpx-10 mx-auto">
+      <a href="/">chiubaca.com | Blog</a>
     </header>
+    <p>im still rebuilding this site lol</p>
 
     <hr class="my-8" />
     <slot />
