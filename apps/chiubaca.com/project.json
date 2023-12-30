@@ -7,7 +7,7 @@
     "move-permanent-notes": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "mv tmp/permanent-notes apps/chiubaca.com/src/content/permanent-notes"
+        "command": "cp -r tmp-notes/permanent-notes/ apps/chiubaca.com/src/content/"
       }
     },
     "build": {

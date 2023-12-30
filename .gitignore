@@ -39,5 +39,10 @@ testem.log
 Thumbs.db
 
 .nx/cache
+
+# environment variables
 .env
 .env.local
+
+# notes from https://github.com/chiubaca/notes
+tmp-notes

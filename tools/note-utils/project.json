@@ -5,7 +5,7 @@
     "download-notes": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "git clone https://github.com/chiubaca/learning tmp"
+        "command": "git clone https://github.com/chiubaca/notes tmp-notes"
       }
     },
     "create-fleeting-note": {

@@ -5740,13 +5740,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-11-18.md": {
-	id: "2022-11-18.md";
-  slug: "2022-11-18";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-11-19.md": {
 	id: "2022-11-19.md";
   slug: "2022-11-19";
@@ -6321,6 +6314,20 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
+"2023-12-29.md": {
+	id: "2023-12-29.md";
+  slug: "2023-12-29";
+  body: string;
+  collection: "fleeting-notes";
+  data: InferEntrySchema<"fleeting-notes">
+} & { render(): Render[".md"] };
+"2023-12-30.md": {
+	id: "2023-12-30.md";
+  slug: "2023-12-30";
+  body: string;
+  collection: "fleeting-notes";
+  data: InferEntrySchema<"fleeting-notes">
+} & { render(): Render[".md"] };
 };
 "index-notes": {
 "Astro.md": {
@@ -6344,13 +6351,6 @@ declare module 'astro:content' {
   collection: "index-notes";
   data: InferEntrySchema<"index-notes">
 } & { render(): Render[".md"] };
-"business-ideas.md": {
-	id: "business-ideas.md";
-  slug: "business-ideas";
-  body: string;
-  collection: "index-notes";
-  data: InferEntrySchema<"index-notes">
-} & { render(): Render[".md"] };
 "svelte.md": {
 	id: "svelte.md";
   slug: "svelte";
@@ -6360,13 +6360,6 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "literature-notes": {
-"all-things-vector-tiles.md": {
-	id: "all-things-vector-tiles.md";
-  slug: "all-things-vector-tiles";
-  body: string;
-  collection: "literature-notes";
-  data: InferEntrySchema<"literature-notes">
-} & { render(): Render[".md"] };
 "docker-basics.md": {
 	id: "docker-basics.md";
   slug: "docker-basics";
@@ -6377,13 +6370,6 @@ declare module 'astro:content' {
 "does-edge-compute-replace-lambda-functions.md": {
 	id: "does-edge-compute-replace-lambda-functions.md";
   slug: "does-edge-compute-replace-lambda-functions";
-  body: string;
-  collection: "literature-notes";
-  data: InferEntrySchema<"literature-notes">
-} & { render(): Render[".md"] };
-"making-eco-friendly-websites.md": {
-	id: "making-eco-friendly-websites.md";
-  slug: "making-eco-friendly-websites";
   body: string;
   collection: "literature-notes";
   data: InferEntrySchema<"literature-notes">
@@ -6409,15 +6395,15 @@ declare module 'astro:content' {
   collection: "literature-notes";
   data: InferEntrySchema<"literature-notes">
 } & { render(): Render[".md"] };
-"zettelkasten-smart-notes-step-by-step-with-obsidian.md": {
-	id: "zettelkasten-smart-notes-step-by-step-with-obsidian.md";
-  slug: "zettelkasten-smart-notes-step-by-step-with-obsidian";
-  body: string;
-  collection: "literature-notes";
-  data: InferEntrySchema<"literature-notes">
-} & { render(): Render[".md"] };
 };
 "permanent-notes": {
+"all-things-vector-tiles.md": {
+	id: "all-things-vector-tiles.md";
+  slug: "all-things-vector-tiles";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
 "anatomy-of-a-threejs-scene.md": {
 	id: "anatomy-of-a-threejs-scene.md";
   slug: "anatomy-of-a-threejs-scene";
@@ -6432,6 +6418,27 @@ declare module 'astro:content' {
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
 } & { render(): Render[".md"] };
+"build-a-serverless-crud-app-using-vue-js-netlify-and-faunadb.md": {
+	id: "build-a-serverless-crud-app-using-vue-js-netlify-and-faunadb.md";
+  slug: "build-a-serverless-crud-app-using-vue-js-netlify-and-faunadb";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
+"business-ideas.md": {
+	id: "business-ideas.md";
+  slug: "business-ideas";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
+"controlling-my-anxiety-insomnia.md": {
+	id: "controlling-my-anxiety-insomnia.md";
+  slug: "controlling-my-anxiety-insomnia";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
 "docker-commands-cheatsheet.md": {
 	id: "docker-commands-cheatsheet.md";
   slug: "docker-commands-cheatsheet";
@@ -6442,6 +6449,27 @@ declare module 'astro:content' {
 "holograpic-cards-soft-spotlight.md": {
 	id: "holograpic-cards-soft-spotlight.md";
   slug: "holograpic-cards-soft-spotlight";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
+"how-use-npm-modules-client-side-in-astrojs.md": {
+	id: "how-use-npm-modules-client-side-in-astrojs.md";
+  slug: "how-use-npm-modules-client-side-in-astrojs";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
+"making-eco-friendly-websites.md": {
+	id: "making-eco-friendly-websites.md";
+  slug: "making-eco-friendly-websites";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
+"managing-your-self-learning.md": {
+	id: "managing-your-self-learning.md";
+  slug: "managing-your-self-learning";
   body: string;
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
@@ -6488,6 +6516,13 @@ declare module 'astro:content' {
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
 } & { render(): Render[".md"] };
+"shiba-every-hour-a-twitter-bot-powered-by-github-actions.md": {
+	id: "shiba-every-hour-a-twitter-bot-powered-by-github-actions.md";
+  slug: "shiba-every-hour-a-twitter-bot-powered-by-github-actions";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
 "svelte-basics.md": {
 	id: "svelte-basics.md";
   slug: "svelte-basics";
@@ -6498,6 +6533,27 @@ declare module 'astro:content' {
 "swapping-react-for-preact-in-nextjs.md": {
 	id: "swapping-react-for-preact-in-nextjs.md";
   slug: "swapping-react-for-preact-in-nextjs";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
+"typescript-and-netlify-functions.md": {
+	id: "typescript-and-netlify-functions.md";
+  slug: "typescript-and-netlify-functions";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
+"using-javascript-to-write-postgresql-functions.md": {
+	id: "using-javascript-to-write-postgresql-functions.md";
+  slug: "using-javascript-to-write-postgresql-functions";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
+"zettelkasten-smart-notes-step-by-step-with-obsidian.md": {
+	id: "zettelkasten-smart-notes-step-by-step-with-obsidian.md";
+  slug: "zettelkasten-smart-notes-step-by-step-with-obsidian";
   body: string;
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
