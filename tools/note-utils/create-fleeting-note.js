@@ -21,7 +21,9 @@ const currentDate = currentDateStamp();
 async function main() {
   try {
     const placeholderText = `---
-publish_date: ${currentDate}    
+publish_date: ${currentDate}
+tags:
+  - uncategorised
 ---
 - no entry yet`;
 
