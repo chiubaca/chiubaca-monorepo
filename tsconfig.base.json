@@ -18,7 +18,8 @@
     "baseUrl": ".",
     "paths": {
       "@chiubaca-ui": ["libs/chiubaca-ui"],
-      "@shared/types": ["libs/shared/types.ts"]
+      "@shared/types": ["libs/shared/types.ts"],
+      "@shared/zod-schemas": ["libs/shared/zod-schemas.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,14 +1,15 @@
 // 1. Import utilities from `astro:content`
 import { defineCollection } from "astro:content";
 import z from "astro/zod";
-import { noteTypes } from "@shared/types";
+import { noteTypes, publish_date, tags } from "@shared/zod-schemas";
 
 const noteCollection = defineCollection({
   type: "content",
   schema: z.object({
-    publish_date: z.union([z.string(), z.date()]).transform((d) => new Date(d)),
+    publish_date,
     title: z.string(),
     status: z.enum(["draft", "live"]),
+    tags,
   }),
 });
 

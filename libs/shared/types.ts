@@ -1,10 +1,6 @@
 import { z } from "astro/zod";
+import { noteTypes } from "./zod-schemas";
 
-export const noteTypes = z.enum([
-  "fleeting-notes",
-  "literature-notes",
-  "permanent-notes",
-]);
 export type NoteTypes = z.infer<typeof noteTypes>;
 
 export type SlugPaths = `${NoteTypes}/${string}`;

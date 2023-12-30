@@ -1,16 +1,8 @@
 // 1. Import utilities from `astro:content`
 import { defineCollection } from "astro:content";
 import z from "astro/zod";
-import { noteTypes } from "@shared/types";
-
-const publish_date = z
-  .union([z.string(), z.date()])
-  .transform((d) => new Date(d));
-
-const tags = z
-  .array(z.string())
-  .optional()
-  .transform((tags) => (tags ? tags : ["uncategorised"]));
+import { noteTypes } from "@shared/zod-schemas";
+import { publish_date, tags } from "@shared/zod-schemas";
 
 const fleetingNoteCollection = defineCollection({
   type: "content",
@@ -23,8 +15,8 @@ const fleetingNoteCollection = defineCollection({
 const noteCollection = defineCollection({
   type: "content",
   schema: z.object({
-    publish_date,
     title: z.string(),
+    publish_date,
     tags,
   }),
 });

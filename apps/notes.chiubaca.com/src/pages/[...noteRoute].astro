@@ -5,7 +5,8 @@ import NotePage from "../layouts/NotePage.astro";
 import ListingPage from "../layouts/ListingPage.astro";
 import FleetingNotesListingPage from "../layouts/FleetingNotesListingPage.astro";
 
-import { noteTypes, type AllPaths, NoteTypes } from "@shared/types";
+import { noteTypes } from "@shared/zod-schemas";
+import type { AllPaths, NoteTypes } from "@shared/types";
 
 type Route = {
   params: { noteRoute: AllPaths };
