@@ -1,0 +1,75 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const fleetingNotes = await getCollection("fleeting-notes");
+
+type Note = {
+  collection: string;
+  slug: string;
+  tags: string[];
+};
+const notes: Note[] = fleetingNotes.map((c) => {
+  return {
+    collection: c.collection,
+    slug: c.slug,
+    tags: c.data.tags,
+  };
+});
+
+type NotesGroupedByTag = {
+  tag: string;
+  notes: Note[];
+};
+
+function groupNotesByTag(notes: Note[]): NotesGroupedByTag[] {
+  const taggedNotes: { [key: string]: Note[] } = {};
+
+  notes.forEach((note) => {
+    note.tags.forEach((tag) => {
+      if (!taggedNotes[tag]) {
+        taggedNotes[tag] = [];
+      }
+      taggedNotes[tag].push(note);
+    });
+  });
+
+  return Object.keys(taggedNotes).map((tag) => {
+    return {
+      tag,
+      notes: taggedNotes[tag],
+    };
+  });
+}
+
+const indexedNotes = groupNotesByTag(notes);
+---
+
+<BaseLayout>
+  Indexed Notes
+
+  <main class="grid grid-cols-5 text-center">
+    {
+      indexedNotes.map((tag) => {
+        return (
+          <div class="">
+            <h2 class="text-2xl py-2 "> {tag.tag}</h2>
+            <ul>
+              {tag.notes.map((note) => {
+                return (
+                  <a
+                    class="hover:link hover:link-underline"
+                    href={`/${note.collection}/${note.slug}`}
+                  >
+                    {" "}
+                    <li> {note.slug} </li>
+                  </a>
+                );
+              })}
+            </ul>
+          </div>
+        );
+      })
+    }
+  </main>
+</BaseLayout>

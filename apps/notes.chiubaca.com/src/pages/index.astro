@@ -41,14 +41,12 @@ const noteTypeTitles = Object.values(noteTypes.enum).map((noteType) => {
             default:
               break;
           }
-
-          return (
-            <a class="link link-hover" href={title}>
-              <li>{title} notes</li>
-            </a>
-          );
         })
       }
+
+      <a class="link link-hover" href="/tags">
+        <li>🔖 Tags</li>
+      </a>
     </ul>
   </main>
 </BaseLayout>
