@@ -3612,13 +3612,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-01-15.md": {
-	id: "2022-01-15.md";
-  slug: "2022-01-15";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-01-16.md": {
 	id: "2022-01-16.md";
   slug: "2022-01-16";
@@ -3717,27 +3710,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-01-30.md": {
-	id: "2022-01-30.md";
-  slug: "2022-01-30";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-01-31.md": {
-	id: "2022-01-31.md";
-  slug: "2022-01-31";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-02-01.md": {
-	id: "2022-02-01.md";
-  slug: "2022-02-01";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-02-02.md": {
 	id: "2022-02-02.md";
   slug: "2022-02-02";
@@ -3808,27 +3780,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-02-12.md": {
-	id: "2022-02-12.md";
-  slug: "2022-02-12";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-02-13.md": {
-	id: "2022-02-13.md";
-  slug: "2022-02-13";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-02-14.md": {
-	id: "2022-02-14.md";
-  slug: "2022-02-14";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-02-15.md": {
 	id: "2022-02-15.md";
   slug: "2022-02-15";
@@ -3874,20 +3825,6 @@ declare module 'astro:content' {
 "2022-02-21.md": {
 	id: "2022-02-21.md";
   slug: "2022-02-21";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-02-22.md": {
-	id: "2022-02-22.md";
-  slug: "2022-02-22";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-02-23.md": {
-	id: "2022-02-23.md";
-  slug: "2022-02-23";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -4004,27 +3941,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-03-12.md": {
-	id: "2022-03-12.md";
-  slug: "2022-03-12";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-03-13.md": {
-	id: "2022-03-13.md";
-  slug: "2022-03-13";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-03-14.md": {
-	id: "2022-03-14.md";
-  slug: "2022-03-14";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-03-15.md": {
 	id: "2022-03-15.md";
   slug: "2022-03-15";
@@ -4081,20 +3997,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-03-23.md": {
-	id: "2022-03-23.md";
-  slug: "2022-03-23";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-03-24.md": {
-	id: "2022-03-24.md";
-  slug: "2022-03-24";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-03-25.md": {
 	id: "2022-03-25.md";
   slug: "2022-03-25";
@@ -4119,20 +4021,6 @@ declare module 'astro:content' {
 "2022-03-28.md": {
 	id: "2022-03-28.md";
   slug: "2022-03-28";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-03-29.md": {
-	id: "2022-03-29.md";
-  slug: "2022-03-29";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-03-30.md": {
-	id: "2022-03-30.md";
-  slug: "2022-03-30";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -4172,13 +4060,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-04-05.md": {
-	id: "2022-04-05.md";
-  slug: "2022-04-05";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-04-06.md": {
 	id: "2022-04-06.md";
   slug: "2022-04-06";
@@ -4189,48 +4070,6 @@ declare module 'astro:content' {
 "2022-04-07.md": {
 	id: "2022-04-07.md";
   slug: "2022-04-07";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-04-08.md": {
-	id: "2022-04-08.md";
-  slug: "2022-04-08";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-04-09.md": {
-	id: "2022-04-09.md";
-  slug: "2022-04-09";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-04-10.md": {
-	id: "2022-04-10.md";
-  slug: "2022-04-10";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-04-11.md": {
-	id: "2022-04-11.md";
-  slug: "2022-04-11";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-04-12.md": {
-	id: "2022-04-12.md";
-  slug: "2022-04-12";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-04-13.md": {
-	id: "2022-04-13.md";
-  slug: "2022-04-13";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -4270,20 +4109,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-04-19.md": {
-	id: "2022-04-19.md";
-  slug: "2022-04-19";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-04-20.md": {
-	id: "2022-04-20.md";
-  slug: "2022-04-20";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-04-21.md": {
 	id: "2022-04-21.md";
   slug: "2022-04-21";
@@ -4315,20 +4140,6 @@ declare module 'astro:content' {
 "2022-04-25.md": {
 	id: "2022-04-25.md";
   slug: "2022-04-25";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-04-26.md": {
-	id: "2022-04-26.md";
-  slug: "2022-04-26";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-04-27.md": {
-	id: "2022-04-27.md";
-  slug: "2022-04-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -4375,20 +4186,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-05-04.md": {
-	id: "2022-05-04.md";
-  slug: "2022-05-04";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-05-05.md": {
-	id: "2022-05-05.md";
-  slug: "2022-05-05";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-05-06.md": {
 	id: "2022-05-06.md";
   slug: "2022-05-06";
@@ -4399,34 +4196,6 @@ declare module 'astro:content' {
 "2022-05-07.md": {
 	id: "2022-05-07.md";
   slug: "2022-05-07";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-05-08.md": {
-	id: "2022-05-08.md";
-  slug: "2022-05-08";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-05-09.md": {
-	id: "2022-05-09.md";
-  slug: "2022-05-09";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-05-10.md": {
-	id: "2022-05-10.md";
-  slug: "2022-05-10";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-05-11.md": {
-	id: "2022-05-11.md";
-  slug: "2022-05-11";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -4508,13 +4277,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-05-23.md": {
-	id: "2022-05-23.md";
-  slug: "2022-05-23";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-05-24.md": {
 	id: "2022-05-24.md";
   slug: "2022-05-24";
@@ -4592,13 +4354,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-06-04.md": {
-	id: "2022-06-04.md";
-  slug: "2022-06-04";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-06-05.md": {
 	id: "2022-06-05.md";
   slug: "2022-06-05";
@@ -4662,13 +4417,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-06-14.md": {
-	id: "2022-06-14.md";
-  slug: "2022-06-14";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-06-15.md": {
 	id: "2022-06-15.md";
   slug: "2022-06-15";
@@ -4676,23 +4424,9 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-06-16.md": {
-	id: "2022-06-16.md";
-  slug: "2022-06-16";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-06-17.md": {
 	id: "2022-06-17.md";
   slug: "2022-06-17";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-06-18.md": {
-	id: "2022-06-18.md";
-  slug: "2022-06-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -4739,13 +4473,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-06-25.md": {
-	id: "2022-06-25.md";
-  slug: "2022-06-25";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-06-26.md": {
 	id: "2022-06-26.md";
   slug: "2022-06-26";
@@ -4763,13 +4490,6 @@ declare module 'astro:content' {
 "2022-06-28.md": {
 	id: "2022-06-28.md";
   slug: "2022-06-28";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-06-29.md": {
-	id: "2022-06-29.md";
-  slug: "2022-06-29";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -4816,20 +4536,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-07-06.md": {
-	id: "2022-07-06.md";
-  slug: "2022-07-06";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-07-07.md": {
-	id: "2022-07-07.md";
-  slug: "2022-07-07";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-07-08.md": {
 	id: "2022-07-08.md";
   slug: "2022-07-08";
@@ -4840,13 +4546,6 @@ declare module 'astro:content' {
 "2022-07-09.md": {
 	id: "2022-07-09.md";
   slug: "2022-07-09";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-07-10.md": {
-	id: "2022-07-10.md";
-  slug: "2022-07-10";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -4907,13 +4606,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-07-19.md": {
-	id: "2022-07-19.md";
-  slug: "2022-07-19";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-07-20.md": {
 	id: "2022-07-20.md";
   slug: "2022-07-20";
@@ -4963,41 +4655,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-07-27.md": {
-	id: "2022-07-27.md";
-  slug: "2022-07-27";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-07-28.md": {
-	id: "2022-07-28.md";
-  slug: "2022-07-28";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-07-29.md": {
-	id: "2022-07-29.md";
-  slug: "2022-07-29";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-07-30.md": {
-	id: "2022-07-30.md";
-  slug: "2022-07-30";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-07-31.md": {
-	id: "2022-07-31.md";
-  slug: "2022-07-31";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-08-01.md": {
 	id: "2022-08-01.md";
   slug: "2022-08-01";
@@ -5036,13 +4693,6 @@ declare module 'astro:content' {
 "2022-08-06.md": {
 	id: "2022-08-06.md";
   slug: "2022-08-06";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-08-07.md": {
-	id: "2022-08-07.md";
-  slug: "2022-08-07";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -5145,13 +4795,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-08-22.md": {
-	id: "2022-08-22.md";
-  slug: "2022-08-22";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-08-23.md": {
 	id: "2022-08-23.md";
   slug: "2022-08-23";
@@ -5159,23 +4802,9 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-08-24.md": {
-	id: "2022-08-24.md";
-  slug: "2022-08-24";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-08-25.md": {
 	id: "2022-08-25.md";
   slug: "2022-08-25";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-08-26.md": {
-	id: "2022-08-26.md";
-  slug: "2022-08-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -5250,34 +4879,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-09-06.md": {
-	id: "2022-09-06.md";
-  slug: "2022-09-06";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-09-07.md": {
-	id: "2022-09-07.md";
-  slug: "2022-09-07";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-09-08.md": {
-	id: "2022-09-08.md";
-  slug: "2022-09-08";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-09-09.md": {
-	id: "2022-09-09.md";
-  slug: "2022-09-09";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-09-10.md": {
 	id: "2022-09-10.md";
   slug: "2022-09-10";
@@ -5330,13 +4931,6 @@ declare module 'astro:content' {
 "2022-09-17.md": {
 	id: "2022-09-17.md";
   slug: "2022-09-17";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-09-18.md": {
-	id: "2022-09-18.md";
-  slug: "2022-09-18";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -5404,13 +4998,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-09-28.md": {
-	id: "2022-09-28.md";
-  slug: "2022-09-28";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-09-29.md": {
 	id: "2022-09-29.md";
   slug: "2022-09-29";
@@ -5421,20 +5008,6 @@ declare module 'astro:content' {
 "2022-09-30.md": {
 	id: "2022-09-30.md";
   slug: "2022-09-30";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-10-01.md": {
-	id: "2022-10-01.md";
-  slug: "2022-10-01";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-10-02.md": {
-	id: "2022-10-02.md";
-  slug: "2022-10-02";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -5467,58 +5040,9 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-10-10.md": {
-	id: "2022-10-10.md";
-  slug: "2022-10-10";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-10-11.md": {
 	id: "2022-10-11.md";
   slug: "2022-10-11";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-10-12.md": {
-	id: "2022-10-12.md";
-  slug: "2022-10-12";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-10-13.md": {
-	id: "2022-10-13.md";
-  slug: "2022-10-13";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-10-14.md": {
-	id: "2022-10-14.md";
-  slug: "2022-10-14";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-10-15.md": {
-	id: "2022-10-15.md";
-  slug: "2022-10-15";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-10-16.md": {
-	id: "2022-10-16.md";
-  slug: "2022-10-16";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-10-17.md": {
-	id: "2022-10-17.md";
-  slug: "2022-10-17";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -5642,13 +5166,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-11-04.md": {
-	id: "2022-11-04.md";
-  slug: "2022-11-04";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-11-05.md": {
 	id: "2022-11-05.md";
   slug: "2022-11-05";
@@ -5659,27 +5176,6 @@ declare module 'astro:content' {
 "2022-11-06.md": {
 	id: "2022-11-06.md";
   slug: "2022-11-06";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-11-07.md": {
-	id: "2022-11-07.md";
-  slug: "2022-11-07";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-11-08.md": {
-	id: "2022-11-08.md";
-  slug: "2022-11-08";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-11-09.md": {
-	id: "2022-11-09.md";
-  slug: "2022-11-09";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -5712,34 +5208,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-11-14.md": {
-	id: "2022-11-14.md";
-  slug: "2022-11-14";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-11-15.md": {
-	id: "2022-11-15.md";
-  slug: "2022-11-15";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-11-16.md": {
-	id: "2022-11-16.md";
-  slug: "2022-11-16";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-11-17.md": {
-	id: "2022-11-17.md";
-  slug: "2022-11-17";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-11-19.md": {
 	id: "2022-11-19.md";
   slug: "2022-11-19";
@@ -5747,23 +5215,9 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2022-11-20.md": {
-	id: "2022-11-20.md";
-  slug: "2022-11-20";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2022-11-21.md": {
 	id: "2022-11-21.md";
   slug: "2022-11-21";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-11-22.md": {
-	id: "2022-11-22.md";
-  slug: "2022-11-22";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -5778,13 +5232,6 @@ declare module 'astro:content' {
 "2022-11-24.md": {
 	id: "2022-11-24.md";
   slug: "2022-11-24";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2022-11-25.md": {
-	id: "2022-11-25.md";
-  slug: "2022-11-25";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -5883,13 +5330,6 @@ declare module 'astro:content' {
 "2022-12-28.md": {
 	id: "2022-12-28.md";
   slug: "2022-12-28";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2023-01-03.md": {
-	id: "2023-01-03.md";
-  slug: "2023-01-03";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">

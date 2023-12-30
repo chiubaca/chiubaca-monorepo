@@ -10,7 +10,7 @@ const publish_date = z
 const tags = z
   .array(z.string())
   .optional()
-  .transform((tags) => (tags ? tags : []));
+  .transform((tags) => (tags ? tags : ["uncategorised"]));
 
 const fleetingNoteCollection = defineCollection({
   type: "content",

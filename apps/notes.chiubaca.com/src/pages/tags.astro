@@ -20,7 +20,7 @@ const collectionPromise = collections.map(async (collectionName) => {
   return collection.map((note) => ({
     collection: note.collection,
     slug: note.slug,
-    tags: note.data.tags,
+    tags: note.data.tags ? note.data.tags : ["uncategorised"],
   }));
 });
 
