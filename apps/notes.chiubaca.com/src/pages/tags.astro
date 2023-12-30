@@ -1,41 +1,32 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-const fleetingNotes = await getCollection("fleeting-notes");
-const permanentNotes = await getCollection("permanent-notes");
-const litNotes = await getCollection("literature-notes");
+import { NoteTypes } from "@shared/types";
 
 type Note = {
   collection: string;
   slug: string;
   tags: string[];
 };
-const fnotes: Note[] = fleetingNotes.map((c) => {
-  return {
-    collection: c.collection,
-    slug: c.slug,
-    tags: c.data.tags,
-  };
+const collections: NoteTypes[] = [
+  "fleeting-notes",
+  "literature-notes",
+  "permanent-notes",
+];
+
+const collectionPromise = collections.map(async (collectionName) => {
+  const collection = await getCollection(collectionName);
+
+  return collection.map((note) => ({
+    collection: note.collection,
+    slug: note.slug,
+    tags: note.data.tags,
+  }));
 });
 
-const pnotes: Note[] = permanentNotes.map((c) => {
-  return {
-    collection: c.collection,
-    slug: c.slug,
-    tags: c.data.tags,
-  };
-});
+const notesByCollection = await Promise.all(collectionPromise);
 
-const lnotes: Note[] = litNotes.map((c) => {
-  return {
-    collection: c.collection,
-    slug: c.slug,
-    tags: c.data.tags,
-  };
-});
-
-const allNotes: Note[] = [...fnotes, ...pnotes, ...lnotes];
+const flattenedNotes = notesByCollection.flat();
 
 type NotesGroupedByTag = {
   tag: string;
@@ -62,7 +53,7 @@ function groupNotesByTag(notes: Note[]): NotesGroupedByTag[] {
   });
 }
 
-const indexedNotes = groupNotesByTag(allNotes);
+const indexedNotes = groupNotesByTag(flattenedNotes);
 ---
 
 <BaseLayout>
@@ -73,7 +64,7 @@ const indexedNotes = groupNotesByTag(allNotes);
       indexedNotes.map((tag) => {
         return (
           <div class="">
-            <h2 class="text-2xl py-2 "> {tag.tag}</h2>
+            <h2 class="text-2xl py-2"> {tag.tag}</h2>
             <ul>
               {tag.notes.map((note) => {
                 return (
@@ -81,7 +72,6 @@ const indexedNotes = groupNotesByTag(allNotes);
                     class="hover:link hover:link-underline"
                     href={`/${note.collection}/${note.slug}`}
                   >
-                    {" "}
                     <li> {note.slug} </li>
                   </a>
                 );
