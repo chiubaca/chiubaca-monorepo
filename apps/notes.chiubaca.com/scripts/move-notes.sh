@@ -1,7 +1,6 @@
 # copy notes to astro content directory
 dirs=(
       "tmp-notes/fleeting-notes/"
-      "tmp-notes/index-notes/"
       "tmp-notes/permanent-notes/"
       "tmp-notes/literature-notes/"
      )
