@@ -6160,23 +6160,9 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2023-10-17.md": {
-	id: "2023-10-17.md";
-  slug: "2023-10-17";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2023-10-18.md": {
 	id: "2023-10-18.md";
   slug: "2023-10-18";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2023-10-19.md": {
-	id: "2023-10-19.md";
-  slug: "2023-10-19";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -6188,44 +6174,9 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2023-10-21.md": {
-	id: "2023-10-21.md";
-  slug: "2023-10-21";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2023-10-22.md": {
 	id: "2023-10-22.md";
   slug: "2023-10-22";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2023-10-23.md": {
-	id: "2023-10-23.md";
-  slug: "2023-10-23";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2023-10-24.md": {
-	id: "2023-10-24.md";
-  slug: "2023-10-24";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2023-10-25.md": {
-	id: "2023-10-25.md";
-  slug: "2023-10-25";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2023-10-26.md": {
-	id: "2023-10-26.md";
-  slug: "2023-10-26";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -6286,23 +6237,9 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2023-12-19.md": {
-	id: "2023-12-19.md";
-  slug: "2023-12-19";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2023-12-21.md": {
 	id: "2023-12-21.md";
   slug: "2023-12-21";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2023-12-27.md": {
-	id: "2023-12-27.md";
-  slug: "2023-12-27";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -6340,13 +6277,6 @@ declare module 'astro:content' {
 "Three-js.md": {
 	id: "Three-js.md";
   slug: "three-js";
-  body: string;
-  collection: "index-notes";
-  data: InferEntrySchema<"index-notes">
-} & { render(): Render[".md"] };
-"Zettelkasten.md": {
-	id: "Zettelkasten.md";
-  slug: "zettelkasten";
   body: string;
   collection: "index-notes";
   data: InferEntrySchema<"index-notes">
@@ -6460,6 +6390,13 @@ declare module 'astro:content' {
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
 } & { render(): Render[".md"] };
+"learning.md": {
+	id: "learning.md";
+  slug: "learning";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
 "making-eco-friendly-websites.md": {
 	id: "making-eco-friendly-websites.md";
   slug: "making-eco-friendly-websites";
@@ -6509,13 +6446,6 @@ declare module 'astro:content' {
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
 } & { render(): Render[".md"] };
-"resources.md": {
-	id: "resources.md";
-  slug: "resources";
-  body: string;
-  collection: "permanent-notes";
-  data: InferEntrySchema<"permanent-notes">
-} & { render(): Render[".md"] };
 "shiba-every-hour-a-twitter-bot-powered-by-github-actions.md": {
 	id: "shiba-every-hour-a-twitter-bot-powered-by-github-actions.md";
   slug: "shiba-every-hour-a-twitter-bot-powered-by-github-actions";
@@ -6551,9 +6481,9 @@ declare module 'astro:content' {
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
 } & { render(): Render[".md"] };
-"zettelkasten-smart-notes-step-by-step-with-obsidian.md": {
-	id: "zettelkasten-smart-notes-step-by-step-with-obsidian.md";
-  slug: "zettelkasten-smart-notes-step-by-step-with-obsidian";
+"zettelkasten.md": {
+	id: "zettelkasten.md";
+  slug: "zettelkasten";
   body: string;
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">

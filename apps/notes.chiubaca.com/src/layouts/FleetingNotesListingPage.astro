@@ -24,6 +24,9 @@ const sortedNoteCollectionByLatestFirst = noteCollection.sort((a, b) =>
                 {note.slug}
               </a>
             </h2>
+            {note.data.tags.map((tag) => (
+              <span class="badge"> {tag} </span>
+            ))}
             <Content />
           </article>
         );
