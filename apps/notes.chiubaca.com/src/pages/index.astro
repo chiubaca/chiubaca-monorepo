@@ -31,13 +31,6 @@ const noteTypeTitles = Object.values(noteTypes.enum).map((noteType) => {
                   <li>🧠 Permanent Notes</li>
                 </a>
               );
-            case "index-notes":
-              return (
-                <a class="link link-hover" href={title}>
-                  <li>🔢 Index Notes</li>
-                </a>
-              );
-
             default:
               break;
           }
@@ -45,7 +38,7 @@ const noteTypeTitles = Object.values(noteTypes.enum).map((noteType) => {
       }
 
       <a class="link link-hover" href="/tags">
-        <li>🔖 Tags</li>
+        <li>🔖 Tagged Notes</li>
       </a>
     </ul>
   </main>

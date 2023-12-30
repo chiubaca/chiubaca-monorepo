@@ -6272,21 +6272,21 @@ declare module 'astro:content' {
   slug: "astro";
   body: string;
   collection: "index-notes";
-  data: InferEntrySchema<"index-notes">
+  data: any
 } & { render(): Render[".md"] };
 "Three-js.md": {
 	id: "Three-js.md";
   slug: "three-js";
   body: string;
   collection: "index-notes";
-  data: InferEntrySchema<"index-notes">
+  data: any
 } & { render(): Render[".md"] };
 "svelte.md": {
 	id: "svelte.md";
   slug: "svelte";
   body: string;
   collection: "index-notes";
-  data: InferEntrySchema<"index-notes">
+  data: any
 } & { render(): Render[".md"] };
 };
 "literature-notes": {
