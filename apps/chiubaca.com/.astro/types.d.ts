@@ -203,6 +203,13 @@ declare module 'astro:content' {
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
 } & { render(): Render[".md"] };
+"building-my-new-blog-nuxt-vs-gridsome.md": {
+	id: "building-my-new-blog-nuxt-vs-gridsome.md";
+  slug: "building-my-new-blog-nuxt-vs-gridsome";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
 "business-ideas.md": {
 	id: "business-ideas.md";
   slug: "business-ideas";
@@ -234,6 +241,13 @@ declare module 'astro:content' {
 "how-use-npm-modules-client-side-in-astrojs.md": {
 	id: "how-use-npm-modules-client-side-in-astrojs.md";
   slug: "how-use-npm-modules-client-side-in-astrojs";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
+"learning.md": {
+	id: "learning.md";
+  slug: "learning";
   body: string;
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
@@ -287,13 +301,6 @@ declare module 'astro:content' {
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
 } & { render(): Render[".md"] };
-"resources.md": {
-	id: "resources.md";
-  slug: "resources";
-  body: string;
-  collection: "permanent-notes";
-  data: InferEntrySchema<"permanent-notes">
-} & { render(): Render[".md"] };
 "shiba-every-hour-a-twitter-bot-powered-by-github-actions.md": {
 	id: "shiba-every-hour-a-twitter-bot-powered-by-github-actions.md";
   slug: "shiba-every-hour-a-twitter-bot-powered-by-github-actions";
@@ -329,9 +336,9 @@ declare module 'astro:content' {
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
 } & { render(): Render[".md"] };
-"zettelkasten-smart-notes-step-by-step-with-obsidian.md": {
-	id: "zettelkasten-smart-notes-step-by-step-with-obsidian.md";
-  slug: "zettelkasten-smart-notes-step-by-step-with-obsidian";
+"zettelkasten.md": {
+	id: "zettelkasten.md";
+  slug: "zettelkasten";
   body: string;
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
