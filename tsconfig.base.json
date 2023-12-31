@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "jsx": "react",
     "strictNullChecks": true,
     "rootDir": ".",

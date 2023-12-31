@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import dayjs from "dayjs";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const blogs = await getCollection("permanent-notes");
@@ -8,16 +9,21 @@ const liveBlogs = blogs.filter((blog) => blog.data.status === "live");
 ---
 
 <BaseLayout>
-  <main class="mx-auto max-w-[65ch]">
-    <h1>Writing</h1>
+  <main class="mx-auto max-w-[65ch] px-5 md:px-0">
+    <h1 class="pb-5 text-primary">Latest</h1>
 
-    <ul>
+    <ul class="flex flex-col gap-3">
       {
         liveBlogs.map((blog) => {
           return (
-            <a class="link-hover link" href={blog.slug}>
-              <li>{blog.data.title}</li>
-            </a>
+            <div class="flex items-center gap-5">
+              <div class="whitespace-nowrap text-sm text-info">
+                {dayjs(blog.data.publish_date).format("YYYY · MM · DD")}
+              </div>
+              <a class="link-hover link" href={blog.slug}>
+                <li>{blog.data.title}</li>
+              </a>
+            </div>
           );
         })
       }
