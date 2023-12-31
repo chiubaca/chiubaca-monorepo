@@ -9,25 +9,25 @@ const noteTypeTitles = Object.values(noteTypes.enum).map((noteType) => {
 
 <BaseLayout>
   <main class="">
-    <ul class="flex flex-col">
+    <ul class="flex flex-col gap-5 text-2xl">
       {
         noteTypeTitles.map((title) => {
           switch (title) {
             case "fleeting-notes":
               return (
-                <a class="link link-hover" href={title}>
+                <a class="link-hover link" href={title}>
                   <li>📝 All Fleeting Notes</li>
                 </a>
               );
             case "literature-notes":
               return (
-                <a class="link link-hover" href={title}>
+                <a class="link-hover link" href={title}>
                   <li>📚 All Literature Notes</li>
                 </a>
               );
             case "permanent-notes":
               return (
-                <a class="link link-hover" href={title}>
+                <a class="link-hover link" href={title}>
                   <li>🧠 Permanent Notes</li>
                 </a>
               );
@@ -37,7 +37,7 @@ const noteTypeTitles = Object.values(noteTypes.enum).map((noteType) => {
         })
       }
 
-      <a class="link link-hover" href="/tags">
+      <a class="link-hover link" href="/tags">
         <li>🔖 Tagged Notes</li>
       </a>
     </ul>
