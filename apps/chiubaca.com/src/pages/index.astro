@@ -23,11 +23,11 @@ const liveBlogs = blogs
         liveBlogs.map((blog) => {
           return (
             <div class="flex-start flex flex-col md:flex-row md:items-center md:gap-5 ">
-              <div class="whitespace-nowrap text-xs text-info md:text-sm">
-                {dayjs(blog.data.publish_date).format("YYYY • MM • DD")}
-              </div>
-              <a class="link-hover link" href={blog.slug}>
-                <li>{blog.data.title}</li>
+              <a class="group" href={blog.slug}>
+                <div class="whitespace-nowrap text-xs tracking-tighter text-info md:text-sm">
+                  {dayjs(blog.data.publish_date).format("YYYY • MM • DD")}
+                </div>
+                <li class="group-hover:link">{blog.data.title}</li>
               </a>
             </div>
           );

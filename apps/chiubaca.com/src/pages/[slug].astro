@@ -17,13 +17,18 @@ const { slug } = Astro.params;
 
 const entry = await getEntry("permanent-notes", slug);
 const { Content } = await entry.render();
+
+const truncateString = (str, num) =>
+  str.length > num ? str.slice(0, num) + "..." : str;
+
+const truncatedSlug = truncateString(slug, 15);
 ---
 
-<BaseLayout>
-  <article class="prose mx-auto">
+<BaseLayout title={entry.data.title} slug={truncatedSlug}>
+  <article class="prose mx-auto max-w-none">
     <h1>{entry.data.title}</h1>
 
-    <div class="my-10 flex items-center justify-center gap-2">
+    <div class="my-10 flex items-center justify-center gap-2 font-mono">
       {entry.data.tags.map((tag) => <span class="badge ">{tag}</span>)}
     </div>
 

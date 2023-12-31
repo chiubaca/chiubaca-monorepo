@@ -18,12 +18,16 @@ const { title, slug } = Astro.props;
   </head>
   <body>
     <div class="mx-auto max-w-[65ch] px-5 pb-10 md:px-0">
+      <div
+        class="fixed right-0 m-8 flex justify-end rounded-full p-2 backdrop-blur-md"
+      >
+        <ThemeToggle />
+      </div>
       <header class="flex items-center justify-between py-10">
-        <div class="">
+        <div class="font-mono">
           <a href="/" class="link py-2 hover:text-primary">$chiubaca</a>
           <span class="text-sm"> / blog {slug && `/ ${slug}`}</span>
         </div>
-        <ThemeToggle />
       </header>
       <slot />
       <footer class="py-10">
