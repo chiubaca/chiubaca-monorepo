@@ -3,8 +3,9 @@ import { ThemeToggle } from "@chiubaca-ui";
 
 interface Props {
   title?: string;
+  slug?: string;
 }
-const { title } = Astro.props;
+const { title, slug } = Astro.props;
 ---
 
 <!doctype html>
@@ -16,46 +17,52 @@ const { title } = Astro.props;
     <title>chiubaca.com {title && `| ${title}`}</title>
   </head>
   <body>
-    <header
-      class="mx-auto flex max-w-[65ch] items-center justify-between px-5 py-10 md:px-0"
-    >
-      <div class="text-justify">
-        <a href="/" class="text-xl">Alex Chiu</a>
-      </div>
-
-      <ThemeToggle />
-    </header>
-
-    <slot />
-
-    <footer class="mx-auto max-w-[65ch] px-5 py-10 md:px-0">
-      <hr />
-
-      <div class="pt-10">
-        <img
-          loading="lazy"
-          src="https://pbs.twimg.com/profile_images/1334863005708902402/kLOEM6gq_400x400.jpg"
-          class="float-left mr-5 aspect-square w-16 rounded-full"
-        />
-
-        <p class="">
-          I'm Alex. I'm a full-stack developer based in London. Here I publish
-          musings about web development, life and other ramblings.
-        </p>
-      </div>
-
-      <div class="py-10">
-        <p>
-          Follow me on: <a href="https://github.com/chiubaca"
-            >Github<a>
-              / <a href="https://twitter.com/chiubaca">X (Twitter)</a> / <a
-                href="https://mas.to/@chiubaca">Mastodon</a
-              > / <a href="https://www.linkedin.com/in/achiu1/">LinkedIn</a></a
-            >
-          </a>
-        </p>
-      </div>
-    </footer>
+    <div class="mx-auto max-w-[65ch] py-10 md:px-0">
+      <header class="flex items-center justify-between py-10">
+        <div class="">
+          <a href="/" class="py-2 hover:link hover:text-primary">$chiubaca</a>
+          <span class="text-sm"> / blog {slug && `/ ${slug}`}</span>
+        </div>
+        <ThemeToggle />
+      </header>
+      <slot />
+      <footer class="py-10">
+        <hr />
+        <div class="pt-10">
+          <img
+            loading="lazy"
+            src="https://pbs.twimg.com/profile_images/1334863005708902402/kLOEM6gq_400x400.jpg"
+            class="float-left mr-5 aspect-square w-16 rounded-full"
+          />
+          <p class="">
+            Hey I'm Alex Chiu 👋. I'm a full-stack developer based in London.
+            Here I publish musings about web development, life and other
+            ramblings.
+          </p>
+        </div>
+        <div class="pt-10">
+          <p>
+            Follow me on: <a
+              class="link hover:text-primary"
+              href="https://github.com/chiubaca"
+              >Github<a>
+                / <a
+                  class="link hover:text-primary"
+                  href="https://twitter.com/chiubaca">X (Twitter)</a
+                > / <a
+                  class="link hover:text-primary"
+                  href="https://mas.to/@chiubaca">Mastodon</a
+                > /
+                <a
+                  class="link hover:text-primary"
+                  href="https://www.linkedin.com/in/achiu1/">LinkedIn</a
+                ></a
+              >
+            </a>
+          </p>
+        </div>
+      </footer>
+    </div>
 
     <script
       defer
