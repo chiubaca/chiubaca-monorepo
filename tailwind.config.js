@@ -8,4 +8,7 @@ module.exports = {
     extend: {},
   },
   plugins: [require("daisyui"), require("@tailwindcss/typography")],
+  daisyui: {
+    themes: ["light", "night"],
+  },
 };
