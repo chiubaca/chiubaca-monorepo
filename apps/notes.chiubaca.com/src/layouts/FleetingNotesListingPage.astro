@@ -9,7 +9,7 @@ const sortedNoteCollectionByLatestFirst = noteCollection.sort((a, b) =>
 );
 ---
 
-<BaseLayout title="Fleeting Notes">
+<BaseLayout title="Fleeting Notes" slug="fleeting-notes">
   <main>
     {
       sortedNoteCollectionByLatestFirst.map(async (note) => {
@@ -18,7 +18,7 @@ const sortedNoteCollectionByLatestFirst = noteCollection.sort((a, b) =>
           <article class="prose m-10 ">
             <h2>
               <a
-                class="link link-hover text-lg underline"
+                class="link-hover link text-lg underline"
                 href={`/${note.collection}/${note.slug}`}
               >
                 {note.slug}

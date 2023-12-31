@@ -12,14 +12,14 @@ const { path } = Astro.props;
 const noteCollection = await getCollection(path);
 ---
 
-<BaseLayout title={path}>
+<BaseLayout title={path} slug={path}>
   <main class="flex flex-col">
     {
       noteCollection.map((note) => {
         return (
           <h2>
             <a
-              class="link link-hover"
+              class="link-hover link"
               href={`/${note.collection}/${note.slug}`}
             >
               {note.data.title}

@@ -21,12 +21,12 @@ const date = entry.data.publish_date;
 const { Content } = await entry.render();
 ---
 
-<BaseLayout>
-  <article class="prose m-10 mx-auto">
+<BaseLayout slug={`${entry.collection} / ${entry.slug}`}>
+  <article class="prose m-10">
     <Content />
   </article>
 
-  <div class="text-center link link-hover pt-3">
+  <div class="link-hover link pt-3 text-center">
     <a
       href={`https://github.com/chiubaca/learning/blob/main/${noteType}/${slug}.md`}
     >
