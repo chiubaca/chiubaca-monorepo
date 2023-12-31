@@ -17,10 +17,10 @@ const { title, slug } = Astro.props;
     <title>chiubaca.com {title && `| ${title}`}</title>
   </head>
   <body>
-    <div class="mx-auto max-w-[65ch] py-10 md:px-0">
+    <div class="mx-auto max-w-[65ch] px-5 pb-10 md:px-0">
       <header class="flex items-center justify-between py-10">
         <div class="">
-          <a href="/" class="py-2 hover:link hover:text-primary">$chiubaca</a>
+          <a href="/" class="link py-2 hover:text-primary">$chiubaca</a>
           <span class="text-sm"> / blog {slug && `/ ${slug}`}</span>
         </div>
         <ThemeToggle />
