@@ -25,6 +25,13 @@ const truncatedSlug = truncateString(slug, 15);
 ---
 
 <BaseLayout title={entry.data.title} slug={truncatedSlug}>
+  <meta name="keywords" content={entry.data.tags.toString()} slot="head" />
+  {
+    entry.data?.description && (
+      <meta name="description" content={entry.data.description} slot="head" />
+    )
+  }
+
   <article class="prose mx-auto max-w-none">
     <h1>{entry.data.title}</h1>
 
