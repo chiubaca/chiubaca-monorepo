@@ -23,7 +23,7 @@ const { Content } = await entry.render();
   <article class="prose mx-auto">
     <h1>{entry.data.title}</h1>
 
-    <div class="flex items-center justify-center my-10 gap-2">
+    <div class="my-10 flex items-center justify-center gap-2">
       {entry.data.tags.map((tag) => <span class="badge ">{tag}</span>)}
     </div>
 

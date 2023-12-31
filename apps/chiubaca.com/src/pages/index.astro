@@ -8,14 +8,14 @@ const liveBlogs = blogs.filter((blog) => blog.data.status === "live");
 ---
 
 <BaseLayout>
-  <main class="max-w-[65ch] mx-auto">
+  <main class="mx-auto max-w-[65ch]">
     <h1>Writing</h1>
 
     <ul>
       {
         liveBlogs.map((blog) => {
           return (
-            <a class="link link-hover" href={blog.slug}>
+            <a class="link-hover link" href={blog.slug}>
               <li>{blog.data.title}</li>
             </a>
           );
