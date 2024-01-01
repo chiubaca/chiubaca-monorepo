@@ -9,7 +9,19 @@ const sortedNoteCollectionByLatestFirst = noteCollection.sort((a, b) =>
 );
 ---
 
-<MainLayout title="Fleeting Notes" slug="fleeting-notes">
+<MainLayout
+  title="Fleeting Notes"
+  breadcrumbs={[
+    {
+      href: "/",
+      label: "/ notes",
+    },
+    {
+      href: "/fleeting-notes",
+      label: "/ fleeting",
+    },
+  ]}
+>
   <main>
     {
       sortedNoteCollectionByLatestFirst.map(async (note) => {

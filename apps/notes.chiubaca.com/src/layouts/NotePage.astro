@@ -21,7 +21,22 @@ const date = entry.data.publish_date;
 const { Content } = await entry.render();
 ---
 
-<MainLayout slug={`${entry.collection} / ${entry.slug}`}>
+<MainLayout
+  breadcrumbs={[
+    {
+      href: "/",
+      label: "/ notes",
+    },
+    {
+      href: `/${entry.collection}`,
+      label: `/ ${entry.collection.split("-")[0]}`,
+    },
+    {
+      href: `/${entry.collection}/${entry.slug}`,
+      label: `/ ${entry.slug}`,
+    },
+  ]}
+>
   <article class="prose m-10">
     <Content />
   </article>

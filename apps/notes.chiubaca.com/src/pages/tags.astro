@@ -65,7 +65,14 @@ const tagNameAndCount = indexedNotes.map((note) => {
 });
 ---
 
-<MainLayout>
+<MainLayout
+  breadcrumbs={[
+    {
+      href: "/tags",
+      label: "/ tags",
+    },
+  ]}
+>
   <h1 class="py-5 text-3xl">🔖 Tags</h1>
   <p class="py-5">Find notes based on their tag</p>
 

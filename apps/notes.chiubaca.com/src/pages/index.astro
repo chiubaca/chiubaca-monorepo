@@ -7,7 +7,14 @@ const noteTypeTitles = Object.values(noteTypes.enum).map((noteType) => {
 });
 ---
 
-<MainLayout>
+<MainLayout
+  breadcrumbs={[
+    {
+      href: "/",
+      label: "/ notes",
+    },
+  ]}
+>
   <main class="">
     <ul class="flex flex-col gap-5 text-2xl">
       {

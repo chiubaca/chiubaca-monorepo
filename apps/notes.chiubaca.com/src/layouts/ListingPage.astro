@@ -12,7 +12,19 @@ const { path } = Astro.props;
 const noteCollection = await getCollection(path);
 ---
 
-<MainLayout title={path} slug={path}>
+<MainLayout
+  title={path}
+  breadcrumbs={[
+    {
+      href: "/",
+      label: "/ notes",
+    },
+    {
+      href: path,
+      label: `/ ${path.split("-")[0]}`,
+    },
+  ]}
+>
   <main class="flex flex-col">
     {
       noteCollection.map((note) => {

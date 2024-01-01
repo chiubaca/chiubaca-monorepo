@@ -25,7 +25,11 @@ const { title, breadcrumbs } = Astro.props;
           <a href="/" class="py-2 hover:link hover:text-primary">$chiubaca</a>
           {
             breadcrumbs &&
-              breadcrumbs.map((b) => <a href={b.href}> {b.label} </a>)
+              breadcrumbs.map((b) => (
+                <a href={b.href} class="hover:opacity-75">
+                  {b.label}
+                </a>
+              ))
           }
         </div>
       </header>
