@@ -1,0 +1,33 @@
+---
+import { BaseLayout, BaseLayoutProps as Props } from "@chiubaca-ui";
+
+const { slug, title } = Astro.props;
+---
+
+<BaseLayout slug={slug} title={title}>
+  <slot />
+
+  <div class="pt-5" slot="footer">
+    <hr />
+    <div class="pt-10">
+      <img
+        loading="lazy"
+        src="https://pbs.twimg.com/profile_images/1334863005708902402/kLOEM6gq_400x400.jpg"
+        class="float-left mr-5 aspect-square w-16 rounded-full"
+      />
+      <p class="">
+        Hey I'm Alex Chiu 👋. I'm a full-stack developer based in London. Here I
+        publish musings about web development, life and other ramblings.
+      </p>
+    </div>
+
+    <p class="pb-5 pt-10">
+      Daily(ish) unrefined notes at <a
+        class="link"
+        href="https://notes.chiubaca.com/fleeting-notes"
+      >
+        notes.chiubaca.com</a
+      >.
+    </p>
+  </div>
+</BaseLayout>

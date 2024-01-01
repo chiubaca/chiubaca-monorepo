@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import type { NoteTypes } from "@shared/types";
-import BaseLayout from "./BaseLayout.astro";
+import MainLayout from "./MainLayout.astro";
 
 interface Props {
   path: Exclude<NoteTypes, "fleeting-notes">;
@@ -12,7 +12,7 @@ const { path } = Astro.props;
 const noteCollection = await getCollection(path);
 ---
 
-<BaseLayout title={path} slug={path}>
+<MainLayout title={path} slug={path}>
   <main class="flex flex-col">
     {
       noteCollection.map((note) => {
@@ -29,4 +29,4 @@ const noteCollection = await getCollection(path);
       })
     }
   </main>
-</BaseLayout>
+</MainLayout>

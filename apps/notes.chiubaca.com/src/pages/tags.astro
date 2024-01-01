@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 import { NoteTypes } from "@shared/types";
 
 type Note = {
@@ -65,7 +65,7 @@ const tagNameAndCount = indexedNotes.map((note) => {
 });
 ---
 
-<BaseLayout>
+<MainLayout>
   <h1 class="py-5 text-3xl">🔖 Tags</h1>
   <p class="py-5">Find notes based on their tag</p>
 
@@ -114,4 +114,4 @@ const tagNameAndCount = indexedNotes.map((note) => {
       }
     </div>
   </main>
-</BaseLayout>
+</MainLayout>

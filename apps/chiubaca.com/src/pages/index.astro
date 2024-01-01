@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import dayjs from "dayjs";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 
 const blogs = await getCollection("permanent-notes");
 
@@ -14,7 +14,7 @@ const liveBlogs = blogs
   );
 ---
 
-<BaseLayout>
+<MainLayout>
   <main>
     <h1 class="pb-5 text-secondary">Writings</h1>
 
@@ -35,4 +35,4 @@ const liveBlogs = blogs
       }
     </ul>
   </main>
-</BaseLayout>
+</MainLayout>

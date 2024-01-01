@@ -1,13 +1,13 @@
 ---
 import { noteTypes } from "@shared/zod-schemas";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 
 const noteTypeTitles = Object.values(noteTypes.enum).map((noteType) => {
   return noteType;
 });
 ---
 
-<BaseLayout>
+<MainLayout>
   <main class="">
     <ul class="flex flex-col gap-5 text-2xl">
       {
@@ -42,4 +42,4 @@ const noteTypeTitles = Object.values(noteTypes.enum).map((noteType) => {
       </a>
     </ul>
   </main>
-</BaseLayout>
+</MainLayout>

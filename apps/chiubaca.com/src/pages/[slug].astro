@@ -1,6 +1,6 @@
 ---
 import { getCollection, getEntry } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 
 export async function getStaticPaths() {
   const blogs = await getCollection("permanent-notes");
@@ -24,7 +24,7 @@ const truncateString = (str, num) =>
 const truncatedSlug = truncateString(slug, 15);
 ---
 
-<BaseLayout title={entry.data.title} slug={truncatedSlug}>
+<MainLayout title={entry.data.title} slug={truncatedSlug}>
   <meta name="keywords" content={entry.data.tags.toString()} slot="head" />
   {
     entry.data?.description && (
@@ -45,4 +45,4 @@ const truncatedSlug = truncateString(slug, 15);
 
     <Content />
   </article>
-</BaseLayout>
+</MainLayout>

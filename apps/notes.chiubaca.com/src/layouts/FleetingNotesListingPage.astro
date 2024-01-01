@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "./BaseLayout.astro";
+import MainLayout from "./MainLayout.astro";
 
 const noteCollection = await getCollection("fleeting-notes");
 
@@ -9,7 +9,7 @@ const sortedNoteCollectionByLatestFirst = noteCollection.sort((a, b) =>
 );
 ---
 
-<BaseLayout title="Fleeting Notes" slug="fleeting-notes">
+<MainLayout title="Fleeting Notes" slug="fleeting-notes">
   <main>
     {
       sortedNoteCollectionByLatestFirst.map(async (note) => {
@@ -33,4 +33,4 @@ const sortedNoteCollectionByLatestFirst = noteCollection.sort((a, b) =>
       })
     }
   </main>
-</BaseLayout>
+</MainLayout>
