@@ -37,6 +37,12 @@ const { Content } = await entry.render();
     },
   ]}
 >
+  {
+    entry.collection === "permanent-notes" && (
+      <meta name="robots" content="noindex" slot="head" />
+    )
+  }
+
   <article class="prose mx-auto max-w-none">
     <Content />
   </article>
