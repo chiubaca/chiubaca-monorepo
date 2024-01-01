@@ -31,7 +31,7 @@ tags:
     const contentEncoded = buffContent.toString("base64");
     const { data } = await octokit.repos.createOrUpdateFileContents({
       owner: "chiubaca",
-      repo: "learning",
+      repo: "notes",
       path: `fleeting-notes/${currentDate}.md`,
       message: `Create ${currentDate}.md`,
       content: contentEncoded,
