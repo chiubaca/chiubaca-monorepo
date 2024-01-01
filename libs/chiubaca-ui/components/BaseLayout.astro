@@ -2,7 +2,7 @@
 import { ThemeToggle } from "@chiubaca-ui";
 import type { BaseLayoutProps as Props } from "./BaseLayoutProps";
 
-const { title } = Astro.props;
+const { title, breadcrumbs } = Astro.props;
 ---
 
 <!doctype html>
@@ -23,7 +23,10 @@ const { title } = Astro.props;
       <header class="flex items-center justify-between py-10">
         <div class="font-mono">
           <a href="/" class="py-2 hover:link hover:text-primary">$chiubaca</a>
-          <span class="text-sm">/</span>
+          {
+            breadcrumbs &&
+              breadcrumbs.map((b) => <a href={b.href}> {b.label} </a>)
+          }
         </div>
       </header>
       <slot />

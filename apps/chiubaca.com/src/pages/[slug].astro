@@ -24,7 +24,13 @@ const truncateString = (str, num) =>
 const truncatedSlug = truncateString(slug, 15);
 ---
 
-<MainLayout title={entry.data.title} slug={truncatedSlug}>
+<MainLayout
+  title={entry.data.title}
+  breadcrumbs={[
+    { href: "/", label: "/ 🏠" },
+    { href: `/${entry.slug}`, label: `/ ${truncatedSlug}` },
+  ]}
+>
   <meta name="keywords" content={entry.data.tags.toString()} slot="head" />
   {
     entry.data?.description && (

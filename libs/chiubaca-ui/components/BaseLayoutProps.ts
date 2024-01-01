@@ -1,7 +1,6 @@
-// type BreadCrumb = { href: string; label: string };
+type BreadCrumb = { href: string; label: string };
 
 export interface BaseLayoutProps {
   title?: string;
-  slug?: string;
-  // breadcrumbs?: BreadCrumb[];
+  breadcrumbs?: BreadCrumb[];
 }
