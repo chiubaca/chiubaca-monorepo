@@ -24,10 +24,10 @@ const liveBlogs = blogs
           return (
             <div class="flex-start flex flex-col md:flex-row md:items-center md:gap-5 ">
               <a class="group" href={blog.slug}>
-                <div class="whitespace-nowrap text-xs tracking-tighter text-info md:text-sm">
+                <div class="whitespace-nowrap text-xs tracking-tighter text-gray-500 md:text-sm dark:text-gray-400">
                   {dayjs(blog.data.publish_date).format("YYYY • MM • DD")}
                 </div>
-                <li class="group-hover:link">{blog.data.title}</li>
+                <li class="text-info group-hover:link">{blog.data.title}</li>
               </a>
             </div>
           );
