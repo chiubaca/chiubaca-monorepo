@@ -4,7 +4,13 @@ import { BaseLayout, type BaseLayoutProps as Props } from "@chiubaca-ui";
 const { title, breadcrumbs } = Astro.props;
 ---
 
-<BaseLayout title={title} breadcrumbs={breadcrumbs}>
+<BaseLayout
+  titlePrefix="notes.chiubaca.com"
+  title={title}
+  breadcrumbs={breadcrumbs}
+>
+  <slot name="head" slot="head" />
+
   <slot />
 
   <div slot="footer">

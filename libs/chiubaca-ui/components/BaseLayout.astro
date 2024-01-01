@@ -2,7 +2,7 @@
 import { ThemeToggle } from "@chiubaca-ui";
 import type { BaseLayoutProps as Props } from "./BaseLayoutProps";
 
-const { title, breadcrumbs } = Astro.props;
+const { titlePrefix, title, breadcrumbs } = Astro.props;
 ---
 
 <!doctype html>
@@ -11,7 +11,7 @@ const { title, breadcrumbs } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <slot name="head" />
-    <title>chiubaca.com {title && `| ${title}`}</title>
+    <title>{titlePrefix} {title && `| ${title}`}</title>
   </head>
   <body>
     <div class="mx-auto max-w-[65ch] px-5 pb-10 md:px-0">
