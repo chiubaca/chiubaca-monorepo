@@ -27,7 +27,7 @@ const sortedNoteCollectionByLatestFirst = noteCollection.sort((a, b) =>
       sortedNoteCollectionByLatestFirst.map(async (note) => {
         const { Content } = await note.render();
         return (
-          <article class="prose m-10 ">
+          <article class="prose mx-auto max-w-none">
             <h2>
               <a
                 class="link-hover link text-lg underline"
