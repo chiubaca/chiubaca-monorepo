@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import dayjs from "dayjs";
+import { dotDate } from "@shared/utils";
 import MainLayout from "../layouts/MainLayout.astro";
 
 const blogs = await getCollection("permanent-notes");
@@ -25,7 +25,7 @@ const liveBlogs = blogs
             <div class="flex-start flex flex-col md:flex-row md:items-center md:gap-5 ">
               <a class="group" href={blog.slug}>
                 <div class="whitespace-nowrap text-xs tracking-tighter text-gray-500 md:text-sm dark:text-gray-400">
-                  {dayjs(blog.data.publish_date).format("YYYY • MM • DD")}
+                  {dotDate(blog.data.publish_date)}
                 </div>
                 <li class="text-info group-hover:link">{blog.data.title}</li>
               </a>

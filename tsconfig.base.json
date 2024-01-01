@@ -20,7 +20,8 @@
     "paths": {
       "@chiubaca-ui": ["libs/chiubaca-ui"],
       "@shared/types": ["libs/shared/types.ts"],
-      "@shared/zod-schemas": ["libs/shared/zod-schemas.ts"]
+      "@shared/zod-schemas": ["libs/shared/zod-schemas.ts"],
+      "@shared/utils": ["libs/shared/utils"]
     }
   },
   "exclude": ["node_modules", "tmp"]
