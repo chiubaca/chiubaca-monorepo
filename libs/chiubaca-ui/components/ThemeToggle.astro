@@ -22,3 +22,23 @@
     ></path></svg
   >
 </label>
+
+<script lang="ts">
+  const currentTheme = localStorage.getItem("theme") ?? "light";
+  const themeToggle = document.querySelector(".theme-controller");
+
+  themeToggle.checked = currentTheme === "light" ? true : false;
+  themeToggle.value = currentTheme;
+
+  themeToggle.addEventListener("change", () => {
+    if (themeToggle?.checked) {
+      localStorage.setItem("theme", "light");
+      themeToggle.checked = true;
+      themeToggle.value = "light";
+    } else {
+      localStorage.setItem("theme", "dark");
+      themeToggle.checked = false;
+      themeToggle.value = "dark";
+    }
+  });
+</script>
