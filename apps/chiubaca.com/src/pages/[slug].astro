@@ -1,8 +1,6 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 
-import { dotDate } from "@shared/utils";
-
 import MainLayout from "../layouts/MainLayout.astro";
 
 export async function getStaticPaths() {
@@ -44,8 +42,8 @@ const truncatedSlug = truncateString(slug, 15);
   <article class="prose mx-auto max-w-none prose-a:break-all">
     <h1>{entry.data.title}</h1>
 
-    <div class="-mt-5 text-sm">
-      {(<>{dotDate(entry.data.publish_date)}</>)}
+    <div class="font-mono italic text-gray-500 md:text-sm dark:text-gray-400">
+      Posted on {entry.data.publish_date.toDateString()}
     </div>
 
     <div class="my-10 flex items-center justify-center gap-2 font-mono">
