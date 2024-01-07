@@ -231,9 +231,16 @@ declare module 'astro:content' {
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
 } & { render(): Render[".md"] };
-"holograpic-cards-soft-spotlight.md": {
-	id: "holograpic-cards-soft-spotlight.md";
-  slug: "holograpic-cards-soft-spotlight";
+"everest-basecamp.md": {
+	id: "everest-basecamp.md";
+  slug: "everest-basecamp";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
+"holograpic-cards-pt-1.md": {
+	id: "holograpic-cards-pt-1.md";
+  slug: "holograpic-cards-pt-1";
   body: string;
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
@@ -276,6 +283,13 @@ declare module 'astro:content' {
 "nx-for-noobs.md": {
 	id: "nx-for-noobs.md";
   slug: "nx-for-noobs";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
+"pragmatism-over-perfectionism.md": {
+	id: "pragmatism-over-perfectionism.md";
+  slug: "pragmatism-over-perfectionism";
   body: string;
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">

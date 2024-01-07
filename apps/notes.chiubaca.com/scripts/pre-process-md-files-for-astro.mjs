@@ -1,3 +1,10 @@
+/**
+ * This script is no longer in use. Just keep it it here as reference.
+ *
+ * The process to pre-process markdown files has been broken down
+ * in libs/remark-plugins which are then imported into astro.config.ts
+ */
+
 import * as fs from "fs/promises";
 import * as path from "path";
 

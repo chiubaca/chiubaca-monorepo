@@ -1673,13 +1673,6 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2021-04-13.md": {
-	id: "2021-04-13.md";
-  slug: "2021-04-13";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2021-04-14.md": {
 	id: "2021-04-14.md";
   slug: "2021-04-14";
@@ -1795,13 +1788,6 @@ declare module 'astro:content' {
 "2021-04-30.md": {
 	id: "2021-04-30.md";
   slug: "2021-04-30";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2021-05-01.md": {
-	id: "2021-05-01.md";
-  slug: "2021-05-01";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -1935,13 +1921,6 @@ declare module 'astro:content' {
 "2021-05-20.md": {
 	id: "2021-05-20.md";
   slug: "2021-05-20";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2021-05-21.md": {
-	id: "2021-05-21.md";
-  slug: "2021-05-21";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -3426,13 +3405,6 @@ declare module 'astro:content' {
 "2021-12-19.md": {
 	id: "2021-12-19.md";
   slug: "2021-12-19";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2021-12-20.md": {
-	id: "2021-12-20.md";
-  slug: "2021-12-20";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
@@ -5705,6 +5677,62 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
+"2023-12-31.md": {
+	id: "2023-12-31.md";
+  slug: "2023-12-31";
+  body: string;
+  collection: "fleeting-notes";
+  data: InferEntrySchema<"fleeting-notes">
+} & { render(): Render[".md"] };
+"2024-01-01.md": {
+	id: "2024-01-01.md";
+  slug: "2024-01-01";
+  body: string;
+  collection: "fleeting-notes";
+  data: InferEntrySchema<"fleeting-notes">
+} & { render(): Render[".md"] };
+"2024-01-02.md": {
+	id: "2024-01-02.md";
+  slug: "2024-01-02";
+  body: string;
+  collection: "fleeting-notes";
+  data: InferEntrySchema<"fleeting-notes">
+} & { render(): Render[".md"] };
+"2024-01-03.md": {
+	id: "2024-01-03.md";
+  slug: "2024-01-03";
+  body: string;
+  collection: "fleeting-notes";
+  data: InferEntrySchema<"fleeting-notes">
+} & { render(): Render[".md"] };
+"2024-01-04.md": {
+	id: "2024-01-04.md";
+  slug: "2024-01-04";
+  body: string;
+  collection: "fleeting-notes";
+  data: InferEntrySchema<"fleeting-notes">
+} & { render(): Render[".md"] };
+"2024-01-05.md": {
+	id: "2024-01-05.md";
+  slug: "2024-01-05";
+  body: string;
+  collection: "fleeting-notes";
+  data: InferEntrySchema<"fleeting-notes">
+} & { render(): Render[".md"] };
+"2024-01-06.md": {
+	id: "2024-01-06.md";
+  slug: "2024-01-06";
+  body: string;
+  collection: "fleeting-notes";
+  data: InferEntrySchema<"fleeting-notes">
+} & { render(): Render[".md"] };
+"2024-01-07.md": {
+	id: "2024-01-07.md";
+  slug: "2024-01-07";
+  body: string;
+  collection: "fleeting-notes";
+  data: InferEntrySchema<"fleeting-notes">
+} & { render(): Render[".md"] };
 };
 "literature-notes": {
 "docker-basics.md": {
@@ -5772,6 +5800,13 @@ declare module 'astro:content' {
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
 } & { render(): Render[".md"] };
+"building-my-new-blog-nuxt-vs-gridsome.md": {
+	id: "building-my-new-blog-nuxt-vs-gridsome.md";
+  slug: "building-my-new-blog-nuxt-vs-gridsome";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
 "business-ideas.md": {
 	id: "business-ideas.md";
   slug: "business-ideas";
@@ -5793,9 +5828,16 @@ declare module 'astro:content' {
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
 } & { render(): Render[".md"] };
-"holograpic-cards-soft-spotlight.md": {
-	id: "holograpic-cards-soft-spotlight.md";
-  slug: "holograpic-cards-soft-spotlight";
+"everest-basecamp.md": {
+	id: "everest-basecamp.md";
+  slug: "everest-basecamp";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
+"holograpic-cards-pt-1.md": {
+	id: "holograpic-cards-pt-1.md";
+  slug: "holograpic-cards-pt-1";
   body: string;
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">
@@ -5838,6 +5880,13 @@ declare module 'astro:content' {
 "nx-for-noobs.md": {
 	id: "nx-for-noobs.md";
   slug: "nx-for-noobs";
+  body: string;
+  collection: "permanent-notes";
+  data: InferEntrySchema<"permanent-notes">
+} & { render(): Render[".md"] };
+"pragmatism-over-perfectionism.md": {
+	id: "pragmatism-over-perfectionism.md";
+  slug: "pragmatism-over-perfectionism";
   body: string;
   collection: "permanent-notes";
   data: InferEntrySchema<"permanent-notes">

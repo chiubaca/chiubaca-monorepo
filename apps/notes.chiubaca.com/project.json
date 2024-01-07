@@ -10,12 +10,6 @@
         "command": "bash apps/notes.chiubaca.com/scripts/move-notes.sh"
       }
     },
-    "pre-process-md-files-for-astro": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "node apps/notes.chiubaca.com/scripts/pre-process-md-files-for-astro.mjs"
-      }
-    },
     "build": {
       "executor": "nx:run-commands",
       "options": {
@@ -25,7 +19,7 @@
     "ci:build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx nx run tools/note-utils:download-notes && npx nx run notes.chiubaca.com:moves-notes &&  npx nx run notes.chiubaca.com:pre-process-md-files-for-astro && npx astro --root apps/notes.chiubaca.com build && rm -rf tmp"
+        "command": "npx nx run tools/note-utils:download-notes && npx nx run notes.chiubaca.com:moves-notes && npx astro --root apps/notes.chiubaca.com build && rm -rf tmp"
       }
     },
     "lint": {
