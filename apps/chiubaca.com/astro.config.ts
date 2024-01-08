@@ -2,13 +2,23 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import { updateMdLinkUrls, updateImageUrls } from "../../libs/remark-plugins";
 
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 // https://astro.build/config
 export default defineConfig({
   outDir: "../../dist/apps/chiubaca.com",
   integrations: [tailwind()],
-    markdown: {
+  markdown: {
     remarkPlugins: [updateMdLinkUrls, updateImageUrls],
+    rehypePlugins: [
+      rehypeSlug,
+      () =>
+        rehypeAutolinkHeadings({
+          behavour: "append",
+          content: { type: "text", value: "🔗" },
+        }),
+    ],
   },
   redirects: {
     "/using-javascript-to-write-postgresql-functions-1ac":
