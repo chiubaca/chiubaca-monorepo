@@ -15,7 +15,7 @@ export default defineConfig({
       rehypeSlug,
       () =>
         rehypeAutolinkHeadings({
-          behavour: "append",
+          behavior: "wrap",
           content: { type: "text", value: "🔗" },
         }),
     ],
