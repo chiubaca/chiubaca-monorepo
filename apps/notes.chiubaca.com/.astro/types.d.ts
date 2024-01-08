@@ -5705,30 +5705,16 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
-"2024-01-04.md": {
-	id: "2024-01-04.md";
-  slug: "2024-01-04";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2024-01-05.md": {
-	id: "2024-01-05.md";
-  slug: "2024-01-05";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
-"2024-01-06.md": {
-	id: "2024-01-06.md";
-  slug: "2024-01-06";
-  body: string;
-  collection: "fleeting-notes";
-  data: InferEntrySchema<"fleeting-notes">
-} & { render(): Render[".md"] };
 "2024-01-07.md": {
 	id: "2024-01-07.md";
   slug: "2024-01-07";
+  body: string;
+  collection: "fleeting-notes";
+  data: InferEntrySchema<"fleeting-notes">
+} & { render(): Render[".md"] };
+"2024-01-08.md": {
+	id: "2024-01-08.md";
+  slug: "2024-01-08";
   body: string;
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
