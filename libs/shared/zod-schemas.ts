@@ -6,7 +6,7 @@ export const noteTypes = z.enum([
   "permanent-notes",
 ]);
 
-export const publish_date = z
+export const date = z
   .union([z.string(), z.date()])
   .transform((d) => new Date(d));
 

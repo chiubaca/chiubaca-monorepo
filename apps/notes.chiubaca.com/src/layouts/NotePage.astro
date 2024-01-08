@@ -18,6 +18,8 @@ if (!entry) return;
 
 const date = entry.data.publish_date;
 
+const publishedPermamentNoteUrl = `https://chiubaca.com/${entry.slug}`;
+
 const { Content } = await entry.render();
 ---
 
@@ -44,7 +46,16 @@ const { Content } = await entry.render();
   }
 
   <article class="prose mx-auto max-w-none prose-a:break-all">
-    <Content />
+    {
+      entry.collection === "permanent-notes" && entry.data.status === "live" ? (
+        <p>
+          This note is now <span class="badge badge-success"> live </span> at
+          <a href={publishedPermamentNoteUrl}>{publishedPermamentNoteUrl}</a>
+        </p>
+      ) : (
+        <Content />
+      )
+    }
   </article>
 
   <div class="link-hover link pt-10">
