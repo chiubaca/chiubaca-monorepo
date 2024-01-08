@@ -13,11 +13,7 @@ export default defineConfig({
     remarkPlugins: [updateMdLinkUrls, updateImageUrls],
     rehypePlugins: [
       rehypeSlug,
-      () =>
-        rehypeAutolinkHeadings({
-          behavior: "wrap",
-          content: { type: "text", value: "🔗" },
-        }),
+      () => rehypeAutolinkHeadings({ behavior: "append" }),
     ],
   },
   redirects: {
