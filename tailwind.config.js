@@ -20,9 +20,15 @@ module.exports = {
         },
       },
 
-      "night",
+      {
+        dark: {
+          ...require("daisyui/src/theming/themes")["dark"],
+          secondary: "blue",
+          info: "rgb(12 175 233)",
+        },
+      },
     ],
-    darkTheme: "night",
-    logs: false,
+    darkTheme: "dark",
+    logs: true,
   },
 };
