@@ -10,6 +10,12 @@ interface Props {
 const { path } = Astro.props;
 
 const noteCollection = await getCollection(path);
+
+const notesSortedByLastUpdated = noteCollection.sort(
+  (a, b) =>
+    new Date(b.data.last_updated).getTime() -
+    new Date(a.data.last_updated).getTime(),
+);
 ---
 
 <MainLayout
@@ -25,17 +31,24 @@ const noteCollection = await getCollection(path);
     },
   ]}
 >
-  <main class="flex flex-col">
+  <main class="flex flex-col gap-2">
     {
-      noteCollection.map((note) => {
+      notesSortedByLastUpdated.map((note) => {
         return (
           <h2>
             <a
-              class="link-hover link"
+              class="link-hover link "
               href={`/${note.collection}/${note.slug}`}
             >
-              {note.data.title}
+              <span class="font-bold">{note.data.title}</span>
             </a>
+            <span class="italic text-info-content">
+              - updated {new Date(note.data.last_updated).toDateString()}
+            </span>
+
+            {note.data.status === "live" && (
+              <span class="badge badge-success"> live </span>
+            )}
           </h2>
         );
       })

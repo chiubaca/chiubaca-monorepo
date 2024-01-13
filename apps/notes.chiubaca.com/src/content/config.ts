@@ -2,12 +2,12 @@
 import { defineCollection } from "astro:content";
 import z from "astro/zod";
 import { noteTypes } from "@shared/zod-schemas";
-import { publish_date, tags } from "@shared/zod-schemas";
+import { date, tags } from "@shared/zod-schemas";
 
 const fleetingNoteCollection = defineCollection({
   type: "content",
   schema: z.object({
-    publish_date,
+    publish_date: date,
     tags,
   }),
 });
@@ -16,7 +16,9 @@ const noteCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    publish_date,
+    status: z.enum(["draft", "live"]).optional(),
+    publish_date: date,
+    last_updated: date,
     tags,
   }),
 });

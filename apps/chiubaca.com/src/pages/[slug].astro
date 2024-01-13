@@ -58,3 +58,28 @@ const truncatedSlug = truncateString(slug, 15);
   </article>
 </MainLayout>
 
+<style is:inline>
+  article.prose > h1 > a,
+  article.prose > h2 > a,
+  article.prose > h3 > a,
+  article.prose > h4 > a,
+  article.prose > h5 > a,
+  article.prose > h6 > a {
+    text-decoration: none;
+  }
+
+  .icon.icon-link {
+    position: relative;
+  }
+
+  .icon.icon-link::after {
+    content: "🔗";
+    font-size: 1.2rem;
+    margin-left: 0.3rem;
+  }
+
+  .icon.icon-link:hover::after {
+    border-bottom: 1.5px dashed gray;
+    font-weight: 100;
+  }
+</style>

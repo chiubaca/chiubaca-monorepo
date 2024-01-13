@@ -39,32 +39,34 @@ const { titlePrefix, title, breadcrumbs } = Astro.props;
         <slot name="footer" />
 
         <p>
-          Follow me on: <a
+          Follow me on:
+          <a class="link hover:opacity-75" href="https://github.com/chiubaca">
+            Github</a
+          >
+          <span>/</span>
+          <a class="link hover:opacity-75" href="https://twitter.com/chiubaca">
+            X (Twitter)</a
+          >
+          <span>/</span>
+          <a class="link hover:opacity-75" href="https://mas.to/@chiubaca">
+            Mastodon</a
+          >
+          <span>/</span>
+          <a
             class="link hover:opacity-75"
-            href="https://github.com/chiubaca"
-            >Github<a>
-              / <a
-                class="link hover:opacity-75"
-                href="https://twitter.com/chiubaca">X (Twitter)</a
-              > / <a
-                class="link hover:opacity-75"
-                href="https://mas.to/@chiubaca">Mastodon</a
-              > /
-              <a
-                class="link hover:opacity-75"
-                href="https://www.linkedin.com/in/achiu1/">LinkedIn</a
-              ></a
-            >
-          </a>
+            href="https://www.linkedin.com/in/achiu1/"
+          >
+            LinkedIn</a
+          >
         </p>
       </footer>
     </div>
-
-    <script
-      defer
-      async
-      src="https://cdn.counter.dev/script.js"
-      data-id="91ee2db8-dc88-40a2-9529-ef18149e911b"
-      data-utcoffset="0"></script>
   </body>
+
+  <script
+    defer
+    async
+    src="https://cdn.counter.dev/script.js"
+    data-id="91ee2db8-dc88-40a2-9529-ef18149e911b"
+    data-utcoffset="0"></script>
 </html>

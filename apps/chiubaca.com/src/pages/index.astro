@@ -16,8 +16,14 @@ const liveBlogs = blogs
 ---
 
 <MainLayout breadcrumbs={[{ href: "/", label: "/ 🏠" }]}>
+  <meta
+    name="description"
+    content="Hey I'm Alex Chiu. I'm a full-stack developer based in London. Here I publish musings about web development, life and other ramblings."
+    slot="head"
+  />
+
   <main>
-    <h1 class="pb-5 text-secondary">Blogs</h1>
+    <h1 class="pb-5">Blogs</h1>
 
     <ul class="flex flex-col gap-3">
       {
@@ -28,7 +34,7 @@ const liveBlogs = blogs
                 class="group flex flex-col items-baseline align-bottom md:flex-row md:gap-5"
                 href={blog.slug}
               >
-                <div class="whitespace-nowrap font-mono text-xs text-gray-500 md:text-sm dark:text-gray-400">
+                <div class="whitespace-nowrap font-mono text-sm font-light text-gray-500 dark:text-gray-400">
                   {dotDate(blog.data.publish_date)}
                 </div>
                 <div class="text-info group-hover:link">{blog.data.title}</div>
