@@ -1,6 +1,6 @@
 <label class="swap swap-rotate">
   <!-- this hidden checkbox controls the state -->
-  <input type="checkbox" class="theme-controller" value="night" />
+  <input type="checkbox" class="theme-controller" value="dark" />
 
   <!-- moon icon -->
   <svg
@@ -24,17 +24,17 @@
 </label>
 
 <script lang="ts">
-  const currentTheme = localStorage.getItem("theme") ?? "night";
+  const currentTheme = localStorage.getItem("theme") ?? "dark";
   const themeToggle = document.querySelector(".theme-controller");
 
-  themeToggle.checked = currentTheme === "night" ? true : false;
+  themeToggle.checked = currentTheme === "dark" ? true : false;
   themeToggle.value = currentTheme;
 
   themeToggle.addEventListener("change", () => {
     if (themeToggle?.checked) {
-      localStorage.setItem("theme", "night");
+      localStorage.setItem("theme", "dark");
       themeToggle.checked = true;
-      themeToggle.value = "night";
+      themeToggle.value = "dark";
     } else {
       localStorage.setItem("theme", "light");
       themeToggle.checked = false;
