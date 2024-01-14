@@ -30,7 +30,7 @@ const sortedNoteCollectionByLatestFirst = noteCollection.sort((a, b) =>
           <article class="prose mx-auto max-w-none prose-a:break-all">
             <h2>
               <a
-                class="link-hover link text-lg underline"
+                class="link-hover link text-lg"
                 href={`/${note.collection}/${note.slug}`}
               >
                 {note.slug}
@@ -38,12 +38,14 @@ const sortedNoteCollectionByLatestFirst = noteCollection.sort((a, b) =>
             </h2>
             <div class="flex flex-row gap-2">
               {note.data.tags.map((tag) => (
-                <span class="badge flex cursor-pointer border-black hover:opacity-75 dark:border-slate-100">
+                <span class="not-prose badge flex cursor-pointer border-black no-underline hover:opacity-75 dark:border-slate-100">
                   <a href={`/tags#${tag}`}># {tag} </a>
                 </span>
               ))}
             </div>
+
             <Content />
+            <hr />
           </article>
         );
       })
