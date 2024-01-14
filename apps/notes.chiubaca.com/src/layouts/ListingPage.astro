@@ -31,25 +31,27 @@ const notesSortedByLastUpdated = noteCollection.sort(
     },
   ]}
 >
-  <main class="flex flex-col gap-2">
+  <main class="flex flex-col gap-5">
     {
       notesSortedByLastUpdated.map((note) => {
         return (
-          <h2>
-            <a
-              class="link-hover link "
-              href={`/${note.collection}/${note.slug}`}
-            >
-              <span class="font-bold">{note.data.title}</span>
-            </a>
-            <span class="italic text-info-content">
-              - updated {new Date(note.data.last_updated).toDateString()}
-            </span>
+          <div class="center flex flex-col ">
+            <h2 class="flex gap-2 align-middle">
+              <a
+                class="link-hover link "
+                href={`/${note.collection}/${note.slug}`}
+              >
+                <span class="font-bold">{note.data.title}</span>
+              </a>
 
-            {note.data.status === "live" && (
-              <span class="badge badge-success"> live </span>
-            )}
-          </h2>
+              {note.data.status === "live" && (
+                <div class="badge badge-success h-full"> live </div>
+              )}
+            </h2>
+            <div class="italic">
+              updated {note.data.last_updated.toDateString()}
+            </div>
+          </div>
         );
       })
     }
