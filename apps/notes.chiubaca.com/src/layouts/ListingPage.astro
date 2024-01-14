@@ -43,13 +43,14 @@ const notesSortedByLastUpdated = noteCollection.sort(
               >
                 <span class="font-bold">{note.data.title}</span>
               </a>
-
-              {note.data.status === "live" && (
-                <div class="badge badge-success h-full"> live </div>
-              )}
             </h2>
-            <div class="italic">
-              updated {note.data.last_updated.toDateString()}
+            <div>
+              {note.data.status === "live" && (
+                <div class="badge badge-success">live</div>
+              )}
+              <span class="italic">
+                updated {note.data.last_updated.toDateString()}{" "}
+              </span>
             </div>
           </div>
         );
