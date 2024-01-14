@@ -5719,6 +5719,41 @@ declare module 'astro:content' {
   collection: "fleeting-notes";
   data: InferEntrySchema<"fleeting-notes">
 } & { render(): Render[".md"] };
+"2024-01-09.md": {
+	id: "2024-01-09.md";
+  slug: "2024-01-09";
+  body: string;
+  collection: "fleeting-notes";
+  data: InferEntrySchema<"fleeting-notes">
+} & { render(): Render[".md"] };
+"2024-01-10.md": {
+	id: "2024-01-10.md";
+  slug: "2024-01-10";
+  body: string;
+  collection: "fleeting-notes";
+  data: InferEntrySchema<"fleeting-notes">
+} & { render(): Render[".md"] };
+"2024-01-11.md": {
+	id: "2024-01-11.md";
+  slug: "2024-01-11";
+  body: string;
+  collection: "fleeting-notes";
+  data: InferEntrySchema<"fleeting-notes">
+} & { render(): Render[".md"] };
+"2024-01-12.md": {
+	id: "2024-01-12.md";
+  slug: "2024-01-12";
+  body: string;
+  collection: "fleeting-notes";
+  data: InferEntrySchema<"fleeting-notes">
+} & { render(): Render[".md"] };
+"2024-01-13.md": {
+	id: "2024-01-13.md";
+  slug: "2024-01-13";
+  body: string;
+  collection: "fleeting-notes";
+  data: InferEntrySchema<"fleeting-notes">
+} & { render(): Render[".md"] };
 };
 "literature-notes": {
 "docker-basics.md": {

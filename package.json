@@ -7,6 +7,8 @@
   "dependencies": {
     "@astrojs/check": "^0.3.4",
     "@astrojs/tailwind": "^5.1.0",
+    "@fontsource/ibm-plex-mono": "^5.0.8",
+    "@fontsource/ibm-plex-sans": "^5.0.18",
     "@octokit/rest": "^20.0.2",
     "astro": "^4.0.7",
     "dayjs": "^1.11.10",

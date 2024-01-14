@@ -1,13 +1,18 @@
-/** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
 
-console.log(require("daisyui/src/theming/themes")["dark"]);
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./apps/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
     "./libs/chiubaca-ui/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["IBM Plex Sans", ...defaultTheme.fontFamily.sans],
+        mono: ["IBM Plex Mono", ...defaultTheme.fontFamily.mono],
+      },
+    },
   },
   plugins: [require("daisyui"), require("@tailwindcss/typography")],
   daisyui: {
