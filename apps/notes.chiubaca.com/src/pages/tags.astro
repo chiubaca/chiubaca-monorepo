@@ -74,23 +74,25 @@ const tagNameAndCount = indexedNotes.map((note) => {
   ]}
 >
   <h1 class="py-5 text-3xl">🔖 Tags</h1>
-  <p class="py-5">Find notes based on their tag</p>
 
   <main class="relative">
-    <div class="z-10 flex flex-wrap gap-2">
-      {
-        tagNameAndCount.map((tag) => {
-          return (
-            <a href={`#${tag.tagName}`}>
-              <span class="badge flex justify-evenly gap-2 hover:bg-sky-800 dark:border-slate-200">
-                # {tag.tagName}
-                <sup>{tag.count}</sup>
-              </span>
-            </a>
-          );
-        })
-      }
-    </div>
+    <details open class="my-5">
+      <summary class="pb-5"> Find notes based on their tag:</summary>
+      <div class="z-10 flex flex-wrap gap-2">
+        {
+          tagNameAndCount.map((tag) => {
+            return (
+              <a href={`#${tag.tagName}`}>
+                <span class="badge flex justify-evenly gap-2 p-3 lowercase hover:bg-sky-800 dark:border-slate-200">
+                  # {tag.tagName}
+                  <sup>{tag.count}</sup>
+                </span>
+              </a>
+            );
+          })
+        }
+      </div>
+    </details>
 
     <div class="relative">
       {
@@ -99,11 +101,11 @@ const tagNameAndCount = indexedNotes.map((note) => {
             <div class="sticky">
               <h2
                 id={tag.tag}
-                class="sticky top-0 py-2 font-mono text-2xl backdrop-blur-md"
+                class="sticky top-0 inline rounded-lg p-1 py-2 pt-0 font-mono text-2xl backdrop-blur-xl"
               >
                 # {tag.tag}
               </h2>
-              <ul>
+              <ul class="m-5">
                 {tag.notes.map((note) => {
                   return (
                     <a
