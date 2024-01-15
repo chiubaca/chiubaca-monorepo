@@ -31,7 +31,7 @@ const sortedNoteCollectionByLatestFirst = noteCollection.sort((a, b) =>
           <article class="prose mx-auto max-w-none prose-a:break-all">
             <h2>
               <a
-                class="not-prose text-lg"
+                class="not-prose text-lg hover:link"
                 href={`/${note.collection}/${note.slug}`}
               >
                 {dotDate(note.data.publish_date)}
