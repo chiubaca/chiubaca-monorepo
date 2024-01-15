@@ -55,7 +55,9 @@ const truncatedSlug = truncateString(slug, 15);
     <div class="my-10 flex items-center justify-center gap-2 font-mono">
       {
         entry.data.tags.map((tag) => (
-          <span class="badge border-black dark:border-slate-100">#{tag}</span>
+          <span class="badge badge-ghost border-black before:content-['#'] dark:border-slate-100">
+            {tag}
+          </span>
         ))
       }
     </div>
