@@ -7,6 +7,7 @@ const noteCollection = defineCollection({
   type: "content",
   schema: z.object({
     publish_date: date,
+    last_updated: date,
     title: z.string(),
     description: z.string().nullable().optional(),
     status: z.enum(["draft", "live"]),

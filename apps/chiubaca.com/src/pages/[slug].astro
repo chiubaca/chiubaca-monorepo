@@ -43,7 +43,13 @@ const truncatedSlug = truncateString(slug, 15);
     <h1>{entry.data.title}</h1>
 
     <div class="font-mono italic text-gray-500 md:text-sm dark:text-gray-400">
-      Posted on {entry.data.publish_date.toDateString()}
+      <div>Posted on {entry.data.publish_date.toDateString()}</div>
+      {
+        entry.data.publish_date.getTime() !==
+          entry.data.last_updated.getTime() && (
+          <div>Updated on {entry.data.last_updated.toDateString()}</div>
+        )
+      }
     </div>
 
     <div class="my-10 flex items-center justify-center gap-2 font-mono">
