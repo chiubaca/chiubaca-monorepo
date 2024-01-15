@@ -83,7 +83,7 @@ const tagNameAndCount = indexedNotes.map((note) => {
           tagNameAndCount.map((tag) => {
             return (
               <a href={`#${tag.tagName}`}>
-                <span class="badge flex justify-evenly gap-2 p-3 lowercase hover:bg-sky-800 dark:border-slate-200">
+                <span class="badge badge-ghost  flex justify-evenly gap-2 p-3 lowercase hover:badge-neutral dark:border-slate-200">
                   # {tag.tagName}
                   <sup>{tag.count}</sup>
                 </span>

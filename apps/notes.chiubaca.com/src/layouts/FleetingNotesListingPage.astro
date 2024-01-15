@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { dotDate } from "@shared/utils";
 import MainLayout from "./MainLayout.astro";
 
 const noteCollection = await getCollection("fleeting-notes");
@@ -30,15 +31,15 @@ const sortedNoteCollectionByLatestFirst = noteCollection.sort((a, b) =>
           <article class="prose mx-auto max-w-none prose-a:break-all">
             <h2>
               <a
-                class="link-hover link text-lg"
+                class="not-prose text-lg"
                 href={`/${note.collection}/${note.slug}`}
               >
-                {note.slug}
+                {dotDate(note.data.publish_date)}
               </a>
             </h2>
             <div class="flex flex-row gap-2">
               {note.data.tags.map((tag) => (
-                <span class="not-prose badge flex cursor-pointer border-black no-underline hover:opacity-75 dark:border-slate-100">
+                <span class="not-prose badge badge-ghost flex cursor-pointer border-black no-underline hover:badge-neutral dark:border-slate-100">
                   <a href={`/tags#${tag}`}># {tag} </a>
                 </span>
               ))}
