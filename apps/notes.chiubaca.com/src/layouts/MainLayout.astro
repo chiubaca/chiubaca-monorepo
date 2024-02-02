@@ -37,4 +37,31 @@ const { title, breadcrumbs } = Astro.props;
       </a>
     </p>
   </div>
+
+  <script
+    defer
+    async
+    src="https://cdn.counter.dev/script.js"
+    data-id="91ee2db8-dc88-40a2-9529-ef18149e911b"
+    data-utcoffset="0"
+    slot="scripts"></script>
+  <script
+    defer
+    async
+    src="https://cdn.counter.dev/script.js"
+    data-id="91ee2db8-dc88-40a2-9529-ef18149e911b"
+    data-utcoffset="0"
+    slot="scripts"></script>
+  <script slot="scripts">
+    (function () {
+      window.counterscale = {
+        q: [["set", "siteId", "notes-chiubaca"], ["trackPageview"]],
+      };
+    })();
+  </script>
+  <script
+    slot="scripts"
+    id="counterscale-script"
+    src="https://counterscale.chiubaca.workers.dev/tracker.js"
+    defer></script>
 </BaseLayout>
