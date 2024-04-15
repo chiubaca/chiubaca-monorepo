@@ -10,7 +10,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource/ibm-plex-mono": "^5.0.8",
     "@fontsource/ibm-plex-sans": "^5.0.18",
-    "@octokit/rest": "^20.0.2",
+    "@octokit/rest": "^20.1.0",
     "astro": "^4.0.7",
     "dayjs": "^1.11.10",
     "dotenv": "^16.3.1",
