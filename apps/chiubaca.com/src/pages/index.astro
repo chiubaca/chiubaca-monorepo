@@ -1,6 +1,6 @@
 ---
-import Chookie from "../components/Chookie.astro";
-import Logo from "../components/Logo.astro";
+import Chookie from "../components/ChookieIcon.astro";
+import AnimatedLogo from "../components/AnimatedLogo.astro";
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
@@ -13,7 +13,7 @@ const liveBlogs = blogs
 
 <Layout title="Home">
   <div class="flex justify-center">
-    <Logo />
+    <AnimatedLogo />
   </div>
   <main class="max-w-3xl mx-auto">
     <section class="latest-blogs mt-8">
