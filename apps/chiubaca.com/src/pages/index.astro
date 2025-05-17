@@ -1,32 +1,46 @@
 ---
+import Chookie from "../components/Chookie.astro";
+import Logo from "../components/Logo.astro";
 import Layout from "../layouts/Layout.astro";
-import {
-  z,
-  defineCollection,
-  getCollection,
-  getEntry,
-  getEntries,
-  reference,
-  render,
-} from "astro:content";
+import { getCollection } from "astro:content";
 
 const blogs = await getCollection("permanentNotes");
 const liveBlogs = blogs
   .filter((blog) => blog.data.status === "live")
-  .sort(
-    (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf()
-  );
+  .sort((a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf())
+  .slice(0, 5);
 ---
 
 <Layout title="Home">
-  <h1>{"{"}chiubaca.com{"}"}</h1>
-  {
-    liveBlogs.map((blog) => {
-      return (
-        <p>
-          {blog.data.title} - {blog.data.publish_date.toLocaleDateString()}
-        </p>
-      );
-    })
-  }
+  <div class="flex justify-center">
+    <Logo />
+  </div>
+  <main class="max-w-3xl mx-auto">
+    <section class="latest-blogs mt-8">
+      <h2 class="font-mono mb-4 text-2xl font-semibold">Latest Blogs</h2>
+      <div class="blog-list mt-4">
+        {
+          liveBlogs.map((blog) => {
+            return (
+              <div class="blog-post-summary mb-6 pb-0 last:mb-0 last:pb-0">
+                <a
+                  href={`/permanent-notes/${blog.id}/`}
+                  class="blog-title text-xl font-semibold text-gray-900 no-underline block mb-1 font-mono hover:underline"
+                >
+                  {blog.data.title}
+                </a>
+                <p class="blog-date text-sm text-gray-600 m-0 font-mono">
+                  {blog.data.publish_date.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </p>
+              </div>
+            );
+          })
+        }
+      </div>
+    </section>
+  </main>
 </Layout>

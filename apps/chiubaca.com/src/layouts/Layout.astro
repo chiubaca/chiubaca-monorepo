@@ -15,14 +15,10 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>chiubaca.com {title && `| ${title}`}</title>
   </head>
-  <main>
+  <body class="font-mono">
     <slot />
-  </main>
-
+  </body>
   <footer>
-    <p>© 2023 Chiubaca.com</p>
+    <p>chiubaca.com 2025</p>
   </footer>
-  <body> </body>
-
-
 </html>
