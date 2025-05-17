@@ -9,6 +9,11 @@ const liveBlogs = blogs
   .filter((blog) => blog.data.status === "live")
   .sort((a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf())
   .slice(0, 5);
+
+const fleetingNotes = await getCollection("fleetingNotes");
+const latestFleetingNote = fleetingNotes.sort(
+  (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf()
+)[0];
 ---
 
 <Layout title="Home">
@@ -40,6 +45,32 @@ const liveBlogs = blogs
             );
           })
         }
+      </div>
+    </section>
+    <hr class="my-4" />
+    <section>
+      <h2 class="font-mono text-2xl font-semibold">Latest note</h2>
+      <p class="blog-date text-sm text-gray-600 mb-4">
+        {
+          latestFleetingNote.data.publish_date.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        }
+      </p>
+      <div class="blog-post-summary mb-6 pb-0 last:mb-0 last:pb-0">
+        <article
+          set:html={latestFleetingNote.rendered.html}
+          class="max-h-80 overflow-auto"
+        />
+
+        <a
+          href={`/notes/`}
+          class="blog-title text-xl font-semibold text-gray-900 no-underline block mb-1 font-mono hover:underline"
+        >
+          All notes ->
+        </a>
       </div>
     </section>
   </main>

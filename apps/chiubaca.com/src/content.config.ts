@@ -13,4 +13,12 @@ const permanentNotes = defineCollection({
   }),
 });
 
-export const collections = { permanentNotes };
+const fleetingNotes = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./fleeting-notes" }),
+  schema: z.object({
+    publish_date: z.date(),
+    tags: z.array(z.string()),
+  }),
+});
+
+export const collections = { permanentNotes, fleetingNotes };
