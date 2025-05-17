@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {
+  z,
+  defineCollection,
+  getCollection,
+  getEntry,
+  getEntries,
+  reference,
+  render,
+} from "astro:content";
+
+const blogs = await getCollection("permanentNotes");
+const liveBlogs = blogs
+  .filter((blog) => blog.data.status === "live")
+  .sort(
+    (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf()
+  );
+---
+
+<Layout title="Home">
+  <h1>{"{"}chiubaca.com{"}"}</h1>
+  {
+    liveBlogs.map((blog) => {
+      return (
+        <p>
+          {blog.data.title} - {blog.data.publish_date.toLocaleDateString()}
+        </p>
+      );
+    })
+  }
+</Layout>

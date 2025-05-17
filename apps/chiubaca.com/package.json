@@ -1,0 +1,19 @@
+{
+  "name": "chiubaca.com",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/ts-plugin": "^1.10.4",
+    "@tailwindcss/vite": "^4.1.6",
+    "astro": "^5.7.12",
+    "tailwindcss": "^4.1.6"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

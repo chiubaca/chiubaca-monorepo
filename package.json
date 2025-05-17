@@ -1,0 +1,22 @@
+{
+  "name": "chiubaca-monorepo",
+  "version": "1.0.0",
+  "description": "All things *.chiubaca related",
+  "scripts": {
+    "dev": "pnpm -r dev",
+    "dev:chiubaca": "pnpm --filter chiubaca.com dev",
+    "download-notes": "rm -rf tmp-notes && git clone https://github.com/chiubaca/notes tmp-notes",
+    "sync-notes": "cd tmp-notes && git pull",
+    "move-notes": "cp -r tmp-notes/permanent-notes/ apps/chiubaca.com/permanent-notes/ && cp -r tmp-notes/attachments/* apps/chiubaca.com/public/",
+    "build": "pnpm -r build",
+    "preview": "pnpm -r preview",
+    "test:node-env": "echo \"Current PATH: $PATH\" && echo \"Node location: $(which node)\" && echo \"Node version: $(node -v)\""
+  },
+  "keywords": [
+    "astro",
+    "pnpm"
+  ],
+  "author": "Alex Chiu",
+  "license": "ISC",
+  "packageManager": "pnpm@10.11.0"
+}
