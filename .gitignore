@@ -1,0 +1,19 @@
+# Dependency directories
+node_modules/
+
+# PNPM
+pnpm-debug.log*
+
+# Astro specific
+dist/
+.astro/
+astro.config.mjs.timestamp-*
+
+# Environment variables
+.env*
+*.env
+.env.local
+
+tmp-notes/
+apps/chiubaca.com/permanent-notes/*
+apps/chiubaca.com/public/attachments/*
