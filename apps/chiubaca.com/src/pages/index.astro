@@ -46,6 +46,12 @@ const latestFleetingNote = fleetingNotes.sort(
           })
         }
       </div>
+      <a
+        href={`/blogs/`}
+        class="pt-4 font-semibold text-gray-900 no-underline block mb-1 font-mono hover:underline"
+      >
+        All blogs ->
+      </a>
     </section>
     <hr class="my-4" />
     <section>
@@ -67,11 +73,23 @@ const latestFleetingNote = fleetingNotes.sort(
 
         <a
           href={`/notes/`}
-          class="blog-title text-xl font-semibold text-gray-900 no-underline block mb-1 font-mono hover:underline"
+          class="pt-4 text-gray-900 no-underline block mb-1 font-mono hover:underline"
         >
           All notes ->
         </a>
       </div>
+    </section>
+
+    <section class="pt-8">
+      <img
+        loading="lazy"
+        src="https://cdn.bsky.app/img/avatar/plain/did:plc:yiq6xbxnjzcsxipd3qq3r2hv/bafkreify73ikrqasx3zdusnarp6qrx3b2b2zpy2ixhgklfnj5oqyrvizge@jpeg"
+        class="float-left mr-5 aspect-square w-16 rounded-full"
+      />
+      <p class="">
+        Hey I'm Alex Chiu 👋. I'm a senior software engineer based in London.
+        Here I publish musings about web development, life and other ramblings.
+      </p>
     </section>
   </main>
 </Layout>
