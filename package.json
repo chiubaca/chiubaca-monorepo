@@ -18,5 +18,8 @@
   ],
   "author": "Alex Chiu",
   "license": "ISC",
-  "packageManager": "pnpm@10.11.0"
+  "packageManager": "pnpm@10.11.0",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16"
+  }
 }
