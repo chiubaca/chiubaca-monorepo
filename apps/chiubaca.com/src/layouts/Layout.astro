@@ -18,19 +18,7 @@ const { title } = Astro.props;
   <body class="font-mono">
     <slot />
   </body>
-  <footer>
-    <div slot="footer">
-      <img
-        loading="lazy"
-        src="https://cdn.bsky.app/img/avatar/plain/did:plc:yiq6xbxnjzcsxipd3qq3r2hv/bafkreify73ikrqasx3zdusnarp6qrx3b2b2zpy2ixhgklfnj5oqyrvizge@jpeg"
-        class="float-left mr-5 aspect-square w-16 rounded-full"
-      />
-      <p class="">
-        Hey I'm Alex Chiu 👋. I'm a senior software engineer based in London.
-        Here I publish musings about web development, life and other ramblings.
-      </p>
-    </div>
-
+  <footer slot="footer">
     <p>chiubaca.com 2025</p>
   </footer>
 </html>
