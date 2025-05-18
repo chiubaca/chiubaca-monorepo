@@ -1,5 +1,6 @@
 ---
-import Chookie from "../components/ChookieIcon.astro";
+// import Chookie from "../components/ChookieIcon.astro";
+import { getEntry, render } from "astro:content";
 import AnimatedLogo from "../components/AnimatedLogo.astro";
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
@@ -14,13 +15,20 @@ const fleetingNotes = await getCollection("fleetingNotes");
 const latestFleetingNote = fleetingNotes.sort(
   (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf()
 )[0];
+const latestFleetingNoteEntry = await getEntry(
+  "fleetingNotes",
+  latestFleetingNote.id
+);
+const { Content: LatestFleetingNoteContent } = await render(
+  latestFleetingNoteEntry
+);
 ---
 
 <Layout title="Home">
   <div class="flex justify-center">
     <AnimatedLogo />
   </div>
-  <main class="max-w-3xl mx-auto">
+  <main class="px-5 max-w-3xl mx-auto">
     <section class="latest-blogs mt-8">
       <h2 class="font-mono mb-4 text-2xl font-semibold">Latest Blogs</h2>
       <div class="blog-list mt-4">
@@ -30,12 +38,12 @@ const latestFleetingNote = fleetingNotes.sort(
               <div class="blog-post-summary mb-6 pb-0 last:mb-0 last:pb-0">
                 <a
                   href={`/permanent-notes/${blog.id}/`}
-                  class="blog-title text-xl font-semibold text-gray-900 no-underline block mb-1 font-mono hover:underline"
+                  class="blog-title text-xl font-semibold  no-underline block mb-1 font-mono hover:underline"
                 >
                   {blog.data.title}
                 </a>
-                <p class="blog-date text-sm text-gray-600 m-0 font-mono">
-                  {blog.data.publish_date.toLocaleDateString("en-US", {
+                <p class="text-sm ">
+                  {blog.data.publish_date.toLocaleDateString("en-GB", {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
@@ -48,7 +56,7 @@ const latestFleetingNote = fleetingNotes.sort(
       </div>
       <a
         href={`/blogs/`}
-        class="pt-4 font-semibold text-gray-900 no-underline block mb-1 font-mono hover:underline"
+        class="pt-4 font-semibold no-underline block mb-1 link-hover"
       >
         All blogs ->
       </a>
@@ -66,17 +74,11 @@ const latestFleetingNote = fleetingNotes.sort(
         }
       </p>
       <div class="blog-post-summary mb-6 pb-0 last:mb-0 last:pb-0">
-        <article
-          set:html={latestFleetingNote.rendered.html}
-          class="max-h-80 overflow-auto"
-        />
+        <article class="prose">
+          <LatestFleetingNoteContent />
+        </article>
 
-        <a
-          href={`/fleeting-notes/`}
-          class="pt-4 text-gray-900 no-underline block mb-1 font-mono hover:underline"
-        >
-          All notes ->
-        </a>
+        <a href={`/fleeting-notes/`} class="pt-4 link-hover"> All notes -> </a>
       </div>
     </section>
 
