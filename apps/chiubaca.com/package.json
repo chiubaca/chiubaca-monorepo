@@ -14,6 +14,7 @@
     "tailwindcss": "^4.1.6"
   },
   "devDependencies": {
+    "daisyui": "^5.0.35",
     "typescript": "^5.8.3"
   }
 }
