@@ -1,0 +1,21 @@
+---
+import { getEntry } from "astro:content";
+import { getCollection, render } from "astro:content";
+
+const fleetingNotesCollection = await getCollection("fleetingNotes");
+const fleetingNotes = fleetingNotesCollection.sort(
+  (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf()
+);
+---
+
+<main>
+  {
+    fleetingNotes.map(async (note) => {
+      const entry = await getEntry("fleetingNotes", note.id);
+
+      const { Content } = await render(entry);
+
+      return <Content />;
+    })
+  }
+</main>
