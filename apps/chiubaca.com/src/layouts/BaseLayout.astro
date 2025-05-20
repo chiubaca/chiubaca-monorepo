@@ -1,0 +1,81 @@
+---
+import ChookieIcon from "../components/ChookieIcon.astro";
+import "./src/styles/global.css";
+
+type BreadCrumb = { href: string; label: string };
+
+interface Props {
+  titlePrefix?: string;
+  title?: string;
+  breadcrumbs?: BreadCrumb[];
+}
+const { titlePrefix, title, breadcrumbs } = Astro.props;
+
+// import "@fontsource/ibm-plex-sans";
+// import "@fontsource/ibm-plex-mono";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <slot name="head" />
+    <title>{titlePrefix} {title && `| ${title}`}</title>
+  </head>
+  <body>
+    <div class="mx-auto max-w-[65ch] px-5 pb-10 md:px-0">
+      <header class="flex items-center justify-between py-10">
+        <div class="font-mono flex items-center">
+          <a href="/" class="py-2 hover:link hover:text-primary pr-2">
+            <ChookieIcon />
+          </a>
+          {
+            breadcrumbs &&
+              breadcrumbs.map((b) => (
+                <a href={b.href} class="hover:opacity-75">
+                  {b.label}
+                </a>
+              ))
+          }
+        </div>
+      </header>
+      <slot />
+      <footer class="py-10">
+        <hr class="py-5" />
+        <slot name="footer" />
+
+        <p>
+          Follow me on:
+          <a class="link hover:opacity-75" href="https://github.com/chiubaca">
+            Github</a
+          >
+          <span>/</span>
+          <a
+            class="link hover:opacity-75"
+            href="https://bsky.app/profile/chiubaca.com"
+          >
+            Bluesky
+          </a>
+          <span>/</span>
+          <a class="link hover:opacity-75" href="https://mas.to/@chiubaca">
+            Mastodon</a
+          >
+          <span>/</span>
+          <a
+            class="link hover:opacity-75"
+            href="https://www.linkedin.com/in/achiu1/"
+          >
+            LinkedIn</a
+          >
+          <span>/</span>
+          <a class="link hover:opacity-75" href="https://twitter.com/chiubaca">
+            X (Twitter)</a
+          >
+        </p>
+      </footer>
+    </div>
+
+    <slot name="scripts" />
+  </body>
+</html>
