@@ -1,0 +1,64 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const blogs = await getCollection("permanentNotes");
+
+  const slugPaths = blogs.map((blog) => {
+    return {
+      params: { slug: blog.id },
+    };
+  });
+
+  return slugPaths;
+}
+
+const { slug } = Astro.params;
+
+const entry = await getEntry("permanentNotes", slug);
+const { Content } = await render(entry);
+---
+
+<BaseLayout
+  breadcrumbs={[
+    {
+      href: "/blogs",
+      label: "blogs /",
+    },
+    {
+      href: "/" + slug,
+      label: slug,
+    },
+  ]}
+>
+  <meta name="keywords" content={entry.data.tags.toString()} slot="head" />
+  {
+    entry.data?.description && (
+      <meta name="description" content={entry.data.description} slot="head" />
+    )
+  }
+  <h1>{entry.data.title}</h1>
+
+  <div class="font-mono italic text-gray-500 md:text-sm dark:text-gray-400">
+    <div>Posted on {entry.data.publish_date.toDateString()}</div>
+    {
+      entry.data.publish_date.getTime() !==
+        entry.data.last_updated.getTime() && (
+        <div>Updated on {entry.data.last_updated.toDateString()}</div>
+      )
+    }
+  </div>
+  <div class="my-10 flex items-center justify-center gap-2 font-mono">
+    {
+      entry.data.tags.map((tag) => (
+        <span class="badge badge-ghost border-black before:content-['#'] dark:border-slate-100">
+          {tag}
+        </span>
+      ))
+    }
+  </div>
+  <article class="prose">
+    <Content />
+  </article>
+</BaseLayout>

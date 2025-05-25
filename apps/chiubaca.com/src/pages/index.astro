@@ -25,30 +25,28 @@ const { Content: LatestFleetingNoteContent } = await render(
 
 <BaseLayout>
   <main class="max-w-3xl mx-auto">
-    <nav>
+    <nav class="py-10">
       <AnimtedBlinkingTitle />
     </nav>
 
-    <section class="latest-blogs mt-8">
-      <h2 class="font-mono mb-4 text-2xl font-semibold">✏️ Latest Writings</h2>
+    <section class="latest-blogs">
+      <h1 class="font-mono mb-4 text-2xl font-semibold">✏️ Latest writings</h1>
+      <p class="italic text-secondary">Long form blogs, essays, musings.</p>
       <div class="blog-list mt-4">
         {
           liveBlogs.map((blog) => {
             return (
-              <div class="blog-post-summary mb-6 pb-0 last:mb-0 last:pb-0">
-                <a
-                  href={`/blog/${blog.id}/`}
-                  class="blog-title text-xl font-semibold  no-underline block mb-1 font-mono hover:underline"
-                >
-                  {blog.data.title}
-                </a>
-                <p class="text-sm ">
+              <div class="blog-post-summary mb-6">
+                <p class="text-xs font-mono capitalize">
                   {blog.data.publish_date.toLocaleDateString("en-GB", {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
                   })}
                 </p>
+                <a href={`/${blog.id}/`} class=" hover:underline">
+                  {blog.data.title}
+                </a>
               </div>
             );
           })
@@ -63,8 +61,7 @@ const { Content: LatestFleetingNoteContent } = await render(
     </section>
     <hr class="my-4" />
     <section>
-      <h2 class="font-mono text-2xl font-semibold">Latest note</h2>
-      <p class="blog-date text-sm text-gray-600 mb-4">
+      <p class="blog-date text-xs">
         {
           latestFleetingNote.data.publish_date.toLocaleDateString("en-US", {
             year: "numeric",
@@ -73,14 +70,14 @@ const { Content: LatestFleetingNoteContent } = await render(
           })
         }
       </p>
+      <h1 class="font-mono mb-4 text-2xl font-semibold">🗒️ Latest note</h1>
+      <p class="italic text-secondary">Unorganised fleeting thoughts...</p>
       <div class="blog-post-summary mb-6 pb-0 last:mb-0 last:pb-0">
         <article class="prose">
           <LatestFleetingNoteContent />
         </article>
 
-        <a href={`/fleeting-notes/`} class="pt-4 link-hover"
-          >🗒️ All notes ->
-        </a>
+        <a href={`/fleeting-notes/`} class="pt-4 link-hover">All notes -> </a>
       </div>
     </section>
 
