@@ -10,9 +10,6 @@ interface Props {
   breadcrumbs?: BreadCrumb[];
 }
 const { titlePrefix, title, breadcrumbs } = Astro.props;
-
-// import "@fontsource/ibm-plex-sans";
-// import "@fontsource/ibm-plex-mono";
 ---
 
 <!doctype html>
@@ -27,9 +24,6 @@ const { titlePrefix, title, breadcrumbs } = Astro.props;
     <div class="mx-auto max-w-[65ch] px-5 pb-10 md:px-0">
       <header class="flex items-center justify-between py-10">
         <div class="font-mono flex items-center">
-          <a href="/" class="py-2 hover:link hover:text-primary pr-2">
-            <ChookieIcon />
-          </a>
           {
             breadcrumbs &&
               breadcrumbs.map((b) => (
