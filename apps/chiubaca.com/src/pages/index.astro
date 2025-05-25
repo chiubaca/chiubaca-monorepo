@@ -2,6 +2,7 @@
 import { getEntry, render } from "astro:content";
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import AnimtedBlinkingTitle from "../components/AnimatedBlinkingTitle.astro";
 
 const blogs = await getCollection("permanentNotes");
 const liveBlogs = blogs
@@ -22,8 +23,12 @@ const { Content: LatestFleetingNoteContent } = await render(
 );
 ---
 
-<BaseLayout breadcrumbs={[{ href: "/", label: "/" }]}>
+<BaseLayout>
   <main class="max-w-3xl mx-auto">
+    <nav>
+      <AnimtedBlinkingTitle />
+    </nav>
+
     <section class="latest-blogs mt-8">
       <h2 class="font-mono mb-4 text-2xl font-semibold">✏️ Latest Writings</h2>
       <div class="blog-list mt-4">
