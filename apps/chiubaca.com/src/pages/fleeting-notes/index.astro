@@ -1,6 +1,7 @@
 ---
 import { getEntry } from "astro:content";
 import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const fleetingNotesCollection = await getCollection("fleetingNotes");
 const fleetingNotes = fleetingNotesCollection.sort(
@@ -8,14 +9,36 @@ const fleetingNotes = fleetingNotesCollection.sort(
 );
 ---
 
-<main>
-  {
-    fleetingNotes.map(async (note) => {
-      const entry = await getEntry("fleetingNotes", note.id);
+<BaseLayout
+  breadcrumbs={[
+    {
+      href: "/fleeting-notes",
+      label: "fleeting-notes",
+    },
+  ]}
+>
+  <div>
+    {
+      fleetingNotes.map(async (note) => {
+        const entry = await getEntry("fleetingNotes", note.id);
 
-      const { Content } = await render(entry);
+        const { Content } = await render(entry);
 
-      return <Content />;
-    })
-  }
-</main>
+        return (
+          <section class="prose py-5">
+            <h2 class="font-mono">{note.id.replaceAll("-", "・")}</h2>
+            <div class="flex flex-row gap-2">
+              {entry.data.tags.map((tag) => (
+                <span class="font-mono text-xs not-prose badge flex cursor-pointer border-black no-underline hover:badge-neutral dark:border-slate-100">
+                  <a href={`/tags#${tag}`}># {tag} </a>
+                </span>
+              ))}
+            </div>
+            <Content />
+            <hr />
+          </section>
+        );
+      })
+    }
+  </div>
+</BaseLayout>
