@@ -9,11 +9,15 @@
     "notes:sync": "cd tmp-notes && git pull",
     "notes:migrate": "bash libs/scripts/migrate-notes.sh",
     "format": "biome format --write .",
+    "lint": "biome lint .",
     "build": "pnpm -r build",
     "preview": "pnpm -r preview",
     "test:node-env": "echo \"Current PATH: $PATH\" && echo \"Node location: $(which node)\" && echo \"Node version: $(node -v)\""
   },
-  "keywords": ["astro", "pnpm"],
+  "keywords": [
+    "astro",
+    "pnpm"
+  ],
   "author": "Alex Chiu",
   "license": "ISC",
   "packageManager": "pnpm@10.11.0",
