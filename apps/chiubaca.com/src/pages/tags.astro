@@ -3,20 +3,20 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 type Note = {
-	collection: string;
-	slug: string;
-	tags: string[];
+  collection: string;
+  slug: string;
+  tags: string[];
 };
 const collections = ["fleeting-notes", "permanent-notes"] as const;
 
 const collectionPromise = collections.map(async (collectionName) => {
-	const collection = await getCollection(collectionName);
+  const collection = await getCollection(collectionName);
 
-	return collection.map((note) => ({
-		collection: note.collection,
-		slug: note.id,
-		tags: note.data.tags ? note.data.tags : ["uncategorised"],
-	}));
+  return collection.map((note) => ({
+    collection: note.collection,
+    slug: note.id,
+    tags: note.data.tags ? note.data.tags : ["uncategorised"],
+  }));
 });
 
 const notesByCollection = await Promise.all(collectionPromise);
@@ -24,39 +24,39 @@ const notesByCollection = await Promise.all(collectionPromise);
 const flattenedNotes = notesByCollection.flat();
 
 type NotesGroupedByTag = {
-	tag: string;
-	notes: Note[];
+  tag: string;
+  notes: Note[];
 };
 
 function groupNotesByTag(notes: Note[]): NotesGroupedByTag[] {
-	const taggedNotes: { [key: string]: Note[] } = {};
+  const taggedNotes: { [key: string]: Note[] } = {};
 
-	for (const note of notes) {
-		for (const tag of note.tags) {
-			if (!taggedNotes[tag]) {
-				taggedNotes[tag] = [];
-			}
-			taggedNotes[tag].push(note);
-		}
-	}
+  for (const note of notes) {
+    for (const tag of note.tags) {
+      if (!taggedNotes[tag]) {
+        taggedNotes[tag] = [];
+      }
+      taggedNotes[tag].push(note);
+    }
+  }
 
-	return Object.keys(taggedNotes).map((tag) => {
-		return {
-			tag,
-			notes: taggedNotes[tag],
-		};
-	});
+  return Object.keys(taggedNotes).map((tag) => {
+    return {
+      tag,
+      notes: taggedNotes[tag],
+    };
+  });
 }
 
 const indexedNotes = groupNotesByTag(flattenedNotes).sort((a, b) =>
-	a.tag.localeCompare(b.tag),
+  a.tag.localeCompare(b.tag),
 );
 
 const tagNameAndCount = indexedNotes.map((note) => {
-	return {
-		tagName: note.tag,
-		count: note.notes.length,
-	};
+  return {
+    tagName: note.tag,
+    count: note.notes.length,
+  };
 });
 ---
 
