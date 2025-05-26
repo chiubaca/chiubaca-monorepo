@@ -4,18 +4,18 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import AnimtedBlinkingTitle from "../components/AnimatedBlinkingTitle.astro";
 
-const blogs = await getCollection("permanentNotes");
+const blogs = await getCollection("permanent-notes");
 const liveBlogs = blogs
   .filter((blog) => blog.data.status === "live")
   .sort((a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf())
   .slice(0, 5);
 
-const fleetingNotes = await getCollection("fleetingNotes");
+const fleetingNotes = await getCollection("fleeting-notes");
 const latestFleetingNote = fleetingNotes.sort(
   (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf()
 )[0];
 const latestFleetingNoteEntry = await getEntry(
-  "fleetingNotes",
+  "fleeting-notes",
   latestFleetingNote.id
 );
 const { Content: LatestFleetingNoteContent } = await render(

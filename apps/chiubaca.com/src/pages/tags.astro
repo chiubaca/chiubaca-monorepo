@@ -1,16 +1,13 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-// import  from "../";
-// import {tags} from '../content.config'
-// import { NoteTypes } from "@shared/types";
 
 type Note = {
   collection: string;
   slug: string;
   tags: string[];
 };
-const collections = ["fleetingNotes", "permanentNotes"] as const;
+const collections = ["fleeting-notes", "permanent-notes"] as const;
 
 const collectionPromise = collections.map(async (collectionName) => {
   const collection = await getCollection(collectionName);
