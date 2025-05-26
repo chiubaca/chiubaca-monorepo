@@ -1,0 +1,50 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const blogs = await getCollection("fleetingNotes");
+
+  const slugPaths = blogs.map((blog) => {
+    return {
+      params: { date: blog.id },
+    };
+  });
+
+  return slugPaths;
+}
+
+const { date } = Astro.params;
+const entry = await getEntry("fleetingNotes", date);
+console.log("entry", entry);
+
+const { Content } = await render(entry);
+// const publishedPermamentNoteUrl = `https://chiubaca.com/${entry.slug}`;
+---
+
+<BaseLayout
+  breadcrumbs={[
+    {
+      href: `/fleeting-notes`,
+      label: "fleeting-notes",
+    },
+    {
+      href: `/fleeting-notes/${entry.id}`,
+      label: entry.id,
+    },
+  ]}
+>
+  <meta name="robots" content="noindex" slot="head" />
+
+  <article class="prose mx-auto max-w-none prose-a:break-all">
+    <Content />
+  </article>
+
+  <div class="link-hover link pt-10">
+    <a
+      href={`https://github.com/chiubaca/learning/blob/main/fleeting-notes/${entry.id}.md`}
+    >
+      Edit on GitHub ✏️
+    </a>
+  </div>
+</BaseLayout>

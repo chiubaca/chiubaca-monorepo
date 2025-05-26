@@ -58,9 +58,12 @@ const { titlePrefix, title, breadcrumbs } = Astro.props;
                 </a>
                 /
                 {breadcrumbs.map((b) => (
-                  <a href={b.href} class="hover:opacity-75 hover:italic">
-                    {b.label}
-                  </a>
+                  <span>
+                    <a href={b.href} class="hover:opacity-75 hover:italic">
+                      {b.label}
+                    </a>
+                    /
+                  </span>
                 ))}
               </div>
             )
