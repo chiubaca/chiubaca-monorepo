@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "format": "biome format --write ./src"
   },
   "dependencies": {
     "@astrojs/ts-plugin": "^1.10.4",

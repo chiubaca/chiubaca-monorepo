@@ -3,15 +3,15 @@ import { getCollection, getEntry, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
-  const blogs = await getCollection("fleeting-notes");
+	const blogs = await getCollection("fleeting-notes");
 
-  const slugPaths = blogs.map((blog) => {
-    return {
-      params: { date: blog.id },
-    };
-  });
+	const slugPaths = blogs.map((blog) => {
+		return {
+			params: { date: blog.id },
+		};
+	});
 
-  return slugPaths;
+	return slugPaths;
 }
 
 const { date } = Astro.params;
