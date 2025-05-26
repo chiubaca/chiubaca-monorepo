@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from "astro:transitions";
+
 import "./src/styles/global.css";
 
 type BreadCrumb = { href: string; label: string };
@@ -18,6 +20,7 @@ const { titlePrefix, title, breadcrumbs } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <slot name="head" />
     <title>{titlePrefix} {title && `| ${title}`}</title>
+    <ClientRouter />
   </head>
 
   <body>
@@ -27,7 +30,7 @@ const { titlePrefix, title, breadcrumbs } = Astro.props;
           {
             breadcrumbs && (
               <div class="flex items-center gap-[1ch] py-10">
-                <a href="/">
+                <a href="/" class="hover:rotate-10">
                   <svg
                     width="15"
                     height="14"
@@ -55,7 +58,7 @@ const { titlePrefix, title, breadcrumbs } = Astro.props;
                 </a>
                 /
                 {breadcrumbs.map((b) => (
-                  <a href={b.href} class="hover:opacity-75">
+                  <a href={b.href} class="hover:opacity-75 hover:italic">
                     {b.label}
                   </a>
                 ))}
