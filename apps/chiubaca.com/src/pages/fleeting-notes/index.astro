@@ -5,7 +5,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const fleetingNotesCollection = await getCollection("fleeting-notes");
 const fleetingNotes = fleetingNotesCollection.sort(
-  (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf()
+	(a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf(),
 );
 ---
 
