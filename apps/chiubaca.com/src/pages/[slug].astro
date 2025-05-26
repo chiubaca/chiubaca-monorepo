@@ -38,12 +38,14 @@ const { Content } = await render(entry);
       <meta name="description" content={entry.data.description} slot="head" />
     )
   }
-  <h1 transition:name="blog-title" transition:animate="slide">
+  <h1>
     {entry.data.title}
   </h1>
 
   <div class="font-mono italic text-gray-500 md:text-sm dark:text-gray-400">
-    <div>Posted on {entry.data.publish_date.toDateString()}</div>
+    <div>
+      Posted on {entry.data.publish_date.toDateString()}
+    </div>
     {
       entry.data.publish_date.getTime() !==
         entry.data.last_updated.getTime() && (
