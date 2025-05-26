@@ -30,4 +30,7 @@ const fleetingNotes = defineCollection({
   }),
 });
 
-export const collections = { permanentNotes, fleetingNotes };
+export const collections = {
+  "permanent-notes": permanentNotes,
+  "fleeting-notes": fleetingNotes,
+};
