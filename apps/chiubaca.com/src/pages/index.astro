@@ -44,7 +44,11 @@ const { Content: LatestFleetingNoteContent } = await render(
                     day: "numeric",
                   })}
                 </p>
-                <a href={`/${blog.id}/`} class=" hover:underline">
+                <a
+                  href={`/${blog.id}/`}
+                  class=" hover:underline"
+                  transition:name="blog-title"
+                >
                   {blog.data.title}
                 </a>
               </div>
