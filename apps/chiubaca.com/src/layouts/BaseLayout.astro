@@ -2,6 +2,7 @@
 import { ClientRouter } from "astro:transitions";
 
 import "./src/styles/global.css";
+import AnimatedTypingTitle from "../components/AnimatedTypingTitle.astro";
 
 type BreadCrumb = { href: string; label: string };
 
@@ -75,37 +76,66 @@ const { titlePrefix, title, breadcrumbs } = Astro.props;
         <hr class="py-5" />
         <slot name="footer" />
 
-        <p>
-          Follow me on:
-          <a class="link hover:opacity-75" href="https://github.com/chiubaca">
-            Github</a
-          >
-          <span>/</span>
-          <a
-            class="link hover:opacity-75"
-            href="https://bsky.app/profile/chiubaca.com"
-          >
-            Bluesky
-          </a>
-          <span>/</span>
-          <a class="link hover:opacity-75" href="https://mas.to/@chiubaca">
-            Mastodon</a
-          >
-          <span>/</span>
-          <a
-            class="link hover:opacity-75"
-            href="https://www.linkedin.com/in/achiu1/"
-          >
-            LinkedIn</a
-          >
-          <span>/</span>
-          <a class="link hover:opacity-75" href="https://twitter.com/chiubaca">
-            X (Twitter)</a
-          >
-        </p>
+        <section>
+          <img
+            loading="lazy"
+            src="https://cdn.bsky.app/img/avatar/plain/did:plc:yiq6xbxnjzcsxipd3qq3r2hv/bafkreify73ikrqasx3zdusnarp6qrx3b2b2zpy2ixhgklfnj5oqyrvizge@jpeg"
+            class="float-left mr-5 aspect-square w-16 rounded-full"
+          />
+          <p>
+            Hey I'm Alex 👋🏼. I'm a senior software engineer based in London.
+            This my digital garden 🌱 for publishing occasional musings about
+            web development, life and other ramblings.
+          </p>
+        </section>
+        <section class="pt-1">
+          <p>
+            Follow me on:
+            <a
+              class="link hover:opacity-75 hover:italic"
+              href="https://github.com/chiubaca"
+            >
+              GitHub</a
+            >
+            <span>/</span>
+            <a
+              class="link hover:opacity-75 hover:italic"
+              href="https://bsky.app/profile/chiubaca.com"
+            >
+              Bluesky
+            </a>
+            <span>/</span>
+            <a
+              class="link hover:opacity-75 hover:italic"
+              href="https://mas.to/@chiubaca"
+            >
+              Mastodon</a
+            >
+            <span>/</span>
+            <a
+              class="link hover:opacity-75 hover:italic"
+              href="https://www.linkedin.com/in/achiu1/"
+            >
+              LinkedIn</a
+            >
+            <span>/</span>
+            <a
+              class="link hover:opacity-75 hover:italic"
+              href="https://twitter.com/chiubaca"
+            >
+              X (Twitter)</a
+            >
+          </p>
+        </section>
       </footer>
     </div>
 
+    <footer class="footer footer-center bg-base-200 rounded p-2">
+      <a href="/" class="flex flex-col">
+        <AnimatedTypingTitle />
+        <p class="text-xs font-mono">{new Date().getFullYear()}</p>
+      </a>
+    </footer>
     <slot name="scripts" />
   </body>
 </html>
