@@ -6,7 +6,7 @@
     "useIgnoreFile": false
   },
   "files": {
-    "include": ["*.astro"],
+    "include": ["*.svelte", "*.astro", "*.vue"],
     "ignoreUnknown": false,
     "ignore": []
   },
@@ -14,6 +14,7 @@
     "enabled": true,
     "indentStyle": "space"
   },
+
   "organizeImports": {
     "enabled": true
   },
@@ -27,5 +28,21 @@
     "formatter": {
       "quoteStyle": "double"
     }
-  }
+  },
+  "overrides": [
+    {
+      "include": ["*.svelte", "*.astro", "*.vue"],
+      "formatter": {
+        "enabled": true
+      },
+      "linter": {
+        "enabled": true,
+        "rules": {
+          "nursery": {
+            "useSortedClasses": "error"
+          }
+        }
+      }
+    }
+  ]
 }
