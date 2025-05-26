@@ -7,7 +7,7 @@
     "dev:chiubaca": "pnpm --filter chiubaca.com dev",
     "notes:download": "rm -rf tmp-notes && git clone https://github.com/chiubaca/notes tmp-notes",
     "notes:sync": "cd tmp-notes && git pull",
-    "notes:migrate": "bash migrate-notes.sh",
+    "notes:migrate": "bash libs/scripts/migrate-notes.sh",
     "build": "pnpm -r build",
     "preview": "pnpm -r preview",
     "test:node-env": "echo \"Current PATH: $PATH\" && echo \"Node location: $(which node)\" && echo \"Node version: $(node -v)\""
