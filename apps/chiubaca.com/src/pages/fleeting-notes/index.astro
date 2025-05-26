@@ -26,7 +26,9 @@ const fleetingNotes = fleetingNotesCollection.sort(
 
         return (
           <section class="prose py-5">
-            <h2 class="font-mono">{note.id.replaceAll("-", "・")}</h2>
+            <a href={`/fleeting-notes/${note.id}`}>
+              <h1 class="font-mono">{note.id.replaceAll("-", "・")}</h1>
+            </a>
             <div class="flex flex-row gap-2">
               {entry.data.tags.map((tag) => (
                 <span class="font-mono text-xs not-prose badge flex cursor-pointer border-black no-underline hover:badge-neutral dark:border-slate-100">
