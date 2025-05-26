@@ -6,20 +6,20 @@ import AnimtedBlinkingTitle from "../components/AnimatedBlinkingTitle.astro";
 
 const blogs = await getCollection("permanent-notes");
 const liveBlogs = blogs
-	.filter((blog) => blog.data.status === "live")
-	.sort((a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf())
-	.slice(0, 5);
+  .filter((blog) => blog.data.status === "live")
+  .sort((a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf())
+  .slice(0, 5);
 
 const fleetingNotes = await getCollection("fleeting-notes");
 const latestFleetingNote = fleetingNotes.sort(
-	(a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf(),
+  (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf(),
 )[0];
 const latestFleetingNoteEntry = await getEntry(
-	"fleeting-notes",
-	latestFleetingNote.id,
+  "fleeting-notes",
+  latestFleetingNote.id,
 );
 const { Content: LatestFleetingNoteContent } = await render(
-	latestFleetingNoteEntry,
+  latestFleetingNoteEntry,
 );
 ---
 
