@@ -34,7 +34,7 @@ life and other ramblings.`;
         <div class="font-mono">
           {
             breadcrumbs && (
-              <div class="flex items-center gap-[1ch] py-10">
+              <div class="flex flex-wrap break-after-avoid items-center gap-[1ch]  py-10">
                 <a href="/" class="hover:rotate-10">
                   <svg
                     width="15"
@@ -61,13 +61,17 @@ life and other ramblings.`;
                     />
                   </svg>
                 </a>
-                /
+
                 {breadcrumbs.map((b) => (
                   <span>
-                    <a href={b.href} class="hover:opacity-75 hover:italic">
-                      {b.label}
+                    <a
+                      href={b.href}
+                      class="hover:opacity-75 break-keep hover:italic after:content-['/']"
+                    >
+                      {b.label.length > 10
+                        ? `${b.label.slice(0, 20)}...`
+                        : b.label}
                     </a>
-                    /
                   </span>
                 ))}
               </div>
