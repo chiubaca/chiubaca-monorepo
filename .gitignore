@@ -18,3 +18,4 @@ tmp-notes/
 apps/chiubaca.com/permanent-notes/*
 apps/chiubaca.com/public/attachments/*
 apps/chiubaca.com/fleeting-notes/*
+apps/chiubaca.com/.wrangler/*
