@@ -49,7 +49,7 @@ function groupNotesByTag(notes: Note[]): NotesGroupedByTag[] {
 }
 
 const indexedNotes = groupNotesByTag(flattenedNotes).sort((a, b) =>
-  a.tag.localeCompare(b.tag),
+  a.tag.localeCompare(b.tag)
 );
 
 const tagNameAndCount = indexedNotes.map((note) => {
