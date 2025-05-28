@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 // import tailwind from "@astrojs/tailwind";
 // eslint-disable-next-line @nx/enforce-module-boundaries
-import { updateMdLinkUrls, updateImageUrls } from "../../libs/remark-plugins";
+import { updateImageUrls, updateMdLinkUrls } from "../../libs/remark-plugins";
 
 // import rehypeSlug from "rehype-slug";
 // import rehypeAutolinkHeadings from "rehype-autolink-headings";

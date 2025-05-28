@@ -1,43 +1,36 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
   "vcs": {
-    "enabled": false,
+    "enabled": true,
     "clientKind": "git",
-    "useIgnoreFile": false
+    "useIgnoreFile": true
   },
-  "files": {
-    "include": ["*.svelte", "*.astro", "*.vue"],
-    "ignoreUnknown": false,
-    "ignore": []
+  "organizeImports": {
+    "enabled": true
   },
   "formatter": {
     "enabled": true,
     "indentStyle": "space"
   },
-
-  "organizeImports": {
-    "enabled": true
-  },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
-    }
-  },
-  "javascript": {
-    "formatter": {
-      "quoteStyle": "double"
+      "recommended": true,
+      "correctness": {
+        "noUnusedImports": "info"
+      }
     }
   },
   "overrides": [
     {
       "include": ["*.svelte", "*.astro", "*.vue"],
-      "formatter": {
-        "enabled": true
-      },
+      "formatter": {},
       "linter": {
         "enabled": true,
         "rules": {
+          "correctness": {
+            "noUnusedImports": "off"
+          },
           "nursery": {
             "useSortedClasses": "error"
           }
