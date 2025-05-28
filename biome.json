@@ -18,12 +18,26 @@
       "recommended": true,
       "correctness": {
         "noUnusedImports": "info"
+      },
+      "nursery": {
+        "useSortedClasses": "warn"
       }
     }
   },
   "overrides": [
     {
-      "include": ["*.svelte", "*.astro", "*.vue"],
+      "include": ["global.css"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnknownProperty": "off"
+          }
+        }
+      }
+    },
+
+    {
+      "include": ["*.astro"],
       "formatter": {},
       "linter": {
         "enabled": true,
@@ -32,7 +46,7 @@
             "noUnusedImports": "off"
           },
           "nursery": {
-            "useSortedClasses": "error"
+            "useSortedClasses": "warn"
           }
         }
       }
