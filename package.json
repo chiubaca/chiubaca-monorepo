@@ -10,7 +10,7 @@
     "notes:migrate": "bash libs/scripts/migrate-notes.sh",
     "lint": "biome lint --write .",
     "lint:fix": "biome check --write .",
-    "build:chiubaca.com": "pnpm --filter chiubaca.com build",
+    "build:chiubaca.com": "pnpm -w run notes:download && pnpm -w run notes:migrate && pnpm --filter chiubaca.com build",
     "preview": "pnpm -r preview",
     "test:node-env": "echo \"Current PATH: $PATH\" && echo \"Node location: $(which node)\" && echo \"Node version: $(node -v)\""
   },
