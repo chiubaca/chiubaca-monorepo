@@ -38,6 +38,11 @@
 
     {
       "include": ["*.astro"],
+      "javascript": {
+        "formatter": {
+          "trailingCommas": "all"
+        }
+      },
       "formatter": {},
       "linter": {
         "enabled": true,
