@@ -24,28 +24,5 @@ export default defineConfig({
 
   site: "https://chiubaca.com",
 
-  redirects: {
-    "/using-javascript-to-write-postgresql-functions-1ac":
-      "/using-javascript-to-write-postgresql-functions",
-
-    "/how-use-npm-modules-client-side-in-astrojs-3m37":
-      "/how-use-npm-modules-client-side-in-astrojs",
-
-    "/build-a-serverless-crud-app-using-vue-js-netlify-and-faunadb-5dno":
-      "/build-a-serverless-crud-app-using-vue-js-netlify-and-faunadb",
-
-    "/building-my-new-blog-nuxt-vs-gridsome-4n9g":
-      "building-my-new-blog-nuxt-vs-gridsome",
-
-    "/easy-react-data-fetching-with-use-16jg": "/quick-look-at-react-use-hook",
-
-    "/typescript-and-netlify-functions-37b8":
-      "/typescript-and-netlify-functions",
-
-    "/controlling-my-anxiety-insomnia-1fc7": "/controlling-my-anxiety-insomnia",
-
-    "/managing-your-self-learning-1dpc": "/managing-your-self-learning",
-  },
-
   adapter: cloudflare(),
 });
