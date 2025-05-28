@@ -1,8 +1,8 @@
 ---
 import { getEntry, render } from "astro:content";
 import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
 import AnimtedBlinkingTitle from "../components/AnimatedBlinkingTitle.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const blogs = await getCollection("permanent-notes");
 const liveBlogs = blogs
@@ -12,14 +12,14 @@ const liveBlogs = blogs
 
 const fleetingNotes = await getCollection("fleeting-notes");
 const latestFleetingNote = fleetingNotes.sort(
-  (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf(),
+  (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf()
 )[0];
 const latestFleetingNoteEntry = await getEntry(
   "fleeting-notes",
-  latestFleetingNote.id,
+  latestFleetingNote.id
 );
 const { Content: LatestFleetingNoteContent } = await render(
-  latestFleetingNoteEntry,
+  latestFleetingNoteEntry
 );
 ---
 
@@ -41,11 +41,14 @@ const { Content: LatestFleetingNoteContent } = await render(
             return (
               <div class="blog-post-summary mb-6">
                 <p class="text-xs font-mono opacity-50 italic">
-                  {blog.data.publish_date.toLocaleDateString("en-GB", {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  }).toString().toUpperCase()}
+                  {blog.data.publish_date
+                    .toLocaleDateString("en-GB", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })
+                    .toString()
+                    .toUpperCase()}
                 </p>
                 <a href={`/${blog.id}/`} class=" hover:underline">
                   {blog.data.title}
@@ -56,27 +59,28 @@ const { Content: LatestFleetingNoteContent } = await render(
         }
       </div>
 
-        <a
-          href={`/blogs/`}
-          class="font-semibold btn btn-info btn-xs uppercase font-mono hover:italic"
-        >
-          View all blogs <span class="text-2xl">➡︎</span> 
-        </a>
-
+      <a
+        href={`/blogs/`}
+        class="font-semibold btn btn-info btn-xs uppercase font-mono hover:italic"
+      >
+        View all blogs <span class="text-2xl">➡︎</span>
+      </a>
     </section>
     <hr class="my-8" />
     <section>
-   
       <h1 class="font-mono text-2xl font-semibold">🗒️ Latest note</h1>
       <p class="italic text-secondary mb-8">Unorganised fleeting thoughts...</p>
 
       <p class="font-mono blog-date text-xs opacity-50 italic">
         {
-          latestFleetingNote.data.publish_date.toLocaleDateString("en-GB", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          }).toString().toUpperCase()
+          latestFleetingNote.data.publish_date
+            .toLocaleDateString("en-GB", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+            .toString()
+            .toUpperCase()
         }
       </p>
 
@@ -85,11 +89,11 @@ const { Content: LatestFleetingNoteContent } = await render(
           <LatestFleetingNoteContent />
         </article>
 
-         <a
+        <a
           href={`/fleeting-notes/`}
           class="font-semibold btn btn-info btn-xs uppercase font-mono hover:italic"
         >
-          View all notes <span class="text-2xl">➡︎</span> 
+          View all notes <span class="text-2xl">➡︎</span>
         </a>
       </div>
     </section>
