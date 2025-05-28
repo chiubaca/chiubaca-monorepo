@@ -1,19 +1,19 @@
 import { defineConfig } from "astro/config";
-// import tailwind from "@astrojs/tailwind";
-// eslint-disable-next-line @nx/enforce-module-boundaries
 import { updateImageUrls, updateMdLinkUrls } from "../../libs/remark-plugins";
 
 // import rehypeSlug from "rehype-slug";
 // import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import tailwindcss from "@tailwindcss/vite";
+import cloudflare from "@astrojs/cloudflare";
 
-// https://astro.build/config
 export default defineConfig({
   outDir: "../../dist/apps/chiubaca.com",
   integrations: [],
+
   vite: {
     plugins: [tailwindcss()],
   },
+
   markdown: {
     remarkPlugins: [updateMdLinkUrls, updateImageUrls],
     // rehypePlugins: [
@@ -21,7 +21,9 @@ export default defineConfig({
     //   () => rehypeAutolinkHeadings({ behavior: "append" }),
     // ],
   },
+
   site: "https://chiubaca.com",
+
   redirects: {
     "/using-javascript-to-write-postgresql-functions-1ac":
       "/using-javascript-to-write-postgresql-functions",
@@ -44,4 +46,6 @@ export default defineConfig({
 
     "/managing-your-self-learning-1dpc": "/managing-your-self-learning",
   },
+
+  adapter: cloudflare(),
 });
