@@ -64,13 +64,13 @@ const { Content: LatestFleetingNoteContent } = await render(
         </a>
 
     </section>
-    <hr class="mt-4 mb-8" />
+    <hr class="my-8" />
     <section>
    
       <h1 class="font-mono text-2xl font-semibold">🗒️ Latest note</h1>
       <p class="italic text-secondary mb-8">Unorganised fleeting thoughts...</p>
 
-      <p class="font-mono blog-date text-xs opacity-75 italic">
+      <p class="font-mono blog-date text-xs opacity-50 italic">
         {
           latestFleetingNote.data.publish_date.toLocaleDateString("en-GB", {
             year: "numeric",
@@ -86,7 +86,7 @@ const { Content: LatestFleetingNoteContent } = await render(
         </article>
 
          <a
-          href={`/fleetin-ntoes/`}
+          href={`/fleeting-notes/`}
           class="font-semibold btn btn-info btn-xs uppercase font-mono hover:italic"
         >
           View all notes <span class="text-2xl">➡︎</span> 
