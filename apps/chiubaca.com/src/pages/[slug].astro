@@ -38,11 +38,13 @@ const { Content } = await render(entry);
       <meta name="description" content={entry.data.description} slot="head" />
     )
   }
-  <h1>
+  <h1 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
     {entry.data.title}
   </h1>
 
-  <div class="font-mono italic text-gray-500 md:text-sm dark:text-gray-400">
+  <div
+    class="mb-6 flex flex-col gap-1 font-mono text-sm italic text-gray-500 dark:text-gray-400 md:flex-row md:gap-4"
+  >
     <div>
       Posted on {entry.data.publish_date.toDateString()}
     </div>
@@ -53,12 +55,15 @@ const { Content } = await render(entry);
       )
     }
   </div>
-  <div class="my-10 flex items-center justify-center gap-2 font-mono">
+  <div class="my-6 flex flex-wrap items-center gap-2 font-mono text-xs">
     {
       entry.data.tags.map((tag) => (
-        <span class="badge badge-ghost border-black before:content-['#'] dark:border-slate-100">
+        <a
+          href={`/tags#${tag}`}
+          class="hover:link border-gray-300 text-gray-600 before:content-['#'] dark:border-gray-600 dark:text-gray-400"
+        >
           {tag}
-        </span>
+        </a>
       ))
     }
   </div>
