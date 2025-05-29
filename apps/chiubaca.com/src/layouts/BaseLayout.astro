@@ -1,5 +1,5 @@
 ---
-import { ClientRouter } from "astro:transitions";
+// import { ClientRouter } from "astro:transitions";
 
 import AnimatedTypingTitle from "../components/AnimatedTypingTitle.astro";
 import "../styles/global.css";
@@ -31,7 +31,6 @@ life and other ramblings.`;
     <link rel="manifest" href="/site.webmanifest" />
     <slot name="head" />
     <title>{titlePrefix} {title && `| ${title}`}</title>
-    <ClientRouter />
   </head>
 
   <body>
