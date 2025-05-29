@@ -35,7 +35,7 @@ const { Content: LatestFleetingNoteContent } = await render(
         Long form blogs, essays, musings.
       </p>
 
-      <div class="blog-list">
+      <div>
         {
           liveBlogs.map((blog) => {
             return (
@@ -91,7 +91,7 @@ const { Content: LatestFleetingNoteContent } = await render(
 
         <a
           href={`/fleeting-notes/`}
-          class="font-semibold btn btn-info btn-xs uppercase font-mono hover:italic"
+          class="mt-8 font-semibold btn btn-info btn-xs uppercase font-mono hover:italic"
         >
           View all notes <span class="text-2xl">➡︎</span>
         </a>
