@@ -8,6 +8,7 @@ export const date = z
 export const tags = z
   .array(z.string())
   .optional()
+  .nullable()
   .transform((tags) => (tags ? tags : ["uncategorised"]));
 
 const permanentNotes = defineCollection({
