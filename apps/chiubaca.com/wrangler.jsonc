@@ -1,9 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "chiubaca-com",
-  // Update to today's date
   "compatibility_date": "2025-03-25",
   "assets": {
-    "directory": "../../dist/apps/chiubaca.com"
+    "directory": "../../dist/apps/chiubaca.com/public"
   }
 }
