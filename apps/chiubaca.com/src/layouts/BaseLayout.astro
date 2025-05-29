@@ -84,11 +84,12 @@ life and other ramblings.`;
           }
         </div>
       </header>
-      <slot />
-      <footer class="py-10">
-        <hr class="py-5" />
-        <slot name="footer" />
 
+      <div class="min-h-[50vh]">
+        <slot />
+      </div>
+
+      <footer class="py-10">
         <section>
           <img
             loading="lazy"
@@ -141,7 +142,7 @@ life and other ramblings.`;
       </footer>
     </div>
 
-    <div class="w-full overflow-hidden">
+    <div class="w-full overflow-hidden opacity-80">
       <svg
         viewBox="0 0 1440 90"
         fill="none"
@@ -268,7 +269,7 @@ life and other ramblings.`;
       </svg>
     </div>
 
-    <footer class="footer footer-center rounded p-2 bg-orange-950">
+    <footer class="footer footer-center rounded p-2 bg-orange-950 opacity-75">
       <a href="/" class="flex flex-col">
         <AnimatedTypingTitle />
         <p class="text-xs font-mono">{new Date().getFullYear()}</p>
