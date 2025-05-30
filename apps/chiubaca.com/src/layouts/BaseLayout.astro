@@ -1,5 +1,5 @@
 ---
-// import { ClientRouter } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 import AnimatedTypingTitle from "../components/AnimatedTypingTitle.astro";
 import "../styles/global.css";
@@ -31,13 +31,14 @@ life and other ramblings.`;
     <link rel="manifest" href="/site.webmanifest" />
     <slot name="head" />
     <title>{title && `${title} | chiubaca.com`}</title>
+    <ClientRouter />
   </head>
 
   <body>
     <header
       class="flex items-center justify-between sticky top-0 backdrop-blur-lg decoration-2"
     >
-      <nav class="font-mono text-xs">
+      <nav class="font-mono">
         {
           breadcrumbs && (
             <div class="flex flex-wrap break-after-avoid items-center gap-[1ch] py-2 pl-5">
@@ -48,6 +49,8 @@ life and other ramblings.`;
                   viewBox="0 0 21 26"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  transition:name="bear-icon"
+                  transition:animate="slide"
                 >
                   <path
                     d="M4.21307 0.0442645C4.24477 0.0403416 4.27623 0.0349484 4.30817 0.0327417C6.57452 -0.122164 7.71412 1.281 9.26689 2.61409C9.47275 2.79083 9.75961 2.85774 9.99948 2.73097C10.1131 2.67103 10.2434 2.63768 10.3666 2.67412C10.3763 2.67699 10.3858 2.67997 10.3951 2.68308C10.7964 2.81723 11.1976 2.85509 11.525 2.58692C11.5992 2.5261 11.6782 2.47374 11.7635 2.43454C12.7107 1.9991 13.3264 1.20888 14.1929 0.636134C15.1881 -0.0219342 16.3255 -0.0950008 17.4589 0.170776C18.4915 0.413261 19.6633 0.798196 20.2226 1.79511C21.0099 3.19853 21.0195 18.2017 20.5 20.1163C19.9767 22.0452 18.7891 23.7401 17.0511 24.6951C16.7122 24.8814 16.3083 25.0894 15.9176 25.0906C15.7371 25.0912 15.601 24.947 15.5481 24.7745C15.4239 24.2463 14.9327 24.0525 14.4917 24.3687C14.0631 24.676 13.5392 25.1201 13.0801 25.5C12.6159 25.8841 11.9575 25.7717 11.6134 25.2772C11.1816 24.6567 10.2786 24.6227 9.82036 25.224C9.4724 25.6805 8.83445 25.8075 8.36711 25.4741C7.87734 25.1248 7.42044 24.7477 6.97051 24.3453C6.6104 24.0233 6.04095 24.1802 5.93361 24.6512C5.84841 25.025 5.45814 25.2454 5.10451 25.0973C4.58788 24.881 4.0998 24.6224 3.6326 24.2842C2.01032 23.11 0.60538 21.0737 0.271557 19.0628C-0.068269 17.015 -0.125908 2.86091 0.952651 1.45504C1.69114 0.492456 3.09536 0.230848 4.21307 0.0442645Z"
@@ -93,6 +96,7 @@ life and other ramblings.`;
     <div class="footer-wrapper pt-15">
       <div class="w-full overflow-hidden opacity-80">
         <svg
+          transition:name="bear-icon"
           viewBox="0 0 1440 90"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
