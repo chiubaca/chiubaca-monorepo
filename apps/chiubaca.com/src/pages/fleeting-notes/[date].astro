@@ -19,7 +19,6 @@ const entry = await getEntry("fleeting-notes", date);
 console.log("entry", entry);
 
 const { Content } = await render(entry);
-// const publishedPermamentNoteUrl = `https://chiubaca.com/${entry.slug}`;
 ---
 
 <BaseLayout
@@ -37,9 +36,18 @@ const { Content } = await render(entry);
   <meta name="robots" content="noindex" slot="head" />
 
   <div class="mt-15 max-w-3xl mx-auto px-5">
-    <h1 class="text-2xl py-5 font-mono">{entry.id.replaceAll("-", "・")}</h1>
-
-    <article class="prose mx-auto max-w-none prose-a:break-all">
+    <h1 class="text-2xl font-mono pb-2">{entry.id.replaceAll("-", "・")}</h1>
+    {
+      entry.data.tags.map((tag) => (
+        <a
+          href={`/tags#${tag}`}
+          class="hover:link border-gray-300 text-gray-600 before:content-['#'] dark:border-gray-600 dark:text-gray-400 font-mono text-sm"
+        >
+          {tag}
+        </a>
+      ))
+    }
+    <article class="prose mx-auto max-w-none prose-a:break-all pt-10">
       <Content />
     </article>
 
