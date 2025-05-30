@@ -2,18 +2,26 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+const collections = ["fleeting-notes", "permanent-notes"] as const;
+
+const mapCollectionsToPath: Record<(typeof collections)[number], string> = {
+  "fleeting-notes": "notes",
+  "permanent-notes": "blogs",
+} as const;
+
 type Note = {
-  collection: string;
+  collection: (typeof collections)[number];
+  path: string;
   slug: string;
   tags: string[];
 };
-const collections = ["fleeting-notes", "permanent-notes"] as const;
 
 const collectionPromise = collections.map(async (collectionName) => {
   const collection = await getCollection(collectionName);
 
   return collection.map((note) => ({
     collection: note.collection,
+    path: mapCollectionsToPath[note.collection],
     slug: note.id,
     tags: note.data.tags ? note.data.tags : ["uncategorised"],
   }));
@@ -69,20 +77,24 @@ const tagNameAndCount = indexedNotes.map((note) => {
   ]}
 >
   <h1 class="py-5 text-3xl">🔖 Tags</h1>
+  <p class="accen">All the tags</p>
 
   <main class="relative">
-    <details open class="my-5">
-      <summary class="pb-5"> Find notes based on their tag:</summary>
-      <div class="z-10 flex flex-wrap gap-2">
+    <details class="my-5">
+      <summary class="pb-5"> show all tags </summary>
+      <div class="z-10 flex flex-wrap gap-5">
         {
           tagNameAndCount.map((tag) => {
             return (
-              <a href={`#${tag.tagName}`}>
-                <span class="badge badge-ghost  flex justify-evenly gap-2 p-3 lowercase hover:badge-neutral dark:border-slate-200">
-                  # {tag.tagName}
-                  <sup>{tag.count}</sup>
-                </span>
-              </a>
+              <div class="flex items-baseline">
+                <a
+                  href={`#${tag.tagName}`}
+                  class="flex justify-evenly gap-2 lowercase hover:link"
+                >
+                  {tag.tagName}
+                </a>
+                <sup class="pl-1">{tag.count}</sup>
+              </div>
             );
           })
         }
@@ -93,10 +105,10 @@ const tagNameAndCount = indexedNotes.map((note) => {
       {
         indexedNotes.map((tag) => {
           return (
-            <div class="sticky">
+            <div>
               <h2
                 id={tag.tag}
-                class="sticky top-0 inline rounded-lg p-1 py-2 pt-0 font-mono text-2xl backdrop-blur-xl"
+                class="sticky top-5 inline rounded-lg p-1 py-2 pt-0 font-mono text-2xl backdrop-blur-sm "
               >
                 # {tag.tag}
               </h2>
@@ -105,7 +117,11 @@ const tagNameAndCount = indexedNotes.map((note) => {
                   return (
                     <a
                       class="hover:link-underline hover:link"
-                      href={`/${note.collection}/${note.slug}`}
+                      href={
+                        note.collection === "permanent-notes"
+                          ? `/${note.slug}`
+                          : `/${note.collection}/${note.slug}`
+                      }
                     >
                       <li> {note.slug} </li>
                     </a>
