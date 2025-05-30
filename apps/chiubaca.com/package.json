@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "astro dev && wrangler dev",
-    "build": "astro build && wrangler deploy",
+    "build": "astro build",
+    "deploy": "wrangler deploy",
     "preview": "astro preview",
     "format": "biome format --write ./src"
   },
