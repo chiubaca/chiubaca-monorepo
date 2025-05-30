@@ -16,8 +16,7 @@
     "test:node-env": "echo \"Current PATH: $PATH\" && echo \"Node location: $(which node)\" && echo \"Node version: $(node -v)\""
   },
   "keywords": [
-    "astro",
-    "pnpm"
+    "astro"
   ],
   "author": "Alex Chiu",
   "license": "ISC",
