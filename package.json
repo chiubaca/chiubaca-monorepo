@@ -11,7 +11,7 @@
     "lint": "biome lint --write .",
     "lint:fix": "biome check --write .",
     "chiubaca.com:build": "pnpm -w run notes:download && pnpm -w run notes:migrate && pnpm --filter chiubaca.com build",
-    "chiubaca.com:deploy": " pnpm --filter chiubaca.com build",
+    "chiubaca.com:deploy": "pnpm  -w run --filter chiubaca.com deploy",
     "preview": "pnpm -r preview",
     "test:node-env": "echo \"Current PATH: $PATH\" && echo \"Node location: $(which node)\" && echo \"Node version: $(node -v)\""
   },
