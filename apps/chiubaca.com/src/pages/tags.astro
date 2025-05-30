@@ -76,11 +76,12 @@ const tagNameAndCount = indexedNotes.map((note) => {
     },
   ]}
 >
-  <h1 class="py-5 text-3xl">🔖 Tags</h1>
-  <p class="accen">All the tags</p>
-
   <main class="relative">
-    <details class="my-5">
+    <div class="max-w-3xl mx-auto px-5">
+      <h1 class="mt-16 text-2xl font-semibold font-mono">🔖 Tags</h1>
+      <p class="italic text-secondary pb-8">tags taxonomy</p>
+    </div>
+    <details class="my-5 max-w-3xl mx-auto px-5">
       <summary class="pb-5"> show all tags </summary>
       <div class="z-10 flex flex-wrap gap-5">
         {
@@ -101,7 +102,7 @@ const tagNameAndCount = indexedNotes.map((note) => {
       </div>
     </details>
 
-    <div class="relative">
+    <div class="max-w-3xl mx-auto px-5">
       {
         indexedNotes.map((tag) => {
           return (
