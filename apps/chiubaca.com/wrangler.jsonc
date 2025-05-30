@@ -3,6 +3,6 @@
   "name": "chiubaca-com",
   "compatibility_date": "2025-03-25",
   "assets": {
-    "directory": "../../dist/apps/chiubaca.com/"
+    "directory": "./dist"
   }
 }

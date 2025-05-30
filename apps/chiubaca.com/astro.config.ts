@@ -7,7 +7,6 @@ import tailwindcss from "@tailwindcss/vite";
 import cloudflare from "@astrojs/cloudflare";
 
 export default defineConfig({
-  outDir: "../../dist/apps/chiubaca.com",
   integrations: [],
 
   vite: {
