@@ -36,15 +36,19 @@ const { Content } = await render(entry);
 >
   <meta name="robots" content="noindex" slot="head" />
 
-  <article class="prose mx-auto max-w-none prose-a:break-all">
-    <Content />
-  </article>
+  <div class="mt-15">
+    <h1 class="text-2xl py-5 font-mono">{entry.id.replaceAll("-", "・")}</h1>
 
-  <div class="link-hover link pt-10">
-    <a
-      href={`https://github.com/chiubaca/learning/blob/main/fleeting-notes/${entry.id}.md`}
-    >
-      Edit on GitHub ✏️
-    </a>
+    <article class="prose mx-auto max-w-none prose-a:break-all">
+      <Content />
+    </article>
+
+    <div class="link-hover link pt-10">
+      <a
+        href={`https://github.com/chiubaca/learning/blob/main/fleeting-notes/${entry.id}.md`}
+      >
+        Edit on GitHub ✏️
+      </a>
+    </div>
   </div>
 </BaseLayout>
