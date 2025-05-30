@@ -14,7 +14,7 @@ interface Props {
 const { titlePrefix, title, breadcrumbs } = Astro.props;
 
 const bio = `Hey I'm Alex 👋. I'm a senior software engineer based in London. 
-This my digital garden 🌱 for publishing occasional musings about web development, 
+This is my digital garden 🌱 for publishing occasional musings about web development, 
 life and other ramblings.`;
 ---
 
@@ -90,7 +90,7 @@ life and other ramblings.`;
       <slot />
     </div>
 
-    <div class="footer-wrapper">
+    <div class="footer-wrapper pt-15">
       <div class="w-full overflow-hidden opacity-80">
         <svg
           viewBox="0 0 1440 90"
@@ -217,9 +217,9 @@ life and other ramblings.`;
           }
         </svg>
       </div>
-      <footer class="footer rounded p-2 bg-orange-950 opacity-75">
+      <footer class="footer rounded p-2 bg-orange-950 opacity-75 t-10">
         <div class="max-w-2xl mx-auto px-5 py-3 md:px-0">
-          <section>
+          <section class="flex items-center">
             <img
               loading="lazy"
               src="https://cdn.bsky.app/img/avatar/plain/did:plc:yiq6xbxnjzcsxipd3qq3r2hv/bafkreify73ikrqasx3zdusnarp6qrx3b2b2zpy2ixhgklfnj5oqyrvizge@jpeg"
