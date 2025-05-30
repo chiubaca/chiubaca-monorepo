@@ -17,7 +17,10 @@ const fleetingNotes = fleetingNotesCollection.sort(
     },
   ]}
 >
-  <div>
+  <div class="mt-20">
+    <h1 class="text-2xl font-semibold font-mono">🗒️ All notes</h1>
+    <p class="italic text-secondary pb-8">Unorganised fleeting thoughts...</p>
+
     {
       fleetingNotes.map(async (note) => {
         const entry = await getEntry("fleeting-notes", note.id);

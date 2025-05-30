@@ -38,7 +38,22 @@ const { Content } = await render(entry);
       <meta name="description" content={entry.data.description} slot="head" />
     )
   }
-  <h1 class="mb-4 text-4xl font-bold">
+
+  <div
+    class="flex flex-wrap justify-center items-center gap-2 font-mono text-xs mt-44"
+  >
+    {
+      entry.data.tags.map((tag) => (
+        <a
+          href={`/tags#${tag}`}
+          class="hover:link border-gray-300 text-gray-600 before:content-['#'] dark:border-gray-600 dark:text-gray-400"
+        >
+          {tag}
+        </a>
+      ))
+    }
+  </div>
+  <h1 class="mb-4 text-5xl font-bold">
     {entry.data.title}
   </h1>
 
@@ -55,19 +70,10 @@ const { Content } = await render(entry);
       )
     }
   </div>
-  <div class="my-6 flex flex-wrap items-center gap-2 font-mono text-xs">
-    {
-      entry.data.tags.map((tag) => (
-        <a
-          href={`/tags#${tag}`}
-          class="hover:link border-gray-300 text-gray-600 before:content-['#'] dark:border-gray-600 dark:text-gray-400"
-        >
-          {tag}
-        </a>
-      ))
-    }
-  </div>
-  <article class="prose">
+
+  <div class="text text-center font text-xl">⊱---⊰</div>
+
+  <article class="prose pt-10">
     <Content />
   </article>
 </BaseLayout>
