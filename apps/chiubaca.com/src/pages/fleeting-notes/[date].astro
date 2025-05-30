@@ -16,7 +16,6 @@ export async function getStaticPaths() {
 
 const { date } = Astro.params;
 const entry = await getEntry("fleeting-notes", date);
-console.log("entry", entry);
 
 const { Content } = await render(entry);
 ---
