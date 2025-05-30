@@ -1,8 +1,13 @@
-<div class="group logo-container flex items-center font-mono cursor-pointer">
+<div
+  class="group logo-container flex items-center font-mono cursor-pointer decoration-2 hover:underline"
+>
   <span class="blink pb-[2px]">▌</span>
-  chi
-  <span class="pt-[1px]">
+  <span class="transition-colors">chi</span>
+  <span class="pt-[1px] transition-transform duration-200 ease-in-out">
     <svg
+      class="group-hover:rotate-6"
+      transition:name="bear-icon"
+      transition:animate="slide"
       width="15"
       height="14"
       viewBox="0 0 21 26"
@@ -23,12 +28,16 @@
         fill="black"></path>
     </svg>
   </span>
-  baca.com
+  <span class="transition-colors">baca.com</span>
 </div>
 
 <style>
   .blink {
     animation: blinker 1s linear infinite;
+  }
+
+  .group:hover .blink {
+    animation-play-state: paused;
   }
 
   @keyframes blinker {
