@@ -24,75 +24,91 @@ const { Content: LatestFleetingNoteContent } = await render(
 ---
 
 <BaseLayout title="home">
-  <main class="max-w-3xl mx-auto px-5">
-    <nav class="py-10">
-      <AnimtedBlinkingTitle />
-    </nav>
+  <main>
+    <div class="max-w-3xl mx-auto px-5">
+      <nav class="py-10">
+        <AnimtedBlinkingTitle />
+      </nav>
 
-    <section class="latest-blogs">
-      <h1 class="text-2xl font-semibold font-mono">✏️ Latest writings</h1>
-      <p class="italic text-secondary pb-8">
-        Long form blogs, essays, musings.
-      </p>
+      <section class="latest-blogs">
+        <h1 class="text-2xl font-semibold font-mono">✏️ Latest writings</h1>
+        <p class="italic text-secondary pb-8">
+          Long form blogs, essays, musings.
+        </p>
 
-      <div>
-        {
-          liveBlogs.map((blog) => {
-            return (
-              <div class="blog-post-summary mb-6">
-                <p class="text-xs font-mono opacity-50 italic">
-                  {blog.data.publish_date
-                    .toLocaleDateString("en-GB", {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })
-                    .toString()
-                    .toUpperCase()}
-                </p>
-                <a
-                  href={`/${blog.id}/`}
-                  class=" hover:underline"
-                  transition:name="blog-title"
-                >
-                  {blog.data.title}
-                </a>
-              </div>
-            );
-          })
-        }
-      </div>
+        <div>
+          {
+            liveBlogs.map((blog) => {
+              return (
+                <div class="blog-post-summary mb-6">
+                  <p class="text-xs font-mono opacity-50 italic">
+                    {blog.data.publish_date
+                      .toLocaleDateString("en-GB", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })
+                      .toString()
+                      .toUpperCase()}
+                  </p>
+                  <a
+                    href={`/${blog.id}/`}
+                    class=" hover:underline"
+                    transition:name="blog-title"
+                  >
+                    {blog.data.title}
+                  </a>
+                </div>
+              );
+            })
+          }
+        </div>
 
-      <a
-        href={`/blogs/`}
-        class="font-semibold btn btn-info btn-xs uppercase font-mono hover:italic"
-      >
-        View all blogs <span class="text-2xl">➡︎</span>
-      </a>
-    </section>
-    <hr class="my-8" />
+        <a
+          href={`/blogs/`}
+          class="font-semibold btn btn-info btn-xs uppercase font-mono hover:italic"
+        >
+          View all blogs <span class="text-2xl">➡︎</span>
+        </a>
+      </section>
+      <hr class="my-8" />
+    </div>
+
     <section>
-      <h1 class="font-mono text-2xl font-semibold">🗒️ Latest note</h1>
-      <p class="italic text-secondary mb-8">Unorganised fleeting thoughts...</p>
-
-      <p class="font-mono blog-date text-xs opacity-50 italic">
-        {
-          latestFleetingNote.data.publish_date
-            .toLocaleDateString("en-GB", {
+      <div class="max-w-3xl mx-auto px-5">
+        <h1 class="font-mono text-2xl font-semibold">🗒️ Latest note</h1>
+        <p class="italic text-secondary">
+          Latest rambling posted on {
+            latestFleetingNote.data.publish_date.toLocaleDateString("en-GB", {
               year: "numeric",
               month: "long",
               day: "numeric",
             })
-            .toString()
-            .toUpperCase()
-        }
-      </p>
+          }
+        </p>
+        <div
+          class="mb-8 mt-4 flex flex-wrap items-center gap-2 font-mono text-xs"
+        >
+          {
+            latestFleetingNoteEntry.data.tags.map((tag) => (
+              <a
+                href={`/tags#${tag}`}
+                class="hover:link border-gray-300 text-gray-600 before:content-['#'] dark:border-gray-600 dark:text-gray-400 not-prose"
+              >
+                {tag}
+              </a>
+            ))
+          }
+        </div>
+      </div>
 
-      <div class="blog-post-summary mb-6 pb-0 last:mb-0 last:pb-0">
-        <article class="prose">
-          <LatestFleetingNoteContent />
-        </article>
+      <article
+        class="prose mx-auto h-96 overflow-auto px-5 sm:!max-w-3xl scroll-fade-bottom"
+      >
+        <LatestFleetingNoteContent />
+      </article>
 
+      <div class="max-w-3xl mx-auto px-5">
         <a
           href={`/fleeting-notes/`}
           class="mt-8 font-semibold btn btn-info btn-xs uppercase font-mono hover:italic"
@@ -103,3 +119,18 @@ const { Content: LatestFleetingNoteContent } = await render(
     </section>
   </main>
 </BaseLayout>
+
+<style>
+  .scroll-fade-bottom {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      black calc(100% - 5rem),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      black calc(100% - 5rem),
+      transparent 100%
+    );
+  }
+</style>
