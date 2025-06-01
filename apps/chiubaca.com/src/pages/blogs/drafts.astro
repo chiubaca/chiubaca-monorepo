@@ -3,8 +3,8 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const blogs = await getCollection("permanent-notes");
-const liveBlogs = blogs
-  .filter((blog) => blog.data.status === "live")
+const draftBlogs = blogs
+  .filter((blog) => blog.data.status === "draft")
   .sort(
     (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf()
   );
@@ -16,15 +16,19 @@ const liveBlogs = blogs
       href: "/blogs",
       label: "blogs",
     },
+    {
+      href: "/blogs/drafts",
+      label: "drafts",
+    },
   ]}
 >
   <section class="mt-16 max-w-3xl mx-auto px-5">
-    <h1 class="text-2xl font-semibold font-mono">📚 All Writings</h1>
-    <p class="italic text-secondary pb-8">Long form blogs, essays, musings.</p>
+    <h1 class="text-2xl font-semibold font-mono">📝 Drafts</h1>
+    <p class="italic text-secondary pb-8">These are not yet published.</p>
 
     <div class="blog-list">
       {
-        liveBlogs.map((blog) => {
+        draftBlogs.map((blog) => {
           return (
             <div class="blog-post-summary mb-6">
               <p class="text-xs font-mono opacity-50 italic">
@@ -45,14 +49,6 @@ const liveBlogs = blogs
         })
       }
     </div>
-    {liveBlogs.length === 0 && <p>No blogs published yet. Check back soon!</p>}
-
-    <div class="mt-12">
-      <a
-        href="/blogs/drafts"
-        class="text-xl font-semibold font-mono hover:underline"
-        >View Drafts 📝</a
-      >
-    </div>
+    {draftBlogs.length === 0 && <p>No drafts here. Keep writing!</p>}
   </section>
 </BaseLayout>
