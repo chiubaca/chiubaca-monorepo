@@ -18,20 +18,28 @@ const { slug } = Astro.params;
 
 const entry = await getEntry("permanent-notes", slug);
 const { Content } = await render(entry);
+
+const breadcrumbs = [
+  {
+    href: "/blogs",
+    label: "blogs",
+  },
+];
+
+if (entry.data.status === "draft") {
+  breadcrumbs.push({
+    href: "/blogs/drafts",
+    label: "drafts",
+  });
+}
+
+breadcrumbs.push({
+  href: `/${slug}`,
+  label: slug,
+});
 ---
 
-<BaseLayout
-  breadcrumbs={[
-    {
-      href: "/blogs",
-      label: "blogs",
-    },
-    {
-      href: "/" + slug,
-      label: slug,
-    },
-  ]}
->
+<BaseLayout breadcrumbs={breadcrumbs}>
   <meta name="keywords" content={entry.data.tags.toString()} slot="head" />
   {
     entry.data?.description && (
