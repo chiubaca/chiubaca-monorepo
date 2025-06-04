@@ -275,7 +275,33 @@ life and other ramblings.`;
   </body>
 </html>
 
-<style>
+<style is:global>
+  html {
+    scroll-padding-top: 50px;
+    scroll-behavior: smooth;
+  }
+
+  article.prose(h1, h2, h3, h4, h5, h6) {
+    position: relative;
+  }
+
+  /* Style for anchor links within headings in prose content */
+  article.prose :is(h1, h2, h3, h4, h5, h6) a {
+    text-decoration: none;
+    /* optional: remove underline from link; */
+  }
+
+  article.prose :is(h1, h2, h3, h4, h5, h6) a::after {
+    opacity: 50%;
+    content: "🔗";
+    padding-left: 0.5ch;
+    transition: opacity 0.2s ease-in-out; /* Optional: for smooth transition */
+  }
+
+  article.prose :is(h1, h2, h3, h4, h5, h6) a:hover::after {
+    opacity: 100%; /* Or 0% if you want it to disappear, adjust as needed */
+  }
+
   body {
     min-height: 100vh;
     display: flex;
