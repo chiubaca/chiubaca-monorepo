@@ -19,107 +19,52 @@ export default {
   ): Promise<Response> {
     const originalUrl = new URL(request.url);
     let targetUrlString: string;
-    // Determine if HTML content from this request should be processed for link rewriting and base tag injection.
-    // This applies if the original request is for the root or any path under /fleeting-notes/
-    // and the upstream response is HTML.
-    let shouldProcessHtml =
-      originalUrl.pathname === "/" ||
-      originalUrl.pathname.startsWith("/fleeting-notes/");
+    let shouldInjectBaseTag = false;
 
     if (originalUrl.pathname === "/") {
       // Root request to notes.chiubaca.com:
       // - Target chiubaca.com/fleeting-notes/
+      // - Inject <base> tag into the HTML response.
       targetUrlString = `https://chiubaca.com/fleeting-notes/${originalUrl.search}`;
+      shouldInjectBaseTag = true;
     } else if (originalUrl.pathname.startsWith("/fleeting-notes/")) {
-      // If the path already starts with /fleeting-notes/:
+      // If the path already starts with /fleeting-notes/ (likely due to the <base> tag resolving a relative link):
       // - Proxy to the same path on chiubaca.com.
+      // e.g., notes.chiubaca.com/fleeting-notes/sub-page -> chiubaca.com/fleeting-notes/sub-page
       targetUrlString = `https://chiubaca.com${originalUrl.pathname}${originalUrl.search}`;
     } else {
       // For all other paths (typically assets like /_astro/style.css or root-relative links):
       // - Proxy to the same path on chiubaca.com.
+      // e.g., notes.chiubaca.com/_astro/style.css -> chiubaca.com/_astro/style.css
       targetUrlString = `https://chiubaca.com${originalUrl.pathname}${originalUrl.search}`;
-      // Assets and other paths not under /fleeting-notes/ don't need HTML processing by default.
-      shouldProcessHtml = false;
     }
 
     console.log(`[Worker] Request for: ${originalUrl.toString()}`);
     console.log(`[Worker] Target URL: ${targetUrlString}`);
-    console.log(`[Worker] Should process HTML: ${shouldProcessHtml}`);
+    console.log(`[Worker] Should inject <base> tag: ${shouldInjectBaseTag}`);
 
+    // Create a new request to the target URL, preserving method, headers, and body from the original.
     const modifiedRequest = new Request(targetUrlString, request);
     const response = await fetch(modifiedRequest);
 
     if (
-      shouldProcessHtml &&
+      shouldInjectBaseTag &&
       response.headers.get("Content-Type")?.includes("text/html")
     ) {
-      const notesSiteFleetingNotesBase =
-        "https://notes.chiubaca.com/fleeting-notes/";
-      const originSiteFleetingNotesBase =
-        "https://chiubaca.com/fleeting-notes/";
-
       console.log(
-        `[Worker] Rewriting HTML for ${originalUrl.pathname}. Base href: ${notesSiteFleetingNotesBase}`
+        `[Worker] Injecting <base href="https://chiubaca.com/fleeting-notes/"> for ${originalUrl.pathname}`
       );
-
-      let rewriter = new HTMLRewriter();
-
-      // 1. Inject <base> tag to ensure relative URLs resolve to notes.chiubaca.com
-      rewriter = rewriter.on("head", {
-        element(element) {
-          element.prepend(`<base href="${notesSiteFleetingNotesBase}">`, {
-            html: true,
-          });
-        },
-      });
-
-      // 2. Rewrite absolute <a> href attributes pointing to the original domain's fleeting notes
-      rewriter = rewriter.on("a[href]", {
-        element(element) {
-          const href = element.getAttribute("href");
-          if (href && href.startsWith(originSiteFleetingNotesBase)) {
-            const newHref = href.replace(
-              originSiteFleetingNotesBase,
-              notesSiteFleetingNotesBase
+      // Use HTMLRewriter to safely add the <base> tag to the <head>
+      return new HTMLRewriter()
+        .on("head", {
+          element(element) {
+            element.prepend(
+              '<base href="https://chiubaca.com/fleeting-notes/">',
+              { html: true }
             );
-            element.setAttribute("href", newHref);
-            console.log(`[Worker] Rewrote <a> href: ${href} to ${newHref}`);
-          }
-        },
-      });
-
-      // Optional: Rewrite other common URL-holding tags like canonical and og:url
-      rewriter = rewriter.on('link[rel="canonical"]', {
-        element(element) {
-          const href = element.getAttribute("href");
-          if (href && href.startsWith(originSiteFleetingNotesBase)) {
-            const newHref = href.replace(
-              originSiteFleetingNotesBase,
-              notesSiteFleetingNotesBase
-            );
-            element.setAttribute("href", newHref);
-            console.log(
-              `[Worker] Rewrote canonical link: ${href} to ${newHref}`
-            );
-          }
-        },
-      });
-
-      rewriter = rewriter.on('meta[property="og:url"]', {
-        element(element) {
-          const content = element.getAttribute("content");
-          if (content && content.startsWith(originSiteFleetingNotesBase)) {
-            const newContent = content.replace(
-              originSiteFleetingNotesBase,
-              notesSiteFleetingNotesBase
-            );
-            element.setAttribute("content", newContent);
-            console.log(`[Worker] Rewrote og:url: ${content} to ${newContent}`);
-          }
-        },
-      });
-
-      return rewriter.transform(response);
+          },
+        })
+        .transform(response);
     }
 
     return response;
