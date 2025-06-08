@@ -20,8 +20,8 @@ export async function GET(context) {
     // Array of `<item>`s in output xml
     // See "Generating items" section for examples using content collections and glob imports
     items: liveBlogs.map((blog) => ({
-      title: blog.data.title,
-      description: blog.data.description,
+      title: blog.data.title || "Untitled blog",
+      description: blog.data.description || "",
       link: `/${blog.id}`,
       pubDate: blog.data.publish_date,
     })),
