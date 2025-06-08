@@ -29,6 +29,12 @@ life and other ramblings.`;
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="chiubaca" />
     <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="chiubaca.com"
+      href={new URL("rss.xml", Astro.site)}
+    />
     <slot name="head" />
     <title>{title && `${title} | chiubaca.com`}</title>
     <ClientRouter />
