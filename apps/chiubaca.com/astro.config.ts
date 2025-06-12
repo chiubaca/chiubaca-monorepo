@@ -8,10 +8,24 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 import { updateImageUrls, updateMdLinkUrls } from "../../libs/remark-plugins";
 
-import opengraphImages from "astro-opengraph-images";
+import opengraphImages, { presets } from "astro-opengraph-images";
+import * as fs from "node:fs"; // The fs module is required to load fonts
 
 export default defineConfig({
-  integrations: [alpinejs(), opengraphImages()],
+  integrations: [
+    alpinejs(),
+    opengraphImages({
+      render: presets.simpleBlog,
+      options: {
+        fonts: [
+          {
+            name: "Roboto",
+            data: fs.readFileSync("public/Roboto-Regular.ttf"),
+          },
+        ],
+      },
+    }),
+  ],
 
   vite: {
     plugins: [tailwindcss()],
