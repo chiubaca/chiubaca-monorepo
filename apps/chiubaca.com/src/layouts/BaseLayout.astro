@@ -16,6 +16,15 @@ const { titlePrefix, title, breadcrumbs } = Astro.props;
 const bio = `Hey I'm Alex 👋. I'm a senior software engineer based in London. 
 This is my digital garden 🌱 for publishing occasional musings about web development, 
 life and other ramblings.`;
+
+const socialLinks = [
+  { href: "https://github.com/chiubaca", label: "GitHub" },
+  { href: "https://bsky.app/profile/chiubaca.com", label: "Bluesky" },
+  { href: "https://mas.to/@chiubaca", label: "Mastodon" },
+  { href: "https://www.linkedin.com/in/achiu1/", label: "LinkedIn" },
+  { href: "https://twitter.com/chiubaca", label: "X (Twitter)" },
+  { href: "rss.xml", label: "RSS" },
+];
 ---
 
 <!doctype html>
@@ -239,40 +248,21 @@ life and other ramblings.`;
           </section>
           <section class="pt-5">
             <p>
-              <a
-                class="link hover:opacity-75 hover:italic"
-                href="https://github.com/chiubaca"
-              >
-                GitHub</a
-              >
-              <span>/</span>
-              <a
-                class="link hover:opacity-75 hover:italic"
-                href="https://bsky.app/profile/chiubaca.com"
-              >
-                Bluesky
-              </a>
-              <span>/</span>
-              <a
-                class="link hover:opacity-75 hover:italic"
-                href="https://mas.to/@chiubaca"
-              >
-                Mastodon</a
-              >
-              <span>/</span>
-              <a
-                class="link hover:opacity-75 hover:italic"
-                href="https://www.linkedin.com/in/achiu1/"
-              >
-                LinkedIn</a
-              >
-              <span>/</span>
-              <a
-                class="link hover:opacity-75 hover:italic"
-                href="https://twitter.com/chiubaca"
-              >
-                X (Twitter)</a
-              >
+              {
+                socialLinks.map((link, index) => (
+                  <span>
+                    <a
+                      class="link hover:opacity-75 hover:italic"
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.label}
+                    </a>
+                    {index < socialLinks.length - 1 && <span>/</span>}
+                  </span>
+                ))
+              }
             </p>
           </section>
         </div>
