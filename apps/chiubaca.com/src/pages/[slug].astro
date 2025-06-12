@@ -1,8 +1,6 @@
 ---
 import { getCollection, getEntry, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { SEO } from "astro-seo";
-import { getImagePath } from "astro-opengraph-images";
 
 export async function getStaticPaths() {
   const blogs = await getCollection("permanent-notes");
@@ -17,8 +15,6 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const { url, site } = Astro;
-const openGraphImageUrl = getImagePath({ url, site });
 
 const entry = await getEntry("permanent-notes", slug);
 const { Content } = await render(entry);
@@ -51,19 +47,6 @@ breadcrumbs.push({
         <meta name="description" content={entry.data.description} />
       )
     }
-    <SEO
-      openGraph={{
-        basic: {
-          title: entry.data.title,
-          type: "website",
-          image: openGraphImageUrl,
-          url: url,
-        },
-        optional: {
-          description: "My page description",
-        },
-      }}
-    />
   </Fragment>
 
   <div
