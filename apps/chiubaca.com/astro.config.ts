@@ -8,8 +8,10 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 import { updateImageUrls, updateMdLinkUrls } from "../../libs/remark-plugins";
 
+import opengraphImages from "astro-opengraph-images";
+
 export default defineConfig({
-  integrations: [alpinejs()],
+  integrations: [alpinejs(), opengraphImages()],
 
   vite: {
     plugins: [tailwindcss()],
