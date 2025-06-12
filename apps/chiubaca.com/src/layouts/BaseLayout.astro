@@ -1,9 +1,4 @@
 ---
-import { ClientRouter } from "astro:transitions";
-
-import AnimatedTypingTitle from "../components/AnimatedTypingTitle.astro";
-import "../styles/global.css";
-
 type BreadCrumb = { href: string; label: string };
 
 interface Props {
@@ -11,7 +6,7 @@ interface Props {
   title?: string;
   breadcrumbs?: BreadCrumb[];
 }
-const { titlePrefix, title, breadcrumbs } = Astro.props;
+const { title, breadcrumbs } = Astro.props;
 
 const bio = `Hey I'm Alex 👋. I'm a senior software engineer based in London. 
 This is my digital garden 🌱 for publishing occasional musings about web development, 
@@ -46,7 +41,6 @@ const socialLinks = [
     />
     <slot name="head" />
     <title>{title && `${title} | chiubaca.com`}</title>
-    <ClientRouter />
   </head>
 
   <body>
