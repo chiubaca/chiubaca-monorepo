@@ -102,11 +102,23 @@ const { Content: LatestFleetingNoteContent } = await render(
         </div>
       </div>
 
-      <article
-        class="prose mx-auto h-96 overflow-auto px-5 sm:!max-w-3xl scroll-fade-bottom"
-      >
-        <LatestFleetingNoteContent />
-      </article>
+      <div x-data="{ open: false }">
+        <article
+          class="min-h-40 prose mx-auto overflow-hidden px-5 sm:!max-w-3xl transition-[max-height] duration-300 ease-in-out"
+          x-bind:class="{
+            'max-h-[100rem]': open,
+            'max-h-96 scroll-fade-bottom': !open 
+          }"
+        >
+          <LatestFleetingNoteContent />
+        </article>
+        <div class="flex justify-center mt-4">
+          <button
+            class="btn btn-sm btn-ghost"
+            @click="open = !open"
+            x-text="open ? 'collapse ⬆︎' : 'show more ⬇︎'"></button>
+        </div>
+      </div>
 
       <div class="max-w-3xl mx-auto px-5">
         <a

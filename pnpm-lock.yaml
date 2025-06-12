@@ -14,6 +14,9 @@ importers:
 
   apps/chiubaca.com:
     dependencies:
+      '@astrojs/alpinejs':
+        specifier: ^0.4.8
+        version: 0.4.8(@types/alpinejs@3.13.11)(alpinejs@3.14.9)
       '@astrojs/cloudflare':
         specifier: ^12.5.3
         version: 12.5.3(@types/node@22.15.17)(astro@5.7.12(@types/node@22.15.17)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.40.2)(typescript@5.8.3)(yaml@2.7.1))(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.7.1)
@@ -26,6 +29,12 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.1.6
         version: 4.1.6(vite@6.3.5(@types/node@22.15.17)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.7.1))
+      '@types/alpinejs':
+        specifier: ^3.13.11
+        version: 3.13.11
+      alpinejs:
+        specifier: ^3.14.9
+        version: 3.14.9
       astro:
         specifier: ^5.7.12
         version: 5.7.12(@types/node@22.15.17)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.40.2)(typescript@5.8.3)(yaml@2.7.1)
@@ -87,6 +96,12 @@ packages:
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
+
+  '@astrojs/alpinejs@0.4.8':
+    resolution: {integrity: sha512-aNiJELzqunTuwXZEzqLmiTzMirvrKI4tYKauyAxZbk+Stu/xUZIgnfXeWSy87yF2l/QpnYELgNTDlFduUbp/nw==}
+    peerDependencies:
+      '@types/alpinejs': ^3.0.0
+      alpinejs: ^3.0.0
 
   '@astrojs/cloudflare@12.5.3':
     resolution: {integrity: sha512-QYA6gkF+s3LpDNT0KoURgJeByjiSvUABK1VXBpi9yzqUQfWm3kSAtn0aBXX8EkRlE5UaJ0CkArizfgfqr9zBhA==}
@@ -770,6 +785,9 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6
 
+  '@types/alpinejs@3.13.11':
+    resolution: {integrity: sha512-3KhGkDixCPiLdL3Z/ok1GxHwLxEWqQOKJccgaQL01wc0EVM2tCTaqlC3NIedmxAXkVzt/V6VTM8qPgnOHKJ1MA==}
+
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
 
@@ -841,6 +859,12 @@ packages:
   '@volar/typescript@2.4.13':
     resolution: {integrity: sha512-Ukz4xv84swJPupZeoFsQoeJEOm7U9pqsEnaGGgt5ni3SCTa22m8oJP5Nng3Wed7Uw5RBELdLxxORX8YhJPyOgQ==}
 
+  '@vue/reactivity@3.1.5':
+    resolution: {integrity: sha512-1tdfLmNjWG6t/CsPldh+foumYFo3cpyCHgBYQ34ylaMsJ+SNHQ1kApMIa8jN+i593zQuaw3AdWH0nJTARzCFhg==}
+
+  '@vue/shared@3.1.5':
+    resolution: {integrity: sha512-oJ4F3TnvpXaQwZJNF3ZK+kLPHKarDmJjJ6jyzVNDKH9md1dptjC7lWR//jrGuLdek/U6iltWxqAnYOu8gCiOvA==}
+
   acorn-walk@8.3.2:
     resolution: {integrity: sha512-cjkyv4OtNCIeqhHrfS81QWXoCBPExR/J62oyEqepVw8WaQeSqpW2uhuLPh1m9eWhDuOo/jUXVTlifvesOWp/4A==}
     engines: {node: '>=0.4.0'}
@@ -854,6 +878,9 @@ packages:
     resolution: {integrity: sha512-OvQ/2pUDKmgfCg++xsTX1wGxfTaszcHVcTctW4UJB4hibJx2HXxxO5UmVgyjMa+ZDsiaf5wWLXYpRWMmBI0QHg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+
+  alpinejs@3.14.9:
+    resolution: {integrity: sha512-gqSOhTEyryU9FhviNqiHBHzgjkvtukq9tevew29fTj+ofZtfsYriw4zPirHHOAy9bw8QoL3WGhyk7QqCh5AYlw==}
 
   ansi-align@3.0.1:
     resolution: {integrity: sha512-IOfwwBF5iczOjp/WeY4YxyjqAFMQoZufdQWDd19SEExbVLNXqvpzSJ/M7Za4/sCPmQ0+GRquoA7bGcINcxew6w==}
@@ -2185,6 +2212,11 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
+  '@astrojs/alpinejs@0.4.8(@types/alpinejs@3.13.11)(alpinejs@3.14.9)':
+    dependencies:
+      '@types/alpinejs': 3.13.11
+      alpinejs: 3.14.9
+
   '@astrojs/cloudflare@12.5.3(@types/node@22.15.17)(astro@5.7.12(@types/node@22.15.17)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.40.2)(typescript@5.8.3)(yaml@2.7.1))(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.7.1)':
     dependencies:
       '@astrojs/internal-helpers': 0.6.1
@@ -2749,6 +2781,8 @@ snapshots:
       tailwindcss: 4.1.6
       vite: 6.3.5(@types/node@22.15.17)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.7.1)
 
+  '@types/alpinejs@3.13.11': {}
+
   '@types/debug@4.1.12':
     dependencies:
       '@types/ms': 2.1.0
@@ -2837,11 +2871,21 @@ snapshots:
       path-browserify: 1.0.1
       vscode-uri: 3.1.0
 
+  '@vue/reactivity@3.1.5':
+    dependencies:
+      '@vue/shared': 3.1.5
+
+  '@vue/shared@3.1.5': {}
+
   acorn-walk@8.3.2: {}
 
   acorn@8.14.0: {}
 
   acorn@8.14.1: {}
+
+  alpinejs@3.14.9:
+    dependencies:
+      '@vue/reactivity': 3.1.5
 
   ansi-align@3.0.1:
     dependencies:

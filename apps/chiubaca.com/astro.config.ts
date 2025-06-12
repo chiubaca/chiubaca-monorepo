@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import alpinejs from "@astrojs/alpinejs";
 import tailwindcss from "@tailwindcss/vite";
 import cloudflare from "@astrojs/cloudflare";
 
@@ -8,7 +9,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { updateImageUrls, updateMdLinkUrls } from "../../libs/remark-plugins";
 
 export default defineConfig({
-  integrations: [],
+  integrations: [alpinejs()],
 
   vite: {
     plugins: [tailwindcss()],
