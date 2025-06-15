@@ -4,13 +4,11 @@ interface Props {
   description: string;
 }
 const { title, description } = Astro.props;
+const ogImageUrl = `https://og.chiubaca.com/?title=${title}&description=${description}`;
 ---
 
 <title>{title}</title>
-<meta
-  property="og:image"
-  content={`https://og-image-worker.chiubaca.workers.dev/?title=${title}&description=${description}`}
-/>
+<meta property="og:image" content={ogImageUrl} />
 <meta property="'og:logo" content="favicon.svg" />
 
 <meta name="description" content={description} />
@@ -28,7 +26,4 @@ const { title, description } = Astro.props;
 <meta property="twitter:url" content="https://x.com" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta
-  name="twitter:image"
-  content={`https://og-image-worker.chiubaca.workers.dev/?title=${title}&description=${description}`}
-/>
+<meta name="twitter:image" content={ogImageUrl} />
