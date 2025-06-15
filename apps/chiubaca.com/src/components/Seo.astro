@@ -4,7 +4,7 @@ interface Props {
   description: string;
 }
 const { title, description } = Astro.props;
-const ogImageUrl = `https://og.chiubaca.com/?title=${title}&description=${description}`;
+const ogImageUrl = `https://og.chiubaca.com/?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`;
 ---
 
 <title>{title}</title>
