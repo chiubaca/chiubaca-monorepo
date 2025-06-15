@@ -1,14 +1,16 @@
 ---
+import Seo from "../components/Seo.astro";
+
 import "../styles/global.css";
 
 type BreadCrumb = { href: string; label: string };
 
 interface Props {
-  titlePrefix?: string;
   title?: string;
+  description?: string;
   breadcrumbs?: BreadCrumb[];
 }
-const { title, breadcrumbs } = Astro.props;
+const { title, description, breadcrumbs } = Astro.props;
 
 const bio = `Hey I'm Alex 👋. I'm a senior software engineer based in London. 
 This is my digital garden 🌱 for publishing occasional musings about web development, 
@@ -41,8 +43,10 @@ const socialLinks = [
       title="chiubaca.com"
       href={new URL("rss.xml", Astro.site)}
     />
+
+    <Seo title={title} description={description} />
+
     <slot name="head" />
-    <title>{title && `${title} | chiubaca.com`}</title>
   </head>
 
   <body>

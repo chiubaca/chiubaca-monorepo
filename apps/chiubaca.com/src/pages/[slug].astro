@@ -39,7 +39,11 @@ breadcrumbs.push({
 });
 ---
 
-<BaseLayout breadcrumbs={breadcrumbs}>
+<BaseLayout
+  breadcrumbs={breadcrumbs}
+  title={`${entry.data.title}`}
+  description={entry.data.description}
+>
   <Fragment slot="head">
     <meta name="keywords" content={entry.data.tags.toString()} />
     {

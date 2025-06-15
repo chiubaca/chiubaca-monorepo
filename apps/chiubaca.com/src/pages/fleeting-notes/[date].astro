@@ -21,6 +21,8 @@ const { Content } = await render(entry);
 ---
 
 <BaseLayout
+  title={`fleeting note | ${entry.id}`}
+  description={`> ${entry.rendered.html.replace(/<[^>]+>/g, "").substring(0, 80)}...`}
   breadcrumbs={[
     {
       href: `/fleeting-notes`,

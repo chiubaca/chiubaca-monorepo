@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+
+<title>{title}</title>
+<meta
+  property="og:image"
+  content={`https://og-image-worker.chiubaca.workers.dev/?title=${title}&description=${description}`}
+/>
+
+<meta name="description" content={description} />
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://x.com" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={description} />
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:domain" content="x.com" />
+<meta property="twitter:url" content="https://x.com" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta
+  name="twitter:image"
+  content={`https://og-image-worker.chiubaca.workers.dev/?title=${title}&description=${description}`}
+/>
