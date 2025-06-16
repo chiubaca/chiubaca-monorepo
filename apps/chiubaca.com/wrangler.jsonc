@@ -4,5 +4,12 @@
   "compatibility_date": "2025-03-25",
   "assets": {
     "directory": "./dist"
-  }
+  },
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "chiubaca.com",
+      "custom_domain": true
+    }
+  ]
 }
