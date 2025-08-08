@@ -2,17 +2,21 @@
   "name": "chiubaca-monorepo",
   "version": "1.0.0",
   "description": "All things *.chiubaca related",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
-    "dev": "pnpm -r dev",
-    "dev:chiubaca": "pnpm --filter chiubaca.com dev",
+    "dev": "npm run -ws dev",
+    "dev:chiubaca": "npm run --workspace=chiubaca.com dev",
     "notes:download": "rm -rf tmp-notes && git clone https://github.com/chiubaca/notes tmp-notes",
     "notes:sync": "cd tmp-notes && git pull",
     "notes:migrate": "bash libs/scripts/migrate-notes.sh",
     "lint": "biome lint --write .",
     "lint:fix": "biome check --write .",
-    "chiubaca.com:build": "pnpm -w run notes:download && pnpm -w run notes:migrate && pnpm --filter chiubaca.com build",
-    "chiubaca.com:deploy": "pnpm  -w run --filter chiubaca.com deploy",
-    "preview": "pnpm -r preview",
+    "chiubaca.com:build": "npm run notes:download && npm run notes:migrate && npm run --workspace=chiubaca.com build",
+    "chiubaca.com:deploy": "npm run --workspace=chiubaca.com deploy",
+    "preview": "npm run -ws preview",
     "test:node-env": "echo \"Current PATH: $PATH\" && echo \"Node location: $(which node)\" && echo \"Node version: $(node -v)\""
   },
   "keywords": [
@@ -20,8 +24,8 @@
   ],
   "author": "Alex Chiu",
   "license": "ISC",
-  "packageManager": "pnpm@10.11.0",
   "devDependencies": {
     "@biomejs/biome": "1.9.4"
-  }
+  },
+  "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee"
 }

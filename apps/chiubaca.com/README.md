@@ -15,8 +15,8 @@ Welcome to the chiubaca.com app! This is a web application built using Astro.js,
 
 To get started with the chiubaca.com app, follow these steps:
 
-1. **Install Dependencies**: Run `pnpm install` in the root of the monorepo to install all dependencies.
-2. **Run the Development Server**: Use `pnpm dev` to start the development server and view the app in your browser.
+1. **Install Dependencies**: Run `npm install --workspaces` in the root of the monorepo to install all dependencies.
+2. **Run the Development Server**: Use `npm run -ws dev` from the repo root, or `npm run dev` inside this app folder.
 
 ## Deployment
 

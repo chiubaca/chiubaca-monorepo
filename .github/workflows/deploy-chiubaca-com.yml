@@ -6,14 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
+      - name: Use Node.js from .nvmrc
+        uses: actions/setup-node@v4
         with:
-          version: 8
+          node-version-file: '.nvmrc'
+          cache: 'npm'
       - name: Install dependencies
-        run: pnpm install
+        run: npm ci --workspaces
       - name: Build chiubaca.com
-        run: pnpm -w run chiubaca.com:build
+        run: npm run chiubaca.com:build
       - name: Publish to Cloudflare
-        run: pnpm -w run chiubaca.com:deploy
+        run: npm run chiubaca.com:deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

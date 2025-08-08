@@ -1,8 +1,8 @@
 # Dependency directories
 node_modules/
 
-# PNPM
-pnpm-debug.log*
+# npm logs
+npm-debug.log*
 
 # Astro specific
 dist/
