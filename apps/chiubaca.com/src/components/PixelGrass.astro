@@ -123,5 +123,96 @@
         );
       })
     }
+
+    {/* Autumn ground leaves (scattered) */}
+    {
+      (() => {
+        const leafColors = [
+          "#C65D0E",
+          "#D97706",
+          "#B45309",
+          "#92400E",
+          "#B84E3A",
+          "#E6B422",
+        ];
+        return Array.from({ length: 1440 / 20 }).map((_, i) => {
+          const x = i * 20 + Math.random() * 12;
+          const y = 65 + Math.random() * 8; // on top of the grass
+          const color =
+            leafColors[Math.floor(Math.random() * leafColors.length)];
+          // tiny pixel leaf (diamond-ish): 3 rects
+          return (
+            <>
+              <rect x={x} y={y} width="2" height="2" fill={color} />
+              <rect x={x + 2} y={y + 2} width="2" height="2" fill={color} />
+              <rect x={x + 4} y={y} width="2" height="2" fill={color} />
+            </>
+          );
+        });
+      })()
+    }
+
+    {/* Gently falling autumn leaves (animated) */}
+    {
+      (() => {
+        const leafColors = [
+          "#C65D0E",
+          "#D97706",
+          "#B45309",
+          "#92400E",
+          "#B84E3A",
+          "#E6B422",
+        ];
+        return Array.from({ length: 12 }).map((_, i) => {
+          const startX = Math.random() * 1440;
+          const delay = (Math.random() * 6).toFixed(2);
+          const duration = (8 + Math.random() * 6).toFixed(2);
+          const sway = 10 + Math.random() * 20;
+          const rotation = Math.random() > 0.5 ? 180 : 360;
+          const color =
+            leafColors[Math.floor(Math.random() * leafColors.length)];
+          return (
+            <g>
+              {/* leaf shape centered around (0,0) so transforms look natural */}
+              <rect x={-1} y={-1} width="2" height="2" fill={color} />
+              <rect x={1} y={1} width="2" height="2" fill={color} />
+              <rect x={3} y={-1} width="2" height="2" fill={color} />
+              {/* fall down */}
+              <animateTransform
+                attributeName="transform"
+                type="translate"
+                from={`${startX} -10`}
+                to={`${startX} 75`}
+                dur={`${duration}s`}
+                begin={`${delay}s`}
+                repeatCount="indefinite"
+              />
+              {/* horizontal sway */}
+              <animateTransform
+                attributeName="transform"
+                additive="sum"
+                type="translate"
+                values={`${-sway / 2} 0; ${sway / 2} 0; ${-sway / 3} 0; 0 0`}
+                keyTimes="0;0.4;0.8;1"
+                dur={`${(parseFloat(duration) / 2).toFixed(2)}s`}
+                begin={`${delay}s`}
+                repeatCount="indefinite"
+              />
+              {/* gentle spin */}
+              <animateTransform
+                attributeName="transform"
+                additive="sum"
+                type="rotate"
+                from={`0 0 0`}
+                to={`${rotation} 0 0`}
+                dur={`${duration}s`}
+                begin={`${delay}s`}
+                repeatCount="indefinite"
+              />
+            </g>
+          );
+        });
+      })()
+    }
   </svg>
 </div>
