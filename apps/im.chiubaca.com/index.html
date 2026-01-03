@@ -371,6 +371,23 @@
     handlePosition(X, Y)
   });
 
+  const handleOrientation = (event) => {
+    const { beta, gamma } = event;
+
+    // Normalize gamma (-90 to 90) to X (0 to 1)
+    const X = (gamma + 90) / 180;
+
+    // Normalize beta (-180 to 180) to Y (0 to 1), clamping beta to a reasonable range for tilting
+    const clampedBeta = Math.max(-90, Math.min(90, beta));
+    const Y = (clampedBeta + 90) / 180;
+
+    handlePosition(X, Y);
+  }
+
+  if (window.DeviceOrientationEvent) {
+    window.addEventListener('deviceorientation', handleOrientation);
+  }
+
   // fix mobile for browser chopping off bottom of card
   // https://stackoverflow.com/a/50683190/7207193
   const appHeight = () => {
