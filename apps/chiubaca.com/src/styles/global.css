@@ -4,7 +4,7 @@
   themes: night --default;
 }
 
-html {
+:root {
   color-scheme: only dark;
 }
 
