@@ -4,6 +4,10 @@
   themes: night --default;
 }
 
+html {
+  color-scheme: dark;
+}
+
 body {
   background: linear-gradient(
       rgba(19, 26, 92, 0.315),
