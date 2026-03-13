@@ -1,11 +1,11 @@
-import { defineConfig } from "astro/config";
 import alpinejs from "@astrojs/alpinejs";
-import tailwindcss from "@tailwindcss/vite";
 import cloudflare from "@astrojs/cloudflare";
+import tailwindcss from "@tailwindcss/vite";
 import og from "astro-og";
+import { defineConfig } from "astro/config";
 
-import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
 
 import { updateImageUrls, updateMdLinkUrls } from "../../libs/remark-plugins";
 
@@ -25,6 +25,9 @@ export default defineConfig({
       rehypeSlug,
       () => rehypeAutolinkHeadings({ behavior: "append" }),
     ],
+    shikiConfig: {
+      theme: "dracula",
+    },
   },
 
   site: "https://chiubaca.com",

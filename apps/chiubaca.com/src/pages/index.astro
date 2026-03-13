@@ -28,13 +28,13 @@ const { Content: LatestFleetingNoteContent } = await render(
   description="A digtial garden of ramblings by Alex Chiu"
 >
   <main>
-    <div class="max-w-3xl mx-auto px-5">
-      <nav class="py-10">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6">
+      <nav class="py-12">
         <AnimtedBlinkingTitle />
       </nav>
 
-      <section class="latest-blogs">
-        <h1 class="text-2xl font-semibold font-mono">✏️ Latest writings</h1>
+      <section class="latest-blogs space-y-6">
+        <h1 class="text-2xl font-semibold">✏️ Latest writings</h1>
         <p class="italic text-secondary pb-8">
           Long form blogs, essays, musings.
         </p>
@@ -69,17 +69,17 @@ const { Content: LatestFleetingNoteContent } = await render(
 
         <a
           href={`/blogs/`}
-          class="font-semibold btn btn-info btn-xs uppercase font-mono hover:italic"
+          class="font-semibold btn btn-info btn-xs uppercase hover:italic"
         >
           View all blogs <span class="text-2xl">➡︎</span>
         </a>
       </section>
-      <hr class="my-8" />
+      <hr class="my-12" />
     </div>
 
     <section>
-      <div class="max-w-3xl mx-auto px-5">
-        <h1 class="font-mono text-2xl font-semibold">🗒️ Latest note</h1>
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 space-y-6">
+        <h1 class="text-2xl font-semibold">🗒️ Latest note</h1>
         <p class="italic text-secondary">
           Latest rambling posted on {
             latestFleetingNote.data.publish_date.toLocaleDateString("en-GB", {
@@ -107,7 +107,7 @@ const { Content: LatestFleetingNoteContent } = await render(
 
       <div x-data="{ open: false }">
         <article
-          class="min-h-20 prose mx-auto overflow-hidden px-5 sm:!max-w-3xl transition-[max-height] duration-300 ease-in-out"
+          class="min-h-20 prose mx-auto overflow-hidden px-4 sm:px-6 sm:!max-w-2xl transition-[max-height] duration-300 ease-in-out"
           x-bind:class="{
             'max-h-[100rem]': open,
             'max-h-96 scroll-fade-bottom': !open 
@@ -123,10 +123,10 @@ const { Content: LatestFleetingNoteContent } = await render(
         </div>
       </div>
 
-      <div class="max-w-3xl mx-auto px-5">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 pb-12">
         <a
           href={`/fleeting-notes/`}
-          class="mt-8 font-semibold btn btn-info btn-xs uppercase font-mono hover:italic"
+          class="mt-8 font-semibold btn btn-info btn-xs uppercase hover:italic"
         >
           View all notes <span class="text-2xl">➡︎</span>
         </a>

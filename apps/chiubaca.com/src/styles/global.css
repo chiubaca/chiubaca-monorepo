@@ -4,7 +4,16 @@
   themes: night --default;
 }
 
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+@import "@fontsource/ibm-plex-sans/700.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
 :root {
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
   color-scheme: only dark;
 }
 
@@ -15,4 +24,100 @@ body {
       rgba(170, 189, 247, 0.211)
     ),
     url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczpzdmdqcz0iaHR0cDovL3N2Z2pzLmRldi9zdmdqcyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNzAwIDcwMCIgd2lkdGg9IjcwMCIgaGVpZ2h0PSI3MDAiIG9wYWNpdHk9IjAuMiI+PGRlZnM+PGZpbHRlciBpZD0ibm5ub2lzZS1maWx0ZXIiIHg9Ii0yMCUiIHk9Ii0yMCUiIHdpZHRoPSIxNDAlIiBoZWlnaHQ9IjE0MCUiIGZpbHRlclVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgcHJpbWl0aXZlVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9ImxpbmVhclJHQiI+Cgk8ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC4yIiBudW1PY3RhdmVzPSI0IiBzZWVkPSIxNSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgeD0iMCUiIHk9IjAlIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiByZXN1bHQ9InR1cmJ1bGVuY2UiLz4KCTxmZVNwZWN1bGFyTGlnaHRpbmcgc3VyZmFjZVNjYWxlPSI2IiBzcGVjdWxhckNvbnN0YW50PSIxIiBzcGVjdWxhckV4cG9uZW50PSIyMCIgbGlnaHRpbmctY29sb3I9IiNhYmFiYWIiIHg9IjAlIiB5PSIwJSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgaW49InR1cmJ1bGVuY2UiIHJlc3VsdD0ic3BlY3VsYXJMaWdodGluZyI+CiAgICAJCTxmZURpc3RhbnRMaWdodCBhemltdXRoPSIzIiBlbGV2YXRpb249Ijg5Ii8+CiAgCTwvZmVTcGVjdWxhckxpZ2h0aW5nPgogIDxmZUNvbG9yTWF0cml4IHR5cGU9InNhdHVyYXRlIiB2YWx1ZXM9IjAiIHg9IjAlIiB5PSIwJSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgaW49InNwZWN1bGFyTGlnaHRpbmciIHJlc3VsdD0iY29sb3JtYXRyaXgiLz4KPC9maWx0ZXI+PC9kZWZzPjxyZWN0IHdpZHRoPSI3MDAiIGhlaWdodD0iNzAwIiBmaWxsPSJ0cmFuc3BhcmVudCIvPjxyZWN0IHdpZHRoPSI3MDAiIGhlaWdodD0iNzAwIiBmaWxsPSIjYWJhYmFiIiBmaWx0ZXI9InVybCgjbm5ub2lzZS1maWx0ZXIpIi8+PC9zdmc+");
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+.prose {
+  --tw-prose-body: #e5e5e5;
+  --tw-prose-headings: #fafafa;
+  --tw-prose-links: #a3a3a3;
+  --tw-prose-bold: #fafafa;
+  --tw-prose-code: #e5e5e5;
+  --tw-prose-pre-bg: #171717;
+  --tw-prose-pre-code: #e5e5e5;
+  font-family: var(--font-sans);
+  max-width: 42rem;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: #262626;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-weight: 400;
+}
+
+.prose pre {
+  background: #171717 !important;
+  border: 1px solid #262626;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.prose a {
+  color: #a3a3a3;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.prose a:hover {
+  color: #e5e5e5;
+}
+
+.prose hr {
+  border-color: #262626;
+  margin: 2.5rem 0;
+}
+
+.prose blockquote {
+  border-left-color: #404040;
+  color: #a3a3a3;
+  font-style: italic;
+}
+
+.prose ul > li::marker {
+  color: #525252;
+}
+
+.prose ol > li::marker {
+  color: #525252;
+}
+
+.prose strong {
+  color: #fafafa;
+}
+
+.prose th {
+  color: #fafafa;
+}
+
+.prose td {
+  color: #e5e5e5;
+}
+
+::selection {
+  background: #262626;
+  color: #fafafa;
 }

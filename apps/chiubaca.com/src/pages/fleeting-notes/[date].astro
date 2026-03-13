@@ -36,7 +36,7 @@ const { Content } = await render(entry);
 >
   <meta name="robots" content="noindex" slot="head" />
 
-  <div class="mt-[10vh]">
+  <div class="mt-12">
     <div
       class="flex flex-wrap justify-center items-center gap-2 font-mono text-xs"
     >
@@ -44,7 +44,7 @@ const { Content } = await render(entry);
         entry.data.tags.map((tag) => (
           <a
             href={`/tags#${tag}`}
-            class="hover:link  text-gray-400 before:content-['#']"
+            class="hover:link text-gray-400 before:content-['#']"
           >
             {tag}
           </a>
@@ -52,13 +52,13 @@ const { Content } = await render(entry);
       }
     </div>
     <h1
-      class="font-mono my-4 text-2xl font-bold text-center text-balance"
+      class="my-4 text-2xl font-semibold text-center text-balance"
       transition:name="blog-title"
     >
       {entry.id.replaceAll("-", "・")}
     </h1>
   </div>
-  <article class="prose pt-10 px-5 sm:mx-auto">
+  <article class="prose pt-10 px-4 sm:px-6 sm:max-w-2xl sm:mx-auto">
     <Content />
   </article>
 

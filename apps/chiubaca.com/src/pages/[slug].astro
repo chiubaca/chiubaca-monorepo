@@ -54,7 +54,7 @@ breadcrumbs.push({
   </Fragment>
 
   <div
-    class="flex flex-wrap justify-center items-center gap-2 font-mono text-xs mt-[10vh]"
+    class="flex flex-wrap justify-center items-center gap-2 font-mono text-xs mt-12"
   >
     {
       entry.data.tags.map((tag) => (
@@ -68,7 +68,7 @@ breadcrumbs.push({
     }
   </div>
   <h1
-    class="my-4 text-5xl font-bold text-center text-balance max-w-3xl mx-auto px-5"
+    class="my-4 text-3xl font-semibold text-center text-balance max-w-2xl mx-auto px-4 sm:px-6"
     transition:name="blog-title"
   >
     {entry.data.title}
@@ -90,7 +90,7 @@ breadcrumbs.push({
 
   <div class="text text-center font text-xl text-secondary">⊱―⊰</div>
 
-  <article class="prose pt-10 px-5 sm:mx-auto">
+  <article class="prose pt-10 px-4 sm:px-6 sm:mx-auto">
     <Content />
   </article>
 </BaseLayout>
