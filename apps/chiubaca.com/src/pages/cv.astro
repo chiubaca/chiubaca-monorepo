@@ -1,0 +1,180 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="CV | Alex Chiu"
+  description="Senior Fullstack Engineer based in London"
+  breadcrumbs={[{ href: "/cv", label: "cv" }]}
+>
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <!-- Header -->
+    <header class="border-b border-gray-700 pb-6 mb-8">
+      <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
+        <div>
+          <h1 class="text-4xl font-bold text-white mb-2">Alex Chiu</h1>
+          <p class="text-gray-400 max-w-xl">
+            Senior Fullstack Engineer at Zoopla, leading projects from conceptual designs to delivery. Previously at VU.CITY, where I built interactive 3D and geospatial applications, and NEVERBLAND, crafting digital products for global brands.
+          </p>
+        </div>
+        <div class="text-sm space-y-1 text-gray-400 shrink-0">
+          <p class="flex items-center gap-2">
+            <i class="fa-solid fa-phone w-4"></i>
+            <span>+44 07898-972-136</span>
+          </p>
+          <p class="flex items-center gap-2">
+            <i class="fa-solid fa-envelope w-4"></i>
+            <a href="mailto:alexchiu11@gmail.com" class="text-blue-400 hover:underline">alexchiu11@gmail.com</a>
+          </p>
+          <p class="flex items-center gap-2">
+            <i class="fa-brands fa-linkedin w-4"></i>
+            <a href="https://www.linkedin.com/in/achiu1/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">linkedin.com/in/achiu1</a>
+          </p>
+          <p class="flex items-center gap-2">
+            <i class="fa-brands fa-github w-4"></i>
+            <a href="https://github.com/chiubaca" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">github.com/chiubaca</a>
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Main Content -->
+      <div class="lg:col-span-2 space-y-8">
+        <!-- Experience -->
+        <section>
+          <h2 class="text-sm font-bold text-blue-500 uppercase tracking-wider mb-6">Experience</h2>
+          
+          <!-- Zoopla -->
+          <div class="mb-6">
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-2">
+              <h3 class="text-lg font-bold text-white">Zoopla, <span class="font-normal text-gray-400">London</span></h3>
+              <span class="text-xs text-gray-500">March 2024 - Present</span>
+            </div>
+            <p class="text-gray-300 italic mb-3">Senior Software Engineer</p>
+            <ul class="space-y-2 text-sm text-gray-400 list-disc list-inside">
+              <li>Led technical delivery for the MyHome section of Zoopla. MyHome is a dashboard to track property your home and gain insights into market trends, so homeowners can make more informed decisions during the selling process.</li>
+              <li>The MyHome team is an exploratory team that is intentionally fast-moving. We ship and experiment with new features at a high velocity so we can find out what the most compelling and useful products we can build.</li>
+              <li>My role is challenge designs and the scope of work to ensure we can feasibly deliver a solution in given time-frame.</li>
+              <li>Contribute across different stacks, integrating data from numerous microservices into customer-facing frontends, and building reusable internal libraries to aid developer productivity wherever possible.</li>
+              <li>Partner with engineering management to shape sprint planning, prioritise technical debt.</li>
+              <li>Leads Zoopla's internal frontend Community of Practice by hosting knowledge-sharing sessions across teams.</li>
+            </ul>
+          </div>
+
+          <!-- VU.CITY -->
+          <div class="mb-6">
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-2">
+              <h3 class="text-lg font-bold text-white">VU.CITY, <span class="font-normal text-gray-400">London</span></h3>
+              <span class="text-xs text-gray-500">October 2021 - December 2023</span>
+            </div>
+            <p class="text-gray-300 italic mb-3">Fullstack Web Developer (Geospatial)</p>
+            <ul class="space-y-2 text-sm text-gray-400 list-disc list-inside">
+              <li>Built an interactive 3D web map for a local council to visualise planned buildings sites. This was built using React, TypeScript, and Mapbox and Geoserver for GIS data.</li>
+              <li>Maintained VU.CITY's existing SaaS product <a href="https://hub.vu.city/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">hub.vu.city</a>, a fullstack TypeScript codebase. Resolved authentication bugs and integrated internal tooling such as MixPanel and HubSpot.</li>
+              <li>Led R&D initiatives to explore new tools to visualise high-fidelity 3d models using web technologies including Cesium and Three.js.</li>
+            </ul>
+          </div>
+
+          <!-- NEVERBLAND -->
+          <div class="mb-6">
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-2">
+              <h3 class="text-lg font-bold text-white">NEVERBLAND, <span class="font-normal text-gray-400">London</span></h3>
+              <span class="text-xs text-gray-500">March 2021 - October 2023</span>
+            </div>
+            <p class="text-gray-300 italic mb-3">Fullstack Web Developer</p>
+            <ul class="space-y-2 text-sm text-gray-400 list-disc list-inside">
+              <li>Architected internal tooling for the mental-health social media platform <a href="https://togetherall.com/en-gb/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">togetherall.com</a>. This project used React, GraphQL, Apollo and MySQL paired with Prisma ORM. Due to a larger number of developers working on the same codebase, critical code paths were unit tested with Jest and end-to-end tests were put in place using Cypress so that future developers could extend functionality confidently.</li>
+              <li>Led the development and launch of a fintech website, <a href="https://fnz.com/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">fnz.com</a>. This website uses Next.js, Styled-components with a GraphCMS backend. This project was turned around on a tight 4-week deadline where the CMS was architected from the ground up and the frontend was developed dynamically with designers and the end client.</li>
+              <li>Engineered Paul McCartney's new website, <a href="https://www.paulmccartney.com/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">paulmccartney.com</a>. This website uses Next.js, Styled-components, Framer Motion and a GraphCMS backend. The main challenge was migrating data from a legacy Drupal system into GraphCMS. The front end uses Framer Motion for creating playful interactions throughout the website.</li>
+              <li>Architected Algolia search integration for <a href="http://www.henley.ac.uk" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">www.henley.ac.uk</a>. This required writing synchronisation scripts to connect their CraftCMS to Algolia. The search UI was rebuilt using Vue.js. This project also involved using docker to containerise their backend services for development purposes.</li>
+              <li>Built a real-time tracking platform (<a href="https://moveformothers.neverbland.com/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">moveformothers.neverbland.com</a>) to visually track a collaborative (virtual) 4500-mile walk from London to Kathmandu, to raise money for the charity PHASE Worldwide. This website uses Next.js, Mapbox, Turf.js and the Strava API. The map automatically refreshes when a team member tracks activity on Strava.</li>
+            </ul>
+          </div>
+
+          <!-- Transport for London -->
+          <div class="mb-6">
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-2">
+              <h3 class="text-lg font-bold text-white">Transport for London, <span class="font-normal text-gray-400">London</span></h3>
+              <span class="text-xs text-gray-500">November 2016 - March 2021</span>
+            </div>
+            <p class="text-gray-300 italic mb-3">GIS Developer</p>
+            <p class="text-sm text-gray-400 mb-3">Joined TfL's Tech & Data department as a Developer involved in a multitude of work relating specifically to geospatial requirements.</p>
+            <ul class="space-y-2 text-sm text-gray-400 list-disc list-inside">
+              <li>Delivered a real-time road works management web map app. This entailed collaborating with third-party contractors during the final development phase, migrating data from a legacy Oracle database to a SQL server and releasing over a midnight launch so there was no downtime switching users to the new system.</li>
+              <li>Enhanced the road-works app to progressively add new features and fix bugs. This entailed improving the UI/UX of the frontend web app written with Dojo. Also extending the backend to integrate with new data feeds and set up new geospatial REST APIs using Esri middleware and SQL Server.</li>
+              <li>Architected automated data conversion pipelines using Python and FME. Continuously fine-tuned existing data workflows to make them more efficient and maintainable for future Developers.</li>
+              <li>Managed DevOps for an internal data-as-a-service solution, Playbook. Ensuring all systems are up and running.</li>
+            </ul>
+          </div>
+
+          <!-- Esri UK -->
+          <div class="mb-6">
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-2">
+              <h3 class="text-lg font-bold text-white">Esri UK, <span class="font-normal text-gray-400">Aylesbury</span></h3>
+              <span class="text-xs text-gray-500">October 2015 - November 2016</span>
+            </div>
+            <p class="text-gray-300 italic mb-3">GIS Software Consultant</p>
+            <p class="text-sm text-gray-400 mb-3">Promoted after completing the Esri UK graduate scheme as a Consultant to work on a variety of technical issues both internally and externally with customers.</p>
+            <ul class="space-y-2 text-sm text-gray-400 list-disc list-inside">
+              <li>Architected and deployed a data-as-service solution, Datahub. By creating a collection of new tiled basemaps services which would be used by customers across the UK in various web mapping applications.</li>
+              <li>Owned data pipeline operations ensuring internal OS MasterMap data was up to date for the internal content team. Responsible for ensuring data pipelines were run on time and improving the process wherever possible.</li>
+              <li>Worked closely with Product Managers to understand how customers are using Esri software. Taking all feedback into consideration to improve and produce new API services.</li>
+              <li>Frequently wrote blogs for the Esri UK website and ran webinars to help alleviate customer issues.</li>
+              <li>Deployed and automated Esri software in the cloud for infrastructure-as-a-service offerings to customers. Automating steps wherever possible.</li>
+              <li>Managed AWS infrastructure for Datahub and platform-as-a-service solution Apphub.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="space-y-8">
+        <!-- Skills -->
+        <section>
+          <h2 class="text-sm font-bold text-blue-500 uppercase tracking-wider mb-4">Skills</h2>
+          
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-sm font-bold text-white mb-1">Programming Languages</h4>
+              <p class="text-sm text-gray-400">TypeScript, JavaScript, HTML, CSS, Python</p>
+            </div>
+            
+            <div>
+              <h4 class="text-sm font-bold text-white mb-1">Frontend</h4>
+              <p class="text-sm text-gray-400">React, Next.js, Framer Motion, Tailwind, Styled-components, Vue.js, Svelte, jQuery</p>
+            </div>
+            
+            <div>
+              <h4 class="text-sm font-bold text-white mb-1">Backend</h4>
+              <p class="text-sm text-gray-400">Node.js, GraphQL, SQL, PostgreSQL, MySQL, Prisma, Docker, Firebase, MongoDB, Hygraph, SanityCMS</p>
+            </div>
+            
+            <div>
+              <h4 class="text-sm font-bold text-white mb-1">GIS</h4>
+              <p class="text-sm text-gray-400">Leaflet, ArcGIS, QGIS, Mapbox, Turf.js</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section>
+          <h2 class="text-sm font-bold text-blue-500 uppercase tracking-wider mb-4">Education</h2>
+          
+          <div>
+            <h3 class="text-sm font-bold text-white">Kingston University, London</h3>
+            <p class="text-xs text-gray-500 mb-1">2008 - 2011</p>
+            <p class="text-sm text-gray-400">Bachelor of Science (Hons), Geographical Information Systems</p>
+          </div>
+        </section>
+
+        <!-- Languages -->
+        <section>
+          <h2 class="text-sm font-bold text-blue-500 uppercase tracking-wider mb-4">Languages</h2>
+          
+          <p class="text-sm text-gray-400">English, Cantonese</p>
+        </section>
+      </aside>
+    </div>
+  </main>
+</BaseLayout>
