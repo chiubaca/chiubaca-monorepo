@@ -123,90 +123,78 @@
       })
     }
 
-    {/* Autumn ground leaves (scattered) */}
+    {/* Spring flowers scattered in grass */}
     {
       (() => {
-        const leafColors = [
-          "#C65D0E",
-          "#D97706",
-          "#B45309",
-          "#92400E",
-          "#B84E3A",
-          "#E6B422",
+        const flowerColors = [
+          { petal: "#F472B6", center: "#FCD34D" }, // Pink
+          { petal: "#A78BFA", center: "#FEF3C7" }, // Purple
+          { petal: "#FBBF24", center: "#78350F" }, // Yellow
+          { petal: "#F9A8D4", center: "#FEF3C7" }, // Light pink
+          { petal: "#60A5FA", center: "#FCD34D" }, // Blue
+          { petal: "#F87171", center: "#FEF3C7" }, // Red
         ];
-        return Array.from({ length: 1440 / 20 }).map((_, i) => {
-          const x = i * 20 + Math.random() * 12;
-          const y = 65 + Math.random() * 8; // on top of the grass
-          const color =
-            leafColors[Math.floor(Math.random() * leafColors.length)];
-          // tiny pixel leaf (diamond-ish): 3 rects
-          return (
-            <>
-              <rect x={x} y={y} width="2" height="2" fill={color} />
-              <rect x={x + 2} y={y + 2} width="2" height="2" fill={color} />
-              <rect x={x + 4} y={y} width="2" height="2" fill={color} />
-            </>
-          );
-        });
-      })()
-    }
-
-    {/* Gently falling autumn leaves (animated) */}
-    {
-      (() => {
-        const leafColors = [
-          "#C65D0E",
-          "#D97706",
-          "#B45309",
-          "#92400E",
-          "#B84E3A",
-          "#E6B422",
-        ];
+        const stemColor = "#4D7C0F";
         return Array.from({ length: 12 }).map((_, i) => {
-          const startX = Math.random() * 1440;
-          const delay = (Math.random() * 6).toFixed(2);
-          const duration = (8 + Math.random() * 6).toFixed(2);
-          const sway = 10 + Math.random() * 20;
-          const rotation = Math.random() > 0.5 ? 180 : 360;
-          const color =
-            leafColors[Math.floor(Math.random() * leafColors.length)];
+          const x = Math.random() * 1380 + 30;
+          const y = 60 + Math.random() * 10;
+          const flowerType = Math.floor(Math.random() * 3);
+          const color = flowerColors[Math.floor(Math.random() * flowerColors.length)];
+          const delay = (Math.random() * 3).toFixed(2);
+          const swayAmount = 2 + Math.random() * 3;
           return (
             <g>
-              {/* leaf shape centered around (0,0) so transforms look natural */}
-              <rect x={-1} y={-1} width="2" height="2" fill={color} />
-              <rect x={1} y={1} width="2" height="2" fill={color} />
-              <rect x={3} y={-1} width="2" height="2" fill={color} />
-              {/* fall down */}
+              {/* Stem */}
+              <rect x={x} y={y} width="6" height="32" fill={stemColor} />
+              {flowerType === 0 && (
+                <>
+                  {/* Flower type 1: 4-petal cross */}
+                  <rect x={x - 6} y={y - 18} width="6" height="18" fill={color.petal} />
+                  <rect x={x + 6} y={y - 18} width="6" height="18" fill={color.petal} />
+                  <rect x={x - 3} y={y - 22} width="12" height="6" fill={color.petal} />
+                  <rect x={x - 3} y={y - 10} width="12" height="6" fill={color.petal} />
+                  <rect x={x} y={y - 15} width="6" height="6" fill={color.center} />
+                </>
+              )}
+              {flowerType === 1 && (
+                <>
+                  {/* Flower type 2: diamond shape */}
+                  <rect x={x} y={y - 24} width="6" height="6" fill={color.petal} />
+                  <rect x={x - 6} y={y - 18} width="6" height="6" fill={color.petal} />
+                  <rect x={x + 6} y={y - 18} width="6" height="6" fill={color.petal} />
+                  <rect x={x - 3} y={y - 18} width="12" height="6" fill={color.petal} />
+                  <rect x={x - 6} y={y - 12} width="6" height="6" fill={color.petal} />
+                  <rect x={x + 6} y={y - 12} width="6" height="6" fill={color.petal} />
+                  <rect x={x} y={y - 15} width="6" height="6" fill={color.center} />
+                </>
+              )}
+              {flowerType === 2 && (
+                <>
+                  {/* Flower type 3: 3-petal */}
+                  <rect x={x - 6} y={y - 18} width="6" height="12" fill={color.petal} />
+                  <rect x={x + 6} y={y - 18} width="6" height="12" fill={color.petal} />
+                  <rect x={x} y={y - 27} width="6" height="12" fill={color.petal} />
+                  <rect x={x} y={y - 12} width="6" height="6" fill={color.center} />
+                </>
+              )}
+              {/* Sway animation */}
               <animateTransform
                 attributeName="transform"
-                type="translate"
-                from={`${startX} -10`}
-                to={`${startX} 75`}
-                dur={`${duration}s`}
-                begin={`${delay}s`}
-                repeatCount="indefinite"
-              />
-              {/* horizontal sway */}
-              <animateTransform
-                attributeName="transform"
-                additive="sum"
-                type="translate"
-                values={`${-sway / 2} 0; ${sway / 2} 0; ${-sway / 3} 0; 0 0`}
-                keyTimes="0;0.4;0.8;1"
-                dur={`${(parseFloat(duration) / 2).toFixed(2)}s`}
-                begin={`${delay}s`}
-                repeatCount="indefinite"
-              />
-              {/* gentle spin */}
-              <animateTransform
-                attributeName="transform"
-                additive="sum"
                 type="rotate"
-                from={`0 0 0`}
-                to={`${rotation} 0 0`}
-                dur={`${duration}s`}
+                values={`-${swayAmount} ${x + 3} ${y}`}
+                dur="2s"
                 begin={`${delay}s`}
                 repeatCount="indefinite"
+                additive="sum"
+              />
+              <animateTransform
+                attributeName="transform"
+                type="rotate"
+                values={`${swayAmount} ${x + 3} ${y}`}
+                dur="2s"
+                begin={`${parseFloat(delay) + 1}s`}
+                repeatCount="indefinite"
+                additive="sum"
               />
             </g>
           );
