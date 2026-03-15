@@ -163,7 +163,7 @@ export const cvData: CVData = {
   education: {
     institution: "Kingston University, London",
     period: "2008 - 2011",
-    degree: "Bachelor of Science (Hons), Geographical Information Systems",
+    degree: "BSc (Hons) GIS, 2.1",
   },
   languages: ["English", "Cantonese"],
 };

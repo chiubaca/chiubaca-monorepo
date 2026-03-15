@@ -19,6 +19,8 @@ const { title, description } = Astro.props;
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <link rel="stylesheet" href="/src/styles/global.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-mono@5.0.0/400.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-mono@5.0.0/500.min.css" />
     <style is:global>
       /* PDF-specific compact light theme */
       * {
@@ -41,6 +43,10 @@ const { title, description } = Astro.props;
         line-height: 1.35;
         print-color-adjust: exact;
         -webkit-print-color-adjust: exact;
+      }
+
+      .font-mono {
+        font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace !important;
       }
 
       main {
@@ -70,26 +76,32 @@ const { title, description } = Astro.props;
         color: #4b5563 !important;
       }
 
-      /* Contact badges - compact */
+      /* Contact badges - mono, muted */
       section:first-of-type {
         margin-bottom: 10px;
       }
 
       section:first-of-type span {
         background: #f3f4f6 !important;
-        color: #374151 !important;
+        color: #6b7280 !important;
         font-size: 8pt;
         padding: 3px 8px;
+        font-family: "IBM Plex Mono", monospace !important;
+        font-weight: 500;
       }
 
       section:first-of-type a {
-        color: #0066cc !important;
+        color: #4b5563 !important;
       }
 
       /* Education section - compact */
       section:nth-of-type(2) {
         margin-bottom: 12px;
         font-size: 8pt;
+      }
+
+      section:nth-of-type(2) span {
+        color: #4b5563;
       }
 
       /* Skills section */
@@ -102,7 +114,7 @@ const { title, description } = Astro.props;
         margin-bottom: 8px;
       }
 
-      /* Skill tags - smaller font, tight gaps */
+      /* Skill tags - mono, muted */
       section:nth-of-type(3) > div:first-of-type {
         display: flex;
         flex-wrap: wrap;
@@ -113,6 +125,8 @@ const { title, description } = Astro.props;
       section:nth-of-type(3) span {
         padding: 2px 6px !important;
         font-size: 8pt !important;
+        font-family: "IBM Plex Mono", monospace !important;
+        font-weight: 500;
       }
 
       /* Skill tags - compact */
@@ -215,10 +229,12 @@ const { title, description } = Astro.props;
         font-weight: 400;
       }
 
-      /* Period - small, muted */
+      /* Period - mono, muted */
       .text-xs {
         font-size: 8pt !important;
         color: #6b7280 !important;
+        font-family: "IBM Plex Mono", monospace !important;
+        font-weight: 500;
       }
 
       /* Job title - more prominent */
