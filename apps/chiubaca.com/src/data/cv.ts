@@ -43,6 +43,7 @@ export const cvData: CVData = {
         type: "phone",
         icon: "fa-solid fa-phone",
         value: "+44 07898-972-136",
+        href: "tel:+4407898972136",
       },
       {
         type: "email",

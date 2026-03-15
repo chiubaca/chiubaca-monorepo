@@ -4,6 +4,9 @@ import CVContent from "../../components/CVContent.astro";
 import { cvData } from "../../data/cv";
 ---
 
-<PdfLayout title="CV | {cvData.header.name}" description="Senior Fullstack Engineer based in London">
+<PdfLayout
+  title="CV | Alex Chiu"
+  description="Senior Fullstack Engineer based in London"
+>
   <CVContent data={cvData} />
 </PdfLayout>

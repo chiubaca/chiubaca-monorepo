@@ -7,169 +7,285 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title}</title>
-  {description && <meta name="description" content={description} />}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="/src/styles/global.css">
-  <style is:global>
-    /* PDF-specific light theme */
-    body {
-      background: white !important;
-      color: #1a1a1a !important;
-      font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.5;
-      print-color-adjust: exact;
-      -webkit-print-color-adjust: exact;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    <style is:global>
+      /* PDF-specific compact light theme */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    main {
-      padding: 40px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    /* Header */
-    header {
-      border-bottom: 2px solid #1a1a1a !important;
-      padding-bottom: 20px !important;
-      margin-bottom: 24px !important;
-    }
-
-    h1 {
-      font-size: 24pt;
-      font-weight: 700;
-      color: #1a1a1a !important;
-      margin-bottom: 8px;
-    }
-
-    /* Contact badges */
-    section:first-of-type {
-      margin-bottom: 24px;
-    }
-
-    section:first-of-type span {
-      background: #f3f4f6 !important;
-      color: #374151 !important;
-    }
-
-    section:first-of-type a {
-      color: #0066cc !important;
-    }
-
-    /* Section headers */
-    h2 {
-      font-size: 10pt;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: #1a1a1a !important;
-      border-bottom: 1px solid #d1d5db;
-      padding-bottom: 4px;
-      margin-bottom: 12px;
-      margin-top: 20px;
-    }
-
-    h2:first-of-type {
-      margin-top: 0;
-    }
-
-    h3 {
-      font-size: 11pt;
-      font-weight: 600;
-      color: #1a1a1a !important;
-    }
-
-    /* Skill tags - category colors */
-    .bg-violet-100, .bg-violet-900\/30 {
-      background: #ede9fe !important;
-    }
-    .text-violet-800, .text-violet-200 {
-      color: #6d28d9 !important;
-    }
-    .border-violet-200, .border-violet-700 {
-      border-color: #c4b5fd !important;
-    }
-
-    .bg-blue-100, .bg-blue-900\/30 {
-      background: #dbeafe !important;
-    }
-    .text-blue-800, .text-blue-200 {
-      color: #1d4ed8 !important;
-    }
-    .border-blue-200, .border-blue-700 {
-      border-color: #93c5fd !important;
-    }
-
-    .bg-emerald-100, .bg-emerald-900\/30 {
-      background: #d1fae5 !important;
-    }
-    .text-emerald-800, .text-emerald-200 {
-      color: #047857 !important;
-    }
-    .border-emerald-200, .border-emerald-700 {
-      border-color: #6ee7b7 !important;
-    }
-
-    .bg-gray-100, .bg-gray-700\/50 {
-      background: #e5e7eb !important;
-    }
-    .text-gray-800, .text-gray-200 {
-      color: #374151 !important;
-    }
-    .border-gray-200, .border-gray-600 {
-      border-color: #d1d5db !important;
-    }
-
-    /* Icon colors */
-    i {
-      color: #374151 !important;
-    }
-
-    /* Text overrides */
-    .text-gray-300, .text-gray-400 {
-      color: #4b5563 !important;
-    }
-
-    .text-gray-500 {
-      color: #6b7280 !important;
-    }
-
-    /* Links */
-    a {
-      color: #0066cc !important;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Experience section */
-    .border-gray-800 {
-      border-color: #d1d5db !important;
-    }
-
-    /* Page break handling */
-    section, article > div {
-      break-inside: avoid;
-    }
-
-    @media print {
       body {
+        background: white !important;
+        color: #1a1a1a !important;
+        font-family:
+          "IBM Plex Sans",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        font-size: 9pt;
+        line-height: 1.35;
         print-color-adjust: exact;
         -webkit-print-color-adjust: exact;
       }
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <slot />
-  </main>
-</body>
+
+      main {
+        padding: 25px 35px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Header - compact */
+      header {
+        border-bottom: 1.5px solid #1a1a1a !important;
+        padding-bottom: 10px !important;
+        margin-bottom: 12px !important;
+      }
+
+      header h1 {
+        font-size: 18pt;
+        font-weight: 700;
+        color: #1a1a1a !important;
+        margin-bottom: 4px;
+        line-height: 1.2;
+      }
+
+      header p {
+        font-size: 9pt;
+        line-height: 1.4;
+        color: #4b5563 !important;
+      }
+
+      /* Contact badges - compact */
+      section:first-of-type {
+        margin-bottom: 10px;
+      }
+
+      section:first-of-type span {
+        background: #f3f4f6 !important;
+        color: #374151 !important;
+        font-size: 8pt;
+        padding: 3px 8px;
+      }
+
+      section:first-of-type a {
+        color: #0066cc !important;
+      }
+
+      /* Education section - compact */
+      section:nth-of-type(2) {
+        margin-bottom: 12px;
+        font-size: 8pt;
+      }
+
+      /* Skills section */
+      section:nth-of-type(3) {
+        margin-bottom: 20px;
+        padding: 10px 0;
+      }
+
+      section:nth-of-type(3) h2 {
+        margin-bottom: 8px;
+      }
+
+      /* Skill tags - smaller font, tight gaps */
+      section:nth-of-type(3) > div:first-of-type {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3px;
+        line-height: 1.4;
+      }
+
+      section:nth-of-type(3) span {
+        padding: 2px 6px !important;
+        font-size: 8pt !important;
+      }
+
+      /* Skill tags - compact */
+      .bg-violet-100,
+      .bg-violet-900\/30 {
+        background: #ede9fe !important;
+      }
+      .text-violet-800,
+      .text-violet-200 {
+        color: #6d28d9 !important;
+      }
+      .border-violet-200,
+      .border-violet-700 {
+        border-color: #c4b5fd !important;
+      }
+      .bg-violet-500 {
+        background: #8b5cf6 !important;
+      }
+
+      .bg-blue-100,
+      .bg-blue-900\/30 {
+        background: #dbeafe !important;
+      }
+      .text-blue-800,
+      .text-blue-200 {
+        color: #1d4ed8 !important;
+      }
+      .border-blue-200,
+      .border-blue-700 {
+        border-color: #93c5fd !important;
+      }
+      .bg-blue-500 {
+        background: #3b82f6 !important;
+      }
+
+      .bg-emerald-100,
+      .bg-emerald-900\/30 {
+        background: #d1fae5 !important;
+      }
+      .text-emerald-800,
+      .text-emerald-200 {
+        color: #047857 !important;
+      }
+      .border-emerald-200,
+      .border-emerald-700 {
+        border-color: #6ee7b7 !important;
+      }
+      .bg-emerald-500 {
+        background: #10b981 !important;
+      }
+
+      .bg-gray-100,
+      .bg-gray-700\/50 {
+        background: #e5e7eb !important;
+      }
+      .text-gray-800,
+      .text-gray-200 {
+        color: #374151 !important;
+      }
+      .border-gray-200,
+      .border-gray-600 {
+        border-color: #d1d5db !important;
+      }
+      .bg-gray-500 {
+        background: #6b7280 !important;
+      }
+
+      /* Icon colors */
+      i {
+        color: #4b5563 !important;
+      }
+
+      /* Links */
+      a {
+        color: #0066cc !important;
+        text-decoration: none;
+      }
+
+      /* Section headers */
+      h2 {
+        font-size: 9pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #1a1a1a !important;
+        margin-bottom: 8px;
+      }
+
+      h3 {
+        font-size: 10pt;
+        font-weight: 600;
+        color: #1a1a1a !important;
+        line-height: 1.3;
+        margin-bottom: 4px;
+      }
+
+      /* Company location - muted */
+      h3 span {
+        color: #4b5563 !important;
+        font-weight: 400;
+      }
+
+      /* Period - small, muted */
+      .text-xs {
+        font-size: 8pt !important;
+        color: #6b7280 !important;
+      }
+
+      /* Job title - more prominent */
+      .job-title {
+        font-size: 10pt !important;
+        font-weight: 700 !important;
+        color: #1a1a1a !important;
+        margin-bottom: 4px !important;
+        font-style: normal !important;
+      }
+
+      /* Description and bullets */
+      .text-sm {
+        font-size: 9pt !important;
+        color: #4b5563 !important;
+      }
+
+      /* Skill legend */
+      .text-xs {
+        font-size: 8pt !important;
+        color: #6b7280 !important;
+      }
+
+      /* Experience items */
+      .border-gray-800 {
+        border-color: #e5e7eb !important;
+      }
+
+      article > section:nth-of-type(4) > div {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+      }
+
+      article > section:nth-of-type(4) > div:not(:last-child) {
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      article > section:nth-of-type(4) h3 {
+        margin-bottom: 4px;
+      }
+
+      article > section:nth-of-type(4) p {
+        margin-bottom: 6px;
+      }
+
+      article > section:nth-of-type(4) ul {
+        margin-top: 6px;
+        line-height: 1.4;
+      }
+
+      article > section:nth-of-type(4) li {
+        margin-bottom: 4px;
+      }
+
+      @media print {
+        body {
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
 </html>
