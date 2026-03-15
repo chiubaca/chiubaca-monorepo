@@ -6,93 +6,110 @@ interface Props {
 }
 
 const data = Astro.props.data || cvData;
+
+const skillCategoryColors: Record<string, { bg: string; text: string; border: string }> = {
+  "Core Languages": {
+    bg: "bg-violet-100 dark:bg-violet-900/30",
+    text: "text-violet-800 dark:text-violet-200",
+    border: "border-violet-200 dark:border-violet-700",
+  },
+  Frontend: {
+    bg: "bg-blue-100 dark:bg-blue-900/30",
+    text: "text-blue-800 dark:text-blue-200",
+    border: "border-blue-200 dark:border-blue-700",
+  },
+  Backend: {
+    bg: "bg-emerald-100 dark:bg-emerald-900/30",
+    text: "text-emerald-800 dark:text-emerald-200",
+    border: "border-emerald-200 dark:border-emerald-700",
+  },
+  Tooling: {
+    bg: "bg-gray-100 dark:bg-gray-700/50",
+    text: "text-gray-800 dark:text-gray-200",
+    border: "border-gray-200 dark:border-gray-600",
+  },
+};
 ---
 
-<!-- Header -->
-<header class="border-b border-gray-700 pb-6 mb-8">
-  <h1 class="text-4xl font-bold text-white mb-2">{data.header.name}</h1>
-  <p class="text-gray-400 max-w-xl">{data.header.summary}</p>
-</header>
+<article class="space-y-8">
+  <!-- Header: Name + Summary -->
+  <header class="border-b border-gray-700 pb-6">
+    <h1 class="text-4xl font-bold text-white mb-2">{data.header.name}</h1>
+    <p class="text-gray-400 max-w-2xl">{data.header.summary}</p>
+  </header>
 
-<!-- Content Grid -->
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-  <!-- Main Content -->
-  <div class="lg:col-span-2 space-y-8">
-    <!-- Experience -->
-    <section>
-      <h2 class="text-sm font-bold text-blue-500 uppercase tracking-wider mb-6">Experience</h2>
-      
-      {data.experience.map((job) => (
-        <div class="mb-6">
-          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-2">
-            <h3 class="text-lg font-bold text-white">{job.company}, <span class="font-normal text-gray-400">{job.location}</span></h3>
-            <span class="text-xs text-gray-500">{job.period}</span>
-          </div>
-          <p class="text-gray-300 italic mb-3">{job.role}</p>
-          {"description" in job && job.description && (
-            <p class="text-sm text-gray-400 mb-3">{job.description}</p>
-          )}
-          <ul class="space-y-2 text-sm text-gray-400 list-disc list-inside">
-            {job.bullets.map((bullet) => (
-              <li set:html={bullet} />
+  <!-- Contact Badges Row -->
+  <section class="flex flex-wrap gap-2">
+    <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-800 dark:bg-gray-800 rounded-full text-sm text-gray-200">
+      <i class="fa-solid fa-location-dot w-4 text-center"></i>
+      {data.header.location}
+    </span>
+    {data.header.contact.map((item) => (
+      <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-800 dark:bg-gray-800 rounded-full text-sm text-gray-200">
+        <i class={item.icon + " w-4 text-center"}></i>
+        {item.href ? (
+          <a href={item.href} class="text-blue-400 hover:underline" target={item.type !== "email" ? "_blank" : undefined} rel={item.type !== "email" ? "noopener noreferrer" : undefined}>
+            {item.value}
+          </a>
+        ) : (
+          <span>{item.value}</span>
+        )}
+      </span>
+    ))}
+  </section>
+
+  <!-- Skills Section -->
+  <section class="space-y-6">
+    {Object.entries(data.skills).map(([category, skills]) => {
+      const colors = skillCategoryColors[category] || skillCategoryColors.Tooling;
+      return (
+        <div>
+          <h2 class="text-sm font-bold text-blue-500 uppercase tracking-wider mb-3">{category}</h2>
+          <div class="flex flex-wrap gap-2">
+            {skills.map((skill) => (
+              <span class={`px-3 py-1 rounded-md text-sm font-medium border ${colors.bg} ${colors.text} ${colors.border}`}>
+                {skill}
+              </span>
             ))}
-          </ul>
-        </div>
-      ))}
-    </section>
-  </div>
-
-  <!-- Sidebar -->
-  <aside class="space-y-8">
-    <!-- Contact -->
-    <section>
-      <h2 class="text-sm font-bold text-blue-500 uppercase tracking-wider mb-4">Contact</h2>
-      <div class="space-y-1 text-sm text-gray-400">
-        {data.header.contact.map((item) => (
-          <p class="flex items-center gap-2">
-            <i class={item.icon + " w-4"}></i>
-            {item.href ? (
-              <a href={item.href} class="text-blue-400 hover:underline" target={item.type !== "email" ? "_blank" : undefined} rel={item.type !== "email" ? "noopener noreferrer" : undefined}>
-                {item.value}
-              </a>
-            ) : (
-              <span>{item.value}</span>
-            )}
-          </p>
-        ))}
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section>
-      <h2 class="text-sm font-bold text-blue-500 uppercase tracking-wider mb-4">Skills</h2>
-      
-      <div class="space-y-4">
-        {Object.entries(data.skills).map(([category, skills]) => (
-          <div>
-            <h4 class="text-sm font-bold text-white mb-1">{category}</h4>
-            <p class="text-sm text-gray-400">{skills.join(", ")}</p>
           </div>
-        ))}
-      </div>
-    </section>
+        </div>
+      );
+    })}
+  </section>
 
-    <!-- Education -->
-    <section>
-      <h2 class="text-sm font-bold text-blue-500 uppercase tracking-wider mb-4">Education</h2>
-      
-      <div>
-        <h3 class="text-sm font-bold text-white">{data.education.institution}</h3>
-        <p class="text-xs text-gray-500 mb-1">{data.education.period}</p>
-        <p class="text-sm text-gray-400">{data.education.degree}</p>
-      </div>
-    </section>
+  <!-- Education & Languages Row -->
+  <section class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-gray-400">
+    <div class="flex items-center gap-2">
+      <i class="fa-solid fa-graduation-cap w-4 text-center"></i>
+      <span>{data.education.institution}</span>
+      <span class="text-gray-500">({data.education.period})</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <i class="fa-solid fa-globe w-4 text-center"></i>
+      <span>{data.languages.join(", ")}</span>
+    </div>
+  </section>
 
-    <!-- Languages -->
-    <section>
-      <h2 class="text-sm font-bold text-blue-500 uppercase tracking-wider mb-4">Languages</h2>
-      
-      <p class="text-sm text-gray-400">{data.languages.join(", ")}</p>
-    </section>
-  </aside>
-</div>
+  <!-- Experience -->
+  <section>
+    <h2 class="text-sm font-bold text-blue-500 uppercase tracking-wider mb-6">Experience</h2>
+    
+    {data.experience.map((job, index) => (
+      <div class={`mb-6 ${index < data.experience.length - 1 ? 'border-b border-gray-800 pb-6' : ''}`}>
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-2">
+          <h3 class="text-lg font-bold text-white">{job.company}, <span class="font-normal text-gray-400">{job.location}</span></h3>
+          <span class="text-xs text-gray-500">{job.period}</span>
+        </div>
+        <p class="text-gray-300 italic mb-3">{job.role}</p>
+        {"description" in job && job.description && (
+          <p class="text-sm text-gray-400 mb-3">{job.description}</p>
+        )}
+        <ul class="space-y-2 text-sm text-gray-400 list-disc list-inside">
+          {job.bullets.map((bullet) => (
+            <li set:html={bullet} />
+          ))}
+        </ul>
+      </div>
+    ))}
+  </section>
+</article>

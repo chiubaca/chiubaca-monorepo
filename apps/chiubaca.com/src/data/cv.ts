@@ -1,5 +1,5 @@
 export interface ContactInfo {
-  type: "phone" | "email" | "linkedin" | "github";
+  type: "phone" | "email" | "linkedin" | "github" | "location";
   icon: string;
   value: string;
   href?: string;
@@ -23,6 +23,7 @@ export interface CVData {
   header: {
     name: string;
     summary: string;
+    location: string;
     contact: ContactInfo[];
   };
   experience: Experience[];
@@ -36,6 +37,7 @@ export const cvData: CVData = {
     name: "Alex Chiu",
     summary:
       "Senior Fullstack Engineer at Zoopla, leading projects from conceptual designs to delivery. Previously at VU.CITY, where I built interactive 3D and geospatial applications, and NEVERBLAND, crafting digital products for global brands.",
+    location: "London, UK",
     contact: [
       {
         type: "phone",
@@ -133,37 +135,29 @@ export const cvData: CVData = {
     } as Experience & { description?: string },
   ],
   skills: {
-    "Programming Languages": [
-      "TypeScript",
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "Python",
-    ],
+    "Core Languages": ["TypeScript", "JavaScript", "Python"],
     Frontend: [
       "React",
       "Next.js",
+      "TanStack Start",
       "Framer Motion",
       "Tailwind",
       "Styled-components",
       "Vue.js",
       "Svelte",
-      "jQuery",
     ],
     Backend: [
       "Node.js",
       "GraphQL",
-      "SQL",
       "PostgreSQL",
-      "MySQL",
       "Prisma",
-      "Docker",
-      "Firebase",
       "MongoDB",
-      "Hygraph",
-      "SanityCMS",
+      "Firebase",
+      "Docker",
+      "Cloudflare Workers",
+      "Cloudflare D1",
     ],
-    GIS: ["Leaflet", "ArcGIS", "QGIS", "Mapbox", "Turf.js"],
+    Tooling: ["Nx", "GitHub Actions"],
   },
   education: {
     institution: "Kingston University, London",

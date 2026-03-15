@@ -17,124 +17,148 @@ const { title, description } = Astro.props;
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="/src/styles/global.css">
   <style is:global>
-    /* PDF-specific light theme overrides */
+    /* PDF-specific light theme */
     body {
       background: white !important;
-      color: black !important;
+      color: #1a1a1a !important;
       font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.4;
+      line-height: 1.5;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
     }
-    
-    /* Convert dark theme colors to light theme for PDF */
-    .text-white {
-      color: black !important;
-    }
-    
-    .text-gray-400 {
-      color: #333 !important;
-    }
-    
-    .text-gray-500 {
-      color: #666 !important;
-    }
-    
-    .text-gray-300 {
-      color: #444 !important;
-    }
-    
-    .text-blue-400,
-    .text-blue-500 {
-      color: #0066cc !important;
-    }
-    
-    .border-gray-700 {
-      border-color: #000 !important;
-    }
-    
-    /* Ensure proper spacing */
+
     main {
       padding: 40px;
       max-width: 800px;
       margin: 0 auto;
     }
-    
-    /* Header styling */
+
+    /* Header */
     header {
-      border-bottom: 2px solid #000 !important;
+      border-bottom: 2px solid #1a1a1a !important;
       padding-bottom: 20px !important;
-      margin-bottom: 30px !important;
+      margin-bottom: 24px !important;
     }
-    
+
     h1 {
-      font-size: 28pt;
+      font-size: 24pt;
       font-weight: 700;
-      color: black !important;
+      color: #1a1a1a !important;
       margin-bottom: 8px;
     }
-    
+
+    /* Contact badges */
+    section:first-of-type {
+      margin-bottom: 24px;
+    }
+
+    section:first-of-type span {
+      background: #f3f4f6 !important;
+      color: #374151 !important;
+    }
+
+    section:first-of-type a {
+      color: #0066cc !important;
+    }
+
     /* Section headers */
     h2 {
-      font-size: 11pt;
+      font-size: 10pt;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      color: black !important;
-      border-bottom: 2px solid #000;
-      padding-bottom: 5px;
-      margin-bottom: 15px;
-      margin-top: 25px;
+      color: #1a1a1a !important;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+      margin-top: 20px;
     }
-    
-    h2:first-child {
+
+    h2:first-of-type {
       margin-top: 0;
     }
-    
+
     h3 {
       font-size: 11pt;
       font-weight: 600;
-      color: black !important;
+      color: #1a1a1a !important;
     }
-    
-    h4 {
-      font-size: 10pt;
-      font-weight: 600;
-      color: black !important;
+
+    /* Skill tags - category colors */
+    .bg-violet-100, .bg-violet-900\/30 {
+      background: #ede9fe !important;
     }
-    
-    /* Grid layout for PDF */
-    .grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 40px;
+    .text-violet-800, .text-violet-200 {
+      color: #6d28d9 !important;
     }
-    
-    /* Contact section */
-    .space-y-1 > * + * {
-      margin-top: 4px;
+    .border-violet-200, .border-violet-700 {
+      border-color: #c4b5fd !important;
     }
-    
-    aside section {
-      margin-bottom: 20px;
+
+    .bg-blue-100, .bg-blue-900\/30 {
+      background: #dbeafe !important;
     }
-    
-    /* Ensure icons are properly styled */
+    .text-blue-800, .text-blue-200 {
+      color: #1d4ed8 !important;
+    }
+    .border-blue-200, .border-blue-700 {
+      border-color: #93c5fd !important;
+    }
+
+    .bg-emerald-100, .bg-emerald-900\/30 {
+      background: #d1fae5 !important;
+    }
+    .text-emerald-800, .text-emerald-200 {
+      color: #047857 !important;
+    }
+    .border-emerald-200, .border-emerald-700 {
+      border-color: #6ee7b7 !important;
+    }
+
+    .bg-gray-100, .bg-gray-700\/50 {
+      background: #e5e7eb !important;
+    }
+    .text-gray-800, .text-gray-200 {
+      color: #374151 !important;
+    }
+    .border-gray-200, .border-gray-600 {
+      border-color: #d1d5db !important;
+    }
+
+    /* Icon colors */
     i {
-      color: #333 !important;
-      width: 16px;
-      text-align: center;
+      color: #374151 !important;
     }
-    
+
+    /* Text overrides */
+    .text-gray-300, .text-gray-400 {
+      color: #4b5563 !important;
+    }
+
+    .text-gray-500 {
+      color: #6b7280 !important;
+    }
+
     /* Links */
     a {
       color: #0066cc !important;
       text-decoration: none;
     }
-    
+
     a:hover {
       text-decoration: underline;
     }
-    
-    /* Print optimizations */
+
+    /* Experience section */
+    .border-gray-800 {
+      border-color: #d1d5db !important;
+    }
+
+    /* Page break handling */
+    section, article > div {
+      break-inside: avoid;
+    }
+
     @media print {
       body {
         print-color-adjust: exact;
