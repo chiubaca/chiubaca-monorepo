@@ -1,5 +1,5 @@
 export interface ContactInfo {
-  type: "phone" | "email" | "linkedin" | "github" | "location";
+  type: "phone" | "email" | "linkedin" | "github" | "location" | "blog";
   icon: string;
   value: string;
   href?: string;
@@ -36,7 +36,7 @@ export const cvData: CVData = {
   header: {
     name: "Alex Chiu",
     summary:
-      "Senior Fullstack Engineer at Zoopla, leading projects from conceptual designs to delivery. Previously at VU.CITY, where I built interactive 3D and geospatial applications, and NEVERBLAND, crafting digital products for global brands.",
+      "Senior Fullstack Engineer. Proficient architecting robust, scalable user experiences. Passionate about simplicity, excellence, and shipping production-grade software.",
     location: "London, UK",
     contact: [
       {
@@ -63,6 +63,12 @@ export const cvData: CVData = {
         value: "github.com/chiubaca",
         href: "https://github.com/chiubaca",
       },
+      {
+        type: "blog",
+        icon: "fa-solid fa-pen",
+        value: "Blog",
+        href: "/blogs",
+      },
     ],
   },
   experience: [
@@ -72,7 +78,7 @@ export const cvData: CVData = {
       period: "March 2024 - Present",
       role: "Senior Software Engineer",
       bullets: [
-        "Led technical delivery for the MyHome section of Zoopla. MyHome is a dashboard to track property your home and gain insights into market trends, so homeowners can make more informed decisions during the selling process.",
+        "Led technical delivery for MyHome, a dashboard serving 1M+ monthly active users to track property values and market trends.",
         "The MyHome team is an exploratory team that is intentionally fast-moving. We ship and experiment with new features at a high velocity so we can find out what the most compelling and useful products we can build.",
         "My role is challenge designs and the scope of work to ensure we can feasibly deliver a solution in given time-frame.",
         "Contribute across different stacks, integrating data from numerous microservices into customer-facing frontends, and building reusable internal libraries to aid developer productivity wherever possible.",
@@ -157,6 +163,7 @@ export const cvData: CVData = {
       "Docker",
       "Cloudflare Workers",
       "Cloudflare D1",
+      "Cloudflare Pages",
     ],
     Tooling: ["Nx", "GitHub Actions"],
   },
