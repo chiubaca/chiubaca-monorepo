@@ -26,6 +26,7 @@
     "tw-to-css": "^0.0.12"
   },
   "devDependencies": {
+    "@cloudflare/puppeteer": "^1.0.6",
     "@tailwindcss/typography": "^0.5.16",
     "astro-og": "^0.3.0",
     "daisyui": "^5.0.35",

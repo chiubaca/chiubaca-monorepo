@@ -2,6 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "chiubaca-com",
   "compatibility_date": "2025-03-25",
+  "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": "./dist"
   },
@@ -11,5 +12,8 @@
       "pattern": "chiubaca.com",
       "custom_domain": true
     }
-  ]
+  ],
+  "browser": {
+    "binding": "BROWSER"
+  }
 }
