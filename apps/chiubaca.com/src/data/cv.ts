@@ -78,12 +78,10 @@ export const cvData: CVData = {
       period: "March 2024 - Present",
       role: "Senior Software Engineer",
       bullets: [
-        "Led technical delivery for MyHome, a dashboard serving 1M+ monthly active users to track property values and market trends.",
-        "The MyHome team is an exploratory team that is intentionally fast-moving. We ship and experiment with new features at a high velocity so we can find out what the most compelling and useful products we can build.",
-        "My role is challenge designs and the scope of work to ensure we can feasibly deliver a solution in given time-frame.",
-        "Contribute across different stacks, integrating data from numerous microservices into customer-facing frontends, and building reusable internal libraries to aid developer productivity wherever possible.",
-        "Partner with engineering management to shape sprint planning, prioritise technical debt.",
-        "Leads Zoopla's internal frontend Community of Practice by hosting knowledge-sharing sessions across teams.",
+        "Built a reusable headless form component with state persistence and strongly-typed navigation which is now the backbone of multiple questionnaire flows across the site. Rewrote 'Instant Valuation' using this library, modernising an outdated onboarding flow which drove 30% lift in completion rates and 66% uplift in mortgage profile saves.",
+        "Led full-stack delivery of 'Buyer Demand Report', a homeowner insights feature surfacing 3 years of property impressions and saves. Built dynamic visualisations with price and time range controls, maintaining a robust test harness for complex aggregation logic. Collaborated with data science on Databricks aggregation, wrote the aggregation logic with a robust test suite, defined GraphQL schemas, ensured sufficient observability was in place to track errors in Cloudwatch, and took over frontend delivery to ship to production, now live to 1M+ MAU.",
+        "Co-lead Zoopla's Frontend Community of Practice, driving internal knowledge sharing. Spoke at React Advanced meetup on React 19 APIs and modern patterns to an audience of 100+ engineers.",
+        "Led performance modernisation of Zoopla's MyHome pages, improving Core Web Vitals through React 19, Next.js server components, Suspense, and partial pre-rendering.",
       ],
     },
     {
