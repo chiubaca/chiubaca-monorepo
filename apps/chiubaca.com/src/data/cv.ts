@@ -36,7 +36,7 @@ export const cvData: CVData = {
   header: {
     name: "Alex Chiu",
     summary:
-      "Senior Fullstack Engineer. Proficient architecting robust, scalable user experiences. Passionate about simplicity, excellence, and shipping production-grade software.",
+      "Senior Fullstack Engineer at Zoopla. Architecting robust, scalable user experiences. Passionate about building high-quality software, reducing complexity, and shipping production-grade code.",
     location: "London, UK",
     contact: [
       {
@@ -168,7 +168,7 @@ export const cvData: CVData = {
       "Durable Objects",
       "Cloudflare Pages",
     ],
-    Tooling: ["Nx", "GitHub Actions"],
+    Tooling: ["Nx", "pnpm", "GitHub Actions", "CloudWatch", "Sentry"],
   },
   education: {
     institution: "Kingston University, London",
