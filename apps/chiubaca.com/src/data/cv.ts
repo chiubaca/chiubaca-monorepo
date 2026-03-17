@@ -78,8 +78,9 @@ export const cvData: CVData = {
       period: "March 2024 - Present",
       role: "Senior Software Engineer",
       bullets: [
+        "Senior Engineer in MyHome, a fast-moving exploratory team building homeowner insights through maps, charts, and interactive widgets. Combines internal and external APIs and datasets to help homeowners across the UK make informed decisions about selling their homes.",
         "Built a reusable headless form component with state persistence and strongly-typed navigation which is now the backbone of multiple questionnaire flows across the site. Rewrote 'Instant Valuation' using this library, modernising an outdated onboarding flow which drove 30% lift in completion rates and 66% uplift in mortgage profile saves.",
-        "Led full-stack delivery of 'Buyer Demand Report', a homeowner insights feature surfacing 3 years of property impressions and saves. Built dynamic visualisations with price and time range controls, maintaining a robust test harness for complex aggregation logic. Collaborated with data science on Databricks aggregation, wrote the aggregation logic with a robust test suite, defined GraphQL schemas, ensured sufficient observability was in place to track errors in Cloudwatch, and took over frontend delivery to ship to production, now live to 1M+ MAU.",
+        "Led full-stack delivery of 'Buyer Demand Report', MyHome's flagship feature for exploring property performance across price bands. Surfaces 3 years of data through dynamic visualisations with toggleable parameters. Collaborated with data science on Databricks, built test suite, defined GraphQL schemas, shipped to 1M+ MAU.",
         "Co-lead Zoopla's Frontend Community of Practice, driving internal knowledge sharing. Spoke at React Advanced meetup on React 19 APIs and modern patterns to an audience of 100+ engineers.",
         "Led performance modernisation of Zoopla's MyHome pages, improving Core Web Vitals through React 19, Next.js server components, Suspense, and partial pre-rendering.",
       ],
@@ -144,10 +145,8 @@ export const cvData: CVData = {
     Frontend: [
       "React",
       "Next.js",
+      "Astro.js",
       "TanStack Start",
-      "Framer Motion",
-      "Tailwind",
-      "Styled-components",
       "Vue.js",
       "Svelte",
     ],
