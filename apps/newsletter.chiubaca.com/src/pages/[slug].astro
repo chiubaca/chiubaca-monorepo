@@ -1,0 +1,143 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const newsletters = await getCollection("newsletter");
+  return newsletters.map((n) => ({
+    params: { slug: n.id },
+    props: n,
+  }));
+}
+
+const post = Astro.props;
+const { Content } = await render(post);
+
+const allNewsletters = await getCollection("newsletter");
+const sorted = allNewsletters
+  .filter((n) => n.data.status === "live")
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const currentIndex = sorted.findIndex((n) => n.id === post.id);
+const prevPost = sorted[currentIndex + 1];
+const nextPost = sorted[currentIndex - 1];
+---
+
+<BaseLayout
+  title={`${post.data.title} — Tangent`}
+  description={post.data.description || `Issue #${post.data.issue} of Tangent`}
+>
+  <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
+    {/* Breadcrumb / nav */}
+    <div class="mb-10 animate-fade-up">
+      <a
+        href="/"
+        class="text-xs font-mono uppercase tracking-widest inline-flex items-center gap-2 nav-link"
+        style="color: var(--text-dim);"
+      >
+        <span>←</span> Archive
+      </a>
+    </div>
+
+    {/* Meta */}
+    <div class="mb-6 flex items-center gap-4 animate-fade-up delay-1">
+      <span
+        class="text-sm font-mono font-bold"
+        style="color: var(--accent-amber);"
+      >
+        Issue #{post.data.issue}
+      </span>
+      <span style="color: var(--border-subtle);">|</span>
+      <span class="text-xs font-mono" style="color: var(--text-dim);">
+        {post.data.pubDate.toLocaleDateString("en-GB", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}
+      </span>
+    </div>
+
+    {/* Title */}
+    <h1
+      class="text-4xl sm:text-5xl mb-8 animate-fade-up delay-2"
+      style="font-family: var(--font-serif); line-height: 1.15;"
+    >
+      {post.data.title}
+    </h1>
+
+    {/* Divider */}
+    <div class="ornament-divider mb-12 animate-fade-up delay-2">
+      <span
+        class="text-lg"
+        style="color: var(--accent-amber-dim); font-family: var(--font-serif);"
+      >
+        ⊱―⊰
+      </span>
+    </div>
+
+    {/* Content — prose-invert for Tailwind Typography dark mode */}
+    <div class="prose prose-invert animate-fade-up delay-3">
+      <Content />
+    </div>
+
+    {/* Bottom divider */}
+    <div class="ornament-divider mt-16 mb-10">
+      <span
+        class="text-lg"
+        style="color: var(--accent-amber-dim); font-family: var(--font-serif);"
+      >
+        ⊱―⊰
+      </span>
+    </div>
+
+    {/* Navigation */}
+    <div class="flex items-center justify-between gap-4">
+      {prevPost ? (
+        <a
+          href={`/${prevPost.id}/`}
+          class="group nav-card flex-1 p-4 rounded-lg border"
+          style="border-color: var(--border-subtle); background: var(--bg-raised);"
+        >
+          <span
+            class="text-[10px] font-mono uppercase tracking-widest block mb-1"
+            style="color: var(--text-dim);"
+          >
+            ← Previous
+          </span>
+          <span
+            class="text-sm"
+            style="font-family: var(--font-serif); color: var(--text-secondary);"
+          >
+            {prevPost.data.title}
+          </span>
+        </a>
+      ) : (
+        <div class="flex-1"></div>
+      )}
+
+      {nextPost ? (
+        <a
+          href={`/${nextPost.id}/`}
+          class="group nav-card flex-1 p-4 rounded-lg border text-right"
+          style="border-color: var(--border-subtle); background: var(--bg-raised);"
+        >
+          <span
+            class="text-[10px] font-mono uppercase tracking-widest block mb-1"
+            style="color: var(--text-dim);"
+          >
+            Next →
+          </span>
+          <span
+            class="text-sm"
+            style="font-family: var(--font-serif); color: var(--text-secondary);"
+          >
+            {nextPost.data.title}
+          </span>
+        </a>
+      ) : (
+        <div class="flex-1"></div>
+      )}
+    </div>
+  </article>
+</BaseLayout>

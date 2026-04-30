@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "newsletter-chiubaca-com",
+  "account_id": "6fba426cae95d09cbd43f7d359f87924",
+  "compatibility_date": "2025-03-25",
+  "workers_dev": false,
+  "assets": {
+    "directory": "./dist",
+  },
+  "routes": [
+    {
+      "pattern": "newsletter.chiubaca.com",
+      "custom_domain": true,
+    },
+  ],
+}
