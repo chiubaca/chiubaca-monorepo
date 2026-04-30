@@ -1,0 +1,26 @@
+{
+  "name": "newsletter.chiubaca.com",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0",
+    "build": "astro build",
+    "preview": "astro preview",
+    "deploy": "wrangler deploy",
+    "deploy:prod": "astro build && wrangler deploy"
+  },
+  "dependencies": {
+    "@fontsource/cormorant": "^5.2.8",
+    "@fontsource/dm-sans": "^5.2.8",
+    "@fontsource/instrument-serif": "^5.2.5",
+    "@fontsource/jetbrains-mono": "^5.2.5",
+    "@tailwindcss/vite": "^4.1.6",
+    "astro": "^6.0.4",
+    "tailwindcss": "^4.1.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "typescript": "^5.8.3",
+    "wrangler": "^4.73.0"
+  }
+}
