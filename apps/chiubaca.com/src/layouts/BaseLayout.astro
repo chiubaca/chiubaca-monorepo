@@ -13,29 +13,16 @@ interface Props {
 }
 const { title, description, breadcrumbs } = Astro.props;
 
-const bio = `Alex. Ships code at Zoopla. Dad to Calvin (he's why I'm tired). Based in Sidcup. This site is my external hard drive.`;
+const bio = `Hey I'm Alex, I'm software engineer based in london. I'm mostly sleep deprived from being a dad these days. Read my thoughts on software, tech and life. Or don't, it's a free country.`;
 
 const socialLinks = [
   { href: "https://github.com/chiubaca", label: "GitHub" },
-  { href: "https://bsky.app/profile/chiubaca.com", label: "Bluesky" },
-  { href: "https://mas.to/@chiubaca", label: "Mastodon" },
-  { href: "https://www.linkedin.com/in/achiu1/", label: "LinkedIn" },
   { href: "https://twitter.com/chiubaca", label: "X (Twitter)" },
+  { href: "https://bsky.app/profile/chiubaca.com", label: "Bluesky" },
+  { href: "https://www.linkedin.com/in/achiu1/", label: "LinkedIn" },
+  { href: "https://mas.to/@chiubaca", label: "Mastodon" },
   { href: "rss.xml", label: "RSS" },
 ];
-
-const chaosMessages = [
-  "STATUS: BARELY FUNCTIONING",
-  "CALVIN: PROBABLY AWAKE",
-  "SLEEP: OPTIONAL",
-  "COFFEE #4 AND COUNTING",
-  "DEPLOYED AT 3:47AM",
-  "TOUCHED GRASS: NOT RECENTLY",
-  "BUG COUNT: ACCEPTABLE LOSSES",
-  "SIDCUP: STILL STANDING",
-  "TAPER: PHASE 3 (SEND HELP)",
-];
-const chaos = chaosMessages[Math.floor(Math.random() * chaosMessages.length)];
 ---
 
 <!doctype html>
@@ -60,7 +47,10 @@ const chaos = chaosMessages[Math.floor(Math.random() * chaosMessages.length)];
 
     <Seo title={title} description={description} />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
     <slot name="head" />
   </head>
@@ -69,11 +59,13 @@ const chaos = chaosMessages[Math.floor(Math.random() * chaosMessages.length)];
     {/* Chaos header bar */}
     <div class="chaos-bar">
       <div class="max-w-2xl mx-auto flex items-center justify-between gap-4">
-        <span class="truncate">{chaos}</span>
+        <span class="truncate" id="chaos-message"></span>
         <div class="flex items-center gap-3 flex-shrink-0">
           <a href="https://notes.chiubaca.com" class="chaos-link">notes</a>
           <span style="color: var(--text-dim);">|</span>
-          <a href="https://newsletter.chiubaca.com" class="chaos-link">newsletter</a>
+          <a href="https://newsletter.chiubaca.com" class="chaos-link"
+            >newsletter</a
+          >
         </div>
       </div>
     </div>
@@ -85,18 +77,19 @@ const chaos = chaosMessages[Math.floor(Math.random() * chaosMessages.length)];
         {
           breadcrumbs !== undefined && (
             <div class="flex flex-wrap break-after-avoid items-center gap-[1ch] py-2 pl-5">
-              <a href="/" class="hover:opacity-75 uppercase font-bold tracking-tight">
-                <span class="hidden sm:inline">~/home</span>
-                <span class="sm:hidden">~</span>
+              <a
+                href="/"
+                class="hover:opacity-75 uppercase font-bold tracking-tight"
+              >
+                <span class="">~ / home /</span>
               </a>
               {breadcrumbs.length > 0 && (
                 <>
-                  <span class="breadcrumb-sep">/</span>
                   {breadcrumbs.map((b) => (
                     <span>
                       <a
                         href={b.href}
-                        class="hover:opacity-75 break-keep uppercase tracking-tight after:content-['/'] after:text-[var(--accent-amber-dim)]"
+                        class="hover:opacity-75 break-keep uppercase tracking-tight after:content-['/']"
                       >
                         {b.label.length > 20
                           ? `${b.label.slice(0, 20)}...`
@@ -116,7 +109,10 @@ const chaos = chaosMessages[Math.floor(Math.random() * chaosMessages.length)];
 
     <div class="footer-wrapper pt-12">
       <TerminalPrompt />
-      <footer class="footer rounded p-2 opacity-75" style="background: #161b22;">
+      <footer
+        class="footer rounded p-2 opacity-75"
+        style="background: #161b22;"
+      >
         <div class="max-w-2xl mx-auto px-5 py-4 md:px-0">
           <section class="flex items-center">
             <img
@@ -147,7 +143,6 @@ const chaos = chaosMessages[Math.floor(Math.random() * chaosMessages.length)];
               }
             </p>
           </section>
-
         </div>
       </footer>
     </div>
@@ -192,7 +187,9 @@ const chaos = chaosMessages[Math.floor(Math.random() * chaosMessages.length)];
   }
 
   @keyframes blinker {
-    100% { opacity: 0; }
+    100% {
+      opacity: 0;
+    }
   }
 </style>
 
@@ -208,3 +205,19 @@ const chaos = chaosMessages[Math.floor(Math.random() * chaosMessages.length)];
   id="counterscale-script"
   src="https://counterscale.chiubaca.workers.dev/tracker.js"
   defer></script>
+
+<script is:inline>
+  (function () {
+    const chaosMessages = [
+      "STATUS: BARELY FUNCTIONING",
+      "SLEEP: ???",
+      "COFFEE #7",
+      "DEPLOYED AT 3:47AM",
+      "BUG COUNT: ACCEPTABLE LOSSES",
+    ];
+    const chaos =
+      chaosMessages[Math.floor(Math.random() * chaosMessages.length)];
+    const el = document.getElementById("chaos-message");
+    if (el) el.textContent = chaos;
+  })();
+</script>
