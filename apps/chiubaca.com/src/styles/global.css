@@ -4,37 +4,89 @@
   themes: night --default;
 }
 
+@import "@fontsource/bebas-neue/400.css";
 @import "@fontsource/jetbrains-mono/400.css";
 @import "@fontsource/jetbrains-mono/500.css";
 @import "@fontsource/jetbrains-mono/700.css";
 @import "@fontsource/jetbrains-mono/800.css";
 
 :root {
-  --font-sans: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Bebas Neue", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Warm identity palette */
+  --bg-deep: #1a1208;
+  --bg-surface: #241a0e;
+  --bg-raised: #2e2114;
+  --bg-elevated: #3a2b1a;
+
+  --accent-amber: #c9841a;
+  --accent-amber-bright: #d4a017;
+  --accent-amber-dim: #8a5a10;
+
+  --accent-red: #c92a2a;
+  --accent-red-bright: #e03131;
+  --accent-red-dim: #8a1c1c;
+
+  --text-primary: #f0e6d8;
+  --text-secondary: #c4b49a;
+  --text-muted: #8a7d6b;
+  --text-dim: #5c5345;
+
+  --border-subtle: rgba(196, 180, 154, 0.1);
+
   color-scheme: only dark;
+}
+
+/* ─── CRT Scanline Overlay ─── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.2) 2px,
+    rgba(0, 0, 0, 0.2) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.35;
 }
 
 body {
   background: linear-gradient(
-      rgba(19, 26, 92, 0.315),
-      rgba(6, 8, 68, 0.583),
-      rgba(170, 189, 247, 0.211)
+      rgba(26, 18, 8, 0.9),
+      rgba(18, 12, 5, 0.95),
+      rgba(36, 26, 14, 0.85)
     ),
     url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczpzdmdqcz0iaHR0cDovL3N2Z2pzLmRldi9zdmdqcyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNzAwIDcwMCIgd2lkdGg9IjcwMCIgaGVpZ2h0PSI3MDAiIG9wYWNpdHk9IjAuMiI+PGRlZnM+PGZpbHRlciBpZD0ibm5ub2lzZS1maWx0ZXIiIHg9Ii0yMCUiIHk9Ii0yMCUiIHdpZHRoPSIxNDAlIiBoZWlnaHQ9IjE0MCUiIGZpbHRlclVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgcHJpbWl0aXZlVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9ImxpbmVhclJHQiI+Cgk8ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC4yIiBudW1PY3RhdmVzPSI0IiBzZWVkPSIxNSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgeD0iMCUiIHk9IjAlIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiByZXN1bHQ9InR1cmJ1bGVuY2UiLz4KCTxmZVNwZWN1bGFyTGlnaHRpbmcgc3VyZmFjZVNjYWxlPSI2IiBzcGVjdWxhckNvbnN0YW50PSIxIiBzcGVjdWxhckV4cG9uZW50PSIyMCIgbGlnaHRpbmctY29sb3I9IiNhYmFiYWIiIHg9IjAlIiB5PSIwJSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgaW49InR1cmJ1bGVuY2UiIHJlc3VsdD0ic3BlY3VsYXJMaWdodGluZyI+CiAgICAJCTxmZURpc3RhbnRMaWdodCBhemltdXRoPSIzIiBlbGV2YXRpb249Ijg5Ii8+CiAgCTwvZmVTcGVjdWxhckxpZ2h0aW5nPgogIDxmZUNvbG9yTWF0cml4IHR5cGU9InNhdHVyYXRlIiB2YWx1ZXM9IjAiIHg9IjAlIiB5PSIwJSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgaW49InNwZWN1bGFyTGlnaHRpbmciIHJlc3VsdD0iY29sb3JtYXRyaXgiLz4KPC9maWx0ZXI+PC9kZWZzPjxyZWN0IHdpZHRoPSI3MDAiIGhlaWdodD0iNzAwIiBmaWxsPSJ0cmFuc3BhcmVudCIvPjxyZWN0IHdpZHRoPSI3MDAiIGhlaWdodD0iNzAwIiBmaWxsPSIjYWJhYmFiIiBmaWx0ZXI9InVybCgjbm5ub2lzZS1maWx0ZXIpIi8+PC9zdmc+");
   font-family: var(--font-mono);
   font-size: 15px;
   line-height: 1.75;
+  color: var(--text-primary);
 }
 
+/* ─── Headings ─── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+/* ─── Prose ─── */
 .prose {
-  --tw-prose-body: #e5e5e5;
-  --tw-prose-headings: #fafafa;
-  --tw-prose-links: #a3a3a3;
-  --tw-prose-bold: #fafafa;
-  --tw-prose-code: #e5e5e5;
-  --tw-prose-pre-bg: #171717;
-  --tw-prose-pre-code: #e5e5e5;
+  --tw-prose-body: var(--text-primary);
+  --tw-prose-headings: var(--text-primary);
+  --tw-prose-links: var(--accent-amber);
+  --tw-prose-bold: var(--text-primary);
+  --tw-prose-code: var(--text-primary);
+  --tw-prose-pre-bg: var(--bg-surface);
+  --tw-prose-pre-code: var(--text-primary);
   font-family: var(--font-mono);
   max-width: 42rem;
 }
@@ -43,24 +95,36 @@ body {
 .prose h2,
 .prose h3,
 .prose h4 {
-  font-family: var(--font-mono);
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.prose h2 {
+  color: var(--accent-amber);
+  border-bottom: 2px solid var(--accent-amber-dim);
+  padding-bottom: 0.5rem;
+}
+
+.prose h3 {
+  color: var(--accent-red-bright);
 }
 
 .prose code {
   font-family: var(--font-mono);
   font-size: 0.875em;
-  background: #262626;
+  background: var(--bg-raised);
   padding: 0.2em 0.4em;
   border-radius: 0;
   font-weight: 400;
+  color: var(--accent-amber-bright);
 }
 
 .prose pre {
-  background: #171717 !important;
-  border: 2px solid #262626;
+  background: var(--bg-surface) !important;
+  border: 2px solid var(--border-subtle);
   border-radius: 0;
   padding: 1rem;
   overflow-x: auto;
@@ -77,48 +141,89 @@ body {
 }
 
 .prose a {
-  color: #a3a3a3;
+  color: var(--accent-amber);
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color 0.15s ease;
 }
 
 .prose a:hover {
-  color: #e5e5e5;
+  color: var(--accent-red-bright);
 }
 
 .prose hr {
-  border-color: #262626;
+  border-color: var(--accent-amber-dim);
   margin: 2.5rem 0;
 }
 
 .prose blockquote {
-  border-left-color: #404040;
-  color: #a3a3a3;
+  border-left-color: var(--accent-red);
+  background: rgba(201, 42, 42, 0.05);
+  color: var(--text-secondary);
   font-style: normal;
 }
 
-.prose ul > li::marker {
-  color: #c92a2a;
-}
-
+.prose ul > li::marker,
 .prose ol > li::marker {
-  color: #c92a2a;
+  color: var(--accent-red);
 }
 
 .prose strong {
-  color: #fafafa;
+  color: var(--text-primary);
 }
 
 .prose th {
-  color: #fafafa;
+  color: var(--text-primary);
 }
 
 .prose td {
-  color: #e5e5e5;
+  color: var(--text-primary);
 }
 
+/* ─── Selection ─── */
 ::selection {
-  background: #c92a2a;
-  color: #fafafa;
+  background: var(--accent-red);
+  color: var(--text-primary);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-amber-dim);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-amber);
+}
+
+/* ─── Status bar ─── */
+.status-bar {
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.375rem 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-dim);
+}
+
+/* ─── Glitch hover ─── */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(1px, -1px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.2s ease infinite;
+  color: var(--accent-red-bright);
 }
