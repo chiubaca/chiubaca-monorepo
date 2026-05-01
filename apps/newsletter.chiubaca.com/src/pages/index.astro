@@ -12,8 +12,8 @@ const rest = liveNewsletters.slice(1);
 ---
 
 <BaseLayout
-  title="Tangent — Archive"
-  description="Off-script notes on tech, games, and whatever else. By Alex Chiu."
+  title="Tangent"
+  description="Brain dumps from a guy who should be sleeping. Tech, games, dad life, zero filter."
 >
   <div class="hero-glow">
     <div class="max-w-3xl mx-auto px-6 pt-16 pb-12">
@@ -23,19 +23,20 @@ const rest = liveNewsletters.slice(1);
           class="text-xs font-mono uppercase tracking-[0.3em] mb-4 animate-fade-up"
           style="color: var(--accent-amber);"
         >
-          By Alex Chiu
+          Alex Chiu • Senior Dev • Dad • Running On Fumes
         </p>
         <h1
-          class="text-5xl sm:text-6xl mb-5 animate-fade-up delay-1"
-          style="font-family: var(--font-serif); line-height: 1.05;"
+          class="text-6xl sm:text-8xl mb-5 animate-fade-up delay-1 glitch-hover"
+          style="font-family: var(--font-display); line-height: 0.9;"
         >
-          Tangent
+          TANGENT
         </h1>
         <p
-          class="text-base max-w-md animate-fade-up delay-2"
+          class="text-base max-w-lg animate-fade-up delay-2"
           style="color: var(--text-muted);"
         >
-          Off-script notes on tech, games, and whatever else.
+          Brain dumps from a guy who should be sleeping. Tech, games, dad life, zero filter.
+          <span style="color: var(--text-dim);"> (Yes I know the kerning is aggressive. It's intentional.)</span>
         </p>
       </div>
     </div>
@@ -48,10 +49,10 @@ const rest = liveNewsletters.slice(1);
       style="border-color: var(--border-subtle);"
     >
       <span class="text-xs font-mono uppercase tracking-widest" style="color: var(--text-dim);">
-        {liveNewsletters.length} issues
+        {liveNewsletters.length} DROPS SHIPPED
       </span>
-      <span class="text-xs font-mono" style="color: var(--text-dim);">
-        Newest first
+      <span class="text-xs font-mono uppercase tracking-widest" style="color: var(--text-dim);">
+        NEWEST FIRST (OBVIOUSLY)
       </span>
     </div>
 
@@ -59,22 +60,22 @@ const rest = liveNewsletters.slice(1);
     {latest && (
       <a
         href={`/${latest.id}/`}
-        class="group block mb-10 p-6 sm:p-8 rounded-xl border transition-all duration-300 animate-fade-up delay-3"
+        class="group block mb-10 p-6 sm:p-8 border transition-all duration-200 animate-fade-up delay-3"
         style="
-          border-color: var(--border-amber);
-          background: linear-gradient(135deg, var(--bg-raised) 0%, var(--bg-surface) 100%);
-          box-shadow: 0 0 30px rgba(201, 132, 26, 0.06);
+          border-color: var(--accent-amber);
+          background: var(--bg-surface);
+          box-shadow: 0 0 30px rgba(201, 42, 42, 0.06);
         "
       >
         <div class="flex items-center gap-3 mb-4">
           <span
-            class="font-mono text-sm font-bold"
+            class="font-mono text-sm font-bold uppercase"
             style="color: var(--accent-amber);"
           >
-            Issue #{latest.data.issue}
+            Drop #{latest.data.issue}
           </span>
-          <span class="badge-latest">Latest</span>
-          <span class="text-xs font-mono ml-auto" style="color: var(--text-dim);">
+          <span class="badge-latest">FRESH</span>
+          <span class="text-xs font-mono ml-auto uppercase" style="color: var(--text-dim);">
             {latest.data.pubDate.toLocaleDateString("en-GB", {
               year: "numeric",
               month: "short",
@@ -83,8 +84,8 @@ const rest = liveNewsletters.slice(1);
           </span>
         </div>
         <h2
-          class="text-2xl sm:text-3xl mb-3 group-hover:underline transition-all"
-          style="font-family: var(--font-serif); color: var(--text-primary);"
+          class="text-3xl sm:text-4xl mb-3 group-hover:underline transition-all"
+          style="font-family: var(--font-display); color: var(--text-primary); line-height: 1.1;"
         >
           {latest.data.title}
         </h2>
@@ -93,8 +94,8 @@ const rest = liveNewsletters.slice(1);
             {latest.data.description}
           </p>
         )}
-        <div class="mt-5 flex items-center gap-2 text-xs font-mono" style="color: var(--accent-amber);">
-          <span>Read issue</span>
+        <div class="mt-5 flex items-center gap-2 text-xs font-mono uppercase tracking-wider" style="color: var(--accent-red);">
+          <span>Ingest This</span>
           <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
         </div>
       </a>
@@ -116,7 +117,7 @@ const rest = liveNewsletters.slice(1);
                 <div class="flex-shrink-0 w-14 sm:w-16 text-right pt-1">
                   <span
                     class="font-mono text-lg sm:text-xl font-bold opacity-30 group-hover:opacity-60 transition-opacity"
-                    style="color: var(--accent-amber);"
+                    style="color: var(--accent-red);"
                   >
                     {String(n.data.issue).padStart(2, "0")}
                   </span>
@@ -126,7 +127,7 @@ const rest = liveNewsletters.slice(1);
                 <div class="flex-1 min-w-0">
                   <div class="flex items-center gap-3 mb-1.5">
                     <span
-                      class="text-xs font-mono"
+                      class="text-xs font-mono uppercase tracking-wider"
                       style="color: var(--text-dim);"
                     >
                       {n.data.pubDate.toLocaleDateString("en-GB", {
@@ -138,8 +139,8 @@ const rest = liveNewsletters.slice(1);
                   </div>
 
                   <h3
-                    class="text-lg sm:text-xl mb-1.5 group-hover:underline transition-all"
-                    style="font-family: var(--font-serif); color: var(--text-primary);"
+                    class="text-xl sm:text-2xl mb-1.5 group-hover:underline transition-all"
+                    style="font-family: var(--font-display); color: var(--text-primary); line-height: 1.15;"
                   >
                     {n.data.title}
                   </h3>
@@ -156,7 +157,7 @@ const rest = liveNewsletters.slice(1);
 
                 {/* Arrow */}
                 <div class="flex-shrink-0 pt-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span style="color: var(--accent-amber);">→</span>
+                  <span style="color: var(--accent-red);">→</span>
                 </div>
               </div>
             </a>
@@ -167,7 +168,7 @@ const rest = liveNewsletters.slice(1);
 
     {liveNewsletters.length === 0 && (
       <div class="text-center py-20 animate-fade-up">
-        <p style="color: var(--text-dim);">Nothing here yet.</p>
+        <p style="color: var(--text-dim);">NOTHING HERE. GO TOUCH GRASS OR SOMETHING.</p>
       </div>
     )}
   </div>

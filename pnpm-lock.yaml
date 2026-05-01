@@ -32,6 +32,9 @@ importers:
       '@fontsource/ibm-plex-sans':
         specifier: ^5.2.8
         version: 5.2.8
+      '@fontsource/jetbrains-mono':
+        specifier: ^5.2.8
+        version: 5.2.8
       '@tailwindcss/vite':
         specifier: ^4.1.6
         version: 4.1.6(vite@7.3.1(@types/node@22.15.17)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.8.2))

@@ -25,7 +25,7 @@ const { Content: LatestFleetingNoteContent } = await render(
 
 <BaseLayout
   title="home | chiubaca.com"
-  description="A digtial garden of ramblings by Alex Chiu"
+  description="A digital garden of ramblings by Alex Chiu"
 >
   <main>
     <div class="max-w-2xl mx-auto px-4 sm:px-6">
@@ -34,8 +34,8 @@ const { Content: LatestFleetingNoteContent } = await render(
       </nav>
 
       <section class="latest-blogs space-y-6">
-        <h1 class="text-2xl font-semibold">✏️ Latest writings</h1>
-        <p class="italic text-secondary pb-8">
+        <h1 class="text-2xl font-bold uppercase tracking-tight">✏️ Latest Writings</h1>
+        <p class="text-secondary pb-8 opacity-60">
           Long form blogs, essays, musings.
         </p>
 
@@ -44,7 +44,7 @@ const { Content: LatestFleetingNoteContent } = await render(
             liveBlogs.map((blog) => {
               return (
                 <div class="blog-post-summary mb-6">
-                  <p class="text-xs font-mono opacity-50 italic">
+                  <p class="text-xs font-mono opacity-50 uppercase tracking-wider">
                     {blog.data.publish_date
                       .toLocaleDateString("en-GB", {
                         year: "numeric",
@@ -56,7 +56,7 @@ const { Content: LatestFleetingNoteContent } = await render(
                   </p>
                   <a
                     href={`/${blog.id}/`}
-                    class=" hover:underline"
+                    class="hover:underline font-bold uppercase tracking-tight"
                     transition:name="blog-title"
                   >
                     {blog.data.title}
@@ -69,19 +69,19 @@ const { Content: LatestFleetingNoteContent } = await render(
 
         <a
           href={`/blogs/`}
-          class="font-semibold btn btn-info btn-xs uppercase hover:italic"
+          class="font-bold btn btn-info btn-xs uppercase tracking-tight"
         >
-          View all blogs <span class="text-2xl">➡︎</span>
+          View all blogs <span class="text-2xl">→</span>
         </a>
       </section>
 
-      <hr class="my-12" />
+      <hr class="my-12 border-neutral-700" />
     </div>
 
     <section>
       <div class="max-w-2xl mx-auto px-4 sm:px-6 space-y-6">
-        <h1 class="text-2xl font-semibold">🗒️ Latest note</h1>
-        <p class="italic text-secondary">
+        <h1 class="text-2xl font-bold uppercase tracking-tight">📝 Latest Note</h1>
+        <p class="text-secondary opacity-60">
           Latest rambling posted on {
             latestFleetingNote.data.publish_date.toLocaleDateString("en-GB", {
               year: "numeric",
@@ -97,7 +97,7 @@ const { Content: LatestFleetingNoteContent } = await render(
             latestFleetingNoteEntry.data.tags.map((tag) => (
               <a
                 href={`/tags#${tag}`}
-                class="hover:link border-gray-300 text-gray-600 before:content-['#'] dark:border-gray-600 dark:text-gray-400 not-prose"
+                class="hover:link border-gray-300 text-gray-600 before:content-['#'] dark:border-gray-600 dark:text-gray-400 not-prose uppercase tracking-tight"
               >
                 {tag}
               </a>
@@ -118,18 +118,18 @@ const { Content: LatestFleetingNoteContent } = await render(
         </article>
         <div class="flex justify-center mt-4">
           <button
-            class="btn btn-sm btn-ghost"
+            class="btn btn-sm btn-ghost uppercase tracking-tight text-xs"
             @click="open = !open"
-            x-text="open ? 'collapse ⬆︎' : 'show more ⬇︎'"></button>
+            x-text="open ? 'collapse ↑' : 'show more ↓'"></button>
         </div>
       </div>
 
       <div class="max-w-2xl mx-auto px-4 sm:px-6 pb-12">
         <a
           href={`/fleeting-notes/`}
-          class="mt-8 font-semibold btn btn-info btn-xs uppercase hover:italic"
+          class="mt-8 font-bold btn btn-info btn-xs uppercase tracking-tight"
         >
-          View all notes <span class="text-2xl">➡︎</span>
+          View all notes <span class="text-2xl">→</span>
         </a>
       </div>
     </section>
