@@ -1,0 +1,18 @@
+<div class="w-full flex items-center gap-3 font-mono text-xs tracking-wider py-6 px-4 opacity-40" style="color: var(--text-dim);">
+  <span style="color: var(--accent-blue);">>_</span>
+  <span class="blink">&#x258C;</span>
+  <span class="flex-1" style="border-top: 1px dashed var(--text-dim);"></span>
+</div>
+
+<style>
+  .blink {
+    animation: blinker 1s linear infinite;
+    color: var(--accent-blue);
+  }
+
+  @keyframes blinker {
+    100% {
+      opacity: 0;
+    }
+  }
+</style>
