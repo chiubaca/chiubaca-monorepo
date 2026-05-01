@@ -25,15 +25,25 @@ const draftBlogs = blogs
   ]}
 >
   <section class="py-12 max-w-2xl mx-auto px-4 sm:px-6 space-y-6">
-    <h1 class="text-2xl font-semibold">🌱 Drafts</h1>
-    <p class="italic text-secondary pb-8">Unfinished writings.</p>
+    <h1
+      class="text-3xl sm:text-4xl tracking-tight"
+      style="font-family: var(--font-display); line-height: 1;"
+    >
+      <span class="comment-prefix">//</span> Drafts
+    </h1>
+    <p class="pb-8 opacity-60" style="color: var(--text-muted);">
+      Unfinished writings. Don't judge.
+    </p>
 
-    <div class="blog-list">
+    <div>
       {
         draftBlogs.map((blog) => {
           return (
-            <div class="blog-post-summary mb-6">
-              <p class="text-xs font-mono opacity-50 italic">
+            <a
+              href={`/${blog.id}/`}
+              class="group blog-row block mb-6 py-3 px-3 -mx-3"
+            >
+              <p class="text-xs font-mono opacity-50 uppercase tracking-wider mb-1">
                 {blog.data.publish_date
                   .toLocaleDateString("en-GB", {
                     year: "numeric",
@@ -43,14 +53,31 @@ const draftBlogs = blogs
                   .toString()
                   .toUpperCase()}
               </p>
-              <a href={`/${blog.id}/`} class=" hover:underline">
+              <h3
+                class="font-bold uppercase tracking-tight transition-all group-hover:translate-x-1"
+                style="font-family: var(--font-display); font-size: 1.35rem; line-height: 1.15; color: var(--text-primary);"
+              >
                 {blog.data.title}
-              </a>
-            </div>
+              </h3>
+            </a>
           );
         })
       }
     </div>
-    {draftBlogs.length === 0 && <p>No drafts here. Keep writing!</p>}
+
+    {draftBlogs.length === 0 && <p style="color: var(--text-muted);">No drafts here. Keep writing!</p>}
   </section>
 </BaseLayout>
+
+<style>
+  .blog-row {
+    border-left: 2px solid transparent;
+    transition: background-color 0.15s ease, border-color 0.15s ease, padding-left 0.15s ease;
+  }
+
+  .blog-row:hover {
+    background-color: rgba(121, 192, 255, 0.03);
+    border-left-color: var(--accent-blue);
+    padding-left: 1rem;
+  }
+</style>

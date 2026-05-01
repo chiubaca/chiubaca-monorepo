@@ -1,7 +1,6 @@
 ---
 import { getEntry, render } from "astro:content";
 import { getCollection } from "astro:content";
-import AnimtedBlinkingTitle from "../components/AnimatedBlinkingTitle.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const blogs = await getCollection("permanent-notes");
@@ -26,11 +25,16 @@ const { Content: LatestFleetingNoteContent } = await render(
 <BaseLayout
   title="home | chiubaca.com"
   description="A digital garden of ramblings by Alex Chiu. Built with ☕ and delusion."
+  breadcrumbs={[]}
 >
   <main>
     <div class="max-w-2xl mx-auto px-4 sm:px-6">
+      {/* Logo back in body */}
       <nav class="py-12">
-        <AnimtedBlinkingTitle />
+        <div class="group logo-container flex items-center font-mono cursor-pointer decoration-2 glitch-hover">
+          <span class="blink pb-[2px] text-[var(--accent-blue)]">&#x258C;</span>
+          <span class="transition-colors uppercase font-bold tracking-tight text-xl sm:text-2xl">chiubaca.com</span>
+        </div>
       </nav>
 
       <section class="latest-blogs space-y-6">
@@ -38,9 +42,9 @@ const { Content: LatestFleetingNoteContent } = await render(
           class="text-3xl sm:text-4xl tracking-tight"
           style="font-family: var(--font-display); line-height: 1;"
         >
-          ✏️ Latest Writings
+          <span class="comment-prefix">//</span> Latest Writings
         </h1>
-        <p class="text-secondary pb-8 opacity-60">
+        <p class="pb-8 opacity-60" style="color: var(--text-muted);">
           Long form blogs, essays, musings. The stuff I actually finished.
         </p>
 
@@ -48,8 +52,11 @@ const { Content: LatestFleetingNoteContent } = await render(
           {
             liveBlogs.map((blog) => {
               return (
-                <div class="blog-post-summary mb-6">
-                  <p class="text-xs font-mono opacity-50 uppercase tracking-wider">
+                <a
+                  href={`/${blog.id}/`}
+                  class="group blog-row block mb-6 py-3 px-3 -mx-3"
+                >
+                  <p class="text-xs font-mono opacity-50 uppercase tracking-wider mb-1">
                     {blog.data.publish_date
                       .toLocaleDateString("en-GB", {
                         year: "numeric",
@@ -59,15 +66,14 @@ const { Content: LatestFleetingNoteContent } = await render(
                       .toString()
                       .toUpperCase()}
                   </p>
-                  <a
-                    href={`/${blog.id}/`}
-                    class="hover:underline font-bold uppercase tracking-tight"
-                    style="font-family: var(--font-display); font-size: 1.35rem; line-height: 1.15;"
+                  <h3
+                    class="font-bold uppercase tracking-tight transition-all group-hover:translate-x-1"
+                    style="font-family: var(--font-display); font-size: 1.35rem; line-height: 1.15; color: var(--text-primary);"
                     transition:name="blog-title"
                   >
                     {blog.data.title}
-                  </a>
-                </div>
+                  </h3>
+                </a>
               );
             })
           }
@@ -75,13 +81,15 @@ const { Content: LatestFleetingNoteContent } = await render(
 
         <a
           href={`/blogs/`}
-          class="font-bold btn btn-info btn-xs uppercase tracking-tight"
+          class="group inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest transition-colors"
+          style="color: var(--text-dim);"
         >
-          View all blogs <span class="text-2xl">→</span>
+          <span class="group-hover:text-amber-500 transition-colors">View all blogs</span>
+          <span class="transition-transform group-hover:translate-x-1" style="color: var(--text-muted);">→</span>
         </a>
       </section>
 
-      <hr class="my-12 border-neutral-700" />
+      <div class="divider-gradient my-12"></div>
     </div>
 
     <section>
@@ -90,9 +98,9 @@ const { Content: LatestFleetingNoteContent } = await render(
           class="text-3xl sm:text-4xl tracking-tight"
           style="font-family: var(--font-display); line-height: 1;"
         >
-          📝 Latest Note
+          <span class="comment-prefix">//</span> Latest Note
         </h1>
-        <p class="text-secondary opacity-60">
+        <p class="opacity-60" style="color: var(--text-muted);">
           Latest rambling posted on {
             latestFleetingNote.data.publish_date.toLocaleDateString("en-GB", {
               year: "numeric",
@@ -108,9 +116,10 @@ const { Content: LatestFleetingNoteContent } = await render(
             latestFleetingNoteEntry.data.tags.map((tag) => (
               <a
                 href={`/tags#${tag}`}
-                class="hover:link border-gray-300 text-gray-600 before:content-['#'] dark:border-gray-600 dark:text-gray-400 not-prose uppercase tracking-tight"
+                class="px-2 py-1 border text-xs uppercase tracking-tight transition-colors hover:border-amber-500 hover:text-amber-400"
+                style="border-color: rgba(201, 132, 26, 0.25); color: var(--text-muted);"
               >
-                {tag}
+                #{tag}
               </a>
             ))
           }
@@ -129,7 +138,8 @@ const { Content: LatestFleetingNoteContent } = await render(
         </article>
         <div class="flex justify-center mt-4">
           <button
-            class="btn btn-sm btn-ghost uppercase tracking-tight text-xs"
+            class="text-xs font-mono uppercase tracking-widest transition-colors hover:text-amber-500"
+            style="color: var(--text-dim); background: transparent; border: none; cursor: pointer;"
             @click="open = !open"
             x-text="open ? 'collapse ↑' : 'show more ↓'"></button>
         </div>
@@ -138,9 +148,11 @@ const { Content: LatestFleetingNoteContent } = await render(
       <div class="max-w-2xl mx-auto px-4 sm:px-6 pb-12">
         <a
           href={`/fleeting-notes/`}
-          class="mt-8 font-bold btn btn-info btn-xs uppercase tracking-tight"
+          class="mt-8 group inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest transition-colors"
+          style="color: var(--text-dim);"
         >
-          View all notes <span class="text-2xl">→</span>
+          <span class="group-hover:text-amber-500 transition-colors">View all notes</span>
+          <span class="transition-transform group-hover:translate-x-1" style="color: var(--text-muted);">→</span>
         </a>
       </div>
     </section>
@@ -148,6 +160,16 @@ const { Content: LatestFleetingNoteContent } = await render(
 </BaseLayout>
 
 <style>
+  .blink {
+    animation: blinker 1s linear infinite;
+  }
+
+  @keyframes blinker {
+    100% {
+      opacity: 0;
+    }
+  }
+
   .scroll-fade-bottom {
     -webkit-mask-image: linear-gradient(
       to bottom,
@@ -159,5 +181,16 @@ const { Content: LatestFleetingNoteContent } = await render(
       black calc(100% - 5rem),
       transparent 100%
     );
+  }
+
+  .blog-row {
+    border-left: 2px solid transparent;
+    transition: background-color 0.15s ease, border-color 0.15s ease, padding-left 0.15s ease;
+  }
+
+  .blog-row:hover {
+    background-color: rgba(121, 192, 255, 0.03);
+    border-left-color: var(--accent-blue);
+    padding-left: 1rem;
   }
 </style>

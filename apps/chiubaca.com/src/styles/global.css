@@ -14,26 +14,26 @@
   --font-display: "Bebas Neue", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* Warm identity palette */
-  --bg-deep: #1a1208;
-  --bg-surface: #241a0e;
-  --bg-raised: #2e2114;
-  --bg-elevated: #3a2b1a;
+  /* Midnight terminal palette */
+  --bg-deep: #0d1117;
+  --bg-surface: #161b22;
+  --bg-raised: #1f242a;
+  --bg-elevated: #262c36;
 
+  --accent-blue: #79c0ff;
+  --accent-blue-dim: #4a8fd4;
+
+  /* Warm reserve: tags, selection, chaos bar hover */
   --accent-amber: #c9841a;
-  --accent-amber-bright: #d4a017;
+  --accent-amber-bright: #d4a029;
   --accent-amber-dim: #8a5a10;
 
-  --accent-red: #c92a2a;
-  --accent-red-bright: #e03131;
-  --accent-red-dim: #8a1c1c;
+  --text-primary: #c9d1d9;
+  --text-secondary: #8b949e;
+  --text-muted: #6e7681;
+  --text-dim: #484f58;
 
-  --text-primary: #f0e6d8;
-  --text-secondary: #c4b49a;
-  --text-muted: #8a7d6b;
-  --text-dim: #5c5345;
-
-  --border-subtle: rgba(196, 180, 154, 0.1);
+  --border-subtle: rgba(201, 209, 217, 0.1);
 
   color-scheme: only dark;
 }
@@ -57,9 +57,9 @@ body::after {
 
 body {
   background: linear-gradient(
-      rgba(26, 18, 8, 0.9),
-      rgba(18, 12, 5, 0.95),
-      rgba(36, 26, 14, 0.85)
+      rgba(13, 17, 23, 0.95),
+      rgba(10, 13, 18, 0.98),
+      rgba(22, 27, 34, 0.9)
     ),
     url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczpzdmdqcz0iaHR0cDovL3N2Z2pzLmRldi9zdmdqcyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNzAwIDcwMCIgd2lkdGg9IjcwMCIgaGVpZ2h0PSI3MDAiIG9wYWNpdHk9IjAuMiI+PGRlZnM+PGZpbHRlciBpZD0ibm5ub2lzZS1maWx0ZXIiIHg9Ii0yMCUiIHk9Ii0yMCUiIHdpZHRoPSIxNDAlIiBoZWlnaHQ9IjE0MCUiIGZpbHRlclVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgcHJpbWl0aXZlVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9ImxpbmVhclJHQiI+Cgk8ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC4yIiBudW1PY3RhdmVzPSI0IiBzZWVkPSIxNSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgeD0iMCUiIHk9IjAlIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiByZXN1bHQ9InR1cmJ1bGVuY2UiLz4KCTxmZVNwZWN1bGFyTGlnaHRpbmcgc3VyZmFjZVNjYWxlPSI2IiBzcGVjdWxhckNvbnN0YW50PSIxIiBzcGVjdWxhckV4cG9uZW50PSIyMCIgbGlnaHRpbmctY29sb3I9IiNhYmFiYWIiIHg9IjAlIiB5PSIwJSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgaW49InR1cmJ1bGVuY2UiIHJlc3VsdD0ic3BlY3VsYXJMaWdodGluZyI+CiAgICAJCTxmZURpc3RhbnRMaWdodCBhemltdXRoPSIzIiBlbGV2YXRpb249Ijg5Ii8+CiAgCTwvZmVTcGVjdWxhckxpZ2h0aW5nPgogIDxmZUNvbG9yTWF0cml4IHR5cGU9InNhdHVyYXRlIiB2YWx1ZXM9IjAiIHg9IjAlIiB5PSIwJSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgaW49InNwZWN1bGFyTGlnaHRpbmciIHJlc3VsdD0iY29sb3JtYXRyaXgiLz4KPC9maWx0ZXI+PC9kZWZzPjxyZWN0IHdpZHRoPSI3MDAiIGhlaWdodD0iNzAwIiBmaWxsPSJ0cmFuc3BhcmVudCIvPjxyZWN0IHdpZHRoPSI3MDAiIGhlaWdodD0iNzAwIiBmaWxsPSIjYWJhYmFiIiBmaWx0ZXI9InVybCgjbm5ub2lzZS1maWx0ZXIpIi8+PC9zdmc+");
   font-family: var(--font-mono);
@@ -82,7 +82,7 @@ h1, h2, h3, h4, h5, h6 {
 .prose {
   --tw-prose-body: var(--text-primary);
   --tw-prose-headings: var(--text-primary);
-  --tw-prose-links: var(--accent-amber);
+  --tw-prose-links: var(--accent-blue);
   --tw-prose-bold: var(--text-primary);
   --tw-prose-code: var(--text-primary);
   --tw-prose-pre-bg: var(--bg-surface);
@@ -103,13 +103,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .prose h2 {
-  color: var(--accent-amber);
-  border-bottom: 2px solid var(--accent-amber-dim);
+  color: var(--accent-blue);
+  border-bottom: 2px solid var(--accent-blue-dim);
   padding-bottom: 0.5rem;
 }
 
 .prose h3 {
-  color: var(--accent-red-bright);
+  color: var(--accent-amber-bright);
 }
 
 .prose code {
@@ -119,7 +119,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.2em 0.4em;
   border-radius: 0;
   font-weight: 400;
-  color: var(--accent-amber-bright);
+  color: var(--accent-blue);
 }
 
 .prose pre {
@@ -141,31 +141,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .prose a {
-  color: var(--accent-amber);
+  color: var(--accent-blue);
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color 0.15s ease;
 }
 
 .prose a:hover {
-  color: var(--accent-red-bright);
+  color: var(--accent-amber);
 }
 
 .prose hr {
-  border-color: var(--accent-amber-dim);
+  border-color: var(--accent-blue-dim);
   margin: 2.5rem 0;
 }
 
 .prose blockquote {
-  border-left-color: var(--accent-red);
-  background: rgba(201, 42, 42, 0.05);
+  border-left-color: var(--accent-amber);
+  background: rgba(201, 132, 26, 0.05);
   color: var(--text-secondary);
   font-style: normal;
 }
 
 .prose ul > li::marker,
 .prose ol > li::marker {
-  color: var(--accent-red);
+  color: var(--accent-amber-dim);
 }
 
 .prose strong {
@@ -182,8 +182,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Selection ─── */
 ::selection {
-  background: var(--accent-red);
-  color: var(--text-primary);
+  background: var(--accent-amber);
+  color: var(--bg-deep);
 }
 
 /* ─── Scrollbar ─── */
@@ -194,15 +194,15 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--bg-deep);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-amber-dim);
+  background: var(--accent-blue-dim);
   border-radius: 0;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-amber);
+  background: var(--accent-blue);
 }
 
-/* ─── Status bar ─── */
-.status-bar {
+/* ─── Chaos header bar ─── */
+.chaos-bar {
   font-size: 0.65rem;
   font-family: var(--font-mono);
   text-transform: uppercase;
@@ -211,6 +211,25 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid var(--border-subtle);
   background: var(--bg-surface);
   color: var(--text-dim);
+}
+
+.chaos-bar a.chaos-link {
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.chaos-bar a.chaos-link:hover {
+  color: var(--accent-amber);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ─── Gradient divider ─── */
+.divider-gradient {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, var(--accent-blue), var(--accent-amber), transparent);
 }
 
 /* ─── Glitch hover ─── */
@@ -225,5 +244,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .glitch-hover:hover {
   animation: glitch 0.2s ease infinite;
-  color: var(--accent-red-bright);
+  color: var(--accent-blue);
+}
+
+/* ─── Breadcrumb separators ─── */
+.breadcrumb-sep {
+  color: var(--accent-blue-dim);
+}
+
+/* ─── Section comment prefix ─── */
+.comment-prefix {
+  color: var(--accent-blue-dim);
 }
