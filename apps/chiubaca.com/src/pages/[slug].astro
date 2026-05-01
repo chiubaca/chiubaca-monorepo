@@ -53,44 +53,48 @@ breadcrumbs.push({
     }
   </Fragment>
 
-  <div
-    class="flex flex-wrap justify-center items-center gap-2 font-mono text-xs mt-12"
-  >
-    {
-      entry.data.tags.map((tag) => (
-        <a
-          href={`/tags#${tag}`}
-          class="hover:link  text-gray-400 before:content-['#']"
-        >
-          {tag}
-        </a>
-      ))
-    }
-  </div>
-  <h1
-    class="my-4 text-3xl font-semibold text-center text-balance max-w-2xl mx-auto px-4 sm:px-6"
-    transition:name="blog-title"
-  >
-    {entry.data.title}
-  </h1>
-
-  <div
-    class="mb-6 flex flex-col justify-center gap-1 font-mono text-sm italic text-gray-500 dark:text-gray-400 md:flex-row md:gap-4 text-center"
-  >
-    <div>
-      Posted on {entry.data.publish_date.toDateString()}
+  <div class="max-w-2xl mx-auto px-4 sm:px-6">
+    <div class="mt-12 flex flex-wrap justify-center items-center gap-2 font-mono text-xs">
+      {
+        entry.data.tags.map((tag) => (
+          <a
+            href={`/tags#${tag}`}
+            class="px-2 py-1 border text-xs uppercase tracking-tight transition-colors hover:border-amber-500 hover:text-amber-400"
+            style="border-color: rgba(201, 132, 26, 0.25); color: var(--text-muted);"
+          >
+            #{tag}
+          </a>
+        ))
+      }
     </div>
-    {
-      entry.data.publish_date.getTime() !==
-        entry.data.last_updated.getTime() && (
-        <div>Updated on {entry.data.last_updated.toDateString()}</div>
-      )
-    }
+
+    <h1
+      class="my-6 text-3xl sm:text-4xl text-center text-balance tracking-tight"
+      style="font-family: var(--font-display); line-height: 1.1; color: var(--text-primary);"
+      transition:name="blog-title"
+    >
+      {entry.data.title}
+    </h1>
+
+    <div
+      class="mb-8 flex flex-col justify-center gap-1 font-mono text-xs text-center"
+      style="color: var(--text-muted);"
+    >
+      <div>
+        Posted on {entry.data.publish_date.toDateString()}
+      </div>
+      {
+        entry.data.publish_date.getTime() !==
+          entry.data.last_updated.getTime() && (
+          <div>Updated on {entry.data.last_updated.toDateString()}</div>
+        )
+      }
+    </div>
+
+    <div class="divider-gradient mb-10"></div>
+
+    <article class="prose pt-6 sm:mx-auto">
+      <Content />
+    </article>
   </div>
-
-  <div class="text text-center font text-xl text-secondary">⊱―⊰</div>
-
-  <article class="prose pt-10 px-4 sm:px-6 sm:mx-auto">
-    <Content />
-  </article>
 </BaseLayout>
