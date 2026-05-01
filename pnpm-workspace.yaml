@@ -2,3 +2,5 @@ packages:
   - apps/*
 ignoredBuiltDependencies:
   - '@biomejs/biome'
+onlyBuiltDependencies:
+  - workerd
