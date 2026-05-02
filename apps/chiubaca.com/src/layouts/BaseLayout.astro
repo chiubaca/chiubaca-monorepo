@@ -1,6 +1,7 @@
 ---
 import Seo from "../components/Seo.astro";
 import TerminalPrompt from "../components/TerminalPrompt.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 
 import "../styles/global.css";
 
@@ -74,36 +75,7 @@ const socialLinks = [
       class="flex items-center justify-between sticky top-0 backdrop-blur-lg z-10"
     >
       <nav class="font-mono text-xs sm:text-sm">
-        {
-          breadcrumbs !== undefined && (
-            <div class="terminal-path py-2 pl-5">
-              <span class="terminal-prompt">chiubaca@chiubaca.com</span>
-              <span class="terminal-colon">:</span>
-              <a href="/" class="terminal-path-dir hover:opacity-75">
-                ~
-              </a>
-              {breadcrumbs.length > 0 && (
-                <>
-                  {breadcrumbs.map((b) => (
-                    <>
-                      <span class="terminal-slash">/</span>
-                      <a
-                        href={b.href}
-                        class="terminal-path-dir hover:opacity-75"
-                      >
-                        {b.label.length > 20
-                          ? `${b.label.slice(0, 20)}...`
-                          : b.label}
-                      </a>
-                    </>
-                  ))}
-                </>
-              )}
-              <span class="terminal-caret">❯</span>
-              <span class="terminal-cursor" />
-            </div>
-          )
-        }
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
       </nav>
     </header>
 
