@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import TerminalDivider from "../components/TerminalDivider.astro";
 
 export async function getStaticPaths() {
   const blogs = await getCollection("permanent-notes");
@@ -91,7 +92,7 @@ breadcrumbs.push({
       }
     </div>
 
-    <div class="divider-gradient mb-10"></div>
+    <TerminalDivider class="mb-10" />
 
     <article class="prose pt-6 sm:mx-auto">
       <Content />

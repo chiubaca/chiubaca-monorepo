@@ -1,0 +1,41 @@
+---
+interface Props {
+  prompt?: string;
+  color?: string;
+  opacity?: number;
+  class?: string;
+}
+
+const {
+  prompt = ">",
+  color = "var(--accent-amber)",
+  opacity = 0.4,
+  class: className = "",
+} = Astro.props;
+---
+
+<div
+  class:list={["terminal-divider", className]}
+  style={{
+    display: "flex",
+    alignItems: "baseline",
+    width: "100%",
+    fontFamily: "'Menlo', 'Monaco', 'Courier New', monospace",
+    color: color,
+    opacity: opacity.toString(),
+    gap: "0.5rem",
+    textShadow: "0 0 3px currentColor",
+  }}
+  aria-hidden="true"
+>
+  <span class="prompt">{prompt}</span>
+  <div
+    class="line"
+    style={{
+      flex: "1",
+      borderBottom: "1.5px dotted currentColor",
+      opacity: "0.7",
+    }}
+  >
+  </div>
+</div>

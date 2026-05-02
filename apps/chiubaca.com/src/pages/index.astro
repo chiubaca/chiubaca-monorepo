@@ -2,6 +2,7 @@
 import { getEntry, render } from "astro:content";
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import TerminalDivider from "../components/TerminalDivider.astro";
 
 const blogs = await getCollection("permanent-notes");
 const liveBlogs = blogs
@@ -89,7 +90,7 @@ const { Content: LatestFleetingNoteContent } = await render(
         </a>
       </section>
 
-      <div class="divider-gradient my-12"></div>
+      <TerminalDivider class="my-12" />
     </div>
 
     <section>

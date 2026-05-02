@@ -2,6 +2,7 @@
 import { getEntry } from "astro:content";
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import TerminalDivider from "../../components/TerminalDivider.astro";
 
 const fleetingNotesCollection = await getCollection("fleeting-notes");
 const fleetingNotes = fleetingNotesCollection.sort(
@@ -64,7 +65,7 @@ const fleetingNotes = fleetingNotesCollection.sort(
               <Content />
             </div>
 
-            <div class="divider-gradient my-10"></div>
+            <TerminalDivider class="my-10" />
           </section>
         );
       })
