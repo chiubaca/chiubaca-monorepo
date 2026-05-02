@@ -148,6 +148,8 @@ h1, h2, h3, h4, h5, h6 {
   overflow-x: auto;
   font-size: 0.875rem;
   line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .prose pre code {
