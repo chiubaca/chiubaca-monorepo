@@ -45,7 +45,7 @@ const socialLinks = [
       href={new URL("rss.xml", Astro.site)}
     />
 
-    <Seo title={title} description={description} />
+    <Seo title={title || "chiubaca.com"} description={description || ""} />
 
     <link
       rel="stylesheet"
@@ -76,29 +76,31 @@ const socialLinks = [
       <nav class="font-mono text-xs sm:text-sm">
         {
           breadcrumbs !== undefined && (
-            <div class="flex flex-wrap break-after-avoid items-center gap-[1ch] py-2 pl-5">
-              <a
-                href="/"
-                class="hover:opacity-75 uppercase font-bold tracking-tight"
-              >
-                <span class="">~ / home /</span>
+            <div class="terminal-path py-2 pl-5">
+              <span class="terminal-prompt">chiubaca@chiubaca.com</span>
+              <span class="terminal-colon">:</span>
+              <a href="/" class="terminal-path-dir hover:opacity-75">
+                ~
               </a>
               {breadcrumbs.length > 0 && (
                 <>
                   {breadcrumbs.map((b) => (
-                    <span>
+                    <>
+                      <span class="terminal-slash">/</span>
                       <a
                         href={b.href}
-                        class="hover:opacity-75 break-keep uppercase tracking-tight after:content-['/']"
+                        class="terminal-path-dir hover:opacity-75"
                       >
                         {b.label.length > 20
                           ? `${b.label.slice(0, 20)}...`
                           : b.label}
                       </a>
-                    </span>
+                    </>
                   ))}
                 </>
               )}
+              <span class="terminal-caret">❯</span>
+              <span class="terminal-cursor" />
             </div>
           )
         }
