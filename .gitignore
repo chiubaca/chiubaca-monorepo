@@ -20,3 +20,5 @@ apps/chiubaca.com/public/attachments/*
 apps/chiubaca.com/fleeting-notes/*
 apps/chiubaca.com/.wrangler/*
 .DS_Store
+
+!.gitkeep
