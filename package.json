@@ -4,7 +4,7 @@
   "description": "All things *.chiubaca related",
   "scripts": {
     "dev": "pnpm -r dev",
-    "dev:chiubaca": "pnpm --filter chiubaca.com dev",
+    "dev:chiubaca": "pnpm -w run notes:download && pnpm -w run notes:migrate && pnpm --filter chiubaca.com dev",
     "dev:im.chiubaca": "pnpm --filter im.chiubaca.com dev",
     "notes:download": "rm -rf tmp-notes && git clone https://github.com/chiubaca/notes tmp-notes",
     "notes:sync": "cd tmp-notes && git pull",

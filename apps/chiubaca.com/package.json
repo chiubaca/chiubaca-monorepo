@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "astro dev && wrangler dev",
+    "dev": "astro dev --host",
     "build": "astro build",
     "deploy": "wrangler deploy",
     "preview": "astro preview",
