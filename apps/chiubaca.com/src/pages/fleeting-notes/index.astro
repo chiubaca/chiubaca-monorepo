@@ -6,7 +6,7 @@ import TerminalDivider from "../../components/TerminalDivider.astro";
 
 const fleetingNotesCollection = await getCollection("fleeting-notes");
 const fleetingNotes = fleetingNotesCollection.sort(
-  (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf()
+  (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf(),
 );
 ---
 
@@ -37,6 +37,10 @@ const fleetingNotes = fleetingNotesCollection.sort(
       fleetingNotes.map(async (note) => {
         const entry = await getEntry("fleeting-notes", note.id);
 
+        if (!entry) {
+          return <p>Note not found: {note.id}</p>;
+        }
+
         const { Content } = await render(entry);
 
         return (
@@ -52,9 +56,9 @@ const fleetingNotes = fleetingNotesCollection.sort(
             <div class="my-3 flex flex-wrap items-center gap-2 font-mono text-xs">
               {entry.data.tags.map((tag) => (
                 <a
-                href={`/tags#${tag}`}
-                class="px-2 py-1 border text-xs uppercase tracking-tight transition-colors hover:border-amber-500 hover:text-amber-400"
-                style="border-color: rgba(201, 132, 26, 0.25); color: var(--text-muted);"
+                  href={`/tags#${tag}`}
+                  class="px-2 py-1 border text-xs uppercase tracking-tight transition-colors hover:border-amber-500 hover:text-amber-400"
+                  style="border-color: rgba(201, 132, 26, 0.25); color: var(--text-muted);"
                 >
                   #{tag}
                 </a>
