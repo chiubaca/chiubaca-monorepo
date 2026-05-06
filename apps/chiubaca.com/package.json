@@ -14,25 +14,23 @@
     "@astrojs/cloudflare": "^13.3.0",
     "@astrojs/rss": "^4.0.17",
     "@astrojs/ts-plugin": "^1.10.7",
-    "@fontsource/bebas-neue": "^5.2.7",
+    "@fontsource/bebas-neue": "catalog:",
     "@fontsource/ibm-plex-mono": "^5.2.7",
     "@fontsource/ibm-plex-sans": "^5.2.8",
-    "@fontsource/jetbrains-mono": "^5.2.8",
-    "@tailwindcss/vite": "^4.1.6",
+    "@fontsource/jetbrains-mono": "catalog:",
+    "@tailwindcss/vite": "catalog:",
     "@types/alpinejs": "^3.13.11",
     "alpinejs": "^3.14.9",
-    "astro": "^6.0.4",
+    "astro": "catalog:",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
-    "tailwindcss": "^4.1.6",
-    "tw-to-css": "^0.0.12"
+    "tailwindcss": "catalog:"
   },
   "devDependencies": {
     "@cloudflare/puppeteer": "^1.0.6",
-    "@tailwindcss/typography": "^0.5.16",
-    "astro-og": "^0.3.0",
+    "@tailwindcss/typography": "catalog:",
     "daisyui": "^5.0.35",
-    "typescript": "^5.8.3",
-    "wrangler": "^4.87.0"
+    "typescript": "catalog:",
+    "wrangler": "catalog:"
   }
 }

@@ -1,7 +1,6 @@
-import alpinejs from "@astrojs/alpinejs";
 import cloudflare from "@astrojs/cloudflare";
+import alpinejs from "@astrojs/alpinejs";
 import tailwindcss from "@tailwindcss/vite";
-import og from "astro-og";
 import { defineConfig } from "astro/config";
 
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -10,10 +9,7 @@ import rehypeSlug from "rehype-slug";
 import { updateImageUrls, updateMdLinkUrls } from "../../libs/remark-plugins";
 
 export default defineConfig({
-  integrations: [
-    alpinejs(), // https://alpinejs.dev/
-    og(), // https://github.com/morinokami/astro-og
-  ],
+  integrations: [alpinejs()],
 
   vite: {
     plugins: [tailwindcss()],

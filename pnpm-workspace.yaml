@@ -1,6 +1,18 @@
 packages:
   - apps/*
+catalog:
+  typescript: ^5.8.3
+  wrangler: ^4.87.0
+  astro: ^6.0.4
+  tailwindcss: ^4.1.6
+  '@tailwindcss/vite': ^4.1.6
+  '@tailwindcss/typography': ^0.5.16
+  '@fontsource/bebas-neue': ^5.2.7
+  '@fontsource/jetbrains-mono': ^5.2.8
 ignoredBuiltDependencies:
   - '@biomejs/biome'
 onlyBuiltDependencies:
+  - '@tailwindcss/oxide'
+  - esbuild
+  - sharp
   - workerd
