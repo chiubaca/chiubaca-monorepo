@@ -13,7 +13,7 @@ export const tags = z
   .transform((tags) => (tags ? tags : ["uncategorised"]));
 
 const permanentNotes = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./permanent-notes" }),
+  loader: glob({ pattern: "**/*.md", base: "./content/permanent-notes" }),
   schema: z.object({
     title: z.string(),
     publish_date: date,
@@ -25,7 +25,7 @@ const permanentNotes = defineCollection({
 });
 
 const fleetingNotes = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./fleeting-notes" }),
+  loader: glob({ pattern: "**/*.md", base: "./content/fleeting-notes" }),
   schema: z.object({
     publish_date: date,
     tags: tags,

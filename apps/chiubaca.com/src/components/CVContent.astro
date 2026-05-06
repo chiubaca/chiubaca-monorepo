@@ -1,5 +1,5 @@
 ---
-import { cvData } from "../data/cv";
+import { cvData } from "../../content/cv";
 
 interface Props {
   data?: typeof cvData;
@@ -7,7 +7,10 @@ interface Props {
 
 const data = Astro.props.data || cvData;
 
-const skillCategoryColors: Record<string, { bg: string; text: string; border: string; dot: string }> = {
+const skillCategoryColors: Record<
+  string,
+  { bg: string; text: string; border: string; dot: string }
+> = {
   "Core Languages": {
     bg: "bg-violet-100 dark:bg-violet-900/30",
     text: "text-violet-800 dark:text-violet-200",
@@ -35,7 +38,7 @@ const skillCategoryColors: Record<string, { bg: string; text: string; border: st
 };
 
 const allSkills = Object.entries(data.skills).flatMap(([category, skills]) =>
-  skills.map((skill) => ({ skill, category }))
+  skills.map((skill) => ({ skill, category })),
 );
 ---
 
@@ -48,22 +51,39 @@ const allSkills = Object.entries(data.skills).flatMap(([category, skills]) =>
 
   <!-- Contact Badges Row -->
   <section class="flex flex-wrap gap-2">
-    <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-800 dark:bg-gray-800 rounded-full text-sm text-gray-200 font-mono font-medium">
+    <span
+      class="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-800 dark:bg-gray-800 rounded-full text-sm text-gray-200 font-mono font-medium"
+    >
       <i class="fa-solid fa-location-dot w-4 text-center"></i>
       {data.header.location}
     </span>
-    {data.header.contact.map((item) => (
-      <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-800 dark:bg-gray-800 rounded-full text-sm text-gray-200 font-mono font-medium">
-        <i class={item.icon + " w-4 text-center"}></i>
-        {item.href ? (
-          <a href={item.href} class="text-blue-400 hover:underline" target={item.type === "linkedin" || item.type === "github" ? "_blank" : undefined} rel={item.type === "linkedin" || item.type === "github" ? "noopener noreferrer" : undefined}>
-            {item.value}
-          </a>
-        ) : (
-          <span>{item.value}</span>
-        )}
-      </span>
-    ))}
+    {
+      data.header.contact.map((item) => (
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-800 dark:bg-gray-800 rounded-full text-sm text-gray-200 font-mono font-medium">
+          <i class={item.icon + " w-4 text-center"} />
+          {item.href ? (
+            <a
+              href={item.href}
+              class="text-blue-400 hover:underline"
+              target={
+                item.type === "linkedin" || item.type === "github"
+                  ? "_blank"
+                  : undefined
+              }
+              rel={
+                item.type === "linkedin" || item.type === "github"
+                  ? "noopener noreferrer"
+                  : undefined
+              }
+            >
+              {item.value}
+            </a>
+          ) : (
+            <span>{item.value}</span>
+          )}
+        </span>
+      ))
+    }
   </section>
 
   <!-- Education & Languages Row -->
@@ -71,7 +91,9 @@ const allSkills = Object.entries(data.skills).flatMap(([category, skills]) =>
     <div class="flex items-center gap-2">
       <i class="fa-solid fa-graduation-cap w-4 text-center"></i>
       <span>{data.education.institution}</span>
-      <span class="text-gray-500 font-mono font-medium">{data.education.period}</span>
+      <span class="text-gray-500 font-mono font-medium"
+        >{data.education.period}</span
+      >
       <span class="text-gray-400">—</span>
       <span>{data.education.degree}</span>
     </div>
@@ -83,48 +105,70 @@ const allSkills = Object.entries(data.skills).flatMap(([category, skills]) =>
 
   <!-- Skills Section -->
   <section>
-    <h2 class="text-lg font-bold text-blue-500 uppercase tracking-wider mb-3">Skills</h2>
+    <h2 class="text-lg font-bold text-blue-500 uppercase tracking-wider mb-3">
+      Skills
+    </h2>
     <div class="flex flex-wrap gap-2 mb-3">
-      {allSkills.map(({ skill, category }) => {
-        const colors = skillCategoryColors[category] || skillCategoryColors.Tooling;
-        return (
-          <span class={`px-3 py-1 rounded-md text-sm font-medium border font-mono ${colors.bg} ${colors.text} ${colors.border}`}>
-            {skill}
-          </span>
-        );
-      })}
+      {
+        allSkills.map(({ skill, category }) => {
+          const colors =
+            skillCategoryColors[category] || skillCategoryColors.Tooling;
+          return (
+            <span
+              class={`px-3 py-1 rounded-md text-sm font-medium border font-mono ${colors.bg} ${colors.text} ${colors.border}`}
+            >
+              {skill}
+            </span>
+          );
+        })
+      }
     </div>
     <!-- Color Key Legend -->
     <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500">
-      {Object.entries(skillCategoryColors).map(([category, colors]) => (
-        <span class="flex items-center gap-1.5">
-          <span class={`w-2 h-2 rounded-full ${colors.dot}`}></span>
-          {category}
-        </span>
-      ))}
+      {
+        Object.entries(skillCategoryColors).map(([category, colors]) => (
+          <span class="flex items-center gap-1.5">
+            <span class={`w-2 h-2 rounded-full ${colors.dot}`} />
+            {category}
+          </span>
+        ))
+      }
     </div>
   </section>
 
   <!-- Experience -->
   <section>
-    <h2 class="text-lg font-bold text-blue-500 uppercase tracking-wider mb-6">Experience</h2>
-    
-    {data.experience.map((job, index) => (
-      <div class={`mb-6 ${index < data.experience.length - 1 ? 'border-b border-gray-800 pb-6' : ''}`}>
-        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-2">
-          <h3 class="text-base font-bold text-white">{job.company}, <span class="font-normal text-gray-400">{job.location}</span></h3>
-          <span class="text-sm text-gray-500 font-mono font-medium">{job.period}</span>
+    <h2 class="text-lg font-bold text-blue-500 uppercase tracking-wider mb-6">
+      Experience
+    </h2>
+
+    {
+      data.experience.map((job, index) => (
+        <div
+          class={`mb-6 ${index < data.experience.length - 1 ? "border-b border-gray-800 pb-6" : ""}`}
+        >
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 mb-2">
+            <h3 class="text-base font-bold text-white">
+              {job.company},{" "}
+              <span class="font-normal text-gray-400">{job.location}</span>
+            </h3>
+            <span class="text-sm text-gray-500 font-mono font-medium">
+              {job.period}
+            </span>
+          </div>
+          <p class="text-base text-gray-300 italic mb-3 job-title">
+            {job.role}
+          </p>
+          {"description" in job && job.description && (
+            <p class="text-sm text-gray-400 mb-3">{job.description}</p>
+          )}
+          <ul class="space-y-2 text-base text-gray-400 list-disc list-inside">
+            {job.bullets.map((bullet) => (
+              <li set:html={bullet} />
+            ))}
+          </ul>
         </div>
-        <p class="text-base text-gray-300 italic mb-3 job-title">{job.role}</p>
-        {"description" in job && job.description && (
-          <p class="text-sm text-gray-400 mb-3">{job.description}</p>
-        )}
-        <ul class="space-y-2 text-base text-gray-400 list-disc list-inside">
-          {job.bullets.map((bullet) => (
-            <li set:html={bullet} />
-          ))}
-        </ul>
-      </div>
-    ))}
+      ))
+    }
   </section>
 </article>

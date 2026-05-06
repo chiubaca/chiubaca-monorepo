@@ -15,9 +15,9 @@ astro.config.mjs.timestamp-*
 .env.local
 
 tmp-notes/
-apps/chiubaca.com/permanent-notes/*
+apps/chiubaca.com/content/permanent-notes/*
 apps/chiubaca.com/public/attachments/*
-apps/chiubaca.com/fleeting-notes/*
+apps/chiubaca.com/content/fleeting-notes/*
 apps/chiubaca.com/.wrangler/*
 .DS_Store
 
