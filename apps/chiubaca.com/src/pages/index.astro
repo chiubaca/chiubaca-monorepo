@@ -12,14 +12,18 @@ const liveBlogs = blogs
 
 const fleetingNotes = await getCollection("fleeting-notes");
 const latestFleetingNote = fleetingNotes.sort(
-  (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf()
+  (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf(),
 )[0];
 const latestFleetingNoteEntry = await getEntry(
   "fleeting-notes",
-  latestFleetingNote.id
+  latestFleetingNote.id,
 );
+
+if (!latestFleetingNoteEntry) {
+  return;
+}
 const { Content: LatestFleetingNoteContent } = await render(
-  latestFleetingNoteEntry
+  latestFleetingNoteEntry,
 );
 ---
 
@@ -30,11 +34,13 @@ const { Content: LatestFleetingNoteContent } = await render(
 >
   <main>
     <div class="max-w-2xl mx-auto px-4 sm:px-6">
-      {/* Logo back in body */}
       <nav class="py-12">
-        <div class="group logo-container flex items-center font-mono cursor-pointer decoration-2 glitch-hover">
+        <div class="flex font-mono cursor-pointer decoration-2 glitch-hover">
           <span class="blink pb-[2px] text-[var(--accent-blue)]">&#x258C;</span>
-          <span class="transition-colors uppercase font-bold tracking-tight text-xl sm:text-2xl">chiubaca.com</span>
+          <span
+            class="transition-colors uppercase font-bold tracking-tight text-xl sm:text-2xl"
+            >chiubaca.com</span
+          >
         </div>
       </nav>
 
@@ -46,7 +52,7 @@ const { Content: LatestFleetingNoteContent } = await render(
           <span class="comment-prefix">//</span> Latest Writings
         </h1>
         <p class="pb-8 opacity-60" style="color: var(--text-muted);">
-          Long form blogs, essays, musings. The stuff I actually finished.
+          blogs, essays, musings.
         </p>
 
         <div>
@@ -85,8 +91,13 @@ const { Content: LatestFleetingNoteContent } = await render(
           class="group inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest transition-colors"
           style="color: var(--text-dim);"
         >
-          <span class="group-hover:text-amber-500 transition-colors">View all blogs</span>
-          <span class="transition-transform group-hover:translate-x-1" style="color: var(--text-muted);">→</span>
+          <span class="group-hover:text-amber-500 transition-colors"
+            >View all blogs</span
+          >
+          <span
+            class="transition-transform group-hover:translate-x-1"
+            style="color: var(--text-muted);">→</span
+          >
         </a>
       </section>
 
@@ -99,10 +110,10 @@ const { Content: LatestFleetingNoteContent } = await render(
           class="text-3xl sm:text-4xl tracking-tight"
           style="font-family: var(--font-display); line-height: 1;"
         >
-          <span class="comment-prefix">//</span> Latest Note
+          <span class="comment-prefix">//</span> stream of consciousness
         </h1>
         <p class="opacity-60" style="color: var(--text-muted);">
-          Latest rambling posted on {
+          unrefined ramblings - last posted {
             latestFleetingNote.data.publish_date.toLocaleDateString("en-GB", {
               year: "numeric",
               month: "long",
@@ -152,8 +163,13 @@ const { Content: LatestFleetingNoteContent } = await render(
           class="mt-8 group inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest transition-colors"
           style="color: var(--text-dim);"
         >
-          <span class="group-hover:text-amber-500 transition-colors">View all notes</span>
-          <span class="transition-transform group-hover:translate-x-1" style="color: var(--text-muted);">→</span>
+          <span class="group-hover:text-amber-500 transition-colors"
+            >View all notes</span
+          >
+          <span
+            class="transition-transform group-hover:translate-x-1"
+            style="color: var(--text-muted);">→</span
+          >
         </a>
       </div>
     </section>
@@ -186,7 +202,10 @@ const { Content: LatestFleetingNoteContent } = await render(
 
   .blog-row {
     border-left: 2px solid transparent;
-    transition: background-color 0.15s ease, border-color 0.15s ease, padding-left 0.15s ease;
+    transition:
+      background-color 0.15s ease,
+      border-color 0.15s ease,
+      padding-left 0.15s ease;
   }
 
   .blog-row:hover {
