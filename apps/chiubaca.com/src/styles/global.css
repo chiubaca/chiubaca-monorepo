@@ -295,6 +295,18 @@ article.prose :is(h1, h2, h3, h4, h5, h6) a:hover::after {
   color: var(--accent-blue-dim);
 }
 
+/* ─── Tag links ─── */
+.tag-link {
+  border: 1px solid rgba(201, 132, 26, 0.25);
+  color: var(--text-muted);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.tag-link:hover {
+  border-color: var(--accent-amber);
+  color: var(--accent-amber);
+}
+
 /* ─── Footer Wrapper ─── */
 .footer-wrapper {
   margin-top: auto;

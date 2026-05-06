@@ -43,8 +43,7 @@ const { Content } = await render(entry);
         entry.data.tags.map((tag) => (
           <a
             href={`/tags#${tag}`}
-            class="px-2 py-1 border text-xs uppercase tracking-tight transition-colors hover:border-amber-500 hover:text-amber-400"
-            style="border-color: rgba(201, 132, 26, 0.25); color: var(--text-muted);"
+            class="tag-link px-2 py-1 text-xs uppercase tracking-tight"
           >
             #{tag}
           </a>
