@@ -38,6 +38,12 @@
   color-scheme: only dark;
 }
 
+/* ─── Scroll Behavior ─── */
+html {
+  scroll-padding-top: 50px;
+  scroll-behavior: smooth;
+}
+
 /* ─── Film Grain Noise Overlay ─── */
 body::before {
   content: "";
@@ -83,6 +89,9 @@ body {
   font-size: 15px;
   line-height: 1.75;
   color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ─── Headings ─── */
@@ -200,6 +209,22 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
 }
 
+/* ─── Prose Heading Anchor Links ─── */
+article.prose :is(h1, h2, h3, h4, h5, h6) a {
+  text-decoration: none;
+}
+
+article.prose :is(h1, h2, h3, h4, h5, h6) a::after {
+  opacity: 50%;
+  content: "#";
+  padding-left: 0.5ch;
+  transition: opacity 0.2s ease-in-out;
+}
+
+article.prose :is(h1, h2, h3, h4, h5, h6) a:hover::after {
+  opacity: 100%;
+}
+
 /* ─── Selection ─── */
 ::selection {
   background: var(--accent-amber);
@@ -268,4 +293,9 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── Section comment prefix ─── */
 .comment-prefix {
   color: var(--accent-blue-dim);
+}
+
+/* ─── Footer Wrapper ─── */
+.footer-wrapper {
+  margin-top: auto;
 }

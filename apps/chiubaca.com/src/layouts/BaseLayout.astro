@@ -118,50 +118,6 @@ const socialLinks = [
   </body>
 </html>
 
-<style is:global>
-  html {
-    scroll-padding-top: 50px;
-    scroll-behavior: smooth;
-  }
-
-  /* Style for anchor links within headings in prose content */
-  article.prose :is(h1, h2, h3, h4, h5, h6) a {
-    text-decoration: none;
-  }
-
-  article.prose :is(h1, h2, h3, h4, h5, h6) a::after {
-    opacity: 50%;
-    content: "#";
-    padding-left: 0.5ch;
-    transition: opacity 0.2s ease-in-out;
-  }
-
-  article.prose :is(h1, h2, h3, h4, h5, h6) a:hover::after {
-    opacity: 100%;
-  }
-
-  body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .footer-wrapper {
-    margin-top: auto;
-  }
-
-  /* Header logo blink */
-  .header-logo .blink {
-    animation: blinker 1s linear infinite;
-  }
-
-  @keyframes blinker {
-    100% {
-      opacity: 0;
-    }
-  }
-</style>
-
 <script>
   (function () {
     (window as any).counterscale = {
