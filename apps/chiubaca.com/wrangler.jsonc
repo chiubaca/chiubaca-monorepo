@@ -1,12 +1,11 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "chiubaca-com",
-  "compatibility_date": "2025-03-25",
+  "compatibility_date": "2026-05-06",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": "./dist",
   },
-  "workers_dev": false,
   "routes": [
     {
       "pattern": "chiubaca.com",
