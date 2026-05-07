@@ -1,0 +1,221 @@
+---
+layout: false
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscribe — Tangent</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' x='50%25' text-anchor='middle' font-family='monospace' font-size='80' fill='%23c9841a'%3ET%3C/text%3E%3C/svg%3E">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+      background: #04060a;
+      color: #e2e8f0;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .container {
+      width: 100%;
+      max-width: 440px;
+    }
+    .brand {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .brand h1 {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 56px;
+      color: #c9841a;
+      margin: 0 0 8px 0;
+      line-height: 1;
+      letter-spacing: 2px;
+    }
+    .brand p {
+      color: #64748b;
+      font-size: 13px;
+      margin: 0;
+    }
+    .card {
+      background: #0a0f1a;
+      border: 1px solid rgba(148,163,184,0.08);
+      padding: 32px;
+      border-radius: 0px;
+    }
+    .card h2 {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 28px;
+      color: #e2e8f0;
+      margin: 0 0 12px 0;
+      letter-spacing: 1px;
+    }
+    .card .subtitle {
+      color: #475569;
+      font-size: 13px;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      color: #475569;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 14px 16px;
+      background: #04060a;
+      border: 1px solid rgba(148,163,184,0.12);
+      color: #e2e8f0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus {
+      border-color: #c9841a;
+    }
+    .form-group input::placeholder {
+      color: #475569;
+    }
+    .btn {
+      width: 100%;
+      padding: 16px;
+      background: #c9841a;
+      color: #04060a;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .message {
+      margin-top: 20px;
+      padding: 16px;
+      font-size: 13px;
+      line-height: 1.6;
+      display: none;
+    }
+    .message.success {
+      display: block;
+      background: rgba(9, 124, 72, 0.1);
+      border-left: 2px solid #097c48;
+      color: #2dd36f;
+    }
+    .message.error {
+      display: block;
+      background: rgba(201, 42, 42, 0.1);
+      border-left: 2px solid #c92a2a;
+      color: #e03131;
+    }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 24px;
+      font-size: 12px;
+      color: #475569;
+      text-decoration: none;
+    }
+    .back-link:hover { color: #c9841a; }
+    .spam-note {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 11px;
+      color: #475569;
+    }
+    .spam-note a { color: #64748b; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="brand">
+      <h1>TANGENT</h1>
+      <p>Brain dumps from a guy who should be sleeping</p>
+    </div>
+
+    <div class="card">
+      <h2>GET IT IN YOUR INBOX</h2>
+      <p class="subtitle">Whenever a new drop ships, you'll get it by email. No spam, no tracking pixels, just words. Unsubscribe anytime.</p>
+
+      <form id="subscribe-form">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <button type="submit" class="btn" id="submit-btn">SUBSCRIBE</button>
+      </form>
+
+      <div class="message" id="message"></div>
+    </div>
+
+    <a href="/" class="back-link">← back to all issues</a>
+    <p class="spam-note">powered by <a href="https://resend.com" target="_blank" rel="noopener">Resend</a></p>
+  </div>
+
+  <script>
+    const form = document.getElementById('subscribe-form');
+    const btn = document.getElementById('submit-btn');
+    const msg = document.getElementById('message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = form.email.value.trim();
+
+      btn.disabled = true;
+      btn.textContent = 'SENDING…';
+      msg.className = 'message';
+      msg.textContent = '';
+
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          msg.className = 'message success';
+          msg.textContent = data.message || 'Check your email to confirm.';
+          form.reset();
+        } else {
+          msg.className = 'message error';
+          msg.textContent = data.error || 'Something went wrong. Try again?';
+        }
+      } catch (err) {
+        msg.className = 'message error';
+        msg.textContent = 'Network error. Are you offline?';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'SUBSCRIBE';
+      }
+    });
+  </script>
+</body>
+</html>
