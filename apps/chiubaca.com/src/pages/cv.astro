@@ -9,6 +9,12 @@ import { cvData } from "../../content/cv";
   description="Senior Fullstack Engineer based in London"
   breadcrumbs={[{ href: "/cv", label: "cv" }]}
 >
+  <fragment slot="head">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </fragment>
   <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
     <CVContent data={cvData} />
   </main>
