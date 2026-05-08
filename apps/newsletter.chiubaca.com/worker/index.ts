@@ -1,8 +1,8 @@
-import type { Request as CFRequest, ExecutionContext } from "@cloudflare/workers-types";
+import type { Request as CFRequest, ExecutionContext, SendEmail } from "@cloudflare/workers-types";
 
 export interface Env {
   DB: D1Database;
-  RESEND_API_KEY: string;
+  EMAIL: SendEmail;
   ADMIN_SECRET: string;
   ASSETS: Fetcher;
 }
@@ -22,15 +22,8 @@ function generateToken(): string {
   return Array.from(bytes, (b) => b.toString(16).padStart(2, "0")).join("");
 }
 
-async function sendConfirmationEmail(
-  email: string,
-  token: string,
-  resendKey: string,
-  origin: string
-): Promise<void> {
-  const confirmUrl = `${origin}/confirm?token=${token}`;
-
-  const html = `<!DOCTYPE html>
+function confirmationEmailHtml(confirmUrl: string): string {
+  return `<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -57,8 +50,10 @@ p { color: #94a3b8; line-height: 1.6; margin-bottom: 16px; }
 </div>
 </body>
 </html>`;
+}
 
-  const text = `Confirm your Tangent subscription
+function confirmationEmailText(confirmUrl: string): string {
+  return `Confirm your Tangent subscription
 
 hey there — someone (hopefully you) wants to get Tangent brain dumps delivered to their inbox.
 
@@ -67,25 +62,29 @@ click to confirm: ${confirmUrl}
 if you didn't request this, ignore it. no harm done.
 
 — Tangent`;
+}
 
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer ${resendKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: "Tangent <noreply@newsletter.chiubaca.com>",
+async function sendConfirmationEmail(
+  email: string,
+  token: string,
+  emailService: SendEmail,
+  origin: string
+): Promise<{ messageId: string }> {
+  const confirmUrl = `${origin}/confirm?token=${token}`;
+
+  try {
+    const result = await emailService.send({
       to: email,
+      from: { email: "noreply@newsletter.chiubaca.com", name: "Tangent" },
       subject: "Confirm your Tangent subscription",
-      text,
-      html,
-    }),
-  });
-
-  if (!res.ok) {
-    const body = await res.text().catch(() => "unknown");
-    throw new Error(`Resend ${res.status}: ${body}`);
+      text: confirmationEmailText(confirmUrl),
+      html: confirmationEmailHtml(confirmUrl),
+    });
+    return { messageId: result.messageId };
+  } catch (err: any) {
+    const code = err?.code ?? "UNKNOWN";
+    const message = err?.message ?? String(err);
+    throw new Error(`Email send failed [${code}]: ${message}`);
   }
 }
 
@@ -114,7 +113,12 @@ async function handleSubscribe(request: CFRequest, env: Env, origin: string): Pr
     if (existing.status === "active") {
       return json({ success: true, message: "Already subscribed" }, 200);
     }
-    await sendConfirmationEmail(email, existing.token, env.RESEND_API_KEY, origin);
+    try {
+      await sendConfirmationEmail(email, existing.token, env.EMAIL, origin);
+    } catch (err) {
+      console.error("Confirmation resend failed:", err);
+      return json({ error: "Failed to send confirmation email. Try again later." }, 500);
+    }
     return json({ success: true, message: "Confirmation email resent" }, 200);
   }
 
@@ -128,9 +132,14 @@ async function handleSubscribe(request: CFRequest, env: Env, origin: string): Pr
   }
 
   try {
-    await sendConfirmationEmail(email, token, env.RESEND_API_KEY, origin);
-  } catch (err) {
-    console.error("Resend failed:", err);
+    await sendConfirmationEmail(email, token, env.EMAIL, origin);
+  } catch (err: any) {
+    console.error("Confirmation send failed:", err);
+    const isDomainError = err.message?.includes("E_SENDER_NOT_VERIFIED");
+    if (isDomainError) {
+      return json({ error: "Sender domain not verified. Contact site admin." }, 500);
+    }
+    return json({ error: "Failed to send confirmation email. Try again later." }, 500);
   }
 
   return json({ success: true, message: "Check your email for confirmation" }, 200);

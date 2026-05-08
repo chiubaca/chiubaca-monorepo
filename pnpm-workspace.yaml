@@ -9,6 +9,7 @@ catalog:
   '@tailwindcss/typography': ^0.5.16
   '@fontsource/bebas-neue': ^5.2.7
   '@fontsource/jetbrains-mono': ^5.2.8
+  '@cloudflare/workers-types': ^4.20250506.0
 ignoredBuiltDependencies:
   - '@biomejs/biome'
 onlyBuiltDependencies:
