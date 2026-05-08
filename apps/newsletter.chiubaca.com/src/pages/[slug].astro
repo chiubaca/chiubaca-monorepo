@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SubscribeCTA from "../components/SubscribeCTA.astro";
 
 export async function getStaticPaths() {
   const newsletters = await getCollection("newsletter");
@@ -73,6 +74,8 @@ const nextPost = sorted[currentIndex - 1];
     <div class="prose prose-invert animate-fade-up delay-3">
       <Content />
     </div>
+
+    <SubscribeCTA variant="inline" />
 
     {/* Bottom divider */}
     <div class="divider-gradient mt-16 mb-10"></div>
