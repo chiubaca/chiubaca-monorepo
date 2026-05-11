@@ -4,6 +4,7 @@
   "account_id": "6fba426cae95d09cbd43f7d359f87924",
   "compatibility_date": "2025-03-25",
   "workers_dev": false,
+  "main": "./worker/index.ts",
   "assets": {
     "directory": "./dist",
   },
@@ -11,6 +12,21 @@
     {
       "pattern": "newsletter.chiubaca.com",
       "custom_domain": true,
+    },
+  ],
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "allowed_sender_addresses": [
+        "noreply@newsletter.chiubaca.com"
+      ]
+    },
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "tangent-db",
+      "database_id": "__D1_DB_ID__",
     },
   ],
 }

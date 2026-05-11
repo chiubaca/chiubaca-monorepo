@@ -1,0 +1,229 @@
+---
+layout: false
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscribers — Tangent Admin</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' x='50%25' text-anchor='middle' font-family='monospace' font-size='80' fill='%23c9841a'%3ET%3C/text%3E%3C/svg%3E">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&display=swap');
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      background: #04060a;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 24px;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid rgba(148,163,184,0.08);
+      padding-bottom: 16px;
+    }
+    .brand h1 {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 36px;
+      color: #c9841a;
+      margin: 0;
+      line-height: 1;
+    }
+    .brand p {
+      color: #475569;
+      font-size: 12px;
+      margin: 0;
+    }
+    .stats {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .stat {
+      background: #0a0f1a;
+      border: 1px solid rgba(148,163,184,0.08);
+      padding: 16px 20px;
+      min-width: 160px;
+    }
+    .stat .value {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 32px;
+      color: #c9841a;
+      line-height: 1;
+    }
+    .stat .label {
+      font-size: 11px;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+    .login {
+      text-align: center;
+      padding: 80px 24px;
+    }
+    .login p {
+      color: #475569;
+      font-size: 13px;
+    }
+    .login input {
+      padding: 12px 16px;
+      background: #0a0f1a;
+      border: 1px solid rgba(148,163,184,0.12);
+      color: #e2e8f0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      margin-top: 12px;
+      width: 280px;
+    }
+    .login button {
+      padding: 12px 24px;
+      background: #c9841a;
+      color: #04060a;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border: none;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th {
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 11px;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid rgba(148,163,184,0.12);
+    }
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(148,163,184,0.06);
+      color: #94a3b8;
+    }
+    .status-pending { color: #d4a017; }
+    .status-active { color: #097c48; }
+    .status-unsubscribed { color: #c92a2a; }
+    .empty {
+      color: #475569;
+      text-align: center;
+      padding: 60px;
+    }
+    .error {
+      color: #c92a2a;
+      text-align: center;
+      padding: 60px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="brand">
+      <h1>SUBSCRIBERS</h1>
+      <p>Tangent admin panel</p>
+    </div>
+
+    <div id="login" class="login">
+      <p>This page is invite-only. Enter the secret.</p>
+      <input type="password" id="secret" placeholder="admin secret" onkeydown="if(event.key==='Enter')load()">
+      <br>
+      <button onclick="load()">UNLOCK</button>
+    </div>
+
+    <div id="content" style="display:none;">
+      <div class="stats" id="stats"></div>
+      <div id="table"></div>
+    </div>
+  </div>
+
+  <script>
+    async function load() {
+      const secret = document.getElementById('secret').value.trim();
+      if (!secret) return;
+
+      document.getElementById('login').style.display = 'none';
+
+      try {
+        const res = await fetch(`/api/admin/subscribers?secret=${encodeURIComponent(secret)}`);
+        const data = await res.json();
+
+        if (res.status === 401) {
+          document.getElementById('login').style.display = 'block';
+          document.getElementById('secret').placeholder = 'wrong secret. try again.';
+          document.getElementById('secret').value = '';
+          return;
+        }
+
+        if (!data.subscribers) {
+          document.getElementById('content').innerHTML = '<div class="error">Failed to load subscribers.</div>';
+          document.getElementById('content').style.display = 'block';
+          return;
+        }
+
+        const subs = data.subscribers;
+        const pending = subs.filter(s => s.status === 'pending').length;
+        const active = subs.filter(s => s.status === 'active').length;
+        const unsubscribed = subs.filter(s => s.status === 'unsubscribed').length;
+
+        document.getElementById('stats').innerHTML = `
+          <div class="stat"><div class="value">${subs.length}</div><div class="label">Total</div></div>
+          <div class="stat"><div class="value" style="color:#d4a017">${pending}</div><div class="label">Pending</div></div>
+          <div class="stat"><div class="value" style="color:#097c48">${active}</div><div class="label">Active</div></div>
+          <div class="stat"><div class="value" style="color:#c92a2a">${unsubscribed}</div><div class="label">Unsubscribed</div></div>
+        `;
+
+        if (subs.length === 0) {
+          document.getElementById('table').innerHTML = '<div class="empty">No subscribers yet.</div>';
+        } else {
+          document.getElementById('table').innerHTML = `
+            <table>
+              <thead>
+                <tr><th>Email</th><th>Status</th><th>Created</th><th>Confirmed</th></tr>
+              </thead>
+              <tbody>
+                ${subs.map(s => `
+                  <tr>
+                    <td>${s.email}</td>
+                    <td class="status-${s.status}">${s.status}</td>
+                    <td>${fmt(s.created_at)}</td>
+                    <td>${s.confirmed_at ? fmt(s.confirmed_at) : '—'}</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          `;
+        }
+
+        document.getElementById('content').style.display = 'block';
+      } catch (err) {
+        document.getElementById('login').style.display = 'block';
+        document.getElementById('secret').placeholder = 'network error. try again.';
+      }
+    }
+
+    function fmt(ts) {
+      return new Date(ts * 1000).toLocaleString('en-GB', {
+        year: 'numeric', month: 'short', day: 'numeric',
+        hour: '2-digit', minute: '2-digit'
+      });
+    }
+  </script>
+</body>
+</html>

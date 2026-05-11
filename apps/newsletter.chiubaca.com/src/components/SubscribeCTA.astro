@@ -1,0 +1,86 @@
+---
+interface Props {
+  variant?: "banner" | "inline" | "compact";
+}
+
+const { variant = "banner" } = Astro.props;
+---
+
+{variant === "banner" && (
+  <div
+    class="border p-6 sm:p-8 my-12 animate-fade-up"
+    style="border-color: var(--accent-amber); background: linear-gradient(135deg, rgba(201,132,26,0.05) 0%, transparent 60%);"
+  >
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+      <div>
+        <h3
+          class="text-xl sm:text-2xl mb-2"
+          style="font-family: var(--font-display); color: var(--accent-amber); line-height: 1.1;"
+        >
+          GET IT IN YOUR INBOX
+        </h3>
+        <p class="text-sm" style="color: var(--text-muted);">
+          New drops ship straight to your email. No spam, no tracking pixels, just words.
+        </p>
+      </div>
+      <a
+        href="/subscribe"
+        class="inline-flex items-center gap-2 px-6 py-3 text-xs font-mono font-bold uppercase tracking-widest shrink-0 transition-opacity hover:opacity-90"
+        style="background: var(--accent-amber); color: var(--bg-primary);"
+      >
+        SUBSCRIBE
+        <span>→</span>
+      </a>
+    </div>
+  </div>
+)}
+
+{variant === "inline" && (
+  <div
+    class="border p-5 my-8"
+    style="border-color: var(--border-subtle); background: var(--bg-surface);"
+  >
+    <p class="text-xs font-mono uppercase tracking-widest mb-3" style="color: var(--accent-amber);">
+      // SUBSCRIBE
+    </p>
+    <p class="text-sm mb-4" style="color: var(--text-muted);">
+      Want this kind of brain dump delivered to your inbox? No spam. Unsubscribe anytime.
+    </p>
+    <form class="flex gap-2" onsubmit={`event.preventDefault(); window.location.href='/subscribe?email='+encodeURIComponent(event.target.email.value);`}>
+      <input
+        type="email"
+        name="email"
+        placeholder="you@example.com"
+        required
+        class="flex-1 px-4 py-2.5 text-sm font-mono bg-transparent border outline-none focus:border-amber-500 transition-colors"
+        style="border-color: var(--border-subtle); color: var(--text-primary);"
+      />
+      <button
+        type="submit"
+        class="px-5 py-2.5 text-xs font-mono font-bold uppercase tracking-widest transition-opacity hover:opacity-90"
+        style="background: var(--accent-amber); color: var(--bg-primary);"
+      >
+        GO
+      </button>
+    </form>
+  </div>
+)}
+
+{variant === "compact" && (
+  <a
+    href="/subscribe"
+    class="group flex items-center gap-3 p-4 border transition-all hover:border-amber-500/40"
+    style="border-color: var(--border-subtle); background: var(--bg-raised);"
+  >
+    <span class="text-lg" style="color: var(--accent-amber);">📬</span>
+    <div class="flex-1 min-w-0">
+      <p class="text-sm font-bold" style="color: var(--text-primary);">
+        Get drops by email
+      </p>
+      <p class="text-xs" style="color: var(--text-dim);">
+        Subscribe — no spam, unsubscribe anytime
+      </p>
+    </div>
+    <span class="text-xs font-mono transition-transform group-hover:translate-x-1" style="color: var(--accent-amber);">→</span>
+  </a>
+)}

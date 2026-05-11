@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SubscribeCTA from "../components/SubscribeCTA.astro";
 
 const newsletters = await getCollection("newsletter");
 const liveNewsletters = newsletters
@@ -171,5 +172,7 @@ const rest = liveNewsletters.slice(1);
         <p style="color: var(--text-dim);">NOTHING HERE. GO TOUCH GRASS OR SOMETHING.</p>
       </div>
     )}
+
+    <SubscribeCTA variant="banner" />
   </div>
 </BaseLayout>

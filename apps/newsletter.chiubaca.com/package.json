@@ -6,6 +6,7 @@
     "dev": "astro dev --host 0.0.0.0",
     "build": "astro build",
     "preview": "astro preview",
+    "dev:worker": "wrangler dev",
     "deploy": "wrangler deploy",
     "deploy:prod": "astro build && wrangler deploy"
   },
@@ -17,6 +18,7 @@
     "tailwindcss": "catalog:"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "catalog:",
     "@tailwindcss/typography": "catalog:",
     "typescript": "catalog:",
     "wrangler": "catalog:"
