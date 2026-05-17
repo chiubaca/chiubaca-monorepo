@@ -13,18 +13,10 @@ const {
   ogImage = "https://newsletter.chiubaca.com/og.png",
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, Astro.site || "https://newsletter.chiubaca.com").toString();
-
-const statusMessages = [
-  "STATUS: BARELY FUNCTIONING",
-  "CALVIN: PROBABLY AWAKE",
-  "SLEEP: OPTIONAL",
-  "COFFEE #4 AND COUNTING",
-  "DEPLOYED AT 3:47AM",
-  "TOUCHED GRASS: NOT RECENTLY",
-  "BUG COUNT: ACCEPTABLE LOSSES",
-];
-const status = statusMessages[Math.floor(Math.random() * statusMessages.length)];
+const canonical = new URL(
+  Astro.url.pathname,
+  Astro.site || "https://newsletter.chiubaca.com",
+).toString();
 ---
 
 <!doctype html>
@@ -36,7 +28,10 @@ const status = statusMessages[Math.floor(Math.random() * statusMessages.length)]
     <meta name="theme-color" content="#04060a" />
 
     {/* Favicon — simple T mark */}
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' x='50%25' text-anchor='middle' font-family='monospace' font-size='80' fill='%23c9841a'%3ET%3C/text%3E%3C/svg%3E" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' x='50%25' text-anchor='middle' font-family='monospace' font-size='80' fill='%23c9841a'%3ET%3C/text%3E%3C/svg%3E"
+    />
 
     {/* Open Graph */}
     <meta property="og:type" content="website" />
@@ -56,19 +51,12 @@ const status = statusMessages[Math.floor(Math.random() * statusMessages.length)]
   </head>
 
   <body>
-    {/* Status bar — random on each load */}
-    <div class="status-bar">
-      <div class="max-w-3xl mx-auto flex items-center justify-between">
-        <span>{status}</span>
-        <span class="hidden sm:inline">BUILD: {new Date().toISOString().slice(0, 10)}</span>
-        <span>NO CAP</span>
-      </div>
-    </div>
-
     <div class="min-h-screen flex flex-col">
       {/* Header */}
       <header class="border-b" style="border-color: var(--border-subtle);">
-        <div class="max-w-3xl mx-auto px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
+        <div
+          class="max-w-3xl mx-auto px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0"
+        >
           <a href="/" class="group inline-flex items-center gap-2 glitch-hover">
             <span
               class="text-3xl sm:text-4xl tracking-tight"
@@ -84,7 +72,7 @@ const status = statusMessages[Math.floor(Math.random() * statusMessages.length)]
               class="nav-link text-[11px] sm:text-xs font-mono uppercase tracking-widest opacity-60 hover:opacity-100"
               style="color: var(--text-secondary);"
             >
-              The Lore
+              archive
             </a>
             <a
               href="https://chiubaca.com"
@@ -109,8 +97,13 @@ const status = statusMessages[Math.floor(Math.random() * statusMessages.length)]
 
       {/* Footer */}
       <footer class="border-t" style="border-color: var(--border-subtle);">
-        <div class="max-w-3xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p class="text-xs font-mono opacity-40" style="color: var(--text-muted);">
+        <div
+          class="max-w-3xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4"
+        >
+          <p
+            class="text-xs font-mono opacity-40"
+            style="color: var(--text-muted);"
+          >
             BUILT WITH ☕ AND DELUSION. &copy; ALEX CHIU. CALVIN'S DAD.
           </p>
           <div class="flex items-center gap-4">

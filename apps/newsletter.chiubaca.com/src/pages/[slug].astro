@@ -25,7 +25,8 @@ const nextPost = sorted[currentIndex - 1];
 
 <BaseLayout
   title={`${post.data.title} — Tangent`}
-  description={post.data.description || `Drop #${post.data.issue}. Probably written while Calvin was napping (or not).`}
+  description={post.data.description ||
+    `Drop #${post.data.issue}. Probably written while Calvin was napping (or not).`}
 >
   <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
     {/* Breadcrumb / nav */}
@@ -35,7 +36,7 @@ const nextPost = sorted[currentIndex - 1];
         class="text-xs font-mono uppercase tracking-widest inline-flex items-center gap-2 nav-link"
         style="color: var(--text-dim);"
       >
-        <span>←</span> Back To The Lore
+        <span>←</span> home
       </a>
     </div>
 
@@ -48,13 +49,18 @@ const nextPost = sorted[currentIndex - 1];
         Drop #{post.data.issue}
       </span>
       <span style="color: var(--border-subtle);">|</span>
-      <span class="text-xs font-mono uppercase tracking-wider" style="color: var(--text-dim);">
-        {post.data.pubDate.toLocaleDateString("en-GB", {
-          weekday: "short",
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        })}
+      <span
+        class="text-xs font-mono uppercase tracking-wider"
+        style="color: var(--text-dim);"
+      >
+        {
+          post.data.pubDate.toLocaleDateString("en-GB", {
+            weekday: "short",
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })
+        }
       </span>
     </div>
 
@@ -79,51 +85,55 @@ const nextPost = sorted[currentIndex - 1];
 
     {/* Navigation */}
     <div class="flex items-center justify-between gap-4">
-      {prevPost ? (
-        <a
-          href={`/${prevPost.id}/`}
-          class="group nav-card flex-1 p-4 border"
-          style="border-color: var(--border-subtle); background: var(--bg-raised);"
-        >
-          <span
-            class="text-[10px] font-mono uppercase tracking-widest block mb-1"
-            style="color: var(--text-dim);"
+      {
+        prevPost ? (
+          <a
+            href={`/${prevPost.id}/`}
+            class="group nav-card flex-1 p-4 border"
+            style="border-color: var(--border-subtle); background: var(--bg-raised);"
           >
-            ← Older Drop
-          </span>
-          <span
-            class="text-sm font-bold"
-            style="font-family: var(--font-display); color: var(--text-secondary); line-height: 1.2;"
-          >
-            {prevPost.data.title}
-          </span>
-        </a>
-      ) : (
-        <div class="flex-1"></div>
-      )}
+            <span
+              class="text-[10px] font-mono uppercase tracking-widest block mb-1"
+              style="color: var(--text-dim);"
+            >
+              ← Older Drop
+            </span>
+            <span
+              class="text-sm font-bold"
+              style="font-family: var(--font-display); color: var(--text-secondary); line-height: 1.2;"
+            >
+              {prevPost.data.title}
+            </span>
+          </a>
+        ) : (
+          <div class="flex-1" />
+        )
+      }
 
-      {nextPost ? (
-        <a
-          href={`/${nextPost.id}/`}
-          class="group nav-card flex-1 p-4 border text-right"
-          style="border-color: var(--border-subtle); background: var(--bg-raised);"
-        >
-          <span
-            class="text-[10px] font-mono uppercase tracking-widest block mb-1"
-            style="color: var(--text-dim);"
+      {
+        nextPost ? (
+          <a
+            href={`/${nextPost.id}/`}
+            class="group nav-card flex-1 p-4 border text-right"
+            style="border-color: var(--border-subtle); background: var(--bg-raised);"
           >
-            Newer Drop →
-          </span>
-          <span
-            class="text-sm font-bold"
-            style="font-family: var(--font-display); color: var(--text-secondary); line-height: 1.2;"
-          >
-            {nextPost.data.title}
-          </span>
-        </a>
-      ) : (
-        <div class="flex-1"></div>
-      )}
+            <span
+              class="text-[10px] font-mono uppercase tracking-widest block mb-1"
+              style="color: var(--text-dim);"
+            >
+              Newer Drop →
+            </span>
+            <span
+              class="text-sm font-bold"
+              style="font-family: var(--font-display); color: var(--text-secondary); line-height: 1.2;"
+            >
+              {nextPost.data.title}
+            </span>
+          </a>
+        ) : (
+          <div class="flex-1" />
+        )
+      }
     </div>
   </article>
 </BaseLayout>

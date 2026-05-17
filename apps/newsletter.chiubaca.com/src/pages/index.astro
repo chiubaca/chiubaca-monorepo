@@ -23,7 +23,7 @@ const rest = liveNewsletters.slice(1);
           class="text-xs font-mono uppercase tracking-[0.3em] mb-4 animate-fade-up"
           style="color: var(--accent-amber);"
         >
-          Alex Chiu • Senior Dev • Dad • Running On Fumes
+          games • tech • dad-life
         </p>
         <h1
           class="text-6xl sm:text-8xl mb-5 animate-fade-up delay-1 glitch-hover"
@@ -35,8 +35,7 @@ const rest = liveNewsletters.slice(1);
           class="text-base max-w-lg animate-fade-up delay-2"
           style="color: var(--text-muted);"
         >
-          Brain dumps from a guy who should be sleeping. Tech, games, dad life, zero filter.
-          <span style="color: var(--text-dim);"> (Yes I know the kerning is aggressive. It's intentional.)</span>
+          Brain dumps from a guy who should be sleeping.
         </p>
       </div>
     </div>
@@ -48,58 +47,68 @@ const rest = liveNewsletters.slice(1);
       class="flex items-center justify-between mb-10 pb-4 border-b animate-fade-up delay-3"
       style="border-color: var(--border-subtle);"
     >
-      <span class="text-xs font-mono uppercase tracking-widest" style="color: var(--text-dim);">
-        {liveNewsletters.length} DROPS SHIPPED
-      </span>
-      <span class="text-xs font-mono uppercase tracking-widest" style="color: var(--text-dim);">
-        NEWEST FIRST (OBVIOUSLY)
+      <span
+        class="text-xs font-mono uppercase tracking-widest"
+        style="color: var(--text-dim);"
+      >
+        {liveNewsletters.length} ISSUES AND COUNTING
       </span>
     </div>
 
     {/* Featured latest issue */}
-    {latest && (
-      <a
-        href={`/${latest.id}/`}
-        class="group block mb-10 p-6 sm:p-8 border transition-all duration-200 animate-fade-up delay-3"
-        style="
+    {
+      latest && (
+        <a
+          href={`/${latest.id}/`}
+          class="group block mb-10 p-6 sm:p-8 border transition-all duration-200 animate-fade-up delay-3"
+          style="
           border-color: var(--accent-amber);
           background: var(--bg-surface);
           box-shadow: 0 0 30px rgba(201, 42, 42, 0.06);
         "
-      >
-        <div class="flex items-center gap-3 mb-4">
-          <span
-            class="font-mono text-sm font-bold uppercase"
-            style="color: var(--accent-amber);"
-          >
-            Drop #{latest.data.issue}
-          </span>
-          <span class="badge-latest">FRESH</span>
-          <span class="text-xs font-mono ml-auto uppercase" style="color: var(--text-dim);">
-            {latest.data.pubDate.toLocaleDateString("en-GB", {
-              year: "numeric",
-              month: "short",
-              day: "numeric",
-            })}
-          </span>
-        </div>
-        <h2
-          class="text-3xl sm:text-4xl mb-3 group-hover:underline transition-all"
-          style="font-family: var(--font-display); color: var(--text-primary); line-height: 1.1;"
         >
-          {latest.data.title}
-        </h2>
-        {latest.data.description && (
-          <p class="text-sm sm:text-base" style="color: var(--text-muted);">
-            {latest.data.description}
-          </p>
-        )}
-        <div class="mt-5 flex items-center gap-2 text-xs font-mono uppercase tracking-wider" style="color: var(--accent-red);">
-          <span>Ingest This</span>
-          <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
-        </div>
-      </a>
-    )}
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="font-mono text-sm font-bold uppercase"
+              style="color: var(--accent-amber);"
+            >
+              Drop #{latest.data.issue}
+            </span>
+            <span class="badge-latest">FRESH</span>
+            <span
+              class="text-xs font-mono ml-auto uppercase"
+              style="color: var(--text-dim);"
+            >
+              {latest.data.pubDate.toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </span>
+          </div>
+          <h2
+            class="text-3xl sm:text-4xl mb-3 group-hover:underline transition-all"
+            style="font-family: var(--font-display); color: var(--text-primary); line-height: 1.1;"
+          >
+            {latest.data.title}
+          </h2>
+          {latest.data.description && (
+            <p class="text-sm sm:text-base" style="color: var(--text-muted);">
+              {latest.data.description}
+            </p>
+          )}
+          <div
+            class="mt-5 flex items-center gap-2 text-xs font-mono uppercase tracking-wider"
+            style="color: var(--accent-red);"
+          >
+            <span>Ingest This</span>
+            <span class="transition-transform duration-200 group-hover:translate-x-1">
+              →
+            </span>
+          </div>
+        </a>
+      )
+    }
 
     {/* Archive list */}
     <div class="space-y-0">
@@ -166,10 +175,14 @@ const rest = liveNewsletters.slice(1);
       }
     </div>
 
-    {liveNewsletters.length === 0 && (
-      <div class="text-center py-20 animate-fade-up">
-        <p style="color: var(--text-dim);">NOTHING HERE. GO TOUCH GRASS OR SOMETHING.</p>
-      </div>
-    )}
+    {
+      liveNewsletters.length === 0 && (
+        <div class="text-center py-20 animate-fade-up">
+          <p style="color: var(--text-dim);">
+            NOTHING HERE. GO TOUCH GRASS OR SOMETHING.
+          </p>
+        </div>
+      )
+    }
   </div>
 </BaseLayout>
