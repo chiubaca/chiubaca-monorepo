@@ -1,3 +1,6 @@
 {
-  "recommendations": ["risingstack.astro-alpinejs-syntax-highlight"]
+  "recommendations": [
+    "risingstack.astro-alpinejs-syntax-highlight",
+    "VoidZero.vite-plus-extension-pack"
+  ]
 }

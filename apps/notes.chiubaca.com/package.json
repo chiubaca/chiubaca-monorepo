@@ -6,11 +6,11 @@
 		"deploy": "wrangler deploy",
 		"dev": "wrangler dev",
 		"start": "wrangler dev",
-		"test": "vitest",
+		"test": "vp test",
 		"cf-typegen": "wrangler types"
 	},
-"devDependencies": {
-        "typescript": "catalog:",
-        "wrangler": "catalog:"
-    }
+	"devDependencies": {
+		"typescript": "catalog:",
+		"wrangler": "catalog:"
+	}
 }

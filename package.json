@@ -14,7 +14,8 @@
     "chiubaca.com:build": "pnpm -w run notes:download && pnpm -w run notes:migrate && pnpm --filter chiubaca.com build",
     "chiubaca.com:deploy": "pnpm  -w run --filter chiubaca.com deploy",
     "preview": "pnpm -r preview",
-    "test:node-env": "echo \"Current PATH: $PATH\" && echo \"Node location: $(which node)\" && echo \"Node version: $(node -v)\""
+    "test:node-env": "echo \"Current PATH: $PATH\" && echo \"Node location: $(which node)\" && echo \"Node version: $(node -v)\"",
+    "prepare": "vp config"
   },
   "keywords": [
     "astro"
@@ -23,6 +24,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.11.0",
   "devDependencies": {
-    "@biomejs/biome": "1.9.4"
+    "@biomejs/biome": "1.9.4",
+    "vite-plus": "catalog:"
   }
 }
