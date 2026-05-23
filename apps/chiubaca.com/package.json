@@ -7,7 +7,8 @@
     "build": "astro build",
     "deploy": "wrangler deploy",
     "preview": "astro preview",
-    "format": "vp fmt"
+    "format": "vp fmt",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.5.0",

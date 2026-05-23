@@ -1,10 +1,10 @@
-import { env } from "cloudflare:workers";
 import puppeteer from "@cloudflare/puppeteer";
 import type { APIRoute } from "astro";
+import { env } from "cloudflare:workers";
 
 export const prerender = false;
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request: _request }) => {
   try {
     // Check browser binding
     if (!env.BROWSER) {
@@ -16,7 +16,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // Launch browser
-    const browser = await puppeteer.launch(env.BROWSER);
+    const browser = await puppeteer.launch(env.BROWSER as any);
     const page = await browser.newPage();
 
     // Determine base URL based on environment
@@ -51,7 +51,7 @@ export const POST: APIRoute = async ({ request }) => {
     // await env.CV_KV.put('alex-chiu-cv', pdf, { expirationTtl: 3600 });
 
     // Return PDF
-    return new Response(pdf, {
+    return new Response(pdf as unknown as BodyInit, {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",

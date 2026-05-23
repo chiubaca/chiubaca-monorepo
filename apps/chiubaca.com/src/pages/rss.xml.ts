@@ -1,7 +1,8 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
+import type { APIContext } from "astro";
 
-export async function GET(context) {
+export async function GET(context: APIContext) {
   const blogs = await getCollection("permanent-notes");
   const liveBlogs = blogs
     .filter((blog) => blog.data.status === "live")
@@ -14,7 +15,7 @@ export async function GET(context) {
     description: "Ramblings by Alex Chiu",
     // Pull in your project "site" from the endpoint context
     // https://docs.astro.build/en/reference/api-reference/#site
-    site: context.site,
+    site: context.site ?? "https://chiubaca.com",
     // Array of `<item>`s in output xml
     // See "Generating items" section for examples using content collections and glob imports
     items: liveBlogs.map((blog) => ({

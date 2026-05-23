@@ -12,7 +12,7 @@
  */
 
 export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+  async fetch(request: Request, _env: Env, _ctx: ExecutionContext): Promise<Response> {
     const originalUrl = new URL(request.url);
     let targetUrlString: string;
     let shouldInjectBaseTag = false;
