@@ -142,14 +142,7 @@ export const cvData: CVData = {
   ],
   skills: {
     "Core Languages": ["TypeScript", "Python"],
-    Frontend: [
-      "React",
-      "Next.js",
-      "Astro.js",
-      "TanStack Start",
-      "Vue.js",
-      "Svelte",
-    ],
+    Frontend: ["React", "Next.js", "Astro.js", "TanStack Start", "Vue.js", "Svelte"],
     Backend: [
       "Node.js",
       "GraphQL",

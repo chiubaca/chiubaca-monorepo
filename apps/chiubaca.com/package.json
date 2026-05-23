@@ -7,7 +7,7 @@
     "build": "astro build",
     "deploy": "wrangler deploy",
     "preview": "astro preview",
-    "format": "biome format --write ./src"
+    "format": "vp fmt"
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.5.0",

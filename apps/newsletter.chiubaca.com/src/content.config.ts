@@ -1,9 +1,7 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
-export const date = z
-  .union([z.string(), z.date()])
-  .transform((d) => new Date(d));
+export const date = z.union([z.string(), z.date()]).transform((d) => new Date(d));
 
 const newsletter = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./newsletter" }),

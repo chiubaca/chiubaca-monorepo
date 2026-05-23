@@ -5,9 +5,7 @@ export async function GET(context) {
   const blogs = await getCollection("permanent-notes");
   const liveBlogs = blogs
     .filter((blog) => blog.data.status === "live")
-    .sort(
-      (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf()
-    );
+    .sort((a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf());
 
   return rss({
     // `<title>` field in output xml

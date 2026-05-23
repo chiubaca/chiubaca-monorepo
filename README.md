@@ -1,10 +1,10 @@
-#  chiubaca-monorepo 🐻
+# chiubaca-monorepo 🐻
 
-This monorepo for all my *.chiubaca.com sites.
+This monorepo for all my \*.chiubaca.com sites.
 
 ## Apps 🌐
 
-### apps/chiubaca.com 
+### apps/chiubaca.com
 
 - What it is: The public website for chiubaca.com built with Astro and deployed to Cloudflare.
 - Notable config:
@@ -18,7 +18,7 @@ This monorepo for all my *.chiubaca.com sites.
   - `build` — Builds static site with `astro build` into `dist/`.
   - `preview` — Serves the built site with `astro preview`.
   - `deploy` — Deploys the built site via `wrangler deploy`.
-  - `format` — Formats `./src` with Biome.
+  - `format` — Formats `./src` with Oxfmt.
 
 ### apps/notes.chiubaca.com
 
@@ -65,8 +65,8 @@ All scripts below live in the root `package.json` and are intended to be run fro
 - `chiubaca.com:build` — Runs `notes:download` + `notes:migrate`, then builds `apps/chiubaca.com`. 🏗️
 - `chiubaca.com:deploy` — Runs the `deploy` script in `apps/chiubaca.com`. 🚀
 - `preview` — Runs `pnpm -r preview` across workspace apps. 👀
-- `lint` — `biome lint --write .` to apply lint fixes. 🧹
-- `lint:fix` — `biome check --write .` (Biome’s check/fix mode across the repo). 🔧
+- `lint` — `vp check --fix` to format, lint, and type-check the repo. 🧹
+- `lint:fix` — `vp check --fix` (same — applies formatting + lint fixes). 🔧
 - `test:node-env` — Prints Node path and version for debugging. 🧪
 
 ## Notes content pipeline (how notes get into the site) 🔗

@@ -17,10 +17,7 @@ export default defineConfig({
 
   markdown: {
     remarkPlugins: [updateMdLinkUrls, updateImageUrls],
-    rehypePlugins: [
-      rehypeSlug,
-      () => rehypeAutolinkHeadings({ behavior: "append" }),
-    ],
+    rehypePlugins: [rehypeSlug, () => rehypeAutolinkHeadings({ behavior: "append" })],
     shikiConfig: {
       theme: "dracula",
     },

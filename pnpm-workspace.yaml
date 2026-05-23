@@ -5,27 +5,25 @@ catalog:
   wrangler: ^4.87.0
   astro: ^6.0.4
   tailwindcss: ^4.1.6
-  '@tailwindcss/vite': ^4.1.6
-  '@tailwindcss/typography': ^0.5.16
-  '@fontsource/bebas-neue': ^5.2.7
-  '@fontsource/jetbrains-mono': ^5.2.8
+  "@tailwindcss/vite": ^4.1.6
+  "@tailwindcss/typography": ^0.5.16
+  "@fontsource/bebas-neue": ^5.2.7
+  "@fontsource/jetbrains-mono": ^5.2.8
   vite: npm:@voidzero-dev/vite-plus-core@latest
   vitest: npm:@voidzero-dev/vite-plus-test@latest
   vite-plus: latest
-ignoredBuiltDependencies:
-  - '@biomejs/biome'
 onlyBuiltDependencies:
-  - '@tailwindcss/oxide'
+  - "@tailwindcss/oxide"
   - esbuild
   - sharp
   - workerd
 overrides:
-  vite: 'catalog:'
-  vitest: 'catalog:'
+  vite: "catalog:"
+  vitest: "catalog:"
 peerDependencyRules:
   allowAny:
     - vite
     - vitest
   allowedVersions:
-    vite: '*'
-    vitest: '*'
+    vite: "*"
+    vitest: "*"

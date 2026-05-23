@@ -16,9 +16,7 @@ export const updateImageUrls = () => {
           const originalUrl = child.url;
           const newUrl = `/attachments/${originalUrl.split("/").at(-1)}`;
           child.url = newUrl;
-          console.log(
-            `MD mutation: Updated image url from ${originalUrl} to ${newUrl}`,
-          );
+          console.log(`MD mutation: Updated image url from ${originalUrl} to ${newUrl}`);
         }
         updateImageUrls()(child);
       }

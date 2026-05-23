@@ -1,10 +1,8 @@
-import { defineCollection, } from "astro:content";
+import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
-import { z } from 'astro/zod'
+import { z } from "astro/zod";
 
-export const date = z
-  .union([z.string(), z.date()])
-  .transform((d) => new Date(d));
+export const date = z.union([z.string(), z.date()]).transform((d) => new Date(d));
 
 export const tags = z
   .array(z.string())

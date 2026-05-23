@@ -12,11 +12,7 @@
  */
 
 export default {
-  async fetch(
-    request: Request,
-    env: Env,
-    ctx: ExecutionContext
-  ): Promise<Response> {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const originalUrl = new URL(request.url);
     let targetUrlString: string;
     let shouldInjectBaseTag = false;
@@ -47,21 +43,15 @@ export default {
     const modifiedRequest = new Request(targetUrlString, request);
     const response = await fetch(modifiedRequest);
 
-    if (
-      shouldInjectBaseTag &&
-      response.headers.get("Content-Type")?.includes("text/html")
-    ) {
+    if (shouldInjectBaseTag && response.headers.get("Content-Type")?.includes("text/html")) {
       console.log(
-        `[Worker] Injecting <base href="https://chiubaca.com/fleeting-notes/"> for ${originalUrl.pathname}`
+        `[Worker] Injecting <base href="https://chiubaca.com/fleeting-notes/"> for ${originalUrl.pathname}`,
       );
       // Use HTMLRewriter to safely add the <base> tag to the <head>
       return new HTMLRewriter()
         .on("head", {
           element(element) {
-            element.prepend(
-              '<base href="https://chiubaca.com/fleeting-notes/">',
-              { html: true }
-            );
+            element.prepend('<base href="https://chiubaca.com/fleeting-notes/">', { html: true });
           },
         })
         .transform(response);

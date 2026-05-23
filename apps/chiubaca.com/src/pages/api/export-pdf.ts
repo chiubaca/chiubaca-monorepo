@@ -9,13 +9,10 @@ export const POST: APIRoute = async ({ request }) => {
     // Check browser binding
     if (!env.BROWSER) {
       console.error("Browser rendering binding not found");
-      return new Response(
-        JSON.stringify({ error: "PDF generation service not configured" }),
-        {
-          status: 500,
-          headers: { "Content-Type": "application/json" },
-        },
-      );
+      return new Response(JSON.stringify({ error: "PDF generation service not configured" }), {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
     // Launch browser
@@ -23,9 +20,7 @@ export const POST: APIRoute = async ({ request }) => {
     const page = await browser.newPage();
 
     // Determine base URL based on environment
-    const baseUrl = import.meta.env.PROD
-      ? "https://chiubaca.com"
-      : "http://localhost:4321";
+    const baseUrl = import.meta.env.PROD ? "https://chiubaca.com" : "http://localhost:4321";
 
     // Navigate to PDF page
     await page.goto(`${baseUrl}/cv/pdf`, {

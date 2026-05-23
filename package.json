@@ -2,6 +2,11 @@
   "name": "chiubaca-monorepo",
   "version": "1.0.0",
   "description": "All things *.chiubaca related",
+  "keywords": [
+    "astro"
+  ],
+  "license": "ISC",
+  "author": "Alex Chiu",
   "scripts": {
     "dev": "pnpm -r dev",
     "dev:chiubaca": "pnpm -w run notes:download && pnpm -w run notes:migrate && pnpm --filter chiubaca.com dev",
@@ -9,22 +14,16 @@
     "notes:download": "rm -rf tmp-notes && git clone https://github.com/chiubaca/notes tmp-notes",
     "notes:sync": "cd tmp-notes && git pull",
     "notes:migrate": "bash libs/scripts/migrate-notes.sh",
-    "lint": "biome lint --write .",
-    "lint:fix": "biome check --write .",
+    "lint": "vp check --fix",
+    "lint:fix": "vp check --fix",
     "chiubaca.com:build": "pnpm -w run notes:download && pnpm -w run notes:migrate && pnpm --filter chiubaca.com build",
     "chiubaca.com:deploy": "pnpm  -w run --filter chiubaca.com deploy",
     "preview": "pnpm -r preview",
     "test:node-env": "echo \"Current PATH: $PATH\" && echo \"Node location: $(which node)\" && echo \"Node version: $(node -v)\"",
     "prepare": "vp config"
   },
-  "keywords": [
-    "astro"
-  ],
-  "author": "Alex Chiu",
-  "license": "ISC",
-  "packageManager": "pnpm@10.11.0",
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
     "vite-plus": "catalog:"
-  }
+  },
+  "packageManager": "pnpm@10.11.0"
 }

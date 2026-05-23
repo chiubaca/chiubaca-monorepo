@@ -15,9 +15,7 @@ export const updateMdLinkUrls = () => {
           const originalUrl = child.url;
           const newUrl = "/" + originalUrl.replace(".md", "");
           child.url = newUrl;
-          console.log(
-            `MD mutation: Updated link url from ${originalUrl} to ${newUrl}`,
-          );
+          console.log(`MD mutation: Updated link url from ${originalUrl} to ${newUrl}`);
         }
         updateMdLinkUrls()(child);
       }

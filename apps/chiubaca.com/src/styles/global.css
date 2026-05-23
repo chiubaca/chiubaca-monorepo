@@ -95,7 +95,12 @@ body {
 }
 
 /* ─── Headings ─── */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -272,12 +277,24 @@ article.prose :is(h1, h2, h3, h4, h5, h6) a:hover::after {
 
 /* ─── Glitch hover ─── */
 @keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-1px, 1px); }
-  40% { transform: translate(1px, -1px); }
-  60% { transform: translate(-1px, -1px); }
-  80% { transform: translate(1px, 1px); }
-  100% { transform: translate(0); }
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-1px, 1px);
+  }
+  40% {
+    transform: translate(1px, -1px);
+  }
+  60% {
+    transform: translate(-1px, -1px);
+  }
+  80% {
+    transform: translate(1px, 1px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
 
 .glitch-hover:hover {
@@ -299,7 +316,9 @@ article.prose :is(h1, h2, h3, h4, h5, h6) a:hover::after {
 .tag-link {
   border: 1px solid rgba(201, 132, 26, 0.25);
   color: var(--text-muted);
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .tag-link:hover {
