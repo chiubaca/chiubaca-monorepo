@@ -3,7 +3,7 @@ packages:
 catalog:
   typescript: ^5.8.3
   wrangler: ^4.87.0
-  astro: ^6.0.4
+  astro: ^6.3.0
   tailwindcss: ^4.1.6
   "@tailwindcss/vite": ^4.1.6
   "@tailwindcss/typography": ^0.5.16
