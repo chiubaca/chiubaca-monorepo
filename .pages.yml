@@ -21,12 +21,12 @@ content:
         type: date
         required: true
         options:
-          format: YYYY-MM-DD
+          format: yyyy-MM-dd
       - name: updatedDate
         label: Updated Date
         type: date
         options:
-          format: YYYY-MM-DD
+          format: yyyy-MM-dd
       - name: issue
         label: Issue Number
         type: number
