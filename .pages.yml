@@ -1,0 +1,78 @@
+media:
+  input: apps/newsletter.chiubaca.com/newsletter/images
+  output: /newsletter/images
+
+content:
+  - name: newsletter
+    label: Newsletter
+    type: collection
+    path: apps/newsletter.chiubaca.com/newsletter
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+      - name: pubDate
+        label: Publish Date
+        type: date
+        required: true
+        options:
+          format: YYYY-MM-DD
+      - name: updatedDate
+        label: Updated Date
+        type: date
+        options:
+          format: YYYY-MM-DD
+      - name: issue
+        label: Issue Number
+        type: number
+        required: true
+        options:
+          min: 1
+      - name: status
+        label: Status
+        type: select
+        options:
+          values:
+            - name: draft
+              label: Draft
+            - name: live
+              label: Live
+          default: draft
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+        options:
+          default:
+            - newsletter
+      - name: body
+        label: Body
+        type: rich-text
+        options:
+          toolbar:
+            - heading
+            - bold
+            - italic
+            - link
+            - bullet
+            - ordered
+            - quote
+            - code
+            - image
+    view:
+      primary: title
+      sort: issue
+      order: desc
+      fields:
+        - issue
+        - title
+        - status
+        - pubDate
+    operations:
+      create: true
+      delete: true
