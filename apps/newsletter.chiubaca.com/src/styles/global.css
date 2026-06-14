@@ -303,15 +303,9 @@ a:hover {
 
 /* ─── Visible gradient divider ─── */
 .divider-gradient {
-  height: 2px;
+  height: 0.5px;
   width: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--accent-amber),
-    var(--accent-red),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, var(--accent-amber), transparent);
 }
 
 /* ─── Ornament divider ─── */

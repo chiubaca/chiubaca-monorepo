@@ -26,10 +26,9 @@ const nextPost = sorted[currentIndex - 1];
 <BaseLayout
   title={`${post.data.title} — Tangent`}
   description={post.data.description ||
-    `Drop #${post.data.issue}. Probably written while Calvin was napping (or not).`}
+    `Issue #${post.data.issue}. Read it, or dont. I'm not your dad.`}
 >
   <article class="max-w-3xl mx-auto px-6 pt-12 pb-20">
-    {/* Breadcrumb / nav */}
     <div class="mb-10 animate-fade-up">
       <a
         href="/"
@@ -46,7 +45,7 @@ const nextPost = sorted[currentIndex - 1];
         class="text-sm font-mono font-bold uppercase"
         style="color: var(--accent-amber);"
       >
-        Drop #{post.data.issue}
+        Issue #{post.data.issue}
       </span>
       <span style="color: var(--border-subtle);">|</span>
       <span
@@ -96,7 +95,7 @@ const nextPost = sorted[currentIndex - 1];
               class="text-[10px] font-mono uppercase tracking-widest block mb-1"
               style="color: var(--text-dim);"
             >
-              ← Older Drop
+              ← Older Issue
             </span>
             <span
               class="text-sm font-bold"
@@ -121,7 +120,7 @@ const nextPost = sorted[currentIndex - 1];
               class="text-[10px] font-mono uppercase tracking-widest block mb-1"
               style="color: var(--text-dim);"
             >
-              Newer Drop →
+              Newer Issue →
             </span>
             <span
               class="text-sm font-bold"
