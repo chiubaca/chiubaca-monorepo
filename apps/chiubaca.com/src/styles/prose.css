@@ -1,0 +1,120 @@
+/* ─── Prose ─── */
+.prose {
+  --tw-prose-body: var(--text-primary);
+  --tw-prose-headings: var(--text-primary);
+  --tw-prose-links: var(--accent-blue);
+  --tw-prose-bold: var(--text-primary);
+  --tw-prose-code: var(--text-primary);
+  --tw-prose-pre-bg: var(--bg-surface);
+  --tw-prose-pre-code: var(--text-primary);
+  font-family: var(--font-mono);
+  max-width: 42rem;
+  overflow-wrap: break-word;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.prose h2 {
+  color: var(--accent-blue);
+  border-bottom: 2px solid var(--accent-blue-dim);
+  padding-bottom: 0.5rem;
+}
+
+.prose h3 {
+  color: var(--accent-amber-bright);
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--bg-raised);
+  padding: 0.2em 0.4em;
+  border-radius: 0;
+  font-weight: 400;
+  color: var(--accent-blue);
+}
+
+.prose pre {
+  background: var(--bg-surface) !important;
+  border: 2px solid var(--border-subtle);
+  border-radius: 0;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.prose a {
+  color: var(--accent-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.prose a:hover {
+  color: var(--accent-amber);
+}
+
+.prose hr {
+  border-color: var(--accent-blue-dim);
+  margin: 2.5rem 0;
+}
+
+.prose blockquote {
+  border-left-color: var(--accent-amber);
+  background: rgba(201, 132, 26, 0.05);
+  color: var(--text-secondary);
+  font-style: normal;
+}
+
+.prose ul > li::marker,
+.prose ol > li::marker {
+  color: var(--accent-amber-dim);
+}
+
+.prose strong {
+  color: var(--text-primary);
+}
+
+.prose th {
+  color: var(--text-primary);
+}
+
+.prose td {
+  color: var(--text-primary);
+}
+
+/* ─── Prose Heading Anchor Links ─── */
+article.prose :is(h1, h2, h3, h4, h5, h6) a {
+  text-decoration: none;
+}
+
+article.prose :is(h1, h2, h3, h4, h5, h6) a::after {
+  opacity: 50%;
+  content: "#";
+  padding-left: 0.5ch;
+  transition: opacity 0.2s ease-in-out;
+}
+
+article.prose :is(h1, h2, h3, h4, h5, h6) a:hover::after {
+  opacity: 100%;
+}
