@@ -24,6 +24,7 @@
     "prepare": "vp config"
   },
   "devDependencies": {
+    "@voidzero-dev/vite-plus-linux-x64-gnu": "0.2.1",
     "github-slugger": "catalog:",
     "satteri": "catalog:",
     "vite-plus": "catalog:"
