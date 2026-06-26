@@ -1,23 +1,23 @@
 import cloudflare from "@astrojs/cloudflare";
 import alpinejs from "@astrojs/alpinejs";
 import tailwindcss from "@tailwindcss/vite";
+import { satteri } from "@astrojs/markdown-satteri";
 import { defineConfig } from "astro/config";
 
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeSlug from "rehype-slug";
-
-import { updateImageUrls, updateMdLinkUrls } from "../../libs/remark-plugins";
+import { updateImageUrls, updateMdLinkUrls, autolinkHeadings } from "../../libs/remark-plugins";
 
 export default defineConfig({
   integrations: [alpinejs()],
 
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [...tailwindcss()] as any,
   },
 
   markdown: {
-    remarkPlugins: [updateMdLinkUrls, updateImageUrls],
-    rehypePlugins: [rehypeSlug, () => rehypeAutolinkHeadings({ behavior: "append" })],
+    processor: satteri({
+      mdastPlugins: [updateMdLinkUrls, updateImageUrls],
+      hastPlugins: [autolinkHeadings()],
+    }),
     shikiConfig: {
       theme: "dracula",
     },

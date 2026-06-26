@@ -24,6 +24,8 @@
     "prepare": "vp config"
   },
   "devDependencies": {
+    "github-slugger": "catalog:",
+    "satteri": "catalog:",
     "vite-plus": "catalog:"
   },
   "packageManager": "pnpm@11.9.0"
