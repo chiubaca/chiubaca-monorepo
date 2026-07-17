@@ -1,0 +1,82 @@
+[
+  {
+    "name": "vue-netlify-fauna-starter-kit",
+    "description": "A serverless stack for building CRUD applications with authentication baked in.",
+    "url": "https://github.com/chiubaca/vue-netlify-fauna-starter-kit",
+    "stars": 42,
+    "language": "Vue",
+    "tags": ["portfolio"]
+  },
+  {
+    "name": "musical-osm",
+    "description": "🎶 The sound of OSM edits — sonifying OpenStreetMap changes in real time.",
+    "url": "https://github.com/chiubaca/musical-osm",
+    "stars": 18,
+    "language": "TypeScript",
+    "tags": ["portfolio"]
+  },
+  {
+    "name": "typescript-netlify-functions-starter",
+    "description": "Demo of how to use TypeScript with Netlify Functions.",
+    "url": "https://github.com/chiubaca/typescript-netlify-functions-starter",
+    "stars": 8,
+    "language": "TypeScript",
+    "tags": ["starter-kit"]
+  },
+  {
+    "name": "supabase-vue3-ts-slack-clone",
+    "description": "Slack clone created with Supabase, Vue.js and TypeScript.",
+    "url": "https://github.com/chiubaca/supabase-vue3-ts-slack-clone",
+    "stars": 5,
+    "language": "Vue",
+    "tags": ["portfolio"]
+  },
+  {
+    "name": "shiba-every-hour",
+    "description": "Shibas every hour, everywhere all at once 🐕 — a Twitter bot.",
+    "url": "https://github.com/chiubaca/shiba-every-hour",
+    "stars": 4,
+    "language": "JavaScript",
+    "tags": ["portfolio"]
+  },
+  {
+    "name": "roshi",
+    "description": "Voice-enabled personal assistant built with Cloudflare Agents SDK, Astro Fluence, and TanStack Start.",
+    "url": "https://github.com/chiubaca/roshi",
+    "stars": 0,
+    "language": "TypeScript",
+    "tags": ["portfolio"]
+  },
+  {
+    "name": "chiubaca-monorepo",
+    "description": "Mono repo for all *.chiubaca.com projects — this website.",
+    "url": "https://github.com/chiubaca/chiubaca-monorepo",
+    "stars": 0,
+    "language": "Astro",
+    "tags": ["portfolio"]
+  },
+  {
+    "name": "chonk-poker",
+    "description": "Planning poker for adorable teams 😻 — real-time team estimation.",
+    "url": "https://github.com/chiubaca/chonk-poker",
+    "stars": 0,
+    "language": "TypeScript",
+    "tags": ["portfolio"]
+  },
+  {
+    "name": "chonk-retro",
+    "description": "Real-time team retrospectives for adorable teams 😻 — sibling of chonk-poker.",
+    "url": "https://github.com/chiubaca/chonk-retro",
+    "stars": 0,
+    "language": "TypeScript",
+    "tags": ["portfolio"]
+  },
+  {
+    "name": "chiubaca-aura",
+    "description": "An amber and midnight blue VS Code theme.",
+    "url": "https://github.com/chiubaca/chiubaca-aura",
+    "stars": 0,
+    "language": "TypeScript",
+    "tags": ["portfolio"]
+  }
+]

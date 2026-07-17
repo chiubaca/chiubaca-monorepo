@@ -1,0 +1,61 @@
+---
+import projectData from "../data/projects.json";
+
+const portfolioProjects = projectData.filter((p) => p.tags?.includes("portfolio"));
+---
+
+<section class="space-y-6">
+  <h1
+    class="text-3xl sm:text-4xl tracking-tight"
+    style="font-family: var(--font-display); line-height: 1;"
+  >
+    <span class="comment-prefix">//</span> Coding Projects
+  </h1>
+  <p class="pb-8 opacity-60" style="color: var(--text-muted);">
+    things I've built, broken, and shipped.
+  </p>
+
+  <div>
+    {
+      portfolioProjects.map((project) => (
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group project-row block mb-6 py-3 px-3 -mx-3"
+        >
+          <div class="flex items-center justify-between mb-1">
+            <p class="text-xs font-mono opacity-50 uppercase tracking-wider">
+              {project.language}
+              {project.stars > 0 && <> · ⭐ {project.stars}</>}
+            </p>
+          </div>
+          <h3
+            class="font-bold uppercase tracking-tight transition-all group-hover:translate-x-1"
+            style="font-family: var(--font-display); font-size: 1.35rem; line-height: 1.15; color: var(--text-primary);"
+          >
+            {project.name}
+          </h3>
+          <p class="mt-1 text-sm opacity-60" style="color: var(--text-muted);">
+            {project.description}
+          </p>
+        </a>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .project-row {
+    border-left: 2px solid transparent;
+    transition:
+      background-color 0.15s ease,
+      border-color 0.15s ease,
+      padding-left 0.15s ease;
+  }
+  .project-row:hover {
+    background-color: rgba(121, 192, 255, 0.03);
+    border-left-color: var(--accent-blue);
+    padding-left: 1rem;
+  }
+</style>
