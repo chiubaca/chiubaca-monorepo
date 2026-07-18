@@ -1,0 +1,350 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { photos } from "../data/photos.ts";
+
+// Group photos by month/year
+const groups: Record<string, typeof photos> = {};
+for (const photo of photos) {
+  const d = photo.date ? new Date(photo.date) : null;
+  const key = d
+    ? d.toLocaleDateString("en-GB", { year: "numeric", month: "long" })
+    : "Unknown date";
+  if (!groups[key]) groups[key] = [];
+  groups[key].push(photo);
+}
+
+const sortedKeys = Object.keys(groups).sort((a, b) => {
+  if (a === "Unknown date") return 1;
+  if (b === "Unknown date") return -1;
+  return new Date(b + " 1").getTime() - new Date(a + " 1").getTime();
+});
+
+const rotations = [-2.5, 1.2, -1.8, 2.1, -0.7, 1.5, -2.2, 0.9];
+---
+
+<BaseLayout
+  title="memories | chiubaca.com"
+  description="A scrapbook of moments."
+  breadcrumbs={[
+    { href: "/", label: "home" },
+    { href: "/memories", label: "memories" },
+  ]}
+>
+  <main class="memories-page">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+      <header class="mb-16 text-center">
+        <h1
+          class="text-4xl sm:text-5xl tracking-tight mb-4"
+          style="font-family: var(--font-display); line-height: 1;"
+        >
+          <span class="comment-prefix">//</span> Memories
+        </h1>
+        <p class="font-mono text-sm opacity-60" style="color: var(--text-muted);">
+          {photos.length} moment{photos.length !== 1 ? "s" : ""} captured
+        </p>
+      </header>
+
+      <div class="timeline" x-data="{ open: null }">
+        {
+          sortedKeys.map((key) => (
+            <section class="timeline-group mb-16">
+              <div class="timeline-header flex items-center gap-4 mb-8">
+                <div class="timeline-dot" />
+                <h2
+                  class="text-2xl sm:text-3xl tracking-tight"
+                  style="font-family: var(--font-display);"
+                >
+                  {key}
+                </h2>
+                <div class="timeline-line flex-1" />
+              </div>
+
+              <div class="polaroid-grid">
+                {groups[key].map((photo, i) => {
+                  const rot = rotations[i % rotations.length];
+                  const src = `/photos/${photo.filename}`;
+                  return (
+                    <button
+                      class="polaroid"
+                      style={`transform: rotate(${rot}deg);`}
+                      @click={`open = '${photo.filename}'`}
+                      aria-label={`View photo: ${photo.caption}`}
+                    >
+                      <div class="polaroid-inner">
+                        {photo.width && photo.height ? (
+                          <Image
+                            src={src}
+                            alt={photo.caption}
+                            width={photo.width}
+                            height={photo.height}
+                            class="polaroid-img"
+                          />
+                        ) : (
+                          <img
+                            src={src}
+                            alt={photo.caption}
+                            class="polaroid-img"
+                            loading="lazy"
+                          />
+                        )}
+                        <div class="polaroid-caption">
+                          <p
+                            class="font-mono text-xs"
+                            style="color: var(--text-muted);"
+                          >
+                            {photo.date
+                              ? new Date(photo.date).toLocaleDateString(
+                                  "en-GB",
+                                  {
+                                    day: "numeric",
+                                    month: "short",
+                                    year: "numeric",
+                                  },
+                                )
+                              : "no date"}
+                          </p>
+                          <p class="caption-text mt-1">{photo.caption}</p>
+                        </div>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
+          ))
+        }
+
+        {/* Lightbox */}
+        <template x-teleport="body">
+          <div
+            class="lightbox"
+            x-show="open !== null"
+            x-transition:enter="lightbox-enter"
+            x-transition:enter-start="lightbox-enter-start"
+            x-transition:enter-end="lightbox-enter-end"
+            x-transition:leave="lightbox-leave"
+            x-transition:leave-start="lightbox-leave-start"
+            x-transition:leave-end="lightbox-leave-end"
+            @keydown.escape.window="open = null"
+            tabindex="-1"
+          >
+            <div class="lightbox-backdrop" @click="open = null" />
+            <div class="lightbox-content">
+              <button
+                class="lightbox-close"
+                @click="open = null"
+                aria-label="Close"
+              >
+                &times;
+              </button>
+              {photos.map((photo) => (
+                <div
+                  x-show={`open === '${photo.filename}'`}
+                  class="lightbox-photo"
+                >
+                  <img
+                    src={`/photos/${photo.filename}`}
+                    alt={photo.caption}
+                    class="lightbox-img"
+                  />
+                  <p class="lightbox-caption">{photo.caption}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .memories-page {
+    --paper: #f5f0e8;
+    --paper-dark: #e8e0d4;
+    --ink: #2d2a26;
+    --ink-light: #5c564e;
+  }
+
+  .timeline {
+    position: relative;
+  }
+
+  .timeline-header {
+    position: relative;
+  }
+
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    border: 2px solid var(--bg-primary);
+    flex-shrink: 0;
+  }
+
+  .timeline-line {
+    height: 1px;
+    background: linear-gradient(to right, var(--text-dim), transparent);
+    opacity: 0.3;
+  }
+
+  .polaroid-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
+    padding-left: 1.5rem;
+  }
+
+  .polaroid {
+    background: var(--paper);
+    border: 1px solid var(--paper-dark);
+    padding: 0.75rem 0.75rem 2.5rem 0.75rem;
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.12),
+      0 4px 12px rgba(0, 0, 0, 0.08),
+      inset 0 0 40px rgba(0, 0, 0, 0.02);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+    cursor: zoom-in;
+    text-align: left;
+    position: relative;
+  }
+
+  .polaroid::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 40px;
+    height: 14px;
+    background: rgba(232, 224, 212, 0.6);
+    border: 1px solid rgba(200, 190, 175, 0.4);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  }
+
+  .polaroid:hover {
+    transform: rotate(0deg) scale(1.02) !important;
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.15),
+      0 12px 32px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+  }
+
+  .polaroid-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .polaroid-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    filter: sepia(8%) contrast(105%);
+  }
+
+  .polaroid-caption {
+    padding: 0.25rem 0.25rem 0;
+  }
+
+  .caption-text {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    color: var(--ink);
+    line-height: 1.3;
+    font-style: italic;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(4px);
+  }
+
+  .lightbox-content {
+    position: relative;
+    z-index: 1;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.15s ease;
+  }
+
+  .lightbox-close:hover {
+    color: var(--text-primary);
+  }
+
+  .lightbox-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .lightbox-img {
+    max-width: 85vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .lightbox-caption {
+    color: var(--text-muted);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  /* Alpine transitions */
+  .lightbox-enter {
+    transition: opacity 0.2s ease;
+  }
+  .lightbox-enter-start {
+    opacity: 0;
+  }
+  .lightbox-enter-end {
+    opacity: 1;
+  }
+  .lightbox-leave {
+    transition: opacity 0.2s ease;
+  }
+  .lightbox-leave-start {
+    opacity: 1;
+  }
+  .lightbox-leave-end {
+    opacity: 0;
+  }
+</style>

@@ -21,3 +21,12 @@ cp -r tmp-notes/fleeting-notes/ apps/chiubaca.com/content/fleeting-notes/
 echo "✅ fleeting notes moved"  
 cp -r tmp-notes/attachments/* apps/chiubaca.com/public/attachments
 echo "✅ attachments moved to /public/attachments"
+
+if [ -d "tmp-notes/photos" ]; then
+    mkdir -p apps/chiubaca.com/public/photos
+    cp -r tmp-notes/photos/* apps/chiubaca.com/public/photos/
+    echo "✅ photos moved to /public/photos"
+fi
+
+node libs/scripts/generate-photo-manifest.mjs
+echo "✅ photo manifest generated"

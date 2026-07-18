@@ -17,8 +17,10 @@ astro.config.mjs.timestamp-*
 tmp-notes/
 apps/chiubaca.com/content/permanent-notes/*
 apps/chiubaca.com/public/attachments/*
+apps/chiubaca.com/public/photos/*
 apps/chiubaca.com/content/fleeting-notes/*
 apps/chiubaca.com/.wrangler/*
+apps/chiubaca.com/src/data/photos.ts
 .DS_Store
 
 !.gitkeep

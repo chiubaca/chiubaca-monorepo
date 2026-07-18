@@ -14,3 +14,34 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 - [ ] If setup, runtime, or package-manager behavior looks wrong, run `vp env doctor` and include its output when asking for help.
 
 <!--VITE PLUS END-->
+
+# Project Structure
+
+This is a pnpm workspace monorepo for all `*.chiubaca.com` sites.
+
+## Workspace layout
+
+- `apps/*` — deployable apps/packages
+- `libs/*` — shared source and one-off scripts (not published packages)
+- `tmp-notes/` — transient clone of the external notes repo
+
+## Apps
+
+| App                            | Stack              | Purpose                                                           |
+| ------------------------------ | ------------------ | ----------------------------------------------------------------- |
+| `apps/chiubaca.com`            | Astro + Cloudflare | Public website; consumes `fleeting-notes/` and `permanent-notes/` |
+| `apps/notes.chiubaca.com`      | Cloudflare Worker  | Proxies `notes.chiubaca.com` to `chiubaca.com/fleeting-notes/`    |
+| `apps/newsletter.chiubaca.com` | Astro + Cloudflare | Newsletter site                                                   |
+| `apps/im.chiubaca.com`         | Vite               | Minimal `index.html` app                                          |
+
+## Shared libraries
+
+- `libs/remark-plugins/` — remark plugins used by `chiubaca.com` to rewrite Obsidian-style links and local image URLs
+- `libs/scripts/` — helper scripts, including `migrate-notes.sh` for copying notes/attachments into `apps/chiubaca.com`
+
+## Notes pipeline
+
+1. `pnpm run notes:download` — clone notes into `tmp-notes/`
+2. `pnpm run notes:migrate` — copy notes + attachments into `apps/chiubaca.com`
+3. `pnpm run chiubaca.com:build` — build the site
+4. `pnpm run chiubaca.com:deploy` — deploy to Cloudflare
