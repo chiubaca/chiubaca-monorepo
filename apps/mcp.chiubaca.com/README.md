@@ -43,17 +43,11 @@ wrangler secret put NOTES_GITHUB_TOKEN
 
 The tool remains visible without this secret but returns a configuration error before any GitHub request. It never accepts arbitrary paths or repositories, rejects notes over 128 KiB, and retries at most three times after explicit version conflicts. Ambiguous write failures are **not retried**: check the returned GitHub URL before resubmitting, because appending is not idempotent.
 
-## OpenCode sign-in from a phone over Tailscale
+## Connect independent MCP clients
 
-The default OpenCode OAuth callback uses loopback on the machine running OpenCode. A phone cannot reach that listener through its own `127.0.0.1` address.
+Use `https://mcp.chiubaca.com/mcp` with a client that supports remote Streamable HTTP and OAuth. Each client manages its own callback URL and authenticates with GitHub. Access remains restricted to the GitHub account with user ID `18376481`.
 
-On the OpenCode host, forward a tailnet-only HTTPS endpoint to a fixed loopback callback port:
-
-```sh
-tailscale serve --bg --https=8443 http://127.0.0.1:19876
-```
-
-In the host's global `~/.config/opencode/opencode.jsonc`, configure the MCP server with the hostname reported by Tailscale Serve:
+For OpenCode, the server configuration needs only the endpoint:
 
 ```jsonc
 {
@@ -62,23 +56,15 @@ In the host's global `~/.config/opencode/opencode.jsonc`, configure the MCP serv
       "chiubaca": {
         "type": "remote",
         "url": "https://mcp.chiubaca.com/mcp",
-        "oauth": {
-          "callback_port": 19876,
-          "redirect_uri": "https://your-machine.your-tailnet.ts.net:8443/callback",
-        },
       },
     },
   },
 }
 ```
 
-Keep Tailscale connected on the phone and host. Reload OpenCode's configuration and start a fresh sign-in from `/mcps`. A custom redirect URI uses dynamic client registration rather than OpenCode's loopback-only client metadata document. OAuth state and PKCE checks remain enabled. The GitHub OAuth App callback stays `https://mcp.chiubaca.com/callback`; no Worker changes or public Funnel are needed.
+The server supports client metadata documents (CIMD) and dynamic client registration. Client callback origins are allowed only after OAuth validates the registered redirect URI; state and PKCE checks remain enabled. The GitHub OAuth App callback stays `https://mcp.chiubaca.com/callback` regardless of which device or MCP client signs in.
 
-Serve persists across Tailscale restarts. To undo this setup, remove these two OAuth settings and disable only this relay:
-
-```sh
-tailscale serve --https=8443 off
-```
+Run each MCP client on its own device, or use a client with a browser-reachable hosted callback. A browser on one device cannot reach the loopback callback of an OpenCode instance hosted on another device; that setup needs a reachable callback configured separately.
 
 ## Commands
 

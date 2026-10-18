@@ -59,7 +59,7 @@ describe("MCP OAuth discovery", () => {
 
 describe("consent", () => {
   it.each([
-    "https://opencode.example.ts.net:8443/callback",
+    "https://client.example:8443/callback",
     "http://127.0.0.1:19876/callback",
     "https://client.example/callback?next=https://untrusted.example",
   ])(
