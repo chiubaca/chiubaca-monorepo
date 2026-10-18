@@ -1,0 +1,38 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "chiubaca-mcp",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-10",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "workers_dev": false,
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "head_sampling_rate": 1,
+    },
+    "traces": {
+      "enabled": true,
+      "head_sampling_rate": 0.01,
+    },
+  },
+  "routes": [
+    {
+      "pattern": "mcp.chiubaca.com",
+      "custom_domain": true,
+    },
+  ],
+  "vars": {
+    "MCP_RESOURCE_URL": "https://mcp.chiubaca.com/mcp",
+    "ALLOWED_GITHUB_ID": "18376481",
+  },
+  "kv_namespaces": [
+    {
+      "binding": "OAUTH_KV",
+    },
+  ],
+  "dev": {
+    "ip": "localhost",
+    "port": 8788,
+    "local_protocol": "http",
+  },
+}

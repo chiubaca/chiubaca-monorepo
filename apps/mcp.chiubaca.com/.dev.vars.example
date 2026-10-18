@@ -1,0 +1,4 @@
+GITHUB_CLIENT_ID=your-github-oauth-app-client-id
+GITHUB_CLIENT_SECRET=your-github-oauth-app-client-secret
+# Optional: a fine-grained PAT for chiubaca/notes, Contents: read and write.
+# NOTES_GITHUB_TOKEN=your-repository-scoped-token

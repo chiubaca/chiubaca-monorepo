@@ -2,6 +2,7 @@ packages:
   - apps/*
 allowBuilds:
   "@tailwindcss/oxide": true
+  core-js-pure: false
   esbuild: true
   exifreader: set this to true or false
   sharp: true
@@ -19,17 +20,27 @@ catalog:
   satteri: ^0.9.2
   github-slugger: ^2.0.0
   zod: ^4.4.3
-  vite: npm:@voidzero-dev/vite-plus-core@latest
-  vitest: npm:@voidzero-dev/vite-plus-test@latest
-  vite-plus: latest
+  vite: npm:@voidzero-dev/vite-plus-core@0.3.1
+  vitest: 4.1.11
+  vite-plus: 0.3.1
+minimumReleaseAgeExclude:
+  - "@cloudflare/vitest-plugin@1.1.7"
+  - "@cloudflare/workerd-darwin-64@1.20260910.1"
+  - "@cloudflare/workerd-darwin-arm64@1.20260910.1"
+  - "@cloudflare/workerd-linux-64@1.20260910.1"
+  - "@cloudflare/workerd-linux-arm64@1.20260910.1"
+  - "@cloudflare/workerd-windows-64@1.20260910.1"
+  - miniflare@5.20260910.0-alpha
+  - workerd@1.20260910.1
+  - wrangler@4.131.0
 onlyBuiltDependencies:
   - "@tailwindcss/oxide"
   - esbuild
   - sharp
   - workerd
 overrides:
-  vite: "catalog:"
-  vitest: "catalog:"
+  vite@*: "catalog:"
+  vitest@*: "catalog:"
 peerDependencyRules:
   allowAny:
     - vite
