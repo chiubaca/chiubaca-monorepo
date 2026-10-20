@@ -1,0 +1,116 @@
+---
+import type { VariantProps } from "./types";
+const { posts, featured, personal, note } = Astro.props as VariantProps;
+---
+
+<div class="midnight-page">
+  <aside class="midnight-sidebar" id="about" aria-label="About Alex">
+    <a class="midnight-monogram" href="/?variant=midnight" aria-label="Alex Chiu home">ac<span>.</span></a>
+    <div class="midnight-person">
+      <h2>Alex Chiu</h2>
+      <p>Engineer. Dad.<br />A work in progress.</p>
+      <span class="midnight-location"><span></span> London, UK</span>
+    </div>
+    <nav class="midnight-nav" aria-label="Main navigation">
+      <a href="#writing" aria-current="page">Writing <span aria-hidden="true">↗</span></a>
+      <a href="/fleeting-notes/">Notes</a>
+      <a href="/memories/">Memories</a>
+      <a href="/cv/">About</a>
+    </nav>
+    <div class="midnight-socials"><a href="https://github.com/chiubaca">GitHub ↗</a><a href="/rss.xml">RSS ↗</a></div>
+  </aside>
+
+  <main class="midnight-main">
+    <h1 class="prototype-visually-hidden">Alex Chiu’s journal</h1>
+    <header class="midnight-masthead"><span>chiubaca.com</span><span>A personal journal <i></i></span></header>
+    <p class="midnight-bio">Notes on software, learning, and life as a dad.</p>
+
+    <section id="writing" class="midnight-writing" aria-labelledby="midnight-writing-heading">
+      <div class="prototype-section-heading"><h2 id="midnight-writing-heading">Recent writing</h2><span>Essays & observations</span></div>
+      <article class="midnight-featured">
+        <p class="midnight-post-meta"><span>{featured.category}</span><span aria-hidden="true">/</span><time datetime={featured.datetime}>{featured.date}</time></p>
+        <h2><a href={featured.href}>{featured.title}</a></h2>
+        <p class="midnight-featured-description">{featured.description}</p>
+        <a class="midnight-read" href={featured.href}>Read the essay <span aria-hidden="true">↗</span><small>{featured.readingTime} min read</small></a>
+      </article>
+      <div class="midnight-posts">
+        {posts.slice(1).map((post) => (
+          <article>
+            <div><p>{post.category}</p><h3><a href={post.href}>{post.title}</a></h3></div>
+            <time datetime={post.datetime}>{post.date}</time>
+          </article>
+        ))}
+      </div>
+      <a class="midnight-archive" href="/blogs/">All the writing <span aria-hidden="true">↗</span></a>
+    </section>
+
+    <section class="midnight-notebook" aria-labelledby="midnight-notebook-heading">
+      <div><h2 id="midnight-notebook-heading">Fleeting notes</h2><p>Small discoveries from the notebook.</p></div>
+      <a href={note.href}>Latest note <span aria-hidden="true">↗</span><time>{note.date}</time></a>
+    </section>
+    <footer class="midnight-footer"><span>Alex Chiu · London</span><a href={personal.href}>From the archive: 4am Hugs ↗</a></footer>
+  </main>
+</div>
+
+<style>
+  .midnight-page { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: clamp(48px, 7vw, 92px); max-width: 1100px; margin: 0 auto; padding: 48px clamp(20px, 5vw, 48px) 140px; }
+  .midnight-sidebar { align-self: start; position: sticky; top: 58px; padding-right: 34px; border-right: 1px solid var(--study-line); }
+  .midnight-monogram { display: block; font-family: var(--study-serif); font-size: 65px; letter-spacing: -4px; line-height: 1; width: fit-content; }
+  .midnight-monogram span { color: var(--study-accent); }
+  .midnight-person { margin-top: 36px; }
+  .midnight-person h2 { font-family: var(--study-sans); font-size: 14px; font-weight: 500; letter-spacing: 0; }
+  .midnight-person > p { color: var(--study-muted); font-size: 14px; line-height: 1.9; margin-top: 11px; }
+  .midnight-location { display: flex; gap: 7px; align-items: center; margin-top: 17px; color: var(--study-muted); font-size: 12px; }
+  .midnight-location > span { width: 4px; height: 4px; border-radius: 50%; background: #8ea897; }
+  .midnight-nav { display: flex; flex-direction: column; gap: 0; margin-top: 29px; font-size: 13px; color: var(--study-muted); }
+  .midnight-nav a[aria-current] { color: var(--study-accent); }
+  .midnight-nav a > span { margin-left: 47px; }
+  .midnight-socials { display: flex; flex-wrap: wrap; gap: 19px; font-size: 12px; margin-top: 36px; color: var(--study-muted); }
+  .midnight-socials a { display: inline-flex; align-items: center; min-height: 44px; }
+  .midnight-masthead { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 20px; font-size: 12px; color: var(--study-muted); padding: 9px 0 27px; border-bottom: 1px solid var(--study-line); }
+  .midnight-masthead > span:last-child { display: flex; align-items: center; gap: 11px; }
+  .midnight-masthead i { display: block; width: 5px; height: 5px; background: var(--study-accent); border-radius: 50%; }
+  .midnight-bio { padding: 28px 0 39px; font-size: 15px; line-height: 1.9; color: var(--study-muted); }
+  .midnight-writing { scroll-margin-top: 32px; }
+  .midnight-featured { padding: 29px 0 32px; border-bottom: 1px solid var(--study-line); }
+  .midnight-post-meta { display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 12px; color: var(--study-muted); }
+  .midnight-post-meta > span:first-child { color: var(--study-accent); }
+  .midnight-featured h2 { font-size: clamp(31px, 4vw, 36px); letter-spacing: -.4px; line-height: 1.2; margin: 17px 0; max-width: 570px; }
+  .midnight-featured h2 a:hover, .midnight-posts a:hover { color: var(--study-accent); }
+  .midnight-featured-description { font-size: 15px; line-height: 1.85; color: var(--study-muted); max-width: 480px; }
+  .midnight-read { display: inline-flex; flex-wrap: wrap; align-items: center; min-height: 44px; gap: 12px; margin-top: 15px; font-size: 13px; color: var(--study-accent); }
+  .midnight-read small { color: var(--study-muted); margin-left: 8px; font-size: 12px; }
+  .midnight-posts article { display: flex; justify-content: space-between; align-items: center; gap: 28px; padding: 24px 0; border-bottom: 1px solid var(--study-line); }
+  .midnight-posts article > div { min-width: 0; }
+  .midnight-posts article p { font-size: 11px; letter-spacing: .04em; color: var(--study-muted); margin-bottom: 4px; }
+  .midnight-posts h3 { font-size: 28px; line-height: 1.3; letter-spacing: -.3px; }
+  .midnight-posts h3 a { display: inline-flex; align-items: center; min-height: 44px; }
+  .midnight-posts time { white-space: nowrap; font-size: 12px; color: var(--study-muted); }
+  .midnight-archive { display: inline-flex; align-items: center; min-height: 44px; gap: 15px; font-size: 13px; color: var(--study-accent); margin-top: 18px; }
+  .midnight-notebook { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 24px; margin-top: 30px; padding: 29px 0; border-top: 1px solid var(--study-line); border-bottom: 1px solid var(--study-line); }
+  .midnight-notebook h2 { font-size: 26px; }
+  .midnight-notebook p { margin-top: 6px; font-size: 14px; color: var(--study-muted); }
+  .midnight-notebook > a { font-size: 13px; color: var(--study-accent); white-space: nowrap; padding-block: 6px; }
+  .midnight-notebook time { display: block; font-size: 12px; margin-top: 7px; color: var(--study-muted); }
+  .midnight-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; font-size: 12px; margin-top: 22px; color: var(--study-muted); }
+  @media (max-width: 900px) {
+    .midnight-page { grid-template-columns: 165px minmax(0, 1fr); gap: 42px; }
+    .midnight-sidebar { padding-right: 25px; }
+  }
+  @media (max-width: 760px) {
+    .midnight-page { display: block; padding-top: 24px; }
+    .midnight-sidebar { position: static; border-right: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 28px; }
+    .midnight-monogram { font-size: 44px; }
+    .midnight-person, .midnight-socials { display: none; }
+    .midnight-nav { flex-direction: row; flex-wrap: wrap; gap: 0 22px; margin-top: 0; font-size: 13px; }
+    .midnight-nav a > span { display: none; }
+    .midnight-masthead { margin-top: 23px; padding-top: 23px; border-top: 1px solid var(--study-line); border-bottom: none; }
+    .midnight-bio { padding: 0 0 31px; }
+  }
+  @media (max-width: 480px) {
+    .midnight-sidebar { gap: 10px; }
+    .midnight-nav { flex-basis: 100%; gap: 0 22px; }
+    .midnight-masthead { margin-top: 15px; padding-bottom: 20px; }
+    .midnight-posts article { align-items: start; flex-direction: column; gap: 9px; }
+  }
+</style>

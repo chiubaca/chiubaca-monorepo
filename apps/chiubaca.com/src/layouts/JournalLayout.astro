@@ -1,0 +1,77 @@
+---
+import AppearanceHead from "../components/journal/AppearanceHead.astro";
+import "../design-system/index.css";
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+  newerHref?: string | null;
+  olderHref?: string | null;
+}
+const { title, description, noindex = false, newerHref, olderHref } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://chiubaca.com");
+const image = `https://og.chiubaca.com/?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`;
+---
+
+<!doctype html>
+<html lang="en" data-theme="amber" data-journal-layout>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <AppearanceHead />
+    <title>{title} · chiubaca</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#f7f4ed" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="chiubaca.com RSS" href="/rss.xml" />
+    {newerHref && <link rel="prev" href={newerHref} />}
+    {olderHref && <link rel="next" href={olderHref} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <slot name="head" />
+    <script>
+      import "../components/journal/appearance";
+    </script>
+  </head>
+  <body class="amber-theme amber-document">
+    <a class="amber-skip-link" href="#content">Skip to content</a>
+    <slot />
+    <script is:inline>
+      window.counterscale = { q: [["set", "siteId", "chiubaca-com"], ["trackPageview"]] };
+    </script>
+    <script id="counterscale-script" src="https://counterscale.chiubaca.workers.dev/tracker.js" defer></script>
+  </body>
+</html>
+
+<style is:global>
+  html[data-journal-layout] {
+    background: var(--amber-color-page);
+    scrollbar-color: var(--amber-color-border) var(--amber-color-page);
+  }
+  .amber-document {
+    margin: 0;
+    min-block-size: 100vh;
+  }
+  .amber-document .amber-skip-link {
+    position: fixed;
+    inset-block-start: -6rem;
+    inset-inline-start: var(--amber-space-5);
+    z-index: 10;
+    padding: var(--amber-space-3) var(--amber-space-5);
+    background: var(--amber-color-text);
+    color: var(--amber-color-page);
+  }
+  .amber-document .amber-skip-link:focus {
+    inset-block-start: var(--amber-space-4);
+  }
+</style>

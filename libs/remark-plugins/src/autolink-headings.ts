@@ -13,11 +13,13 @@ export const autolinkHeadings = () => {
     element: {
       filter: ["h1", "h2", "h3", "h4", "h5", "h6"],
       visit(node, ctx) {
-        const slug = slugger.slug(ctx.textContent(node));
+        const existingId = node.properties.id;
+        const slug =
+          typeof existingId === "string" ? existingId : slugger.slug(ctx.textContent(node));
         ctx.appendChild(node, {
           type: "element",
           tagName: "a",
-          properties: { href: `#${slug}`, className: ["anchor"], ariaHidden: "true" },
+          properties: { href: `#${slug}`, className: ["anchor"], ariaHidden: "true", tabIndex: -1 },
           children: [{ type: "text", value: "#" }],
         });
       },

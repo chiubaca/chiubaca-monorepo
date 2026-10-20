@@ -20,6 +20,9 @@
     "chiubaca.com:build": "pnpm -w run notes:download && pnpm -w run notes:migrate && pnpm --filter chiubaca.com build",
     "chiubaca.com:deploy": "pnpm  -w run --filter chiubaca.com deploy",
     "preview": "pnpm -r preview",
+    "storybook": "vp run --filter chiubaca.com storybook",
+    "storybook:build": "vp run --filter chiubaca.com storybook:build",
+    "storybook:verify": "vp run --filter chiubaca.com storybook:verify",
     "test:node-env": "echo \"Current PATH: $PATH\" && echo \"Node location: $(which node)\" && echo \"Node version: $(node -v)\"",
     "prepare": "vp config"
   },

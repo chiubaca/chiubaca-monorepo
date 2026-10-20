@@ -1,0 +1,9 @@
+<meta name="color-scheme" content="light dark" />
+<script is:inline>
+  try {
+    const mode = localStorage.getItem("amber-color-mode");
+    if (mode === "light" || mode === "dark") document.documentElement.dataset.colorMode = mode;
+  } catch {
+    // Without storage, the CSS still follows the system preference.
+  }
+</script>

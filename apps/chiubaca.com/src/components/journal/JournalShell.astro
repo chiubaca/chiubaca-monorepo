@@ -1,0 +1,23 @@
+---
+import AppearanceSelect from "./AppearanceSelect.astro";
+import type { JournalShellProps } from "./types";
+type Props = JournalShellProps;
+const { active = "writing", homeHref = "/", writingHref = "/blogs/" } = Astro.props as Props;
+---
+
+<div class="amber-page">
+  <header class="amber-header">
+    <a class="amber-wordmark" href={homeHref} aria-label="chiubaca home">chiubaca<span class="amber-wordmark-dot">.</span></a>
+    <nav aria-label="Main navigation">
+      <a href={writingHref} aria-current={active === "writing" ? "page" : undefined}>Writing</a>
+      <a href="/fleeting-notes/" aria-current={active === "notes" ? "page" : undefined}>Notes</a>
+      <a href="/memories/" aria-current={active === "memories" ? "page" : undefined}>Memories</a>
+    </nav>
+  </header>
+  <main id="content"><slot /></main>
+  <footer class="amber-footer">
+    <div><a href="https://github.com/chiubaca">GitHub</a><a href="https://bsky.app/profile/chiubaca.com">Bluesky</a><a href="/rss.xml">RSS</a></div>
+    <AppearanceSelect />
+    <span>Alex Chiu · London</span>
+  </footer>
+</div>

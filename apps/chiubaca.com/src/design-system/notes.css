@@ -1,0 +1,363 @@
+.amber-notes-intro {
+  padding-block: var(--amber-space-12) var(--amber-space-8);
+}
+
+.amber-notes-intro h1 {
+  margin-block: var(--amber-space-3) var(--amber-space-4);
+}
+
+.amber-notes-description {
+  max-inline-size: var(--amber-measure-intro);
+  color: var(--amber-color-text-muted);
+  font-size: var(--amber-font-size-body);
+}
+
+.amber-notes-index-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--amber-space-4);
+  margin-block-start: var(--amber-space-8);
+  color: var(--amber-color-text-muted);
+  font-size: var(--amber-font-size-caption);
+}
+
+.amber-notes-month > h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--amber-space-5);
+  padding-block: var(--amber-space-4);
+  font-family: var(--amber-font-interface);
+  font-size: var(--amber-font-size-caption);
+  font-weight: var(--amber-weight-medium);
+  letter-spacing: var(--amber-tracking-normal);
+}
+
+.amber-notes-month > h2::after {
+  content: "";
+  flex: 1;
+  border-block-end: var(--amber-border-width) solid var(--amber-color-border);
+}
+
+.amber-note-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.amber-note-summary {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: var(--amber-space-6);
+  padding-block: var(--amber-space-5) var(--amber-space-7);
+}
+
+.amber-note-list > li + li {
+  border-block-start: var(--amber-border-width) solid var(--amber-color-border);
+}
+
+.amber-note-summary > time {
+  padding-block-start: var(--amber-space-3);
+  color: var(--amber-color-text-muted);
+  font-size: var(--amber-font-size-caption);
+  font-variant-numeric: tabular-nums;
+}
+
+.amber-note-summary h3 {
+  font-size: var(--amber-font-size-title);
+  line-height: var(--amber-leading-title);
+}
+
+.amber-note-summary h3 a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--amber-tap-target);
+  text-decoration: none;
+}
+
+.amber-note-excerpt {
+  margin-block-start: var(--amber-space-2);
+  color: var(--amber-color-text-muted);
+  font-size: var(--amber-font-size-summary);
+  overflow-wrap: anywhere;
+}
+
+.amber-note-tags {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--amber-space-4);
+  margin: var(--amber-space-2) 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--amber-color-accent);
+  font-size: var(--amber-font-size-caption);
+}
+
+.amber-note-tags a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--amber-tap-target);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.amber-notes-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--amber-space-3) var(--amber-space-6);
+  padding-block: var(--amber-space-6) var(--amber-space-12);
+  border-block-start: var(--amber-border-width) solid var(--amber-color-border);
+  color: var(--amber-color-text-muted);
+  font-size: var(--amber-font-size-caption);
+}
+
+.amber-notes-pagination > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--amber-space-2) var(--amber-space-5);
+}
+
+.amber-notes-pagination a,
+.amber-back-to-notes,
+.amber-note-colophon a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--amber-space-2);
+  min-block-size: var(--amber-tap-target);
+  text-decoration: none;
+}
+
+.amber-notes-pagination a {
+  color: var(--amber-color-text);
+}
+
+.amber-notes-empty {
+  padding-block: var(--amber-space-8) var(--amber-space-16);
+  font-family: var(--amber-font-editorial);
+  font-size: var(--amber-font-size-quote);
+  color: var(--amber-color-text-muted);
+}
+
+.amber-note-page {
+  padding-block: var(--amber-space-6) var(--amber-space-12);
+}
+
+.amber-back-to-notes {
+  margin-block-end: var(--amber-space-8);
+  font-size: var(--amber-font-size-navigation);
+  color: var(--amber-color-text-muted);
+}
+
+.amber-note-dateline {
+  padding-block-end: var(--amber-space-8);
+}
+
+.amber-note-dateline > time {
+  display: block;
+  margin-block-start: var(--amber-space-2);
+  color: var(--amber-color-text-muted);
+  font-size: var(--amber-font-size-summary);
+}
+
+.amber-note-date-title {
+  margin-block-end: var(--amber-space-6);
+}
+
+.amber-note-prose {
+  overflow-wrap: anywhere;
+}
+
+.amber-note-prose h1 {
+  margin-block: var(--amber-space-10) var(--amber-space-6);
+  font-size: var(--amber-font-size-heading);
+}
+
+.amber-note-prose > :first-child {
+  margin-block-start: 0;
+}
+
+.amber-note-prose :where(h4, h5, h6) {
+  margin-block: var(--amber-space-8) 0;
+  font-family: var(--amber-font-interface);
+  font-size: var(--amber-font-size-body);
+  font-weight: var(--amber-weight-semibold);
+  line-height: var(--amber-leading-compact);
+}
+
+.amber-note-prose h2 {
+  font-size: var(--amber-font-size-title);
+}
+
+.amber-note-prose h5 {
+  font-size: var(--amber-font-size-summary);
+}
+
+.amber-note-prose h6 {
+  font-size: var(--amber-font-size-navigation);
+}
+
+.amber-note-prose :where(h1, h2, h3, h4, h5, h6) {
+  scroll-margin-block-start: var(--amber-space-8);
+}
+
+.amber-note-prose :where(h4, h5, h6) + * {
+  margin-block-start: var(--amber-space-4);
+}
+
+.amber-note-prose :where(img, video) {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+  border-radius: var(--amber-radius);
+}
+
+.amber-note-prose iframe {
+  max-inline-size: 100%;
+}
+
+.amber-note-prose :where(table, pre) {
+  display: block;
+  overflow-x: auto;
+  max-inline-size: 100%;
+}
+
+.amber-note-prose table {
+  border-collapse: collapse;
+  font-family: var(--amber-font-interface);
+  font-size: var(--amber-font-size-summary);
+  overflow-wrap: normal;
+}
+
+.amber-note-prose :where(th, td) {
+  padding: var(--amber-space-3) var(--amber-space-4);
+  border: var(--amber-border-width) solid var(--amber-color-border);
+}
+
+.amber-note-prose th:not([align]) {
+  text-align: start;
+}
+
+.amber-note-prose th {
+  background: var(--amber-color-surface-muted);
+  font-weight: var(--amber-weight-semibold);
+}
+
+.amber-note-prose pre code {
+  background: transparent;
+}
+
+.amber-note-prose pre.astro-code {
+  background-color: var(--amber-color-code-background) !important;
+  color: var(--amber-color-code-text) !important;
+}
+
+.amber-note-prose :where(li, blockquote) > * + * {
+  margin-block-start: var(--amber-space-4);
+}
+
+.amber-note-prose .contains-task-list {
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.amber-note-prose .task-list-item input {
+  inline-size: var(--amber-space-4);
+  block-size: var(--amber-space-4);
+  margin-inline: 0 var(--amber-space-2);
+  accent-color: var(--amber-color-accent);
+}
+
+.amber-note-prose .footnotes {
+  margin-block-start: var(--amber-space-12);
+  padding-block-start: var(--amber-space-6);
+  border-block-start: var(--amber-border-width) solid var(--amber-color-border);
+  font-family: var(--amber-font-interface);
+  font-size: var(--amber-font-size-summary);
+}
+
+.amber-note-prose .footnotes h2 {
+  margin-block-start: 0;
+  font-size: var(--amber-font-size-section);
+}
+
+.amber-note-prose .footnotes p {
+  display: inline;
+}
+
+.amber-note-prose :where(sup, sub) {
+  line-height: 0;
+}
+
+.amber-note-prose hr {
+  margin-block: var(--amber-space-8);
+  border: 0;
+  border-block-start: var(--amber-border-width) solid var(--amber-color-border);
+}
+
+.amber-note-prose .anchor {
+  margin-inline-start: var(--amber-space-2);
+  font-size: 0.7em;
+  text-decoration: none;
+}
+
+.amber-note-colophon {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--amber-space-3) var(--amber-space-6);
+  margin-block-start: var(--amber-space-12);
+  padding-block: var(--amber-space-6);
+  border-block-start: var(--amber-border-width) solid var(--amber-color-border);
+  color: var(--amber-color-text-muted);
+  font-size: var(--amber-font-size-caption);
+}
+
+.amber-note-colophon p {
+  max-inline-size: 40ch;
+}
+
+.amber-note-neighbours {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--amber-space-8);
+  border-block-start: var(--amber-border-width) solid var(--amber-color-border);
+}
+
+.amber-note-neighbours a {
+  display: grid;
+  gap: var(--amber-space-3);
+  padding-block: var(--amber-space-6);
+  text-decoration: none;
+  font-family: var(--amber-font-editorial);
+  font-size: var(--amber-font-size-quote);
+  line-height: var(--amber-leading-compact);
+  overflow-wrap: anywhere;
+}
+
+.amber-note-neighbours > :last-child {
+  text-align: end;
+}
+
+@media (max-width: 37.5rem) {
+  .amber-notes-intro {
+    padding-block-start: var(--amber-space-8);
+  }
+  .amber-note-summary {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--amber-space-2);
+    padding-block: var(--amber-space-5);
+  }
+  .amber-note-summary > time {
+    padding-block-start: 0;
+  }
+  .amber-note-neighbours {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .amber-note-neighbours > :last-child {
+    text-align: start;
+  }
+}

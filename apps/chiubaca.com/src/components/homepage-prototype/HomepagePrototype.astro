@@ -1,0 +1,99 @@
+---
+// Three throwaway homepage studies on /?variant=amber|midnight|daybreak.
+// Only mounted in development; the ordinary homepage stays unchanged.
+import type { CollectionEntry } from "astro:content";
+import AmberJournal from "./AmberJournal.astro";
+import MidnightStudy from "./MidnightStudy.astro";
+import DaybreakNotebook from "./DaybreakNotebook.astro";
+import PrototypeSwitcher from "./PrototypeSwitcher.astro";
+import AppearanceHead from "../journal/AppearanceHead.astro";
+import type { HomepageVariant, PrototypePost } from "./types";
+import "../../styles/homepage-prototype.css";
+
+interface Props {
+  variant: HomepageVariant;
+  posts: CollectionEntry<"permanent-notes">[];
+  entries: CollectionEntry<"permanent-notes">[];
+  note: CollectionEntry<"fleeting-notes">;
+}
+
+const { variant, posts, entries, note } = Astro.props;
+const dateFormat = new Intl.DateTimeFormat("en-GB", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+});
+const descriptions: Record<string, string> = {
+  "everthing-ive-built-with-ai-this-year":
+    "Useful, playful things made in the small hours between parenting and everything else.",
+  "coding-is-dead-long-live-coding":
+    "The tools are changing. Clear thinking and good engineering still matter.",
+  "skill-stacking":
+    "Learning new things by building something that connects them.",
+  "leaning-into-the-vibes":
+    "Finding joy, and a little uncertainty, in a new way of making software.",
+  "betacap-taper-journal":
+    "Keeping a record of the small steps towards feeling better.",
+  "4am-hugs": "A few words on fatherhood, the small hours, and being there.",
+};
+
+function toPost(entry: CollectionEntry<"permanent-notes">): PrototypePost {
+  const tags = entry.data.tags;
+  const category = tags.includes("parenting") || tags.includes("life")
+    ? "Life & the little things"
+    : tags.includes("ai") || tags.includes("agentic-coding")
+      ? "Making with technology"
+      : tags.includes("wellbeing") || entry.id === "betacap-taper-journal"
+        ? "Wellbeing"
+        : "Learning & making";
+
+  return {
+    title: entry.data.title,
+    href: `/${entry.id}/`,
+    description: descriptions[entry.id.toLowerCase()] || entry.data.description || "Notes from a curious life.",
+    date: dateFormat.format(entry.data.publish_date),
+    datetime: entry.data.publish_date.toISOString(),
+    category,
+    readingTime: Math.max(1, Math.ceil((entry.body || "").split(/\s+/).length / 220)),
+  };
+}
+
+const prototypePosts = posts.map(toPost);
+const personalEntry = entries.find((entry) => entry.id === "4am-hugs");
+const props = {
+  posts: prototypePosts,
+  featured: prototypePosts[0],
+  personal: personalEntry ? toPost(personalEntry) : prototypePosts[0],
+  note: {
+    href: `/fleeting-notes/${note.id}/`,
+    date: dateFormat.format(note.data.publish_date),
+    tags: note.data.tags.slice(0, 3),
+  },
+};
+
+const names = { amber: "Amber journal", midnight: "Midnight study", daybreak: "Daybreak notebook" };
+---
+
+<!doctype html>
+<html lang="en" data-home-prototype={variant} data-theme={variant === "amber" ? "amber" : undefined}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {variant === "amber" && <AppearanceHead />}
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content={variant === "midnight" ? "#142d38" : "#f7f4ed"} />
+    <meta name="description" content="Three quiet homepage studies for Alex Chiu's personal journal." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{names[variant]} — homepage prototype · chiubaca</title>
+    <script>
+      import "../journal/appearance";
+    </script>
+  </head>
+  <body class:list={["home-prototype", { "amber-theme": variant === "amber" }]}>
+    <a class="prototype-skip-link" href="#writing">Skip to the writing</a>
+    {variant === "amber" && <AmberJournal {...props} />}
+    {variant === "midnight" && <MidnightStudy {...props} />}
+    {variant === "daybreak" && <DaybreakNotebook {...props} />}
+    {import.meta.env.DEV && <PrototypeSwitcher variant={variant} />}
+  </body>
+</html>

@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  fullPage?: boolean;
+}
+const { title, fullPage = false } = Astro.props;
+---
+
+<!-- Inherit the browser's scheme. A static build must not freeze toolbar state. -->
+<div class="amber-theme amber-review">
+  {fullPage ? <slot /> : (
+    <main class="amber-page amber-story-fragment">
+      <h1 class="amber-visually-hidden">{title}</h1>
+      <slot />
+    </main>
+  )}
+</div>

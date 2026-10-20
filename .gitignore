@@ -6,6 +6,8 @@ pnpm-debug.log*
 
 # Astro specific
 dist/
+storybook-static/
+debug-storybook.log
 .astro/
 astro.config.mjs.timestamp-*
 

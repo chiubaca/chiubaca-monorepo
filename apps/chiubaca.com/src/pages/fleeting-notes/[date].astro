@@ -1,78 +1,36 @@
 ---
-import { getCollection, getEntry, render } from "astro:content";
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import TerminalDivider from "../../components/TerminalDivider.astro";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import JournalLayout from "../../layouts/JournalLayout.astro";
+import FleetingNotePage from "../../components/journal/FleetingNotePage.astro";
+import { NOTES_PER_PAGE, notesPageHref, sortFleetingNotes, summariseFleetingNote, noteSourceHref } from "../../lib/fleeting-notes";
+import type { FleetingNoteSummary } from "../../components/journal/types";
 
 export async function getStaticPaths() {
-  const blogs = await getCollection("fleeting-notes");
-
-  const slugPaths = blogs.map((blog) => {
-    return {
-      params: { date: blog.id },
-    };
-  });
-
-  return slugPaths;
+  const entries = sortFleetingNotes(await getCollection("fleeting-notes"));
+  const summaries = entries.map(summariseFleetingNote);
+  return entries.map((entry, index) => ({
+    params: { date: entry.id },
+    props: {
+      entry, note: summaries[index],
+      newer: summaries[index - 1] ?? null,
+      older: summaries[index + 1] ?? null,
+      archiveHref: notesPageHref(Math.floor(index / NOTES_PER_PAGE) + 1),
+    },
+  }));
 }
-
-const { date } = Astro.params;
-const entry = await getEntry("fleeting-notes", date);
-
+interface Props {
+  entry: CollectionEntry<"fleeting-notes">;
+  note: FleetingNoteSummary;
+  newer: FleetingNoteSummary | null;
+  older: FleetingNoteSummary | null;
+  archiveHref: string;
+}
+const { entry, note, newer, older, archiveHref } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<BaseLayout
-  title={`fleeting note | ${entry.id}`}
-  description={`> ${entry.rendered.html.replace(/<[^>]+>/g, "").substring(0, 80)}...`}
-  breadcrumbs={[
-    {
-      href: `/fleeting-notes`,
-      label: "fleeting-notes",
-    },
-    {
-      href: `/fleeting-notes/${entry.id}`,
-      label: entry.id,
-    },
-  ]}
->
-  <meta name="robots" content="noindex" slot="head" />
-
-  <div class="mt-12 max-w-2xl mx-auto px-4 sm:px-6">
-    <div class="flex flex-wrap justify-center items-center gap-2 font-mono text-xs">
-      {
-        entry.data.tags.map((tag) => (
-          <a
-            href={`/tags#${tag}`}
-            class="tag-link px-2 py-1 text-xs uppercase tracking-tight"
-          >
-            #{tag}
-          </a>
-        ))
-      }
-    </div>
-    <h1
-      class="my-6 text-3xl sm:text-4xl text-center text-balance tracking-tight"
-      style="font-family: var(--font-display); line-height: 1.1; color: var(--text-primary);"
-      transition:name="blog-title"
-    >
-      {entry.id.replaceAll("-", " ")}
-    </h1>
-
-    <TerminalDivider class="mb-10" />
-
-    <article class="prose pt-6 sm:mx-auto">
-      <Content />
-    </article>
-
-    <div class="pt-10 text-center">
-      <a
-        href={`https://github.com/chiubaca/learning/blob/main/fleeting-notes/${entry.id}.md`}
-        class="group inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest transition-colors"
-        style="color: var(--text-dim);"
-      >
-        <span class="group-hover:text-amber-500 transition-colors">Edit on GitHub</span>
-        <span class="transition-transform group-hover:translate-x-1" style="color: var(--text-muted);">&#x2192;</span>
-      </a>
-    </div>
-  </div>
-</BaseLayout>
+<JournalLayout title={`${note.title} — fleeting note`} description={note.excerpt || `A page from Alex Chiu’s notebook, ${entry.id}.`} noindex newerHref={newer?.href} olderHref={older?.href}>
+  <FleetingNotePage note={note} sourceHref={noteSourceHref(entry.id)} newer={newer} older={older} archiveHref={archiveHref}>
+    <Content />
+  </FleetingNotePage>
+</JournalLayout>
