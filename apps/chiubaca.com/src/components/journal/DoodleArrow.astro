@@ -1,0 +1,9 @@
+---
+import Scribble from "./Scribble.astro";
+interface Props {
+  direction: "east" | "west" | "north-east";
+}
+const { direction } = Astro.props;
+---
+
+<span class="amber-nudge" data-direction={direction} aria-hidden="true"><Scribble kind={`arrow-${direction}`} /></span>

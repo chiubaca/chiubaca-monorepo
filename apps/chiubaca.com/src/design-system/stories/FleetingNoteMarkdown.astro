@@ -1,0 +1,22 @@
+---
+import FleetingNotePage from "../../components/journal/FleetingNotePage.astro";
+import { createMarkdownOptions } from "../../lib/markdown-config";
+import source from "./markdown-showcase.md?raw";
+import { noteFixtures } from "./note-fixtures";
+
+// Storybook excludes Astro's .md import plugin. Render this trusted fixture on
+// the server with the site's public processor API, not handwritten HTML.
+const options = createMarkdownOptions();
+const renderer = await options.processor.createRenderer(options);
+const { code } = await renderer.render(source);
+const note = {
+  ...noteFixtures[0],
+  id: "markdown-showcase",
+  title: "A notebook for all the little things",
+  tags: ["markdown", "notebook"],
+};
+---
+
+<FleetingNotePage note={note} sourceHref="https://github.com/chiubaca/chiubaca-monorepo/blob/main/apps/chiubaca.com/src/design-system/stories/markdown-showcase.md">
+  <Fragment set:html={code} />
+</FleetingNotePage>

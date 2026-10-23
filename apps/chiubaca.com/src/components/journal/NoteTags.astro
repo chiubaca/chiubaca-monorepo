@@ -1,0 +1,11 @@
+---
+import Scribble from "./Scribble.astro";
+interface Props { tags: string[] }
+const { tags } = Astro.props;
+---
+
+{tags.length > 0 && (
+  <ul class="amber-note-tags" aria-label="Topics">
+    {tags.map((tag) => <li><a href={`/tags#${encodeURIComponent(tag)}`}><span class="amber-tag-ink">{tag}</span><Scribble kind="sparkle" /></a></li>)}
+  </ul>
+)}

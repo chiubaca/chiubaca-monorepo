@@ -1,0 +1,402 @@
+/* Storybook presentation only. The reviewed styles come from ../index.css. */
+:root {
+  scrollbar-color: var(--amber-color-border) var(--amber-color-page);
+}
+
+body {
+  margin: 0;
+}
+
+.amber-review {
+  min-block-size: 100vh;
+}
+
+.amber-story-fragment {
+  padding-block: var(--amber-space-10);
+}
+
+.ds-page {
+  max-inline-size: 74rem;
+  min-block-size: 100vh;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 5vw, 4rem);
+}
+
+.ds-header {
+  padding-block-end: var(--amber-space-10);
+  border-block-end: var(--amber-border-width) solid var(--amber-color-border);
+}
+
+.ds-header h1 {
+  margin-block: var(--amber-space-5) var(--amber-space-4);
+}
+
+.ds-introduction {
+  max-inline-size: 42rem;
+  color: var(--amber-color-text-muted);
+  font-size: var(--amber-font-size-body);
+}
+
+.ds-section {
+  margin-block-start: var(--amber-space-10);
+}
+
+.ds-section > h2 {
+  margin-block-end: var(--amber-space-6);
+  font-family: var(--amber-font-interface);
+  font-size: var(--amber-font-size-navigation);
+  font-weight: var(--amber-weight-medium);
+  letter-spacing: var(--amber-tracking-normal);
+}
+
+.ds-footnote {
+  margin-block-start: var(--amber-space-6);
+  color: var(--amber-color-text-muted);
+  font-size: var(--amber-font-size-summary);
+}
+
+.ds-colour-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: var(--amber-space-8) var(--amber-space-6);
+}
+
+.ds-colour-paint {
+  block-size: 7rem;
+  border: var(--amber-border-width) solid var(--amber-color-border);
+  border-radius: var(--amber-radius);
+}
+
+.ds-colour-name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--amber-space-2);
+  margin-block: var(--amber-space-4) var(--amber-space-2);
+}
+
+.ds-colour-name h3 {
+  font-family: var(--amber-font-interface);
+  font-size: var(--amber-font-size-summary);
+  font-weight: var(--amber-weight-medium);
+  letter-spacing: var(--amber-tracking-normal);
+}
+
+.ds-colour-name > span,
+.ds-colour > p,
+.ds-colour > code {
+  font-size: var(--amber-font-size-caption);
+  color: var(--amber-color-text-muted);
+}
+
+.ds-colour > code,
+.ds-type-details code,
+.ds-spacing code {
+  font-family: var(--amber-font-code);
+  overflow-wrap: anywhere;
+}
+
+.ds-colour > p {
+  margin-block-start: var(--amber-space-3);
+}
+
+.ds-font-pair {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--amber-space-10);
+}
+
+.ds-font-pair > article {
+  padding-block: var(--amber-space-6);
+  border-block-end: var(--amber-border-width) solid var(--amber-color-border);
+}
+
+.ds-font-pair .ds-font-name {
+  margin-block: var(--amber-space-5) var(--amber-space-3);
+  font-size: var(--amber-font-size-heading);
+  line-height: var(--amber-leading-heading);
+}
+
+.ds-font-pair article:nth-child(2) .ds-font-name {
+  font-family: var(--amber-font-interface);
+  font-weight: var(--amber-weight-medium);
+  letter-spacing: var(--amber-tracking-tight);
+}
+
+.ds-font-pair article:nth-child(3) .ds-font-name {
+  font-family: var(--amber-font-hand);
+  font-size: calc(var(--amber-font-size-heading) * 1.35);
+  line-height: 1;
+}
+
+.ds-font-pair article > p:last-child {
+  color: var(--amber-color-text-muted);
+  font-size: var(--amber-font-size-summary);
+}
+
+.ds-principles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--amber-space-6);
+  margin: 0;
+}
+
+.ds-principles dt {
+  margin-block-end: var(--amber-space-3);
+  font-weight: var(--amber-weight-medium);
+  font-size: var(--amber-font-size-summary);
+}
+
+.ds-principles dd {
+  margin: 0;
+  color: var(--amber-color-text-muted);
+  font-size: var(--amber-font-size-summary);
+}
+
+.ds-code {
+  margin: 0;
+  padding: var(--amber-space-5);
+  background: var(--amber-color-surface-muted);
+  border-radius: var(--amber-radius);
+  font-family: var(--amber-font-code);
+  font-size: var(--amber-font-size-navigation);
+  line-height: var(--amber-leading-reading);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.ds-type-row {
+  display: grid;
+  grid-template-columns: 14rem minmax(0, 1fr);
+  gap: var(--amber-space-8);
+  padding-block: var(--amber-space-8);
+  border-block-end: var(--amber-border-width) solid var(--amber-color-border);
+}
+
+.ds-type-details h2 {
+  font-family: var(--amber-font-interface);
+  font-size: var(--amber-font-size-summary);
+  font-weight: var(--amber-weight-medium);
+  letter-spacing: var(--amber-tracking-normal);
+}
+
+.ds-type-details p,
+.ds-type-details code {
+  display: block;
+  margin-block-start: var(--amber-space-3);
+  font-size: var(--amber-font-size-caption);
+  color: var(--amber-color-text-muted);
+}
+
+.ds-type-sample {
+  align-self: center;
+  min-inline-size: 0;
+}
+
+.ds-type-sample > small {
+  display: block;
+  margin-block-start: var(--amber-space-4);
+  font-family: var(--amber-font-code);
+  font-size: var(--amber-font-size-caption);
+  line-height: var(--amber-leading-compact);
+  overflow-wrap: anywhere;
+  color: var(--amber-color-text-muted);
+}
+
+.ds-reading {
+  padding-block: var(--amber-space-10);
+}
+
+.ds-reading-header {
+  max-inline-size: var(--amber-measure-reading);
+  margin-block-end: var(--amber-space-8);
+}
+
+.ds-reading-header h2 {
+  margin-block: var(--amber-space-4);
+}
+
+.ds-reading-header time {
+  color: var(--amber-color-text-muted);
+}
+
+.ds-table-wrap {
+  max-inline-size: 100%;
+  overflow-x: auto;
+}
+
+.ds-table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-size: var(--amber-font-size-summary);
+  text-align: start;
+}
+
+.ds-table :where(th, td) {
+  padding: var(--amber-space-4) var(--amber-space-3);
+  border-block-end: var(--amber-border-width) solid var(--amber-color-border);
+  vertical-align: top;
+}
+
+.ds-table th {
+  color: var(--amber-color-text-muted);
+  font-size: var(--amber-font-size-caption);
+  font-weight: var(--amber-weight-medium);
+}
+
+.ds-contrast-sample {
+  display: inline-block;
+  min-inline-size: 4rem;
+  padding: var(--amber-space-2) var(--amber-space-3);
+  font-size: var(--amber-font-size-caption);
+  text-align: center;
+}
+
+.ds-table td:last-child {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.ds-playground {
+  padding-block: var(--amber-space-12);
+}
+
+.ds-playground .ds-code {
+  margin-block-start: var(--amber-space-10);
+}
+
+.ds-spacing-row {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1fr) minmax(4rem, 2fr) 5rem;
+  align-items: center;
+  gap: var(--amber-space-5);
+  padding-block: var(--amber-space-4);
+  border-block-end: var(--amber-border-width) solid var(--amber-color-border);
+  font-size: var(--amber-font-size-caption);
+}
+
+.ds-spacing-bar {
+  block-size: var(--amber-space-4);
+  background: var(--amber-color-accent);
+  border-radius: var(--amber-radius);
+}
+
+.ds-measure {
+  margin-block-start: var(--amber-space-8);
+  padding: var(--amber-space-6) var(--amber-gutter);
+  border: var(--amber-border-width) solid var(--amber-color-border);
+  border-radius: var(--amber-radius);
+}
+
+.ds-measure p + p {
+  margin-block-start: var(--amber-space-4);
+}
+
+.ds-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--amber-space-3) var(--amber-space-6);
+  margin-block-start: var(--amber-space-12);
+  padding-block-start: var(--amber-space-5);
+  border-block-start: var(--amber-border-width) solid var(--amber-color-border);
+  font-size: var(--amber-font-size-caption);
+  color: var(--amber-color-text-muted);
+}
+
+.ds-mode-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--amber-space-6);
+}
+
+.ds-mode {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: var(--amber-border-width) solid var(--amber-color-border);
+  border-radius: var(--amber-radius);
+}
+
+.ds-mode-meta {
+  margin-block: var(--amber-space-10) var(--amber-space-4);
+  color: var(--amber-color-accent);
+}
+
+.ds-mode-summary {
+  margin-block: var(--amber-space-3) var(--amber-space-8);
+  color: var(--amber-color-text-muted);
+}
+
+.ds-mode > a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--amber-tap-target);
+  margin-block-start: var(--amber-space-6);
+  color: var(--amber-color-accent);
+}
+
+.ds-hand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+  gap: var(--amber-space-10) var(--amber-space-8);
+}
+
+.ds-hand {
+  display: grid;
+  gap: var(--amber-space-5);
+  align-content: start;
+  padding-block-start: var(--amber-space-5);
+  border-block-start: var(--amber-border-width) solid var(--amber-color-border);
+}
+
+.ds-hand h3 {
+  font-family: var(--amber-font-interface);
+  font-size: var(--amber-font-size-summary);
+  font-weight: var(--amber-weight-medium);
+}
+
+.ds-hand header p {
+  margin-block-start: var(--amber-space-1);
+  color: var(--amber-color-text-muted);
+  font-size: var(--amber-font-size-caption);
+  line-height: var(--amber-leading-compact);
+}
+
+.ds-hand-eyebrow,
+.ds-hand-note {
+  font-family: var(--ds-hand);
+  font-size: var(--ds-hand-size);
+  line-height: 1.1;
+  color: var(--amber-color-accent);
+}
+
+.ds-hand-note {
+  color: var(--amber-color-text-muted);
+}
+
+.ds-hand-title {
+  margin-block-start: var(--amber-space-1);
+  font-family: var(--amber-font-editorial);
+  font-size: var(--amber-font-size-title);
+  line-height: var(--amber-leading-title);
+  color: var(--amber-color-text);
+}
+
+@media (max-width: 45rem) {
+  .ds-type-row,
+  .ds-font-pair,
+  .ds-principles,
+  .ds-mode-comparison {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--amber-space-6);
+  }
+
+  .ds-colour-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  }
+
+  .ds-spacing-row {
+    grid-template-columns: minmax(0, 1fr) 4rem 3.5rem;
+    gap: var(--amber-space-3);
+  }
+}

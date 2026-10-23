@@ -1,0 +1,42 @@
+---
+import DoodleArrow from "../journal/DoodleArrow.astro";
+import type { VariantProps } from "./types";
+import PostSummary from "../journal/PostSummary.astro";
+import WritingSection from "../journal/WritingSection.astro";
+import JournalShell from "../journal/JournalShell.astro";
+import "../../design-system/index.css";
+const { posts, personal, note } = Astro.props as VariantProps;
+---
+
+<JournalShell active="writing" homeHref="/?variant=amber" writingHref="#writing">
+    <h1 class="amber-visually-hidden">Alex Chiu’s journal</h1>
+    <p class="amber-bio" id="about">I’m Alex, a software engineer and dad in London. Notes on software, learning, and everyday life.</p>
+
+    <WritingSection id="writing" title="Recent writing" archiveHref="/blogs/">
+      {posts.map((post) => (
+        <PostSummary
+          title={post.title}
+          href={post.href}
+          published={post.datetime}
+          category={post.category}
+          summary={post.description}
+        />
+      ))}
+    </WritingSection>
+
+    <aside class="amber-small-hours" aria-labelledby="small-hours-title">
+      <div>
+        <p class="amber-eyebrow">From the archive</p>
+        <h2 id="small-hours-title"><a href={personal.href}><span class="amber-route">4am Hugs</span> <DoodleArrow direction="north-east" /></a></h2>
+        <p>“We hush and we kiss you.<br />Embrace the 4 am hugs.”</p>
+      </div>
+    </aside>
+
+    <section class="amber-notes" aria-labelledby="amber-notes-heading">
+      <div>
+        <h2 id="amber-notes-heading">Fleeting notes</h2>
+        <p>Small discoveries, half-formed thoughts, and things worth keeping.</p>
+      </div>
+      <a href={note.href}>Latest note <DoodleArrow direction="north-east" /><small>{note.date}</small></a>
+    </section>
+</JournalShell>

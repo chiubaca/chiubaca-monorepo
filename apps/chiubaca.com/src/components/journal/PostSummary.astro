@@ -1,0 +1,77 @@
+---
+import type { PostSummaryProps } from "./types";
+type Props = PostSummaryProps;
+
+const { title, href, published, summary, category, headingLevel: Heading = "h3" } = Astro.props as Props;
+const publishedDate = new Date(published);
+const date = new Intl.DateTimeFormat("en-GB", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+  timeZone: "UTC",
+}).format(publishedDate);
+---
+
+<article class:list={["amber-post", { "amber-post-uncategorised": !category }]}>
+  <div>
+    {category && <p class="amber-post-category amber-eyebrow">{category}</p>}
+    <Heading><a href={href}><span><span class="amber-route">{title}</span></span></a></Heading>
+    {summary && <p class="amber-post-description">{summary}</p>}
+  </div>
+  <time datetime={publishedDate.toISOString()}>{date}</time>
+</article>
+
+<style>
+  .amber-post {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: var(--amber-space-8);
+    padding-block: var(--amber-space-6) var(--amber-space-7);
+    border-block-end: var(--amber-border-width) solid var(--amber-color-border);
+  }
+  .amber-post-category {
+    margin-block-end: calc(var(--amber-space-1) * -1);
+  }
+  .amber-post :is(h2, h3) {
+    font-size: var(--amber-font-size-title);
+    line-height: var(--amber-leading-title);
+    letter-spacing: var(--amber-tracking-tight);
+  }
+  .amber-post :is(h2, h3) a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--amber-tap-target);
+    text-decoration: none;
+  }
+  .amber-post :is(h2, h3) a:hover {
+    color: var(--amber-color-accent-hover);
+  }
+  .amber-post-description {
+    max-inline-size: var(--amber-measure-intro);
+    margin-block-start: var(--amber-space-2);
+    font-size: var(--amber-font-size-summary);
+    line-height: var(--amber-leading-body);
+    color: var(--amber-color-text-muted);
+  }
+  .amber-post time {
+    margin-block-start: var(--amber-space-7);
+    font-size: var(--amber-font-size-caption);
+    color: var(--amber-color-text-muted);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  .amber-post-uncategorised time {
+    margin-block-start: var(--amber-space-2);
+  }
+  @media (max-width: 37.5rem) {
+    .amber-post {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--amber-space-3);
+      padding-block: var(--amber-space-6);
+    }
+    .amber-post time {
+      margin-block-start: 0;
+    }
+  }
+</style>

@@ -1,0 +1,54 @@
+---
+import type { HomepageVariant } from "./types";
+
+interface Props { variant: HomepageVariant }
+const { variant } = Astro.props;
+const variants = [
+  { key: "amber", name: "Amber journal", detail: "Newsreader · warm paper · a single reading column" },
+  { key: "midnight", name: "Midnight study", detail: "Cormorant · soft navy · a personal side rail" },
+  { key: "daybreak", name: "Daybreak notebook", detail: "Manrope · chalk & sage · an open editorial layout" },
+];
+const index = variants.findIndex((item) => item.key === variant);
+function href(key: string) {
+  const url = new URL(Astro.url);
+  url.searchParams.set("variant", key);
+  return url.pathname + url.search;
+}
+---
+
+<aside class="prototype-controls" aria-label="Homepage prototype comparison">
+  <div class="prototype-switcher">
+    <span class="prototype-switcher-kicker">Design study</span>
+    <a
+      class="prototype-cycle"
+      data-prototype-previous
+      href={href(variants[(index + variants.length - 1) % variants.length].key)}
+      aria-label="Previous homepage prototype"
+    >←</a>
+    <div class="prototype-current" aria-live="polite">
+      <strong>{String(index + 1).padStart(2, "0")} / {variants[index].name}</strong>
+      <span>{variants[index].detail}</span>
+    </div>
+    <a
+      class="prototype-cycle"
+      data-prototype-next
+      href={href(variants[(index + 1) % variants.length].key)}
+      aria-label="Next homepage prototype"
+    >→</a>
+    <a class="prototype-original" href="/" aria-label="Exit prototypes and view the original homepage">×</a>
+  </div>
+</aside>
+
+<script>
+  document.addEventListener("keydown", (event) => {
+    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    if (event.target instanceof Element && event.target.closest("input, textarea, select, [contenteditable]")) return;
+    const direction = event.key === "ArrowLeft" ? "previous" : event.key === "ArrowRight" ? "next" : null;
+    if (!direction) return;
+    const link = document.querySelector<HTMLAnchorElement>(`[data-prototype-${direction}]`);
+    if (link) {
+      event.preventDefault();
+      link.click();
+    }
+  });
+</script>

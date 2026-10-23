@@ -1,0 +1,5 @@
+{
+  "extends": "../tsconfig.browser.json",
+  "compilerOptions": { "types": ["vite-plus/client", "@storybook-astro/framework/shim"] },
+  "include": ["./**/*.ts", "../src/design-system/stories/**/*.ts"]
+}

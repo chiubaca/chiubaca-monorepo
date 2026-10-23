@@ -1,0 +1,225 @@
+.amber-theme {
+  color: var(--amber-color-text);
+  background: var(--amber-color-page);
+  font-family: var(--amber-font-interface);
+  font-size: var(--amber-font-size-body);
+  font-weight: var(--amber-weight-regular);
+  line-height: var(--amber-leading-body);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.amber-theme *,
+.amber-theme *::before,
+.amber-theme *::after {
+  box-sizing: border-box;
+}
+
+.amber-theme :where(main, section, article, aside, header, footer, nav) {
+  min-inline-size: 0;
+}
+
+.amber-theme :where(h1, h2, h3, p, blockquote, figure) {
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+.amber-theme :where(h1, h2, h3) {
+  font-family: var(--amber-font-editorial);
+  font-weight: var(--amber-weight-regular);
+  color: var(--amber-color-text);
+  line-height: var(--amber-leading-heading);
+  letter-spacing: var(--amber-tracking-tight);
+  text-transform: none;
+}
+
+.amber-theme a {
+  color: inherit;
+  text-underline-offset: var(--amber-space-1);
+  text-decoration-thickness: var(--amber-border-width);
+  transition: color var(--amber-duration) var(--amber-ease);
+}
+
+.amber-theme a:hover {
+  color: var(--amber-color-accent-hover);
+}
+
+.amber-theme :focus-visible {
+  outline: var(--amber-focus-width) solid var(--amber-color-focus);
+  outline-offset: var(--amber-focus-offset);
+  border-radius: var(--amber-radius);
+}
+
+.amber-theme ::selection {
+  color: var(--amber-color-selection-text);
+  background: var(--amber-color-selection);
+}
+
+.amber-type-heading {
+  font-family: var(--amber-font-editorial);
+  font-size: var(--amber-font-size-heading);
+  font-weight: var(--amber-weight-regular);
+  line-height: var(--amber-leading-heading);
+  letter-spacing: var(--amber-tracking-tight);
+}
+
+.amber-type-title {
+  font-family: var(--amber-font-editorial);
+  font-size: var(--amber-font-size-title);
+  font-weight: var(--amber-weight-regular);
+  line-height: var(--amber-leading-title);
+  letter-spacing: var(--amber-tracking-tight);
+}
+
+.amber-type-section {
+  font-family: var(--amber-font-editorial);
+  font-size: var(--amber-font-size-section);
+  font-weight: var(--amber-weight-regular);
+  line-height: var(--amber-leading-title);
+  letter-spacing: var(--amber-tracking-tight);
+}
+
+.amber-type-reading {
+  font-family: var(--amber-font-editorial);
+  font-size: var(--amber-font-size-reading);
+  font-weight: var(--amber-weight-regular);
+  line-height: var(--amber-leading-reading);
+  letter-spacing: var(--amber-tracking-normal);
+}
+
+.amber-type-quote {
+  font-family: var(--amber-font-editorial);
+  font-size: var(--amber-font-size-quote);
+  font-style: italic;
+  font-weight: var(--amber-weight-regular);
+  line-height: var(--amber-leading-reading);
+}
+
+.amber-type-body {
+  font-family: var(--amber-font-interface);
+  font-size: var(--amber-font-size-body);
+  font-weight: var(--amber-weight-regular);
+  line-height: var(--amber-leading-body);
+}
+
+.amber-type-summary {
+  font-family: var(--amber-font-interface);
+  font-size: var(--amber-font-size-summary);
+  font-weight: var(--amber-weight-regular);
+  line-height: var(--amber-leading-body);
+}
+
+.amber-type-navigation {
+  font-family: var(--amber-font-interface);
+  font-size: var(--amber-font-size-navigation);
+  font-weight: var(--amber-weight-regular);
+  line-height: var(--amber-leading-compact);
+}
+
+.amber-type-caption {
+  font-family: var(--amber-font-interface);
+  font-size: var(--amber-font-size-caption);
+  font-weight: var(--amber-weight-regular);
+  line-height: var(--amber-leading-compact);
+  font-variant-numeric: tabular-nums;
+}
+
+.amber-type-label,
+.amber-eyebrow {
+  font-family: var(--amber-font-hand);
+  font-size: var(--amber-font-size-hand);
+  font-weight: var(--amber-weight-regular);
+  line-height: var(--amber-leading-hand);
+  letter-spacing: var(--amber-tracking-normal);
+  color: var(--amber-color-accent);
+}
+
+/* Doodled arrows inside a handwritten eyebrow stay at text size. */
+.amber-eyebrow .amber-nudge {
+  font-size: 0.75em;
+}
+
+.amber-type-code {
+  font-family: var(--amber-font-code);
+  font-size: var(--amber-font-size-navigation);
+  line-height: var(--amber-leading-reading);
+}
+
+.amber-prose {
+  max-inline-size: var(--amber-measure-reading);
+  font-family: var(--amber-font-editorial);
+  font-size: var(--amber-font-size-reading);
+  line-height: var(--amber-leading-reading);
+}
+
+.amber-prose > * + * {
+  margin-block-start: 1.25em;
+}
+
+.amber-prose :where(h2, h3) {
+  margin-block-start: var(--amber-space-10);
+  font-size: var(--amber-font-size-section);
+  line-height: var(--amber-leading-title);
+}
+
+.amber-prose :where(h2, h3) + * {
+  margin-block-start: var(--amber-space-4);
+}
+
+.amber-prose a {
+  color: var(--amber-color-accent);
+}
+
+.amber-prose strong {
+  font-weight: var(--amber-weight-semibold);
+}
+
+.amber-prose blockquote {
+  padding-inline-start: var(--amber-space-6);
+  border-inline-start: var(--amber-border-width) solid var(--amber-color-accent);
+  font-style: italic;
+}
+
+.amber-prose :where(ul, ol) {
+  padding-inline-start: var(--amber-space-6);
+}
+
+.amber-prose li + li {
+  margin-block-start: var(--amber-space-2);
+}
+
+.amber-prose :where(code, pre) {
+  font-family: var(--amber-font-code);
+  font-size: var(--amber-font-size-navigation);
+  line-height: var(--amber-leading-reading);
+  background: var(--amber-color-surface-muted);
+  border-radius: var(--amber-radius);
+}
+
+.amber-prose :not(pre) > code {
+  padding: var(--amber-space-1) var(--amber-space-2);
+}
+
+.amber-prose pre {
+  max-inline-size: 100%;
+  padding: var(--amber-space-5);
+  overflow-x: auto;
+}
+
+.amber-visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .amber-theme a {
+    transition: none;
+  }
+}
