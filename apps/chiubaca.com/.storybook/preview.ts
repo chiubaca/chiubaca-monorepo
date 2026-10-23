@@ -3,6 +3,7 @@ import { useEffect, useGlobals } from "storybook/preview-api";
 import { colorModePreference } from "../src/design-system/color-mode";
 import StoryFrame from "./StoryFrame.astro";
 import "../src/components/journal/appearance";
+import "../src/components/journal/code-copy";
 import "../src/design-system/index.css";
 import "../src/design-system/stories/review.css";
 

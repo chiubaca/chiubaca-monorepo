@@ -64,6 +64,10 @@ For an independent, non-persistent demo, use `targetId="example"` and put the sa
 
 The custom element registers once, initializes new instances on story navigation, disconnects its observer/listeners on removal, and observes external root changes so the displayed selection stays in sync with Storybook's toolbar. Document-level selections emit `amber:color-mode-change`; the preview adapter uses that event to update Storybook globals. The shared entry is safe to import during server prerender.
 
+## Code copy
+
+`FleetingNotePage` wraps its Markdown slot in `<amber-code-copy>`. The browser entry `code-copy.ts` is loaded beside `appearance.ts` in `JournalLayout.astro` and the Storybook preview. It wraps each `pre` in `<amber-code>` and adds a small, roughly drawn copy icon in the block's top-right corner, faint until hovered or focused. It becomes a tick once copied, and a polite status announces the result. Without JavaScript or the async clipboard API, no button is added. The entry is safe to import during server prerender.
+
 ## Storybook pilot caveats
 
 - Framework: `@storybook-astro/framework@1.12.0`, Storybook/builder 10.6.2. Foundation stories still return HTML/DOM. Astro stories use a component descriptor decorator, with no frozen mode attribute on the wrapper.

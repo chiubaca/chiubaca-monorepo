@@ -162,3 +162,145 @@
   background: var(--amber-doodle-marker) no-repeat 0 0 / 100% 88%;
   color: var(--amber-color-text);
 }
+
+/*
+ * Code blocks are a dark paint swatch flicked with small coloured drops. The
+ * drops stay faint, so syntax colours and comments keep at least 4.5:1
+ * wherever they cross them.
+ *
+ * Every browser gets three hand-placed layouts that cycle between blocks.
+ * Where CSS random() is supported, each block gets its own splatter.
+ */
+.amber-prose pre.astro-code {
+  --amber-splat-purple: rgb(189 147 249 / 0.22);
+  --amber-splat-pink: rgb(255 121 198 / 0.18);
+  --amber-splat-honey: rgb(217 183 125 / 0.18);
+  --amber-drop-1: 70% 10%;
+  --amber-drop-2: 40% 92%;
+  --amber-drop-3: 92% 30%;
+  --amber-drop-4: 55% 96%;
+  --amber-drop-5: 32% 6%;
+  border-radius: 1.25rem 0.5rem 1.5rem 0.75rem / 0.75rem 1.25rem 0.5rem 1.5rem;
+  background-image:
+    radial-gradient(
+      circle at var(--amber-drop-1),
+      var(--amber-splat-purple) 0 0.25rem,
+      transparent 0.3rem
+    ),
+    radial-gradient(
+      circle at var(--amber-drop-2),
+      var(--amber-splat-pink) 0 0.2rem,
+      transparent 0.25rem
+    ),
+    radial-gradient(
+      circle at var(--amber-drop-3),
+      var(--amber-splat-honey) 0 0.3rem,
+      transparent 0.35rem
+    ),
+    radial-gradient(
+      circle at var(--amber-drop-4),
+      var(--amber-splat-purple) 0 0.15rem,
+      transparent 0.2rem
+    ),
+    radial-gradient(
+      circle at var(--amber-drop-5),
+      var(--amber-splat-honey) 0 0.18rem,
+      transparent 0.23rem
+    );
+}
+
+/* Copy buttons wrap each block in <amber-code>, so cycle on whichever is the sibling. */
+.amber-prose
+  :is(pre.astro-code:nth-of-type(3n + 2), amber-code:nth-of-type(3n + 2) > pre.astro-code) {
+  --amber-drop-1: 20% 8%;
+  --amber-drop-2: 64% 90%;
+  --amber-drop-3: 48% 14%;
+  --amber-drop-4: 36% 94%;
+  --amber-drop-5: 74% 70%;
+  border-radius: 0.5rem 1.5rem 0.75rem 1.25rem / 1.25rem 0.5rem 1.5rem 0.75rem;
+}
+
+.amber-prose :is(pre.astro-code:nth-of-type(3n), amber-code:nth-of-type(3n) > pre.astro-code) {
+  --amber-drop-1: 12% 86%;
+  --amber-drop-2: 86% 12%;
+  --amber-drop-3: 26% 40%;
+  --amber-drop-4: 78% 58%;
+  --amber-drop-5: 58% 92%;
+  border-radius: 1.5rem 1rem 0.5rem 1.25rem / 0.5rem 1.5rem 1rem 0.75rem;
+}
+
+@supports (top: random(0px, 1px)) {
+  .amber-prose pre.astro-code:nth-of-type(n) {
+    --amber-drop-1: random(0%, 100%) random(0%, 100%);
+    --amber-drop-2: random(0%, 100%) random(0%, 100%);
+    --amber-drop-3: random(0%, 100%) random(0%, 100%);
+    --amber-drop-4: random(0%, 100%) random(0%, 100%);
+    --amber-drop-5: random(0%, 100%) random(0%, 100%);
+    border-radius: random(0.5rem, 1.75rem) random(0.5rem, 1.75rem) random(0.5rem, 1.75rem)
+      random(0.5rem, 1.75rem) / random(0.5rem, 1.75rem) random(0.5rem, 1.75rem)
+      random(0.5rem, 1.75rem) random(0.5rem, 1.75rem);
+  }
+}
+
+/*
+ * Copy: a quiet, roughly drawn icon in the code block's top-right corner.
+ * Faint until you reach for it, then a loose tick once the code is copied.
+ */
+amber-code-copy,
+amber-code {
+  display: block;
+}
+
+amber-code {
+  position: relative;
+}
+
+.amber-code-copy {
+  position: absolute;
+  inset-block-start: var(--amber-space-2);
+  inset-inline-end: var(--amber-space-2);
+  display: grid;
+  place-items: center;
+  inline-size: 2rem;
+  block-size: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--amber-radius);
+  background: var(--amber-color-code-background);
+  color: var(--amber-color-code-comment);
+  opacity: 0.6;
+  cursor: pointer;
+  transition:
+    opacity var(--amber-duration) var(--amber-ease),
+    scale var(--amber-duration-quick) var(--amber-ease-out);
+}
+
+amber-code:hover .amber-code-copy,
+.amber-code-copy:is(:focus-visible, [data-state]) {
+  opacity: 1;
+}
+
+.amber-code-copy:active {
+  scale: var(--amber-press-scale);
+}
+
+.amber-code-copy svg {
+  grid-area: 1 / 1;
+  inline-size: 1.125rem;
+  block-size: 1.125rem;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.amber-code-copy-done,
+.amber-code-copy[data-state="copied"] .amber-code-copy-icon {
+  visibility: hidden;
+}
+
+.amber-code-copy[data-state="copied"] .amber-code-copy-done {
+  visibility: visible;
+  color: var(--amber-color-code-text);
+}

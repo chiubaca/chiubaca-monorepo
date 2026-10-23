@@ -26,7 +26,7 @@ const date = dateFormat.format(new Date(note.published));
         <NoteTags tags={note.tags} />
       </header>
       {!note.hasTitle && <h1 class="amber-note-date-title amber-type-heading">{date}</h1>}
-      <div class="amber-prose amber-note-prose"><slot /></div>
+      <amber-code-copy><div class="amber-prose amber-note-prose"><slot /></div></amber-code-copy>
       <footer class="amber-note-colophon">
         <p>A page from the notebook. These thoughts may still be taking shape.</p>
         <a href={sourceHref}>Edit on GitHub <DoodleArrow direction="north-east" /></a>
