@@ -48,6 +48,15 @@
   background-size: 100% 0.35em;
 }
 
+/* With rough-notation running (motion.css), links and footnotes leave the marks to it. */
+[data-notation] .amber-prose :is(a:not(.anchor, [data-footnote-backref]), [data-footnote-ref]) {
+  background: none;
+}
+
+[data-notation] .amber-prose [data-footnote-ref] {
+  padding-block-end: 0;
+}
+
 /* Heading anchors: a pencilled # that darkens when you reach for it. */
 .amber-prose .anchor {
   display: inline-block;

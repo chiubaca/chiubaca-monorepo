@@ -30,6 +30,7 @@
     "astro": "catalog:",
     "github-slugger": "catalog:",
     "mdast-util-from-markdown": "^2.1.0",
+    "rough-notation": "^0.5.1",
     "roughjs": "^4.6.6",
     "satteri": "catalog:",
     "tailwindcss": "catalog:",

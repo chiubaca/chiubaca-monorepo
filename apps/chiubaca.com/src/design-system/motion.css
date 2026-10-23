@@ -98,6 +98,28 @@ a:is(:hover, :focus-visible) .amber-route {
   color: var(--amber-color-text);
 }
 
+/*
+ * Rough notation: notation.ts redraws the underlines and the marker with
+ * rough-notation and marks the root with [data-notation]. The CSS versions
+ * above stay for pages without JavaScript and step aside here.
+ */
+.rough-annotation.amber-notation-pen {
+  color: var(--amber-color-accent);
+}
+
+.rough-annotation.amber-notation-marker {
+  color: var(--amber-ochre-500);
+  opacity: 0.45;
+}
+
+[data-notation] :is(.amber-header nav, .amber-footer) .amber-scribble-underline {
+  display: none;
+}
+
+[data-notation] .amber-route {
+  background: none;
+}
+
 /* Doodled arrows: always drawn, they redraw and lean the way they point. */
 .amber-nudge {
   display: inline-block;

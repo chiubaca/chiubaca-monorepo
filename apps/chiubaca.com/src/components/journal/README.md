@@ -68,6 +68,10 @@ The custom element registers once, initializes new instances on story navigation
 
 `FleetingNotePage` wraps its Markdown slot in `<amber-code-copy>`. The browser entry `code-copy.ts` is loaded beside `appearance.ts` in `JournalLayout.astro` and the Storybook preview. It wraps each `pre` in `<amber-code>` and adds a small, roughly drawn copy icon in the block's top-right corner, faint until hovered or focused. It becomes a tick once copied, and a polite status announces the result. Without JavaScript or the async clipboard API, no button is added. The entry is safe to import during server prerender.
 
+## Rough notation
+
+The browser entry `notation.ts`, loaded beside `code-copy.ts`, redraws the hover marks with [rough-notation](https://roughnotation.com/): nav and footer links get a pen underline, prose links and `.amber-route` titles get a marker highlight, and footnote references get a short underline. It listens on the document, so no wrapper element is needed, and draws on hover or keyboard focus and clears when both have gone. The current nav page stays underlined twice without animating. Each mark keeps its shape for the life of the page, and reduced motion shows it without drawing in. The script sets `data-notation` on the root, and CSS turns off its own underlines and marker under that attribute, so without JavaScript the CSS versions stay. The swash, sparkle and arrow doodles are still `scribbles.ts` and CSS. The entry is safe to import during server prerender.
+
 ## Photo tape
 
 `FleetingNotePage` also wraps its Markdown slot in `<amber-photo-tape>`. The browser entry `photo-tape.ts` gives each photo (a paragraph holding only an image) a random layout of tape (a strip, one piece, two corners, or all four), a random tilt, and a cross fold or a single fold, after aitchiss's taped paper pen. Without JavaScript, every photo keeps one strip of tape and a cross fold from CSS. The entry is safe to import during server prerender.
