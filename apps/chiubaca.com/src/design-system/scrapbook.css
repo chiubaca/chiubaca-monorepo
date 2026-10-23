@@ -32,17 +32,20 @@
   color: var(--amber-color-text);
 }
 
-/* Footnote references get circled in pen. */
+/* Footnote references are jotted by hand, and underlined with a dash on hover. */
 .amber-prose [data-footnote-ref] {
-  margin-inline: -0.15em;
-  padding: 0.15em 0.3em;
+  margin-inline: -0.1em;
+  padding: 0 0.15em 0.2em;
+  font-family: var(--amber-font-hand);
+  font-size: 2.25em;
+  line-height: 1;
   text-decoration: none;
-  background: var(--amber-doodle-circle) no-repeat 50% 50% / 0% 100%;
-  transition: background-size var(--amber-duration-draw) var(--amber-ease-spring);
+  background: var(--amber-doodle-dash) no-repeat 0 100% / 0% 0.35em;
+  transition: background-size var(--amber-duration-draw) var(--amber-ease-out);
 }
 
 .amber-prose [data-footnote-ref]:is(:hover, :focus-visible) {
-  background-size: 100% 100%;
+  background-size: 100% 0.35em;
 }
 
 /* Heading anchors: a pencilled # that darkens when you reach for it. */
@@ -88,8 +91,12 @@
   background: var(--amber-doodle-dash) no-repeat center / contain;
 }
 
+/* Numbers are jotted in the margin by hand. */
 .amber-prose ol > li::marker {
   color: var(--amber-color-accent);
+  font-family: var(--amber-font-hand);
+  font-size: 2em;
+  line-height: 1;
 }
 
 /* Task lists are pen boxes, ticked with a flourish that overshoots. */
