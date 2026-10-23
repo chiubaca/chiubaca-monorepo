@@ -45,18 +45,15 @@
   background-size: 100% 100%;
 }
 
-/* Heading anchors: a pencilled # that leans in when you reach for it. */
+/* Heading anchors: a pencilled # that darkens when you reach for it. */
 .amber-prose .anchor {
   display: inline-block;
   opacity: 0.35;
-  transition:
-    opacity var(--amber-duration) var(--amber-ease),
-    rotate var(--amber-duration-draw) var(--amber-ease-spring);
+  transition: opacity var(--amber-duration) var(--amber-ease);
 }
 
 .amber-prose :is(h1, h2, h3, h4, h5, h6):hover .anchor {
   opacity: 1;
-  rotate: -12deg;
 }
 
 /* Blockquotes hang from a wobbly pen line instead of a ruled one. */
@@ -108,49 +105,119 @@
   background-image: var(--amber-doodle-tick);
 }
 
-/* Photos are taped in, a little crooked, and straighten up when you look. */
-.amber-prose p:has(> img:only-child) {
+/*
+ * Photos are taped in, a little crooked, and folded in four from being
+ * carried around, after aitchiss's "drink more water" pen: the paper darkens
+ * into one corner and towards each fold, and sits on a hard, short shadow.
+ *
+ * Without JavaScript every photo gets one strip of tape across the top and a
+ * cross fold. photo-tape.ts tapes each photo in its own way instead, and picks
+ * which folds it has.
+ */
+.amber-prose :is(p:has(> img:only-child), p[data-taped]) {
+  --amber-tape: rgb(219 216 190 / 0.55);
+  --amber-tape-edge: #b7b49d;
+  --amber-paper-dark: var(--amber-color-border);
+  --amber-fold: rgb(0 0 0 / 0.4);
   position: relative;
   inline-size: fit-content;
   max-inline-size: 100%;
   padding: var(--amber-space-2);
-  background: var(--amber-color-surface);
-  box-shadow:
-    0 0 0 var(--amber-border-width) var(--amber-color-border),
-    0 0.5rem 1.25rem -0.75rem rgb(0 0 0 / 0.35);
-  rotate: -0.8deg;
-  transition: rotate var(--amber-duration-draw) var(--amber-ease-spring);
+  background:
+    linear-gradient(to bottom right, var(--amber-paper-dark), 20%, transparent),
+    var(--amber-color-surface);
+  box-shadow: 3px 3px 2px var(--amber-paper-dark);
+  rotate: var(--amber-photo-turn, -0.8deg);
 }
 
-.amber-prose p:has(> img:only-child):nth-of-type(even) {
-  rotate: 0.6deg;
-}
-
-.amber-prose p:has(> img:only-child)::before {
+/* The folds: each half darkens towards the crease, which then lets go at once. */
+.amber-prose :is(p:has(> img:only-child), p[data-taped])::after {
+  --amber-fold-across: linear-gradient(transparent, 50%, var(--amber-fold), 52%, transparent);
+  --amber-fold-down: linear-gradient(
+    to right,
+    transparent,
+    50%,
+    var(--amber-fold),
+    52%,
+    transparent
+  );
   content: "";
   position: absolute;
-  inset-block-start: -0.75rem;
-  inset-inline-start: calc(50% - 2.75rem);
-  inline-size: 5.5rem;
-  block-size: 1.5rem;
-  background: color-mix(in srgb, var(--amber-color-accent) 45%, transparent);
-  clip-path: polygon(
-    0 10%,
-    4% 0,
-    8% 12%,
-    12% 2%,
-    100% 0,
-    96% 50%,
-    100% 100%,
-    6% 92%,
-    2% 100%,
-    4% 50%
-  );
-  rotate: -3deg;
+  inset: var(--amber-space-2);
+  border-radius: var(--amber-radius);
+  background: var(--amber-fold-across), var(--amber-fold-down);
+  mix-blend-mode: multiply;
+  pointer-events: none;
 }
 
-.amber-prose p:has(> img:only-child):hover {
-  rotate: 0deg;
+.amber-prose :is(p:has(> img:only-child), p[data-taped])[data-fold="across"]::after {
+  background: var(--amber-fold-across);
+}
+
+.amber-prose :is(p:has(> img:only-child), p[data-taped])[data-fold="down"]::after {
+  background: var(--amber-fold-down);
+}
+
+/* Tape is translucent and torn at both ends. */
+.amber-prose :is(p:has(> img:only-child), p[data-taped])::before,
+.amber-tape {
+  position: absolute;
+  z-index: 1;
+  block-size: 2rem;
+  border-inline: 1px dotted var(--amber-tape-edge);
+  background: var(--amber-tape);
+  pointer-events: none;
+}
+
+.amber-prose :is(p:has(> img:only-child), p[data-taped])::before {
+  content: "";
+  inset-block-start: -0.4rem;
+  inset-inline-start: -5%;
+  inline-size: 110%;
+}
+
+.amber-prose :is(p:has(> img:only-child), p[data-taped])[data-taped]::before {
+  content: none;
+}
+
+.amber-tape {
+  inline-size: 6rem;
+  rotate: var(--amber-tape-turn, 0deg);
+}
+
+.amber-tape[data-at="strip"] {
+  inset-block-start: -0.4rem;
+  inset-inline-start: -5%;
+  inline-size: 110%;
+}
+
+.amber-tape[data-at="top"] {
+  inset-block-start: -0.75rem;
+  inset-inline-start: calc(var(--amber-tape-x, 50%) - 3rem);
+}
+
+.amber-tape[data-at="top-left"] {
+  inset-block-start: 0.5rem;
+  inset-inline-start: -2.25rem;
+  rotate: -45deg;
+}
+
+.amber-tape[data-at="top-right"] {
+  inset-block-start: 0.5rem;
+  inset-inline-end: -2.25rem;
+  rotate: 45deg;
+}
+
+.amber-tape[data-at="bottom-left"] {
+  inset-block-end: 0.5rem;
+  inset-inline-start: -2.25rem;
+  rotate: 45deg;
+}
+
+.amber-tape[data-at="bottom-right"] {
+  inset-block-end: 0.5rem;
+  inset-inline-end: -2.25rem;
+  rotate: -45deg;
 }
 
 /*
@@ -303,4 +370,59 @@ amber-code:hover .amber-code-copy,
 .amber-code-copy[data-state="copied"] .amber-code-copy-done {
   visibility: visible;
   color: var(--amber-color-code-text);
+}
+
+/*
+ * Tables are ruled by hand: rough-table.ts sketches the grid in pen behind the
+ * table and hatches the header in. Until it has, the plain borders stay.
+ */
+amber-rough-tables,
+amber-table {
+  display: block;
+}
+
+amber-table {
+  position: relative;
+  overflow-x: auto;
+  max-inline-size: 100%;
+  padding: var(--amber-space-2);
+  margin-inline: calc(-1 * var(--amber-space-2));
+}
+
+/* The frame scrolls instead, and the table paints above its sketch. */
+.amber-prose amber-table > table {
+  position: relative;
+  display: table;
+  overflow: visible;
+  /* Filled in by the same ballpoint hand that ruled the lines. */
+  font-family: var(--amber-font-hand);
+  font-size: 1.375rem;
+  line-height: var(--amber-leading-hand);
+  letter-spacing: 0.01em;
+}
+
+/* The hand has no bold, so headers are pressed a little harder and larger. */
+.amber-prose amber-table > table th {
+  font-size: var(--amber-font-size-hand);
+  font-weight: var(--amber-weight-regular);
+  -webkit-text-stroke: 0.02em currentcolor;
+}
+
+.amber-table-sketch {
+  position: absolute;
+  overflow: visible;
+  color: var(--amber-ochre-500);
+  pointer-events: none;
+}
+
+.amber-table-shade {
+  opacity: 0.35;
+}
+
+amber-table[data-sketched] > table :is(th, td) {
+  border-color: transparent;
+}
+
+amber-table[data-sketched] > table th {
+  background: transparent;
 }

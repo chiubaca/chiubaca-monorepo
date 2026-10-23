@@ -135,6 +135,10 @@ A wider comparison should scroll locally on a narrow screen. The alignment in th
 
 _A photograph from the existing walking journal, kept as a small local fixture. Images should stay inside the reading measure, including on a phone._
 
+A second photo gets its own tape and folds:
+
+![The same mountain path, taped in a second time.](markdown-notebook.jpg)
+
 ## A pause between thoughts
 
 A horizontal rule separates two moments without adding a new heading.
