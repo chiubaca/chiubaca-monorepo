@@ -12,14 +12,16 @@ vp run storybook
 
 Open <http://localhost:6006>. The sidebar contains:
 
-- **Overview** — the design decisions and font pairing.
+- **Overview** — the design decisions and the three type voices.
 - **Colour** — every semantic colour token, mode-aware contrast ratios, and a side-by-side light/dark specimen.
 - **Typography** — the full role-based scale, a reading specimen, and an interactive text playground.
 - **Rhythm** — spacing, reading measures, gutters, and interaction sizes.
+- **Motion** — the playful layer: pen scribbles that draw in (wordmark signature, double-underlined current page, single-underline hover on nav and footer links, circled tags), the scrapbook marker on link titles, doodled arrows, presses, and the sunset colour-mode wipe.
 - **Components** — real Astro `PostSummary`, slotted `WritingSection`, and interactive `AppearanceSelect` examples.
 - **Journal** — the actual `AmberJournal.astro` composition with representative content, not copied HTML.
 - **Fleeting notes / Fleeting note** — the real archive and individual-note compositions, including pagination, empty/untitled states, and a rich reading specimen.
-- **Fleeting note / Markdown / All formatting** — a real Markdown specimen covering headings H1–H6, emphasis/strikethrough, inline and fenced/indented code, nested/ordered/task lists, blockquotes, tables, images, separators, links, and footnotes.
+- **Handwriting** — Reenie Beanie, the eyebrow and margin-note hand, beside the three ballpoint faces it was chosen over.
+- **Fleeting note / Markdown / All formatting** — shows the scrapbook prose layer, and a real Markdown specimen covering headings H1–H6, emphasis/strikethrough, inline and fenced/indented code, nested/ordered/task lists, blockquotes, tables, images, separators, links, and footnotes.
 
 Foundations remain HTML reference stories and explicitly select `parameters.renderer: "html"` so DOM decorators use normal Storybook composition rather than Astro's server-render placeholder composition. Components and the Journal pattern render the same `.astro` files used by the development homepage, through `@storybook-astro/framework@1.12.0`. Use the viewport toolbar to review 320px, 390px, 768px, and 1440px canvases. The Accessibility panel checks the rendered stories.
 
@@ -111,10 +113,12 @@ The shared journal footer has an **Appearance** select on the Amber homepage pre
 ## Sources of truth
 
 - `tokens.css` — palette, semantic colours, fonts, type sizes, line heights, spacing, measures, and focus/motion values.
-- `fonts/fonts.css` — self-hosted Newsreader regular/italic and DM Sans. SIL Open Font Licenses are alongside the files.
+- `fonts/fonts.css` — self-hosted Newsreader regular/italic, DM Sans, and Reenie Beanie (Latin subset, used by `.amber-eyebrow` through `--amber-font-hand`). SIL Open Font Licenses are alongside the files.
 - `typography.css` — shared type roles, accessible focus/selection styling, and article prose.
 - `journal.css` — the shared journal shell styles.
 - `notes.css` — archive summaries, pagination, note reading styles, and adjacent-note navigation.
+- `scrapbook.css` — the Markdown layer and shared doodle images (`--amber-doodle-*`): marker-swipe links, pen-circled footnote references, leaning heading anchors, pen-line blockquotes, squiggle rules, dash bullets, pen-drawn task boxes, and taped, slightly crooked photos that straighten on hover.
+- `motion.css` — interaction flourishes. Motion only replies to hover, focus, or press; reduced motion keeps every end state. Doodles live in `scribbles.ts` and render through `Scribble.astro` / `DoodleArrow.astro`. Opt in with `.amber-route` on link text (wrap it in a plain `<span>` when the link is a flex or grid container, so the marker follows each line) and `.amber-nudge[data-direction]` on arrows.
 - `../components/journal/` — Astro pattern markup, component-owned styles, and the shared appearance browser entry; see its README for usage and framework caveats.
 - `catalog.ts` — descriptions and variable names only; never copied token values.
 - `token-values.ts` — resolves CSS aliases and light/dark colour pairs for Storybook, including its manager theme, and calculates WCAG 2 contrast.

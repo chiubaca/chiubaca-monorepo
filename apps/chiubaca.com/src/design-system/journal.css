@@ -71,7 +71,7 @@
   text-decoration: none;
 }
 
-.amber-small-hours h2 span {
+.amber-small-hours h2 .amber-nudge {
   margin-inline-start: var(--amber-space-2);
   font-family: var(--amber-font-interface);
   font-size: var(--amber-font-size-body);

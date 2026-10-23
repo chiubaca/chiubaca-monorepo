@@ -1,0 +1,9 @@
+---
+import { scribbleSvg, type ScribbleKind } from "../../design-system/scribbles";
+interface Props {
+  kind: ScribbleKind;
+}
+const { kind } = Astro.props;
+---
+
+<Fragment set:html={scribbleSvg(kind)} />

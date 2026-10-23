@@ -1,4 +1,5 @@
 ---
+import DoodleArrow from "../journal/DoodleArrow.astro";
 import type { VariantProps } from "./types";
 import PostSummary from "../journal/PostSummary.astro";
 import WritingSection from "../journal/WritingSection.astro";
@@ -26,7 +27,7 @@ const { posts, personal, note } = Astro.props as VariantProps;
     <aside class="amber-small-hours" aria-labelledby="small-hours-title">
       <div>
         <p class="amber-eyebrow">From the archive</p>
-        <h2 id="small-hours-title"><a href={personal.href}>4am Hugs <span aria-hidden="true">↗</span></a></h2>
+        <h2 id="small-hours-title"><a href={personal.href}><span class="amber-route">4am Hugs</span> <DoodleArrow direction="north-east" /></a></h2>
         <p>“We hush and we kiss you.<br />Embrace the 4 am hugs.”</p>
       </div>
     </aside>
@@ -36,6 +37,6 @@ const { posts, personal, note } = Astro.props as VariantProps;
         <h2 id="amber-notes-heading">Fleeting notes</h2>
         <p>Small discoveries, half-formed thoughts, and things worth keeping.</p>
       </div>
-      <a href={note.href}>Latest note <span aria-hidden="true">↗</span><small>{note.date}</small></a>
+      <a href={note.href}>Latest note <DoodleArrow direction="north-east" /><small>{note.date}</small></a>
     </section>
 </JournalShell>

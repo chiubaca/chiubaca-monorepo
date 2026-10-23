@@ -14,8 +14,8 @@ const date = new Intl.DateTimeFormat("en-GB", {
 
 <article class:list={["amber-post", { "amber-post-uncategorised": !category }]}>
   <div>
-    {category && <p class="amber-post-category">{category}</p>}
-    <Heading><a href={href}>{title}</a></Heading>
+    {category && <p class="amber-post-category amber-eyebrow">{category}</p>}
+    <Heading><a href={href}><span><span class="amber-route">{title}</span></span></a></Heading>
     {summary && <p class="amber-post-description">{summary}</p>}
   </div>
   <time datetime={publishedDate.toISOString()}>{date}</time>
@@ -31,10 +31,7 @@ const date = new Intl.DateTimeFormat("en-GB", {
     border-block-end: var(--amber-border-width) solid var(--amber-color-border);
   }
   .amber-post-category {
-    margin-block-end: var(--amber-space-1);
-    color: var(--amber-color-accent);
-    font-size: var(--amber-font-size-label);
-    letter-spacing: var(--amber-tracking-label);
+    margin-block-end: calc(var(--amber-space-1) * -1);
   }
   .amber-post :is(h2, h3) {
     font-size: var(--amber-font-size-title);

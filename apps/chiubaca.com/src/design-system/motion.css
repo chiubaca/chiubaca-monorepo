@@ -1,0 +1,194 @@
+/*
+ * Amber Journal motion: a scrapbook margin. Hand-drawn scribbles, marker
+ * strokes, and doodled arrows reply to the reader. Nothing moves on load or
+ * scroll. Reduced motion keeps every end state and removes only the movement.
+ */
+
+/*
+ * Scribbles: inline SVG doodles from scribbles.ts. Each stroke hides behind
+ * its own dash and draws in on hover or focus; later strokes wait their turn.
+ */
+.amber-scribble {
+  position: absolute;
+  overflow: visible;
+  fill: none;
+  stroke: var(--amber-color-accent);
+  stroke-width: 1.75px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.amber-scribble path {
+  vector-effect: non-scaling-stroke;
+  /* The gap and offset keep round caps from leaking a dot while hidden. */
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1.01;
+  transition: stroke-dashoffset var(--amber-duration-scribble) var(--amber-ease-out);
+  transition-delay: calc(var(--amber-scribble-order, 0) * var(--amber-duration-scribble));
+}
+
+a:is(:hover, :focus-visible) .amber-scribble path {
+  stroke-dashoffset: 0;
+}
+
+:is(.amber-wordmark, .amber-header nav a, .amber-footer a, .amber-note-tags a) {
+  position: relative;
+}
+
+/* The signature: the wordmark is underlined with a swash. */
+.amber-scribble-swash {
+  inset-inline-start: 0;
+  inset-block-end: calc(50% - 0.8em);
+  inline-size: calc(100% - 0.1em);
+  block-size: 0.35em;
+}
+
+/* Circled in pen: note tags on hover. */
+.amber-scribble-circle {
+  inset-inline-start: -0.65em;
+  inset-block-start: calc(50% - 1em);
+  inline-size: calc(100% + 1.3em);
+  block-size: 2em;
+}
+
+/* A pen underline for nav and footer links. */
+.amber-scribble-underline {
+  inset-inline-start: -0.15em;
+  inset-block-end: calc(50% - 1.15em);
+  inline-size: calc(100% + 0.3em);
+  block-size: 0.5em;
+}
+
+/*
+ * You are here: the current page is underlined twice; hovering any other nav
+ * or footer link draws only the first stroke.
+ */
+.amber-header nav a[aria-current] .amber-scribble path {
+  stroke-dashoffset: 0;
+}
+
+:is(.amber-header nav a:not([aria-current]), .amber-footer a) .amber-scribble path + path {
+  stroke-dashoffset: 1.01;
+}
+
+/*
+ * Scrapbook marker: a brush stroke swipes behind the words and bleeds
+ * past them. The brush is translucent ochre-500, so one stroke reads as warm
+ * ochre on paper and burnt amber on moss; text stays above 5.5:1 in both modes.
+ */
+.amber-route {
+  margin-inline: -0.25em;
+  padding: 0.05em 0.25em;
+  background: var(--amber-doodle-marker) no-repeat 0 50% / 0% 100%;
+  box-decoration-break: clone;
+  transition:
+    background-size var(--amber-duration-draw) var(--amber-ease-out),
+    color var(--amber-duration) var(--amber-ease);
+}
+
+a:is(:hover, :focus-visible) .amber-route {
+  background-size: 100% 100%;
+  color: var(--amber-color-text);
+}
+
+/* Doodled arrows: always drawn, they redraw and lean the way they point. */
+.amber-nudge {
+  display: inline-block;
+  inline-size: 1.25em;
+  block-size: 1.25em;
+  vertical-align: -0.3em;
+  transition: translate var(--amber-duration-draw) var(--amber-ease-spring);
+}
+
+.amber-nudge .amber-scribble {
+  position: static;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.amber-nudge .amber-scribble path {
+  stroke-dashoffset: 0;
+  transition: none;
+}
+
+a:is(:hover, :focus-visible) .amber-nudge .amber-scribble path {
+  animation: amber-redraw var(--amber-duration-scribble) var(--amber-ease-out) both;
+  animation-delay: calc(var(--amber-scribble-order, 0) * var(--amber-duration-scribble));
+}
+
+@keyframes amber-redraw {
+  from {
+    stroke-dashoffset: 1.01;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+a:is(:hover, :focus-visible) .amber-nudge[data-direction="east"] {
+  translate: var(--amber-nudge) 0;
+}
+
+a:is(:hover, :focus-visible) .amber-nudge[data-direction="west"] {
+  translate: calc(var(--amber-nudge) * -1) 0;
+}
+
+a:is(:hover, :focus-visible) .amber-nudge[data-direction="north-east"] {
+  translate: var(--amber-nudge) calc(var(--amber-nudge) * -1);
+}
+
+/* A chonky press: controls give a little when they are pushed. */
+.amber-theme :is(.amber-wordmark, .amber-header nav a, .amber-notes-pagination a, select) {
+  transition:
+    color var(--amber-duration) var(--amber-ease),
+    scale var(--amber-duration-quick) var(--amber-ease-out);
+}
+
+.amber-theme :is(.amber-wordmark, .amber-header nav a, .amber-notes-pagination a, select):active {
+  scale: var(--amber-press-scale);
+}
+
+/* Focus arrives with a small spring instead of simply appearing. */
+.amber-theme :focus-visible {
+  animation: amber-focus-arrive var(--amber-duration-draw) var(--amber-ease-spring);
+}
+
+@keyframes amber-focus-arrive {
+  from {
+    outline-offset: 0;
+  }
+}
+
+/* Sunset and sunrise: colour mode changes spread from the Appearance control. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  animation: amber-sunset var(--amber-duration-sunset) var(--amber-ease-out);
+}
+
+@keyframes amber-sunset {
+  from {
+    clip-path: circle(0 at var(--amber-sunset-x, 50%) var(--amber-sunset-y, 100%));
+  }
+  to {
+    clip-path: circle(150vmax at var(--amber-sunset-x, 50%) var(--amber-sunset-y, 100%));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .amber-theme *,
+  .amber-theme *::after,
+  ::view-transition-new(root) {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .amber-theme :is(.amber-wordmark, .amber-header nav a, .amber-notes-pagination a, select):active {
+    scale: none;
+  }
+}

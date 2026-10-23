@@ -21,10 +21,11 @@ export const AmberJournal: Story = {
     body.append(
       markup(`
       <section class="ds-section">
-        <h2>Two voices, one journal</h2>
+        <h2>Three voices, one journal</h2>
         <div class="ds-font-pair">
           <article><p class="amber-eyebrow">Editorial / serif</p><h3 class="ds-font-name">Newsreader</h3><p>Article titles, long-form reading, and the occasional italic aside. Regular weight, with room to breathe.</p></article>
           <article><p class="amber-eyebrow">Interface / sans</p><h3 class="ds-font-name">DM Sans</h3><p>Navigation, summaries, and metadata. A quieter supporting voice, never competing with the writing.</p></article>
+          <article><p class="amber-eyebrow">Margin notes / hand</p><h3 class="ds-font-name">Reenie Beanie</h3><p>Eyebrows and scribbled asides, in sentence case. A ballpoint in the margin, a few words at a time.</p></article>
         </div>
       </section>
     `),

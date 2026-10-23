@@ -1,5 +1,25 @@
 import { colorModePreference } from "../../design-system/color-mode";
 
+// Page-level changes spread like a sunset from the control; islands just switch.
+function setColorMode(target: HTMLElement, mode: string, origin: HTMLElement) {
+  const root = document.documentElement;
+  const apply = () => {
+    target.dataset.colorMode = mode;
+  };
+  if (
+    target !== root ||
+    !document.startViewTransition ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    apply();
+    return;
+  }
+  const { left, top, width, height } = origin.getBoundingClientRect();
+  root.style.setProperty("--amber-sunset-x", `${left + width / 2}px`);
+  root.style.setProperty("--amber-sunset-y", `${top + height / 2}px`);
+  document.startViewTransition(apply);
+}
+
 export function registerAppearanceControls() {
   if (typeof window === "undefined" || customElements.get("amber-appearance")) return;
 
@@ -30,7 +50,7 @@ export function registerAppearanceControls() {
         "change",
         () => {
           const mode = colorModePreference(select.value);
-          target.dataset.colorMode = mode;
+          setColorMode(target, mode, select);
           if (this.dataset.persist === "true") {
             try {
               if (mode === "system") localStorage.removeItem("amber-color-mode");

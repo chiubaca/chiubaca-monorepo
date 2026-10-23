@@ -126,13 +126,17 @@
 
 .amber-type-label,
 .amber-eyebrow {
-  font-family: var(--amber-font-interface);
-  font-size: var(--amber-font-size-label);
-  font-weight: var(--amber-weight-medium);
-  line-height: var(--amber-leading-compact);
-  letter-spacing: var(--amber-tracking-caps);
-  text-transform: uppercase;
-  color: var(--amber-color-text-muted);
+  font-family: var(--amber-font-hand);
+  font-size: var(--amber-font-size-hand);
+  font-weight: var(--amber-weight-regular);
+  line-height: var(--amber-leading-hand);
+  letter-spacing: var(--amber-tracking-normal);
+  color: var(--amber-color-accent);
+}
+
+/* Doodled arrows inside a handwritten eyebrow stay at text size. */
+.amber-eyebrow .amber-nudge {
+  font-size: 0.75em;
 }
 
 .amber-type-code {

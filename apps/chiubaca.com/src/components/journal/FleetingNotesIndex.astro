@@ -1,4 +1,5 @@
 ---
+import DoodleArrow from "./DoodleArrow.astro";
 import JournalShell from "./JournalShell.astro";
 import NoteTags from "./NoteTags.astro";
 import type { FleetingNoteSummary, NotesPagination } from "./types";
@@ -39,7 +40,7 @@ const groups = notes.reduce<{ month: string; notes: FleetingNoteSummary[] }[]>((
             <article class="amber-note-summary">
               <time datetime={note.published}>{dateFormat.format(new Date(note.published))}</time>
               <div>
-                <h3><a href={note.href}>{note.title}</a></h3>
+                <h3><a href={note.href}><span><span class="amber-route">{note.title}</span></span></a></h3>
                 {note.excerpt && <p class="amber-note-excerpt">{note.excerpt}</p>}
                 <NoteTags tags={note.tags} />
               </div>
@@ -55,9 +56,9 @@ const groups = notes.reduce<{ month: string; notes: FleetingNoteSummary[] }[]>((
   <nav class="amber-notes-pagination" aria-label="Notes pages">
     <p>{pagination.total > 0 ? `${pagination.start}–${pagination.end} of ${pagination.total.toLocaleString("en-GB")} notes` : "No notes yet"}</p>
     <div>
-      {pagination.newerHref && <a href={pagination.newerHref} rel="prev"><span aria-hidden="true">←</span> Newer notes</a>}
+      {pagination.newerHref && <a href={pagination.newerHref} rel="prev"><DoodleArrow direction="west" /> Newer notes</a>}
       <span class="amber-page-number">Page {pagination.page} of {pagination.pageCount}</span>
-      {pagination.olderHref && <a href={pagination.olderHref} rel="next">Older notes <span aria-hidden="true">→</span></a>}
+      {pagination.olderHref && <a href={pagination.olderHref} rel="next">Older notes <DoodleArrow direction="east" /></a>}
     </div>
   </nav>
 </JournalShell>

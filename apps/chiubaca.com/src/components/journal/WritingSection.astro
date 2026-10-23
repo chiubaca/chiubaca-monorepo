@@ -1,4 +1,5 @@
 ---
+import DoodleArrow from "./DoodleArrow.astro";
 import type { WritingSectionProps } from "./types";
 type Props = WritingSectionProps;
 
@@ -9,7 +10,7 @@ const headingId = `${id}-heading`;
 <section class="amber-writing" id={id} aria-labelledby={headingId}>
   <div class="amber-section-heading">
     <h2 id={headingId}>{title}</h2>
-    {archiveHref && <a href={archiveHref}>{archiveLabel} <span aria-hidden="true">↗</span></a>}
+    {archiveHref && <a href={archiveHref}>{archiveLabel} <DoodleArrow direction="north-east" /></a>}
   </div>
   <div class="amber-posts"><slot /></div>
 </section>

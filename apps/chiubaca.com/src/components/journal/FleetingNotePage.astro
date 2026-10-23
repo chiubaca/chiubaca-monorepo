@@ -1,4 +1,5 @@
 ---
+import DoodleArrow from "./DoodleArrow.astro";
 import JournalShell from "./JournalShell.astro";
 import NoteTags from "./NoteTags.astro";
 import type { FleetingNoteSummary } from "./types";
@@ -17,7 +18,7 @@ const date = dateFormat.format(new Date(note.published));
 
 <JournalShell active="notes">
   <div class="amber-note-page">
-    <a class="amber-back-to-notes" href={archiveHref}><span aria-hidden="true">←</span> All fleeting notes</a>
+    <a class="amber-back-to-notes" href={archiveHref}><DoodleArrow direction="west" /> All fleeting notes</a>
     <article class="amber-note-entry" aria-label={`Fleeting note, ${date}`}>
       <header class="amber-note-dateline">
         <p class="amber-eyebrow">Fleeting note</p>
@@ -28,13 +29,13 @@ const date = dateFormat.format(new Date(note.published));
       <div class="amber-prose amber-note-prose"><slot /></div>
       <footer class="amber-note-colophon">
         <p>A page from the notebook. These thoughts may still be taking shape.</p>
-        <a href={sourceHref}>Edit on GitHub <span aria-hidden="true">↗</span></a>
+        <a href={sourceHref}>Edit on GitHub <DoodleArrow direction="north-east" /></a>
       </footer>
     </article>
     {(newer || older) && (
       <nav class="amber-note-neighbours" aria-label="Adjacent notes">
-        <div>{newer && <a href={newer.href} rel="prev"><span class="amber-eyebrow">← Newer note</span><span>{newer.title}</span></a>}</div>
-        <div>{older && <a href={older.href} rel="next"><span class="amber-eyebrow">Older note →</span><span>{older.title}</span></a>}</div>
+        <div>{newer && <a href={newer.href} rel="prev"><span class="amber-eyebrow"><DoodleArrow direction="west" /> Newer note</span><span><span class="amber-route">{newer.title}</span></span></a>}</div>
+        <div>{older && <a href={older.href} rel="next"><span class="amber-eyebrow">Older note <DoodleArrow direction="east" /></span><span><span class="amber-route">{older.title}</span></span></a>}</div>
       </nav>
     )}
   </div>

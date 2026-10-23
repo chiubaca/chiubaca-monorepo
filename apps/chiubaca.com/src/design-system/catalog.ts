@@ -182,11 +182,11 @@ export const typographyRoles = [
   },
   {
     key: "label",
-    name: "Eyebrow label",
-    font: "--amber-font-interface",
-    size: "--amber-font-size-label",
-    leading: "--amber-leading-compact",
-    use: "Occasional, short uppercase labels. Never body copy.",
+    name: "Eyebrow",
+    font: "--amber-font-hand",
+    size: "--amber-font-size-hand",
+    leading: "--amber-leading-hand",
+    use: "A ballpoint note above a title, in sentence case. A few words, never body copy.",
     sample: "From the archive",
   },
   {
