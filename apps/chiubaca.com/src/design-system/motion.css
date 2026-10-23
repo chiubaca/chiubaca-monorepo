@@ -44,12 +44,18 @@ a:is(:hover, :focus-visible) .amber-scribble path {
   block-size: 0.35em;
 }
 
-/* Circled in pen: note tags on hover. */
-.amber-scribble-circle {
-  inset-inline-start: -0.65em;
-  inset-block-start: calc(50% - 1em);
-  inline-size: calc(100% + 1.3em);
-  block-size: 2em;
+/* Tags: a quick sparkle high at the top-right corner, one stroke after another. */
+.amber-scribble-sparkle {
+  inset-inline-end: -0.4em;
+  inset-block-start: calc(50% - 1.6em);
+  inline-size: 1em;
+  block-size: 1em;
+  rotate: 90deg;
+}
+
+.amber-scribble-sparkle path {
+  transition-duration: calc(var(--amber-duration-scribble) * 0.35);
+  transition-delay: calc(var(--amber-scribble-order, 0) * var(--amber-duration-scribble) * 0.35);
 }
 
 /* A pen underline for nav and footer links. */

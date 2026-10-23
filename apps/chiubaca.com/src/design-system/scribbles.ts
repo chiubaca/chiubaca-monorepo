@@ -2,12 +2,6 @@
 // stroke-dashoffset; pathLength="1" means no lengths need measuring, and
 // paths play in order, so a second stroke follows the first.
 export const scribbles = {
-  // A loose loop that overshoots its start, like circling a word.
-  circle: {
-    viewBox: "0 0 100 50",
-    stretch: true,
-    paths: ["M58 5C34 1 8 8 4 24s20 23 48 22 46-8 45-22S70 2 38 6"],
-  },
   // A quick underline and a shorter second pass beneath it.
   underline: {
     viewBox: "0 0 100 10",
@@ -19,6 +13,12 @@ export const scribbles = {
     viewBox: "0 0 120 20",
     stretch: true,
     paths: ["M2 12c20-4 40-6 60-4 18 2 30 6 26 10-3 3-10-1-8-7 3-7 18-9 38-8"],
+  },
+  // Three short strokes of excitement.
+  sparkle: {
+    viewBox: "0 0 16 16",
+    stretch: false,
+    paths: ["M2 10l5-1", "M5 2l3 5", "M13 3l-3 5"],
   },
   "arrow-east": {
     viewBox: "0 0 24 24",

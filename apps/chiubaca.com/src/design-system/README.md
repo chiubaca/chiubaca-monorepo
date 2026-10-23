@@ -16,7 +16,7 @@ Open <http://localhost:6006>. The sidebar contains:
 - **Colour** — every semantic colour token, mode-aware contrast ratios, and a side-by-side light/dark specimen.
 - **Typography** — the full role-based scale, a reading specimen, and an interactive text playground.
 - **Rhythm** — spacing, reading measures, gutters, and interaction sizes.
-- **Motion** — the playful layer: pen scribbles that draw in (wordmark signature, double-underlined current page, single-underline hover on nav and footer links, circled tags), the scrapbook marker on link titles, doodled arrows, presses, and the sunset colour-mode wipe.
+- **Motion** — the playful layer: pen scribbles that draw in (wordmark signature, double-underlined current page, single-underline hover on nav and footer links), the scrapbook marker on link titles, pre-highlighted tags that sparkle on hover, doodled arrows, presses, and the sunset colour-mode wipe.
 - **Components** — real Astro `PostSummary`, slotted `WritingSection`, and interactive `AppearanceSelect` examples.
 - **Journal** — the actual `AmberJournal.astro` composition with representative content, not copied HTML.
 - **Fleeting notes / Fleeting note** — the real archive and individual-note compositions, including pagination, empty/untitled states, and a rich reading specimen.
@@ -117,7 +117,7 @@ The shared journal footer has an **Appearance** select on the Amber homepage pre
 - `typography.css` — shared type roles, accessible focus/selection styling, and article prose.
 - `journal.css` — the shared journal shell styles.
 - `notes.css` — archive summaries, pagination, note reading styles, and adjacent-note navigation.
-- `scrapbook.css` — the Markdown layer and shared doodle images (`--amber-doodle-*`): marker-swipe links, pen-circled footnote references, leaning heading anchors, pen-line blockquotes, squiggle rules, dash bullets, pen-drawn task boxes, and taped, slightly crooked photos that straighten on hover.
+- `scrapbook.css` — the Markdown layer, highlighted note tags (`.amber-tag-ink`), and shared doodle images (`--amber-doodle-*`): marker-swipe links, pen-circled footnote references, leaning heading anchors, pen-line blockquotes, squiggle rules, dash bullets, pen-drawn task boxes, and taped, slightly crooked photos that straighten on hover.
 - `motion.css` — interaction flourishes. Motion only replies to hover, focus, or press; reduced motion keeps every end state. Doodles live in `scribbles.ts` and render through `Scribble.astro` / `DoodleArrow.astro`. Opt in with `.amber-route` on link text (wrap it in a plain `<span>` when the link is a flex or grid container, so the marker follows each line) and `.amber-nudge[data-direction]` on arrows.
 - `../components/journal/` — Astro pattern markup, component-owned styles, and the shared appearance browser entry; see its README for usage and framework caveats.
 - `catalog.ts` — descriptions and variable names only; never copied token values.

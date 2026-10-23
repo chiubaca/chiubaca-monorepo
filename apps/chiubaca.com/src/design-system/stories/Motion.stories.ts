@@ -47,17 +47,21 @@ export const PlayfulMotion: Story = {
         </header>
         <dl class="ds-principles" style="margin-block-start:var(--amber-space-6)">
           <div><dt>The signature</dt><dd>Hover the wordmark. A swash signs itself underneath, loop and all.</dd></div>
-          <div><dt>You are here</dt><dd>The current page is underlined twice in pen. Hovering another page, or a footer link, draws a single underline; note tags get circled.</dd></div>
+          <div><dt>You are here</dt><dd>The current page is underlined twice in pen. Hovering another page, or a footer link, draws a single underline.</dd></div>
           <div><dt>A chonky press</dt><dd>Links that behave like buttons give a little when pushed, then spring back.</dd></div>
         </dl>
       </section>
 
       <section class="ds-section"><h2>Links that go somewhere</h2>
+        <ul class="amber-note-tags" aria-label="Motion specimen tags" style="margin-block-end:var(--amber-space-4)">
+          <li><a href="#motion"><span class="amber-tag-ink">personal-finance</span>${scribbleSvg("sparkle")}</a></li>
+          <li><a href="#motion"><span class="amber-tag-ink">data-visualisation</span>${scribbleSvg("sparkle")}</a></li>
+        </ul>
         <article class="amber-post amber-post-uncategorised" style="display:block;border:0;padding:0">
           <h3 style="font-size:var(--amber-font-size-title)"><a href="#motion" style="text-decoration:none"><span class="amber-route">Building a planning poker app on a chonk scale</span></a></h3>
         </article>
         <nav class="amber-notes-pagination" aria-label="Motion specimen pagination" style="margin-block-start:var(--amber-space-6)">
-          <p>A scrapbook marker swipes behind titles. Doodled arrows redraw themselves and lean the way they point.</p>
+          <p>Tags come highlighted and sparkle on hover. A scrapbook marker swipes behind titles. Doodled arrows redraw themselves and lean the way they point.</p>
           <div>
             <a href="#motion" rel="prev"><span class="amber-nudge" data-direction="west" aria-hidden="true">${scribbleSvg("arrow-west")}</span> Newer notes</a>
             <a href="#motion" rel="next">Older notes <span class="amber-nudge" data-direction="east" aria-hidden="true">${scribbleSvg("arrow-east")}</span></a>
