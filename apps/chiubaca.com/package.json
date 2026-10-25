@@ -2,12 +2,16 @@
   "name": "chiubaca.com",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "astro dev --host",
     "build": "astro build",
     "deploy": "wrangler deploy",
     "preview": "astro preview",
     "format": "vp fmt",
+    "storybook": "storybook dev --port 6006 --host 127.0.0.1 --no-open --exact-port --disable-telemetry",
+    "storybook:build": "storybook build --output-dir storybook-static --disable-telemetry",
+    "storybook:verify": "node .storybook/verify-build.ts",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
@@ -25,14 +29,21 @@
     "alpinejs": "^3.14.9",
     "astro": "catalog:",
     "github-slugger": "catalog:",
+    "mdast-util-from-markdown": "^2.1.0",
+    "rough-notation": "^0.5.1",
+    "roughjs": "^4.6.6",
     "satteri": "catalog:",
     "tailwindcss": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
     "@cloudflare/puppeteer": "^1.0.6",
+    "@storybook-astro/framework": "1.12.0",
+    "@storybook/addon-a11y": "10.6.2",
+    "@storybook/builder-vite": "10.6.2",
     "@tailwindcss/typography": "catalog:",
     "daisyui": "^5.0.35",
+    "storybook": "10.6.2",
     "typescript": "catalog:",
     "wrangler": "catalog:"
   }

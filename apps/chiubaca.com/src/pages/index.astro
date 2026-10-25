@@ -4,6 +4,16 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TerminalDivider from "../components/TerminalDivider.astro";
 
+const requestedVariant = import.meta.env.DEV
+  ? Astro.url.searchParams.get("variant")
+  : null;
+const prototypeVariant = requestedVariant === "amber" || requestedVariant === "midnight" || requestedVariant === "daybreak"
+  ? requestedVariant
+  : null;
+const HomepagePrototype = import.meta.env.DEV && prototypeVariant
+  ? (await import("../components/homepage-prototype/HomepagePrototype.astro")).default
+  : null;
+
 const blogs = await getCollection("permanent-notes");
 const liveBlogs = blogs
   .filter((blog) => blog.data.status === "live")
@@ -27,6 +37,14 @@ const { Content: LatestFleetingNoteContent } = await render(
 );
 ---
 
+{prototypeVariant && HomepagePrototype ? (
+  <HomepagePrototype
+    variant={prototypeVariant}
+    posts={liveBlogs}
+    entries={blogs}
+    note={latestFleetingNoteEntry}
+  />
+) : (
 <BaseLayout
   title="home | chiubaca.com"
   description="A digital garden of ramblings by Alex Chiu. Built with ☕ and delusion."
@@ -175,6 +193,7 @@ const { Content: LatestFleetingNoteContent } = await render(
     </section>
   </main>
 </BaseLayout>
+)}
 
 <style>
   .blink {

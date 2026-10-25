@@ -1,0 +1,22 @@
+---
+import { createHeroDoodles } from "./hero-doodles";
+
+interface Props { seedKey?: string }
+const { seedKey = "amber-journal" } = Astro.props;
+const doodles = createHeroDoodles(seedKey);
+---
+
+<div class="amber-journal-art" aria-hidden="true">
+  {doodles.map((doodle, index) => (
+    <svg
+      class:list={["amber-hero-doodle", { "amber-hero-doodle--ink": doodle.ink }]}
+      data-doodle={doodle.kind}
+      viewBox="-5 -5 110 110"
+      fill="none"
+      focusable="false"
+      style={`--doodle-x:${doodle.x}%;--doodle-y:${doodle.y}%;--doodle-size:${doodle.size / 16}rem;--doodle-turn:${doodle.rotation}deg;--doodle-draw-delay:calc(${index} * var(--amber-delay-doodle-step));--doodle-stroke-count:${doodle.paths.length}`}
+    >
+      {doodle.paths.map((path, stroke) => <path d={path.d} pathLength="1" style={`--doodle-stroke-order:${stroke}`} stroke={path.stroke} stroke-width={path.strokeWidth} fill={path.fill ?? "none"} vector-effect="non-scaling-stroke" />)}
+    </svg>
+  ))}
+</div>

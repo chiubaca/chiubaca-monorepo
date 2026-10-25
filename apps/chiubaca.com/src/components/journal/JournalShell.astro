@@ -1,0 +1,32 @@
+---
+import AppearanceSelect from "./AppearanceSelect.astro";
+import Scribble from "./Scribble.astro";
+import type { JournalShellProps } from "./types";
+type Props = JournalShellProps;
+const { active = "writing", homeHref = "/", writingHref = "/blogs/", wide = false } = Astro.props as Props;
+const links = [
+  { href: writingHref, label: "Writing", key: "writing" },
+  { href: "/fleeting-notes/", label: "Notes", key: "notes" },
+  { href: "/memories/", label: "Memories", key: "memories" },
+];
+---
+
+<div class:list={["amber-page", { "amber-page--wide": wide }]}>
+  <header class="amber-header">
+    <a class="amber-wordmark" href={homeHref} aria-label="chiubaca home">chiubaca<span class="amber-wordmark-dot">.</span><Scribble kind="swash" /></a>
+    <nav aria-label="Main navigation">
+      {links.map(({ href, label, key }) => (
+        <a href={href} aria-current={active === key ? "page" : undefined}>
+          {label}
+          <Scribble kind="underline" />
+        </a>
+      ))}
+    </nav>
+  </header>
+  <main id="content"><slot /></main>
+  <footer class="amber-footer">
+    <div><a href="https://github.com/chiubaca">GitHub<Scribble kind="underline" /></a><a href="https://bsky.app/profile/chiubaca.com">Bluesky<Scribble kind="underline" /></a><a href="/rss.xml">RSS<Scribble kind="underline" /></a></div>
+    <AppearanceSelect />
+    <span>Alex Chiu · London</span>
+  </footer>
+</div>

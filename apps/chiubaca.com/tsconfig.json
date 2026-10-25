@@ -1,5 +1,11 @@
 {
   "extends": "astro/tsconfigs/base",
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  "exclude": [
+    "dist",
+    "storybook-static",
+    ".storybook",
+    "src/design-system/stories",
+    "src/components/journal"
+  ]
 }

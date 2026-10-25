@@ -1,0 +1,111 @@
+---
+import type { VariantProps } from "./types";
+const { posts, featured, personal, note } = Astro.props as VariantProps;
+---
+
+<div class="daybreak-page">
+  <header class="daybreak-header">
+    <a class="daybreak-wordmark" href="/?variant=daybreak" aria-label="Alex Chiu home"><span class="daybreak-mark" aria-hidden="true">a<span>c</span></span><span>alex chiu<small>also known as chiubaca</small></span></a>
+    <nav aria-label="Main navigation"><a href="#writing" aria-current="page">Journal</a><a href="/fleeting-notes/">Notes</a><a href="/memories/">Memories</a><a href="/cv/">About</a></nav>
+  </header>
+
+  <main>
+    <h1 class="prototype-visually-hidden">Alex Chiu’s journal</h1>
+    <p class="daybreak-bio">Software engineer and dad, based in London.<br />Writing about code, curiosity, and everyday life.</p>
+
+    <section class="daybreak-journal" id="writing" aria-labelledby="daybreak-journal-heading">
+      <div class="prototype-section-heading"><h2 id="daybreak-journal-heading">From the journal</h2><a href="/blogs/">Browse everything <span aria-hidden="true">↗</span></a></div>
+      <div class="daybreak-editorial">
+        <article class="daybreak-featured">
+          <p class="prototype-eyebrow">The latest · {featured.date}</p>
+          <h2><a href={featured.href}>{featured.title}</a></h2>
+          <p class="daybreak-featured-description">{featured.description}</p>
+          <a class="daybreak-read" href={featured.href}>Spend a few minutes <span aria-hidden="true">↗</span></a>
+          <div class="daybreak-featured-end"><span>{featured.category}</span><span>{featured.readingTime} min read</span></div>
+        </article>
+        <div class="daybreak-posts">
+          {posts.slice(1).map((post) => (
+            <article><p><time datetime={post.datetime}>{post.date}</time><span>{post.category}</span></p><h3><a href={post.href}>{post.title}<span aria-hidden="true">↗</span></a></h3></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="daybreak-bottom">
+      <aside class="daybreak-personal" aria-labelledby="daybreak-personal-heading">
+        <p class="prototype-eyebrow">Away from the keyboard</p>
+        <h2 id="daybreak-personal-heading"><a href={personal.href}>{personal.title}</a></h2>
+        <p>{personal.description}</p>
+        <a href={personal.href}>Read the poem <span aria-hidden="true">↗</span></a>
+      </aside>
+      <section class="daybreak-notebook" aria-labelledby="daybreak-notebook-heading">
+        <div class="daybreak-notebook-top"><p class="prototype-eyebrow">Field notes</p><span aria-hidden="true">↗</span></div>
+        <h2 id="daybreak-notebook-heading"><a href="/fleeting-notes/">Fleeting notes</a></h2>
+        <p>A living collection of discoveries, questions, and things I don’t want to forget.</p>
+        <a class="daybreak-latest-note" href={note.href}><span>Latest note · {note.date}</span><span>Take a look ↗</span></a>
+      </section>
+    </section>
+
+  </main>
+
+  <footer class="daybreak-footer"><span>Alex Chiu · London</span><div><a href="https://github.com/chiubaca">GitHub ↗</a><a href="https://bsky.app/profile/chiubaca.com">Bluesky ↗</a><a href="/rss.xml">RSS ↗</a></div><span>chiubaca.com</span></footer>
+</div>
+
+<style>
+  .daybreak-page { max-width: 1120px; padding: 0 clamp(20px, 5vw, 48px); margin: 0 auto; }
+  .daybreak-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 30px; padding: 32px 0; border-bottom: 1px solid var(--study-line); }
+  .daybreak-wordmark { display: flex; align-items: center; gap: 14px; font-size: 14px; font-weight: 600; letter-spacing: -.3px; }
+  .daybreak-mark { font-family: var(--study-serif); font-size: 35px; font-weight: 500; letter-spacing: -5px; line-height: 1; padding: 2px 11px 0 0; color: var(--study-ink); }
+  .daybreak-mark > span { color: #8a9c77; }
+  .daybreak-wordmark small { display: block; font-weight: 400; font-size: 11px; letter-spacing: .01em; color: var(--study-muted); margin-top: 4px; }
+  .daybreak-header nav { display: flex; flex-wrap: wrap; gap: 0 26px; font-size: 13px; color: var(--study-muted); }
+  .daybreak-header nav a[aria-current] { color: var(--study-ink); }
+  .daybreak-bio { padding: 33px 0 42px; font-size: 14px; line-height: 1.9; color: var(--study-muted); }
+  .daybreak-journal { scroll-margin-top: 32px; }
+  .daybreak-editorial { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; padding: 32px 0 36px; border-bottom: 1px solid var(--study-line); }
+  .daybreak-featured { display: flex; flex-direction: column; align-items: start; border-right: 1px solid var(--study-line); padding-right: 42px; }
+  .daybreak-featured h2 { font-family: var(--study-sans); font-size: clamp(25px, 3vw, 29px); font-weight: 500; line-height: 1.45; letter-spacing: -.7px; margin: 19px 0 16px; }
+  .daybreak-featured-description { font-size: 14px; color: var(--study-muted); line-height: 1.9; }
+  .daybreak-read { display: inline-flex; align-items: center; min-height: 44px; margin-top: 17px; font-size: 13px; font-weight: 500; }
+  .daybreak-read > span { margin-left: 12px; }
+  .daybreak-featured-end { width: 100%; display: flex; flex-wrap: wrap; gap: 10px 15px; justify-content: space-between; padding-top: 30px; margin-top: auto; font-size: 11px; color: var(--study-muted); }
+  .daybreak-posts article { padding: 19px 0; border-bottom: 1px solid var(--study-line); }
+  .daybreak-posts article:first-child { padding-top: 0; }
+  .daybreak-posts article:last-child { border-bottom: none; padding-bottom: 0; }
+  .daybreak-posts article > p { display: flex; flex-wrap: wrap; gap: 5px 15px; justify-content: space-between; font-size: 11px; color: var(--study-muted); margin-bottom: 5px; }
+  .daybreak-posts article > p > span { text-align: right; }
+  .daybreak-posts h3 { font-family: var(--study-sans); font-size: 18px; font-weight: 500; letter-spacing: -.3px; line-height: 1.6; }
+  .daybreak-posts h3 a { display: flex; min-height: 44px; gap: 16px; justify-content: space-between; align-items: center; }
+  .daybreak-posts h3 span { font-size: 14px; font-weight: 400; color: #879584; }
+  .daybreak-bottom { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; padding: 36px 0; }
+  .daybreak-personal { padding: 8px 42px 0 0; }
+  .daybreak-personal h2 { font-family: var(--study-serif); font-size: 28px; line-height: 1.3; letter-spacing: -.3px; margin: 18px 0 13px; }
+  .daybreak-personal > p:last-of-type { font-size: 14px; line-height: 1.9; color: var(--study-muted); }
+  .daybreak-personal > a { display: inline-flex; align-items: center; min-height: 44px; gap: 12px; font-size: 13px; margin-top: 16px; }
+  .daybreak-notebook { background: #edf0e7; padding: 25px 28px; }
+  .daybreak-notebook-top { display: flex; justify-content: space-between; align-items: center; }
+  .daybreak-notebook-top > span { color: #7e8f74; }
+  .daybreak-notebook h2 { font-family: var(--study-serif); font-size: 28px; letter-spacing: -.3px; line-height: 1.3; margin: 18px 0 12px; }
+  .daybreak-notebook > p { font-size: 14px; line-height: 1.9; color: var(--study-muted); }
+  .daybreak-latest-note { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 13px; min-height: 44px; font-size: 11px; margin-top: 22px; padding-top: 17px; border-top: 1px solid #d4dbce; }
+  .daybreak-latest-note > span:first-child { color: var(--study-muted); }
+  .daybreak-footer { display: flex; flex-wrap: wrap; gap: 12px 25px; align-items: center; justify-content: space-between; border-top: 1px solid var(--study-line); font-size: 12px; color: var(--study-muted); padding: 22px 0 140px; }
+  .daybreak-footer > div { display: flex; flex-wrap: wrap; gap: 22px; }
+  @media (max-width: 800px) {
+    .daybreak-editorial, .daybreak-bottom { gap: 32px; }
+    .daybreak-featured { padding-right: 30px; }
+    .daybreak-personal { padding-right: 0; }
+    .daybreak-header nav { gap: 0 19px; }
+  }
+  @media (max-width: 700px) {
+    .daybreak-header { padding: 23px 0 19px; }
+    .daybreak-header nav { gap: 0 24px; }
+    .daybreak-bio { padding: 25px 0 31px; }
+    .daybreak-editorial { grid-template-columns: 1fr; gap: 30px; padding: 29px 0; }
+    .daybreak-featured { border-right: 0; border-bottom: 1px solid var(--study-line); padding: 0 0 28px; }
+    .daybreak-featured-end { padding-top: 24px; }
+    .daybreak-posts article { padding: 20px 0; }
+    .daybreak-bottom { grid-template-columns: 1fr; padding: 34px 0; gap: 34px; }
+    .daybreak-notebook { padding: 24px; }
+  }
+</style>

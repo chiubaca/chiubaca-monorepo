@@ -1,0 +1,23 @@
+---
+import AppearanceSelect from "../../components/journal/AppearanceSelect.astro";
+import PostSummary from "../../components/journal/PostSummary.astro";
+import { posts } from "./fixtures";
+---
+
+<h2 class="amber-type-section">Choose a comfortable reading mode</h2>
+<p class="amber-appearance-explanation amber-type-summary">This control changes the sample below, independently of the Storybook toolbar. It does not save a preference.</p>
+<section id="appearance-example" class="amber-theme amber-appearance-sample" data-theme="amber" aria-label="Appearance sample">
+  <AppearanceSelect targetId="appearance-example" persist={false} />
+  <PostSummary {...posts[0]} />
+</section>
+
+<style>
+  .amber-appearance-explanation {
+    margin-block: var(--amber-space-4) var(--amber-space-8);
+    color: var(--amber-color-text-muted);
+  }
+  .amber-appearance-sample {
+    padding: var(--amber-space-6);
+    border: var(--amber-border-width) solid var(--amber-color-border);
+  }
+</style>

@@ -1,77 +1,13 @@
 ---
-import { getEntry } from "astro:content";
-import { getCollection, render } from "astro:content";
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import TerminalDivider from "../../components/TerminalDivider.astro";
+import { getCollection } from "astro:content";
+import JournalLayout from "../../layouts/JournalLayout.astro";
+import FleetingNotesIndex from "../../components/journal/FleetingNotesIndex.astro";
+import { sortFleetingNotes, paginateFleetingNotes, summariseFleetingNote } from "../../lib/fleeting-notes";
 
-const fleetingNotesCollection = await getCollection("fleeting-notes");
-const fleetingNotes = fleetingNotesCollection.sort(
-  (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf(),
-);
+const entries = sortFleetingNotes(await getCollection("fleeting-notes"));
+const { notes, pagination } = paginateFleetingNotes(entries);
 ---
 
-<BaseLayout
-  title="fleeting-notes | chiubaca.com"
-  description="Unorganised fleeting thoughts, ideas, and notes."
-  breadcrumbs={[
-    {
-      href: "/fleeting-notes",
-      label: "fleeting-notes",
-    },
-  ]}
->
-  <div class="py-12 overflow-y-hidden">
-    <div class="max-w-2xl mx-auto px-4 sm:px-6 space-y-6">
-      <h1
-        class="text-3xl sm:text-4xl tracking-tight"
-        style="font-family: var(--font-display); line-height: 1;"
-      >
-        <span class="comment-prefix">//</span> Fleeting notes
-      </h1>
-      <p class="pb-8 opacity-60" style="color: var(--text-muted);">
-        unrefined ramblings
-      </p>
-    </div>
-
-    {
-      fleetingNotes.map(async (note) => {
-        const entry = await getEntry("fleeting-notes", note.id);
-
-        if (!entry) {
-          return <p>Note not found: {note.id}</p>;
-        }
-
-        const { Content } = await render(entry);
-
-        return (
-          <section class="max-w-2xl mx-auto px-4 sm:px-6 space-y-6">
-            <a href={`/fleeting-notes/${note.id}`} class="group block">
-              <h2
-                class="text-xl sm:text-2xl tracking-tight transition-colors group-hover:text-amber-500"
-                style="font-family: var(--font-display); line-height: 1.1; color: var(--text-primary);"
-              >
-                {note.id.replaceAll("-", " ")}
-              </h2>
-            </a>
-            <div class="my-3 flex flex-wrap items-center gap-2 font-mono text-xs">
-              {entry.data.tags.map((tag) => (
-                <a
-                  href={`/tags#${tag}`}
-                  class="tag-link px-2 py-1 text-xs uppercase tracking-tight"
-                >
-                  #{tag}
-                </a>
-              ))}
-            </div>
-
-            <div class="prose prose-a:break-all">
-              <Content />
-            </div>
-
-            <TerminalDivider class="my-10" />
-          </section>
-        );
-      })
-    }
-  </div>
-</BaseLayout>
+<JournalLayout title="Fleeting notes" description="Small discoveries, half-formed thoughts, and things worth keeping. A record of learning as it happens." olderHref={pagination.olderHref}>
+  <FleetingNotesIndex notes={notes.map(summariseFleetingNote)} pagination={pagination} />
+</JournalLayout>

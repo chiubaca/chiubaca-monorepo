@@ -1,0 +1,36 @@
+---
+import type { AppearanceSelectProps } from "./types";
+type Props = AppearanceSelectProps;
+const { targetId, persist = !targetId } = Astro.props as Props;
+---
+
+<amber-appearance data-target-id={targetId} data-persist={persist}>
+  <label class="amber-color-mode" hidden>
+    Appearance
+    <select aria-label="Colour mode" data-amber-color-mode>
+      <option value="system">System</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+  </label>
+</amber-appearance>
+
+<style>
+  .amber-color-mode {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--amber-space-3);
+  }
+  .amber-color-mode[hidden] {
+    display: none;
+  }
+  .amber-color-mode select {
+    min-block-size: var(--amber-tap-target);
+    padding-inline: var(--amber-space-3);
+    border: var(--amber-border-width) solid var(--amber-color-control-border);
+    border-radius: var(--amber-radius);
+    background: var(--amber-color-surface);
+    color: var(--amber-color-text);
+    font: inherit;
+  }
+</style>

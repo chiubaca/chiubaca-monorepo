@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import JournalLayout from "../../../layouts/JournalLayout.astro";
+import FleetingNotesIndex from "../../../components/journal/FleetingNotesIndex.astro";
+import { NOTES_PER_PAGE, sortFleetingNotes, paginateFleetingNotes, summariseFleetingNote } from "../../../lib/fleeting-notes";
+import type { FleetingNoteSummary, NotesPagination } from "../../../components/journal/types";
+
+export async function getStaticPaths() {
+  const entries = sortFleetingNotes(await getCollection("fleeting-notes"));
+  const pageCount = Math.ceil(entries.length / NOTES_PER_PAGE);
+  return Array.from({ length: Math.max(0, pageCount - 1) }, (_, index) => {
+    const page = index + 2;
+    const { notes, pagination } = paginateFleetingNotes(entries, page);
+    return { params: { page: String(page) }, props: { notes: notes.map(summariseFleetingNote), pagination } };
+  });
+}
+interface Props { notes: FleetingNoteSummary[]; pagination: NotesPagination }
+const { notes, pagination } = Astro.props;
+---
+
+<JournalLayout title={`Fleeting notes — page ${pagination.page}`} description="Earlier discoveries, half-formed thoughts, and things worth keeping from Alex Chiu’s notebook." newerHref={pagination.newerHref} olderHref={pagination.olderHref}>
+  <FleetingNotesIndex notes={notes} pagination={pagination} />
+</JournalLayout>

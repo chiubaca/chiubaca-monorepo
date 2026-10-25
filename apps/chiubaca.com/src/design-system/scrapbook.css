@@ -1,0 +1,444 @@
+/*
+ * Scrapbook prose: Markdown gets the same margin-of-a-notebook treatment as the
+ * shell. Reading text stays calm; doodles sit in the margins, around the
+ * interactive bits, and on the things you would stick into a scrapbook.
+ * Pen doodles use ochre-500, which is at least 3:1 on paper and on moss.
+ */
+:root,
+[data-theme="amber"] {
+  --amber-doodle-marker: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cg fill='%2394703d'%3E%3Cpath fill-opacity='.45' d='M7 9 3 12l5 2-6 4 5 2-4 4 6 2-3 4 4 2c30 1 70-1 110-2s55-2 75-3l-4-3 5-3-5-3 6-3-5-3 4-3-6-2 3-3C150 3 110 4 70 5S20 7 7 9Z'/%3E%3Cpath fill-opacity='.12' d='M10 15c50-2 110-4 182-6l-1 3c-70 2-130 4-181 6ZM8 28c60-1 120-3 184-5v2c-64 2-124 4-184 5Z'/%3E%3C/g%3E%3C/svg%3E");
+  --amber-doodle-pen-line: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6 100' preserveAspectRatio='none'%3E%3Cpath fill='none' stroke='%2394703d' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round' vector-effect='non-scaling-stroke' d='M3 1C2 20 4 35 3 50s-1 30 0 49'/%3E%3C/svg%3E");
+  --amber-doodle-squiggle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12'%3E%3Cpath fill='none' stroke='%2394703d' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round' vector-effect='non-scaling-stroke' d='M2 6c8-6 12 6 20 0s12 6 20 0 12 6 20 0 12 6 20 0 12 6 20 0 12 6 16 0'/%3E%3C/svg%3E");
+  --amber-doodle-dash: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 8'%3E%3Cpath fill='none' stroke='%2394703d' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round' vector-effect='non-scaling-stroke' d='M2 5c4-2 8-2 12-1'/%3E%3C/svg%3E");
+  --amber-doodle-box: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='none' stroke='%2394703d' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round' vector-effect='non-scaling-stroke' d='M4 3c4 0 9-1 13 1 1 4 0 9 0 13-4 1-9 0-13 0-1-4-1-9 0-14 2 0 4 0 5 0'/%3E%3C/svg%3E");
+  --amber-doodle-tick: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='none' stroke='%2394703d' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round' vector-effect='non-scaling-stroke' d='M4 3c4 0 9-1 13 1 1 4 0 9 0 13-4 1-9 0-13 0-1-4-1-9 0-14 2 0 4 0 5 0'/%3E%3Cpath fill='none' stroke='%2394703d' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round' vector-effect='non-scaling-stroke' d='M5 10c2 1 3 3 4 5 2-5 5-9 11-14'/%3E%3C/svg%3E");
+  --amber-doodle-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50' preserveAspectRatio='none'%3E%3Cpath fill='none' stroke='%2394703d' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round' vector-effect='non-scaling-stroke' d='M58 5C34 1 8 8 4 24s20 23 48 22 46-8 45-22S70 2 38 6'/%3E%3C/svg%3E");
+}
+
+/* Links: underlined at rest, the scrapbook marker swipes behind on hover. */
+.amber-prose a:not(.anchor, [data-footnote-ref], [data-footnote-backref]) {
+  margin-inline: -0.2em;
+  padding-inline: 0.2em;
+  background: var(--amber-doodle-marker) no-repeat 0 50% / 0% 100%;
+  box-decoration-break: clone;
+  transition:
+    background-size var(--amber-duration-draw) var(--amber-ease-out),
+    color var(--amber-duration) var(--amber-ease);
+}
+
+.amber-prose
+  a:not(.anchor, [data-footnote-ref], [data-footnote-backref]):is(:hover, :focus-visible) {
+  background-size: 100% 100%;
+  color: var(--amber-color-text);
+}
+
+/* Footnote references are jotted by hand, and underlined with a dash on hover. */
+.amber-prose [data-footnote-ref] {
+  margin-inline: -0.1em;
+  padding: 0 0.15em 0.2em;
+  font-family: var(--amber-font-hand);
+  font-size: 2.25em;
+  line-height: 1;
+  text-decoration: none;
+  background: var(--amber-doodle-dash) no-repeat 0 100% / 0% 0.35em;
+  transition: background-size var(--amber-duration-draw) var(--amber-ease-out);
+}
+
+.amber-prose [data-footnote-ref]:is(:hover, :focus-visible) {
+  background-size: 100% 0.35em;
+}
+
+/* With rough-notation running (motion.css), links and footnotes leave the marks to it. */
+[data-notation] .amber-prose :is(a:not(.anchor, [data-footnote-backref]), [data-footnote-ref]) {
+  background: none;
+}
+
+[data-notation] .amber-prose [data-footnote-ref] {
+  padding-block-end: 0;
+}
+
+/* Heading anchors: a pencilled # that darkens when you reach for it. */
+.amber-prose .anchor {
+  display: inline-block;
+  opacity: 0.35;
+  transition: opacity var(--amber-duration) var(--amber-ease);
+}
+
+.amber-prose :is(h1, h2, h3, h4, h5, h6):hover .anchor {
+  opacity: 1;
+}
+
+/* Blockquotes hang from a wobbly pen line instead of a ruled one. */
+.amber-prose blockquote {
+  border-inline-start: 0;
+  background: var(--amber-doodle-pen-line) no-repeat 0 0 / 0.375rem 100%;
+}
+
+/* A horizontal rule is a squiggle across the page. */
+.amber-prose hr {
+  block-size: 0.75rem;
+  border: 0;
+  background: var(--amber-doodle-squiggle) no-repeat 50% 50% / 7.5rem 0.75rem;
+}
+
+/* Bullets are quick pen dashes. */
+.amber-prose ul:not(.contains-task-list) {
+  list-style: none;
+}
+
+.amber-prose ul:not(.contains-task-list) > li {
+  position: relative;
+}
+
+.amber-prose ul:not(.contains-task-list) > li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: -1.1em;
+  inset-block-start: calc(0.5lh - 0.25em);
+  inline-size: 0.8em;
+  block-size: 0.4em;
+  background: var(--amber-doodle-dash) no-repeat center / contain;
+}
+
+/* Numbers are jotted in the margin by hand. */
+.amber-prose ol > li::marker {
+  color: var(--amber-color-accent);
+  font-family: var(--amber-font-hand);
+  font-size: 2em;
+  line-height: 1;
+}
+
+/* Task lists are pen boxes, ticked with a flourish that overshoots. */
+.amber-prose .task-list-item input {
+  appearance: none;
+  inline-size: 1.1em;
+  block-size: 1.1em;
+  vertical-align: -0.15em;
+  background: var(--amber-doodle-box) no-repeat center / contain;
+}
+
+.amber-prose .task-list-item input:checked {
+  background-image: var(--amber-doodle-tick);
+}
+
+/*
+ * Photos are taped in, a little crooked, and folded in four from being
+ * carried around, after aitchiss's "drink more water" pen: the paper darkens
+ * into one corner and towards each fold, and sits on a hard, short shadow.
+ *
+ * Without JavaScript every photo gets one strip of tape across the top and a
+ * cross fold. photo-tape.ts tapes each photo in its own way instead, and picks
+ * which folds it has.
+ */
+.amber-prose :is(p:has(> img:only-child), p[data-taped]) {
+  --amber-tape: rgb(219 216 190 / 0.55);
+  --amber-tape-edge: #b7b49d;
+  --amber-paper-dark: var(--amber-color-border);
+  --amber-fold: rgb(0 0 0 / 0.4);
+  position: relative;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  padding: var(--amber-space-2);
+  background:
+    linear-gradient(to bottom right, var(--amber-paper-dark), 20%, transparent),
+    var(--amber-color-surface);
+  box-shadow: 3px 3px 2px var(--amber-paper-dark);
+  rotate: var(--amber-photo-turn, -0.8deg);
+}
+
+/* The folds: each half darkens towards the crease, which then lets go at once. */
+.amber-prose :is(p:has(> img:only-child), p[data-taped])::after {
+  --amber-fold-across: linear-gradient(transparent, 50%, var(--amber-fold), 52%, transparent);
+  --amber-fold-down: linear-gradient(
+    to right,
+    transparent,
+    50%,
+    var(--amber-fold),
+    52%,
+    transparent
+  );
+  content: "";
+  position: absolute;
+  inset: var(--amber-space-2);
+  border-radius: var(--amber-radius);
+  background: var(--amber-fold-across), var(--amber-fold-down);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.amber-prose :is(p:has(> img:only-child), p[data-taped])[data-fold="across"]::after {
+  background: var(--amber-fold-across);
+}
+
+.amber-prose :is(p:has(> img:only-child), p[data-taped])[data-fold="down"]::after {
+  background: var(--amber-fold-down);
+}
+
+/* Tape is translucent and torn at both ends. */
+.amber-prose :is(p:has(> img:only-child), p[data-taped])::before,
+.amber-tape {
+  position: absolute;
+  z-index: 1;
+  block-size: 2rem;
+  border-inline: 1px dotted var(--amber-tape-edge);
+  background: var(--amber-tape);
+  pointer-events: none;
+}
+
+.amber-prose :is(p:has(> img:only-child), p[data-taped])::before {
+  content: "";
+  inset-block-start: -0.4rem;
+  inset-inline-start: -5%;
+  inline-size: 110%;
+}
+
+.amber-prose :is(p:has(> img:only-child), p[data-taped])[data-taped]::before {
+  content: none;
+}
+
+.amber-tape {
+  inline-size: 6rem;
+  rotate: var(--amber-tape-turn, 0deg);
+}
+
+.amber-tape[data-at="strip"] {
+  inset-block-start: -0.4rem;
+  inset-inline-start: -5%;
+  inline-size: 110%;
+}
+
+.amber-tape[data-at="top"] {
+  inset-block-start: -0.75rem;
+  inset-inline-start: calc(var(--amber-tape-x, 50%) - 3rem);
+}
+
+.amber-tape[data-at="top-left"] {
+  inset-block-start: 0.5rem;
+  inset-inline-start: -2.25rem;
+  rotate: -45deg;
+}
+
+.amber-tape[data-at="top-right"] {
+  inset-block-start: 0.5rem;
+  inset-inline-end: -2.25rem;
+  rotate: 45deg;
+}
+
+.amber-tape[data-at="bottom-left"] {
+  inset-block-end: 0.5rem;
+  inset-inline-start: -2.25rem;
+  rotate: 45deg;
+}
+
+.amber-tape[data-at="bottom-right"] {
+  inset-block-end: 0.5rem;
+  inset-inline-end: -2.25rem;
+  rotate: -45deg;
+}
+
+/*
+ * Tags are already marked up, like a highlighted index. Hovering draws a small
+ * sparkle at the top-right corner (see motion.css).
+ */
+.amber-tag-ink {
+  padding: 0.1em 0.35em 0.2em;
+  background: var(--amber-doodle-marker) no-repeat 0 0 / 100% 88%;
+  color: var(--amber-color-text);
+}
+
+/*
+ * Code blocks are a dark paint swatch flicked with small coloured drops. The
+ * drops stay faint, so syntax colours and comments keep at least 4.5:1
+ * wherever they cross them.
+ *
+ * Every browser gets three hand-placed layouts that cycle between blocks.
+ * Where CSS random() is supported, each block gets its own splatter.
+ */
+.amber-prose pre.astro-code {
+  --amber-splat-purple: rgb(189 147 249 / 0.22);
+  --amber-splat-pink: rgb(255 121 198 / 0.18);
+  --amber-splat-honey: rgb(217 183 125 / 0.18);
+  --amber-drop-1: 70% 10%;
+  --amber-drop-2: 40% 92%;
+  --amber-drop-3: 92% 30%;
+  --amber-drop-4: 55% 96%;
+  --amber-drop-5: 32% 6%;
+  border-radius: 1.25rem 0.5rem 1.5rem 0.75rem / 0.75rem 1.25rem 0.5rem 1.5rem;
+  background-image:
+    radial-gradient(
+      circle at var(--amber-drop-1),
+      var(--amber-splat-purple) 0 0.25rem,
+      transparent 0.3rem
+    ),
+    radial-gradient(
+      circle at var(--amber-drop-2),
+      var(--amber-splat-pink) 0 0.2rem,
+      transparent 0.25rem
+    ),
+    radial-gradient(
+      circle at var(--amber-drop-3),
+      var(--amber-splat-honey) 0 0.3rem,
+      transparent 0.35rem
+    ),
+    radial-gradient(
+      circle at var(--amber-drop-4),
+      var(--amber-splat-purple) 0 0.15rem,
+      transparent 0.2rem
+    ),
+    radial-gradient(
+      circle at var(--amber-drop-5),
+      var(--amber-splat-honey) 0 0.18rem,
+      transparent 0.23rem
+    );
+}
+
+/* Copy buttons wrap each block in <amber-code>, so cycle on whichever is the sibling. */
+.amber-prose
+  :is(pre.astro-code:nth-of-type(3n + 2), amber-code:nth-of-type(3n + 2) > pre.astro-code) {
+  --amber-drop-1: 20% 8%;
+  --amber-drop-2: 64% 90%;
+  --amber-drop-3: 48% 14%;
+  --amber-drop-4: 36% 94%;
+  --amber-drop-5: 74% 70%;
+  border-radius: 0.5rem 1.5rem 0.75rem 1.25rem / 1.25rem 0.5rem 1.5rem 0.75rem;
+}
+
+.amber-prose :is(pre.astro-code:nth-of-type(3n), amber-code:nth-of-type(3n) > pre.astro-code) {
+  --amber-drop-1: 12% 86%;
+  --amber-drop-2: 86% 12%;
+  --amber-drop-3: 26% 40%;
+  --amber-drop-4: 78% 58%;
+  --amber-drop-5: 58% 92%;
+  border-radius: 1.5rem 1rem 0.5rem 1.25rem / 0.5rem 1.5rem 1rem 0.75rem;
+}
+
+@supports (top: random(0px, 1px)) {
+  .amber-prose pre.astro-code:nth-of-type(n) {
+    --amber-drop-1: random(0%, 100%) random(0%, 100%);
+    --amber-drop-2: random(0%, 100%) random(0%, 100%);
+    --amber-drop-3: random(0%, 100%) random(0%, 100%);
+    --amber-drop-4: random(0%, 100%) random(0%, 100%);
+    --amber-drop-5: random(0%, 100%) random(0%, 100%);
+    border-radius: random(0.5rem, 1.75rem) random(0.5rem, 1.75rem) random(0.5rem, 1.75rem)
+      random(0.5rem, 1.75rem) / random(0.5rem, 1.75rem) random(0.5rem, 1.75rem)
+      random(0.5rem, 1.75rem) random(0.5rem, 1.75rem);
+  }
+}
+
+/*
+ * Copy: a quiet, roughly drawn icon in the code block's top-right corner.
+ * Faint until you reach for it, then a loose tick once the code is copied.
+ */
+amber-code-copy,
+amber-code {
+  display: block;
+}
+
+amber-code {
+  position: relative;
+}
+
+.amber-code-copy {
+  position: absolute;
+  inset-block-start: var(--amber-space-2);
+  inset-inline-end: var(--amber-space-2);
+  display: grid;
+  place-items: center;
+  inline-size: 2rem;
+  block-size: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--amber-radius);
+  background: var(--amber-color-code-background);
+  color: var(--amber-color-code-comment);
+  opacity: 0.6;
+  cursor: pointer;
+  transition:
+    opacity var(--amber-duration) var(--amber-ease),
+    scale var(--amber-duration-quick) var(--amber-ease-out);
+}
+
+amber-code:hover .amber-code-copy,
+.amber-code-copy:is(:focus-visible, [data-state]) {
+  opacity: 1;
+}
+
+.amber-code-copy:active {
+  scale: var(--amber-press-scale);
+}
+
+.amber-code-copy svg {
+  grid-area: 1 / 1;
+  inline-size: 1.125rem;
+  block-size: 1.125rem;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.amber-code-copy-done,
+.amber-code-copy[data-state="copied"] .amber-code-copy-icon {
+  visibility: hidden;
+}
+
+.amber-code-copy[data-state="copied"] .amber-code-copy-done {
+  visibility: visible;
+  color: var(--amber-color-code-text);
+}
+
+/*
+ * Tables are ruled by hand: rough-table.ts sketches the grid in pen behind the
+ * table and hatches the header in. Until it has, the plain borders stay.
+ */
+amber-rough-tables,
+amber-table {
+  display: block;
+}
+
+amber-table {
+  position: relative;
+  overflow-x: auto;
+  max-inline-size: 100%;
+  padding: var(--amber-space-2);
+  margin-inline: calc(-1 * var(--amber-space-2));
+}
+
+/* The frame scrolls instead, and the table paints above its sketch. */
+.amber-prose amber-table > table {
+  position: relative;
+  display: table;
+  overflow: visible;
+  /* Filled in by the same ballpoint hand that ruled the lines. */
+  font-family: var(--amber-font-hand);
+  font-size: 1.375rem;
+  line-height: var(--amber-leading-hand);
+  letter-spacing: 0.01em;
+}
+
+/* The hand has no bold, so headers are pressed a little harder and larger. */
+.amber-prose amber-table > table th {
+  font-size: var(--amber-font-size-hand);
+  font-weight: var(--amber-weight-regular);
+  -webkit-text-stroke: 0.02em currentcolor;
+}
+
+.amber-table-sketch {
+  position: absolute;
+  overflow: visible;
+  color: var(--amber-ochre-500);
+  pointer-events: none;
+}
+
+.amber-table-shade {
+  opacity: 0.35;
+}
+
+amber-table[data-sketched] > table :is(th, td) {
+  border-color: transparent;
+}
+
+amber-table[data-sketched] > table th {
+  background: transparent;
+}

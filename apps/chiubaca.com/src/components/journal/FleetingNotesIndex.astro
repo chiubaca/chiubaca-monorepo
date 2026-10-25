@@ -1,0 +1,64 @@
+---
+import DoodleArrow from "./DoodleArrow.astro";
+import JournalShell from "./JournalShell.astro";
+import NoteTags from "./NoteTags.astro";
+import type { FleetingNoteSummary, NotesPagination } from "./types";
+
+interface Props {
+  notes: FleetingNoteSummary[];
+  pagination: NotesPagination;
+}
+const { notes, pagination } = Astro.props;
+const monthFormat = new Intl.DateTimeFormat("en-GB", { month: "long", year: "numeric", timeZone: "UTC" });
+const dateFormat = new Intl.DateTimeFormat("en-GB", { day: "2-digit", month: "short", timeZone: "UTC" });
+const groups = notes.reduce<{ month: string; notes: FleetingNoteSummary[] }[]>((groups, note) => {
+  const month = monthFormat.format(new Date(note.published));
+  const previous = groups.at(-1);
+  if (previous?.month === month) previous.notes.push(note);
+  else groups.push({ month, notes: [note] });
+  return groups;
+}, []);
+---
+
+<JournalShell active="notes">
+  <header class="amber-notes-intro">
+    <p class="amber-eyebrow">The notebook</p>
+    <h1 class="amber-type-heading">Fleeting notes</h1>
+    <p class="amber-notes-description">Small discoveries, half-formed thoughts, and things worth keeping. A record of learning as it happens.</p>
+    <div class="amber-notes-index-meta">
+      <span>{pagination.total.toLocaleString("en-GB")} {pagination.total === 1 ? "note" : "notes"}</span>
+      <span>Latest first <span aria-hidden="true">↓</span></span>
+    </div>
+  </header>
+
+  {groups.map((group, index) => (
+    <section class="amber-notes-month" aria-labelledby={`notes-month-${index}`}>
+      <h2 id={`notes-month-${index}`}>{group.month}</h2>
+      <ol class="amber-note-list">
+        {group.notes.map((note) => (
+          <li>
+            <article class="amber-note-summary">
+              <time datetime={note.published}>{dateFormat.format(new Date(note.published))}</time>
+              <div>
+                <h3><a href={note.href}><span><span class="amber-route">{note.title}</span></span></a></h3>
+                {note.excerpt && <p class="amber-note-excerpt">{note.excerpt}</p>}
+                <NoteTags tags={note.tags} />
+              </div>
+            </article>
+          </li>
+        ))}
+      </ol>
+    </section>
+  ))}
+
+  {notes.length === 0 && <p class="amber-notes-empty">The notebook is quiet for now. There will be more to keep soon.</p>}
+
+  <nav class="amber-notes-pagination" aria-label="Notes pages">
+    <p>{pagination.total > 0 ? `${pagination.start}–${pagination.end} of ${pagination.total.toLocaleString("en-GB")} notes` : "No notes yet"}</p>
+    <div>
+      {pagination.newerHref && <a href={pagination.newerHref} rel="prev"><DoodleArrow direction="west" /> Newer notes</a>}
+      <span class="amber-page-number">Page {pagination.page} of {pagination.pageCount}</span>
+      {pagination.olderHref && <a href={pagination.olderHref} rel="next">Older notes <DoodleArrow direction="east" /></a>}
+    </div>
+  </nav>
+</JournalShell>

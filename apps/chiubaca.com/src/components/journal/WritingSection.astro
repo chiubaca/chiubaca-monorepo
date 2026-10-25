@@ -1,0 +1,46 @@
+---
+import DoodleArrow from "./DoodleArrow.astro";
+import type { WritingSectionProps } from "./types";
+type Props = WritingSectionProps;
+
+const { id, title, archiveHref, archiveLabel = "The archive" } = Astro.props as Props;
+const headingId = `${id}-heading`;
+---
+
+<section class="amber-writing" id={id} aria-labelledby={headingId}>
+  <div class="amber-section-heading">
+    <h2 id={headingId}>{title}</h2>
+    {archiveHref && <a href={archiveHref}>{archiveLabel} <DoodleArrow direction="north-east" /></a>}
+  </div>
+  <div class="amber-posts"><slot /></div>
+</section>
+
+<style>
+  .amber-writing {
+    scroll-margin-block-start: var(--amber-space-8);
+  }
+  .amber-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--amber-space-5);
+    padding-block-end: var(--amber-space-4);
+    border-block-end: var(--amber-border-width) solid var(--amber-color-border);
+  }
+  .amber-section-heading h2 {
+    font-family: var(--amber-font-interface);
+    font-size: var(--amber-font-size-caption);
+    font-weight: var(--amber-weight-medium);
+    line-height: var(--amber-leading-compact);
+    letter-spacing: var(--amber-tracking-normal);
+  }
+  .amber-section-heading > a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--amber-space-2);
+    min-block-size: var(--amber-tap-target);
+    font-size: var(--amber-font-size-caption);
+    text-decoration: none;
+    color: var(--amber-color-text-muted);
+  }
+</style>

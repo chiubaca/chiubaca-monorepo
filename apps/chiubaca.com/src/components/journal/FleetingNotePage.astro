@@ -1,0 +1,42 @@
+---
+import DoodleArrow from "./DoodleArrow.astro";
+import JournalShell from "./JournalShell.astro";
+import NoteTags from "./NoteTags.astro";
+import type { FleetingNoteSummary } from "./types";
+
+interface Props {
+  note: FleetingNoteSummary;
+  sourceHref: string;
+  newer?: FleetingNoteSummary | null;
+  older?: FleetingNoteSummary | null;
+  archiveHref?: string;
+}
+const { note, sourceHref, newer, older, archiveHref = "/fleeting-notes/" } = Astro.props;
+const dateFormat = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+const date = dateFormat.format(new Date(note.published));
+---
+
+<JournalShell active="notes">
+  <div class="amber-note-page">
+    <a class="amber-back-to-notes" href={archiveHref}><DoodleArrow direction="west" /> All fleeting notes</a>
+    <article class="amber-note-entry" aria-label={`Fleeting note, ${date}`}>
+      <header class="amber-note-dateline">
+        <p class="amber-eyebrow">Fleeting note</p>
+        <time datetime={note.published}>{date}</time>
+        <NoteTags tags={note.tags} />
+      </header>
+      {!note.hasTitle && <h1 class="amber-note-date-title amber-type-heading">{date}</h1>}
+      <amber-code-copy><amber-rough-tables><amber-photo-tape><div class="amber-prose amber-note-prose"><slot /></div></amber-photo-tape></amber-rough-tables></amber-code-copy>
+      <footer class="amber-note-colophon">
+        <p>A page from the notebook. These thoughts may still be taking shape.</p>
+        <a href={sourceHref}>Edit on GitHub <DoodleArrow direction="north-east" /></a>
+      </footer>
+    </article>
+    {(newer || older) && (
+      <nav class="amber-note-neighbours" aria-label="Adjacent notes">
+        <div>{newer && <a href={newer.href} rel="prev"><span class="amber-eyebrow"><DoodleArrow direction="west" /> Newer note</span><span><span class="amber-route">{newer.title}</span></span></a>}</div>
+        <div>{older && <a href={older.href} rel="next"><span class="amber-eyebrow">Older note <DoodleArrow direction="east" /></span><span><span class="amber-route">{older.title}</span></span></a>}</div>
+      </nav>
+    )}
+  </div>
+</JournalShell>
