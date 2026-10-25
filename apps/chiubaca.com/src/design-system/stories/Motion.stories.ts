@@ -15,6 +15,7 @@ const motionTokens = [
   ["--amber-duration-scribble", "One pen stroke of a scribble; later strokes wait this long."],
   ["--amber-duration-draw", "The marker swipe, arrow nudges, and focus."],
   ["--amber-duration-sunset", "The colour-mode wipe from the Appearance control."],
+  ["--amber-duration-doodle", "The time to draw a rough.js article-cover doodle."],
   ["--amber-ease-out", "Arrives quickly, settles gently. Lines and presses."],
   ["--amber-ease-spring", "A small overshoot. Arrows and focus rings that spring into place."],
   ["--amber-press-scale", "How far a pressed control squishes."],
@@ -31,7 +32,7 @@ export const PlayfulMotion: Story = {
     content(page).append(
       markup(`
       <section class="ds-section"><h2>The rules of play</h2><dl class="ds-principles">
-        <div><dt>Only in reply</dt><dd>Nothing moves on load, on scroll, or by itself. Motion answers a hover, a focus, or a press.</dd></div>
+        <div><dt>Interaction first</dt><dd>Interface motion answers a hover, a focus, or a press. Article-cover doodles draw themselves in once, like pen on paper, then stay still. The writing never moves.</dd></div>
         <div><dt>Earnest, not ironic</dt><dd>Small, warm gestures with real meaning: you are here, this goes there, that worked. No jokes at the reader's expense.</dd></div>
         <div><dt>Still works when still</dt><dd>With reduced motion, every end state remains: the underlines, the marker, the arrows, the new colours. Only the movement goes.</dd></div>
       </dl></section>

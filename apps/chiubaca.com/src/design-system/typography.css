@@ -55,6 +55,14 @@
   background: var(--amber-color-selection);
 }
 
+.amber-type-display {
+  font-family: var(--amber-font-editorial);
+  font-size: var(--amber-font-size-display);
+  font-weight: var(--amber-weight-regular);
+  line-height: var(--amber-leading-display);
+  letter-spacing: var(--amber-tracking-tight);
+}
+
 .amber-type-heading {
   font-family: var(--amber-font-editorial);
   font-size: var(--amber-font-size-heading);

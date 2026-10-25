@@ -100,12 +100,21 @@ export const colourTokens = [
 
 export const typographyRoles = [
   {
+    key: "display",
+    name: "Permanent note cover",
+    font: "--amber-font-editorial",
+    size: "--amber-font-size-display",
+    leading: "--amber-leading-display",
+    use: "The left-aligned title in an article’s illustrated hero. Not a homepage headline.",
+    sample: "Leaning into the vibes",
+  },
+  {
     key: "heading",
-    name: "Article heading",
+    name: "Page heading",
     font: "--amber-font-editorial",
     size: "--amber-font-size-heading",
     leading: "--amber-leading-heading",
-    use: "An article’s title. Not a homepage hero.",
+    use: "Note and archive page headings. Not a homepage hero.",
     sample: "Skill-stacking",
   },
   {

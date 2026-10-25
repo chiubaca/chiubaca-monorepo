@@ -15,7 +15,7 @@ export const AmberJournal: Story = {
     const page = reviewPage(
       "01 · Overview",
       "Amber Journal",
-      "A reading-first design system for Alex Chiu’s blog. Warm paper by day, moss-charcoal after dark, and just enough amber. No homepage headline. No illustrations.",
+      "A reading-first design system for Alex Chiu’s blog. Warm paper by day, moss-charcoal after dark, and just enough amber. No homepage headline; a few scribbles, stars and abstract squiggles on the covers of longer writing.",
     );
     const body = content(page);
     body.append(

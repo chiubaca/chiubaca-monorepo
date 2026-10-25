@@ -5,6 +5,7 @@
 }
 
 .amber-header {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -12,6 +13,19 @@
   gap: var(--amber-space-2) var(--amber-space-7);
   padding-block: var(--amber-space-8) var(--amber-space-7);
   border-block-end: var(--amber-border-width) solid var(--amber-color-border);
+}
+
+.amber-header::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: calc(-1 * var(--amber-border-width));
+  block-size: var(--amber-border-width);
+  background: var(--amber-color-border);
+  /* Ink can bleed beyond the content measure without widening the page. */
+  box-shadow: 0 0 0 100vmax var(--amber-color-border);
+  clip-path: inset(0 -100vmax);
+  pointer-events: none;
 }
 
 .amber-wordmark {
@@ -139,11 +153,25 @@
 
 @media (max-width: 37.5rem) {
   .amber-header {
-    padding-block: var(--amber-space-6) var(--amber-space-5);
+    gap: 0 var(--amber-space-2);
+    padding-block: var(--amber-space-1);
+  }
+
+  .amber-header .amber-wordmark {
+    font-size: var(--amber-font-size-brand-compact);
+    line-height: var(--amber-leading-heading);
+    white-space: nowrap;
   }
 
   .amber-header nav {
-    gap: var(--amber-space-1) var(--amber-space-5);
+    gap: 0 var(--amber-space-1);
+    font-size: var(--amber-font-size-caption);
+    line-height: var(--amber-leading-compact);
+  }
+
+  .amber-header nav a {
+    justify-content: center;
+    min-inline-size: var(--amber-tap-target);
   }
 
   .amber-bio {

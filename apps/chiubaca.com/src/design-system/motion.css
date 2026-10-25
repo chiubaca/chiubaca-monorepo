@@ -1,7 +1,8 @@
 /*
  * Amber Journal motion: a scrapbook margin. Hand-drawn scribbles, marker
  * strokes, and doodled arrows reply to the reader. Nothing moves on load or
- * scroll. Reduced motion keeps every end state and removes only the movement.
+ * scroll here; the article cover's initial pen drawing lives in permanent-notes.css.
+ * Reduced motion keeps every end state and removes only the movement.
  */
 
 /*

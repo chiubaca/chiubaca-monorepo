@@ -1,0 +1,47 @@
+---
+import DoodleArrow from "./DoodleArrow.astro";
+import JournalArt from "./JournalArt.astro";
+import JournalShell from "./JournalShell.astro";
+import NoteTags from "./NoteTags.astro";
+import type { PermanentNotePageProps } from "./types";
+
+type Props = PermanentNotePageProps;
+const { title, description, tags, published, updated, readingMinutes, draft = false } = Astro.props;
+const dateFormat = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+const publishedDate = new Date(published);
+const updatedDate = new Date(updated ?? published);
+const changed = updatedDate.getTime() !== publishedDate.getTime();
+---
+
+<JournalShell active="writing" wide>
+  <article class="amber-permanent-note" aria-labelledby="permanent-note-title">
+    <header class="amber-article-hero">
+      <div class="amber-article-hero-copy">
+        <div class="amber-article-hero-content">
+          <p class="amber-eyebrow">{draft ? "Draft · permanent note" : "A permanent note"}</p>
+          <h1 id="permanent-note-title">{title}</h1>
+          {description && <p class="amber-article-blurb">{description}</p>}
+          <div class="amber-article-meta">
+            <span>Alex Chiu</span>
+            <time datetime={publishedDate.toISOString()}>{dateFormat.format(publishedDate)}</time>
+            <span>{readingMinutes} min read</span>
+          </div>
+          <NoteTags tags={tags} />
+        </div>
+      </div>
+      <div class="amber-article-art"><JournalArt seedKey={title} /></div>
+    </header>
+
+    <div class="amber-article-reading">
+      <amber-code-copy><amber-rough-tables><amber-photo-tape><div class="amber-prose amber-note-prose"><slot /></div></amber-photo-tape></amber-rough-tables></amber-code-copy>
+      <footer class="amber-article-colophon">
+        <div>
+          <p class="amber-eyebrow">Thanks for reading</p>
+          <p>Written by Alex Chiu.</p>
+          {changed && <p>Last updated <time datetime={updatedDate.toISOString()}>{dateFormat.format(updatedDate)}</time>.</p>}
+        </div>
+        <a href="/blogs/"><DoodleArrow direction="west" /> All writing</a>
+      </footer>
+    </div>
+  </article>
+</JournalShell>

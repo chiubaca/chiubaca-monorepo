@@ -3,7 +3,7 @@ import AppearanceSelect from "./AppearanceSelect.astro";
 import Scribble from "./Scribble.astro";
 import type { JournalShellProps } from "./types";
 type Props = JournalShellProps;
-const { active = "writing", homeHref = "/", writingHref = "/blogs/" } = Astro.props as Props;
+const { active = "writing", homeHref = "/", writingHref = "/blogs/", wide = false } = Astro.props as Props;
 const links = [
   { href: writingHref, label: "Writing", key: "writing" },
   { href: "/fleeting-notes/", label: "Notes", key: "notes" },
@@ -11,7 +11,7 @@ const links = [
 ];
 ---
 
-<div class="amber-page">
+<div class:list={["amber-page", { "amber-page--wide": wide }]}>
   <header class="amber-header">
     <a class="amber-wordmark" href={homeHref} aria-label="chiubaca home">chiubaca<span class="amber-wordmark-dot">.</span><Scribble kind="swash" /></a>
     <nav aria-label="Main navigation">

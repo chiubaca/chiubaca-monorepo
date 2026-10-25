@@ -1,14 +1,16 @@
 # Amber Journal Astro patterns
 
-These modules are used by the development Amber homepage, the fleeting-note routes, and real Astro Storybook stories. Content is passed in; nothing here fetches `astro:content` or depends on the Cloudflare runtime.
+These modules are used by the development Amber homepage, the fleeting- and permanent-note routes, and real Astro Storybook stories. Content is passed in; nothing here fetches `astro:content` or depends on the Cloudflare runtime.
 
 ## Shared layout
 
 - `layouts/JournalLayout.astro` owns the document: metadata, canonical/adjacent links, a skip link, fonts, shared CSS, pre-paint appearance restoration, and the browser entry.
-- `JournalShell.astro` owns the visible frame: wordmark, active navigation, a main-content slot, and the footer/appearance control. The Amber homepage and both notes patterns use it. `active` is `writing`, `notes`, or `memories`; `homeHref`/`writingHref` let the development homepage retain its prototype links.
+- `JournalShell.astro` owns the visible frame: wordmark, active navigation, a main-content slot, and the footer/appearance control. The Amber homepage and notes patterns use it. `active` is `writing`, `notes`, or `memories`; `homeHref`/`writingHref` let the development homepage retain its prototype links. `wide` opts into the full-bleed permanent-note shell with navigation overlaid on its cover; navigation/footer content retains the feature-width measure.
 - `AppearanceHead.astro` shares the pre-paint preference restore between the full journal document and the older three-variant prototype document.
 
 Keeping the document and visible frame separate lets Storybook render the real page compositions without nesting `<html>` documents. Other routes can adopt the same layout without inheriting note-specific content loading or markup.
+
+At phone widths (up to 37.5rem), the header becomes a compact top bar: a 20px wordmark, 12px navigation, 4px link gaps, and 4px vertical padding. All links retain 44px minimum tap targets. It fits on one row at 320px with the default font size, while allowing wrapping for enlarged text. Desktop navigation is unchanged.
 
 ## Fleeting notes
 
@@ -21,6 +23,20 @@ Pages own collection loading and `getStaticPaths`. `src/lib/fleeting-notes.ts` o
 The note styles live in `design-system/notes.css`: the archive date rail collapses on small screens; long links wrap; images scale; wide tables/code scroll locally. Tags link to the existing taxonomy page. Collection-only `fleeting`/`uncategorised` markers are not displayed as topics.
 
 Storybook's **Fleeting note / Markdown / All formatting** story exercises a real `.md` source through the shared site processor, including H1–H6, code highlighting, task lists, tables, images, and footnotes. Code blocks keep their dark Dracula surface in both page modes, with corrected comment contrast. The Markdown task checkboxes remain read-only but have accessible names. See the design-system README for the specimen and asset details.
+
+## Permanent notes
+
+`PermanentNotePage.astro` accepts title, optional description, tags, ISO publication/update dates, reading minutes, an optional draft flag, and a default Markdown-content slot. Its full-bleed hero is at least `100svh` tall and vertically centres the left-aligned copy. `JournalArt.astro` supplies a decorative, theme-aware scatter of stars, scribbles and abstract squiggles. `hero-doodles.ts` uses rough.js’s generator to produce actual SVG paths during server rendering, without browser globals or new client-side behaviour. Random pen wobble, placement offsets, rotations and scribble variants are seeded by the article title, so each cover stays stable across renders. Individual square SVGs retain their proportions, use non-scaling strokes, and fade further on phones. The middle-left desktop reading area stays clear of doodle centres. The header overlays the cover; content padding reserves room for wrapped navigation and long titles can grow the hero rather than being clipped. The body returns to a centred 65ch reading measure and uses the same Markdown/copy/photo/table enhancements as fleeting notes.
+
+The hero eyebrow uses the primary text colour rather than the decorative amber. A soft page-coloured halo follows the actual copy block, hiding background marks behind titles, blurbs and metadata even when long titles shift the text vertically. Doodles are quieter still on phones.
+
+The permanent-note header has an opaque, full-bleed page-coloured backing above the hero, so doodles never show through the navigation. Its content alignment and full-bleed separator remain unchanged.
+
+Cover doodles each draw as one continuous rough.js pen stroke. Multi-stroke overdrawing is disabled, vertices are preserved, and adjoining rough.js segments are joined into a single SVG subpath so the pen never jumps. A normalized path length produces smooth, linear drawing over `--amber-duration-doodle` (2.8 seconds per doodle), then stays still. This adds no client script or layout movement. Animations are enabled only for `prefers-reduced-motion: no-preference`, so reduced motion shows the completed artwork immediately.
+
+`pages/[slug].astro` owns collection loading, article metadata, and server-side reading-time estimation through `src/lib/reading-time.ts`. Original slugs and content remain unchanged. Dates are formatted in UTC and normalized to ISO for `datetime`, including when the Storybook transport revives them into Date objects. Missing blurbs/tags are omitted; unchanged update dates don't produce an extra timestamp. Drafts are labelled and noindexed by the route.
+
+Storybook's **Permanent note** stories cover a normal article, long titles and many tags, missing optional content, and drafts. `storybook:verify` checks the single page heading, metadata, decorative artwork, body slot, and optional states in the static build.
 
 ## PostSummary
 

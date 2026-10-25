@@ -25,6 +25,17 @@ export interface JournalShellProps {
   active?: "writing" | "notes" | "memories";
   homeHref?: string;
   writingHref?: string;
+  wide?: boolean;
+}
+
+export interface PermanentNotePageProps {
+  title: string;
+  description?: string | null;
+  tags: string[];
+  published: string;
+  updated?: string;
+  readingMinutes: number;
+  draft?: boolean;
 }
 
 export interface FleetingNoteSummary {

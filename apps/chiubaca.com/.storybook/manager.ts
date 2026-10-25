@@ -3,6 +3,8 @@ import { GLOBALS_UPDATED } from "storybook/internal/core-events";
 import { createAmberStorybookTheme } from "./theme";
 import { colorModePreference, resolveColorMode } from "../src/design-system/color-mode";
 
+addons.setConfig({ showPanel: false });
+
 const source: string = JSON.parse(document.getElementById("amber-token-source")!.textContent!);
 
 const system = window.matchMedia("(prefers-color-scheme: dark)");

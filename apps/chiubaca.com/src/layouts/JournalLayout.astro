@@ -8,8 +8,9 @@ interface Props {
   noindex?: boolean;
   newerHref?: string | null;
   olderHref?: string | null;
+  type?: "website" | "article";
 }
-const { title, description, noindex = false, newerHref, olderHref } = Astro.props;
+const { title, description, noindex = false, newerHref, olderHref, type = "website" } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://chiubaca.com");
 const image = `https://og.chiubaca.com/?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`;
 ---
@@ -29,7 +30,7 @@ const image = `https://og.chiubaca.com/?title=${encodeURIComponent(title)}&descr
     <link rel="alternate" type="application/rss+xml" title="chiubaca.com RSS" href="/rss.xml" />
     {newerHref && <link rel="prev" href={newerHref} />}
     {olderHref && <link rel="next" href={olderHref} />}
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />

@@ -42,6 +42,10 @@ for (const id of [
   "patterns-fleeting-note--untitled-day",
   "patterns-fleeting-note--reading",
   "patterns-fleeting-note-markdown--all-formatting",
+  "patterns-permanent-note--article",
+  "patterns-permanent-note--long-title",
+  "patterns-permanent-note--without-blurb",
+  "patterns-permanent-note--draft",
 ])
   assert.ok(astroIds.includes(id), `Missing indexed Astro story: ${id}`);
 for (const id of astroIds) {
@@ -72,6 +76,59 @@ assert.equal(
 );
 assert.ok(stories["patterns-fleeting-note--latest"].includes('aria-label="Adjacent notes"'));
 assert.ok(stories["patterns-fleeting-notes--empty"].includes("The notebook is quiet"));
+
+const permanentNote = stories["patterns-permanent-note--article"];
+assert.equal(
+  (permanentNote.match(/<h1\b/g) ?? []).length,
+  1,
+  "An article should have one page title",
+);
+assert.ok(permanentNote.includes('aria-labelledby="permanent-note-title"'));
+assert.ok(
+  permanentNote.includes('class="amber-article-hero-content"'),
+  "Hero copy needs its own quiet background above the doodles",
+);
+assert.ok(permanentNote.includes("Reflections on embracing AI with a side project."));
+assert.ok(permanentNote.includes("6 min read"));
+assert.ok(permanentNote.includes('datetime="2026-01-07T00:00:00.000Z"'));
+assert.ok(permanentNote.includes('href="/tags#ai"'));
+assert.match(
+  permanentNote,
+  /<div[^>]+class="amber-journal-art"[^>]+aria-hidden="true"/,
+  "Hero art should be decorative",
+);
+const heroArt = permanentNote.match(/<div class="amber-journal-art"[\s\S]*?<\/div>/)?.[0] ?? "";
+assert.ok(
+  heroArt.includes('vector-effect="non-scaling-stroke"'),
+  "Cover scribbles should keep their pen weight at every viewport",
+);
+assert.ok(
+  !/<(?:circle|rect|polygon)\b/.test(heroArt),
+  "The cover should use generated rough.js paths, not geometric cut-outs",
+);
+for (const kind of ["star", "scribble", "squiggle"]) {
+  assert.ok(heroArt.includes(`data-doodle="${kind}"`), `Missing rough.js hero motif: ${kind}`);
+}
+assert.ok(
+  !heroArt.includes('data-doodle="smiley"'),
+  "Hero artwork should not contain smiley faces",
+);
+assert.ok(heroArt.includes("--doodle-draw-delay:"), "Hero doodles need staggered drawing delays");
+assert.equal(
+  (heroArt.match(/<path\b/g) ?? []).length,
+  13,
+  "Each doodle should draw as one continuous path",
+);
+assert.ok(heroArt.includes('pathLength="1"'), "Rough.js paths need normalized lengths for drawing");
+assert.ok(permanentNote.includes("A small experiment"), "The article body slot should survive SSR");
+assert.ok(permanentNote.includes("Last updated"));
+assert.ok(stories["patterns-permanent-note--long-title"].includes("software-engineering"));
+assert.ok(stories["patterns-permanent-note--draft"].includes("Draft · permanent note"));
+const minimalArticle = stories["patterns-permanent-note--without-blurb"];
+assert.ok(!minimalArticle.includes("amber-article-blurb"));
+assert.ok(!minimalArticle.includes('aria-label="Topics"'));
+assert.ok(!minimalArticle.includes("Last updated"));
+
 assert.ok(!existsSync(new URL("photos", output)), "Unexpected blog photos copied");
 assert.deepEqual(
   readdirSync(new URL("attachments", output)),
