@@ -35,13 +35,29 @@ The local script deliberately overrides the MCP resource URL to `http://localhos
 
 The tool creates `fleeting-notes/YYYY-MM-DD.md` with `publish_date` and the `fleeting` tag when absent. Otherwise it appends a `## HH:mm UTC` entry, preserving the existing bytes and frontmatter. It returns the file's GitHub URL and whether it created or appended the note. Notes become blog content through the existing sync/build pipeline; they are not private drafts.
 
+## Adding attachments
+
+`add_attachment` commits a base64-encoded image to `chiubaca/notes/attachments` on `main`. It takes a `filename` with a supported extension, base64 `data`, and optional `alt` text.
+
+```json
+{
+  "filename": "screenshot.png",
+  "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+  "alt": "A tiny red dot"
+}
+```
+
+Supported extensions: `.jpg`, `.jpeg`, `.png`, `.gif`, `.webp`, `.svg`, `.avif`. The decoded image must be 10 MiB or smaller. Filenames are sanitized and existing attachments are not overwritten: a UTC timestamp is appended on collision. The tool returns the GitHub URL, stored path, MIME type, and a markdown reference such as `![alt](attachments/screenshot.png)`.
+
+## GitHub token
+
 Configure **`NOTES_GITHUB_TOKEN`** as an additional Cloudflare **Secret**. Use a fine-grained GitHub personal access token restricted to **`chiubaca/notes` only**, with **Contents: Read and write** and a short expiry. No repository write scope is added to the GitHub login flow, and its client secret is not a repository credential. For local development, put the token in the ignored `.dev.vars` file.
 
 ```sh
 wrangler secret put NOTES_GITHUB_TOKEN
 ```
 
-The tool remains visible without this secret but returns a configuration error before any GitHub request. It never accepts arbitrary paths or repositories, rejects notes over 128 KiB, and retries at most three times after explicit version conflicts. Ambiguous write failures are **not retried**: check the returned GitHub URL before resubmitting, because appending is not idempotent.
+The tools remain visible without this secret but return a configuration error before any GitHub request. They never accept arbitrary paths or repositories. `add_fleeting_note` rejects notes over 128 KiB and retries at most three times after explicit version conflicts. Ambiguous write failures are **not retried**: check the returned GitHub URL before resubmitting, because appending is not idempotent.
 
 ## Connect independent MCP clients
 

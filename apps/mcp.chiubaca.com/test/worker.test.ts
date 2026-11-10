@@ -307,6 +307,15 @@ describe("fleeting note MCP tool", () => {
               openWorldHint: true,
             },
           }),
+          expect.objectContaining({
+            name: "add_attachment",
+            annotations: {
+              readOnlyHint: false,
+              destructiveHint: false,
+              idempotentHint: false,
+              openWorldHint: true,
+            },
+          }),
         ]),
       },
     });
