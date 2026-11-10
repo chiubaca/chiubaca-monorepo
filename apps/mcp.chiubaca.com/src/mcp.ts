@@ -1,6 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/server";
 import { createMcpHandler } from "agents/mcp/server";
 import { z } from "zod";
+import { addAttachment, AttachmentError, attachmentInputSchema } from "./attachments";
 import {
   addFleetingNote,
   FleetingNoteError,
@@ -57,6 +58,44 @@ export function createMcpServer(env: NotesSecrets): McpServer {
                 error instanceof FleetingNoteError
                   ? error.message
                   : "The note could not be saved. Check GitHub before retrying to avoid duplicates.",
+            },
+          ],
+        };
+      }
+    },
+  );
+
+  server.registerTool(
+    "add_attachment",
+    {
+      title: "Add attachment",
+      description:
+        "Save a base64-encoded image to chiubaca/notes/attachments on main. Returns a markdown reference suitable for fleeting or permanent notes. Existing attachments are not overwritten: a UTC timestamp is appended to the filename when a collision occurs. This writes to GitHub and the file may be published by the blog's notes pipeline; only call when the user asks to save an attachment.",
+      inputSchema: attachmentInputSchema,
+      annotations: {
+        readOnlyHint: false,
+        destructiveHint: false,
+        idempotentHint: false,
+        openWorldHint: true,
+      },
+    },
+    async (input) => {
+      try {
+        const result = await addAttachment(env, input);
+        return {
+          content: [{ type: "text", text: JSON.stringify(result) }],
+          structuredContent: result,
+        };
+      } catch (error) {
+        return {
+          isError: true,
+          content: [
+            {
+              type: "text",
+              text:
+                error instanceof AttachmentError
+                  ? error.message
+                  : "The attachment could not be saved. Check GitHub before retrying.",
             },
           ],
         };
