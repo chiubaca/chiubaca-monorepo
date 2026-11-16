@@ -18,12 +18,14 @@ function mockGitHub(...responses: Array<Response | Error>) {
     "fetch",
     vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
       const request = new Request(input, init);
-      expect(request.headers.get("Authorization")).toBe("Bearer test-notes-token");
-      expect(request.redirect).toBe("manual");
       requests.push(request);
+      if (request.url.includes("api.github.com")) {
+        expect(request.headers.get("Authorization")).toBe("Bearer test-notes-token");
+        expect(request.redirect).toBe("manual");
+      }
       const response = responses.shift();
       if (response instanceof Error) throw response;
-      if (!response) throw new Error("Unexpected GitHub request");
+      if (!response) throw new Error("Unexpected fetch request");
       return response;
     }),
   );
@@ -111,10 +113,7 @@ describe("adding attachments", () => {
   });
 
   it("sanitizes unsafe characters in filenames", async () => {
-    const requests = mockGitHub(
-      new Response(null, { status: 404 }),
-      new Response(null, { status: 201 }),
-    );
+    mockGitHub(new Response(null, { status: 404 }), new Response(null, { status: 201 }));
 
     const result = await addAttachment(secrets, {
       filename: "my screenshot (1).png",
@@ -151,9 +150,89 @@ describe("adding attachments", () => {
     vi.stubGlobal("fetch", send);
     await expect(
       addAttachment(secrets, { filename: "pic.png", data: "not-base64!!!" }),
-    ).rejects.toThrow("not valid base64");
+    ).rejects.toThrow("not valid");
     expect(send).not.toHaveBeenCalled();
   });
+
+  it("creates an attachment from a URL", async () => {
+    const imageBytes = Buffer.from("fake-image-bytes");
+    const requests = mockGitHub(
+      new Response(imageBytes, {
+        status: 200,
+        headers: { "Content-Type": "image/jpeg" },
+      }),
+      new Response(null, { status: 404 }),
+      new Response(null, { status: 201 }),
+    );
+
+    const result = await addAttachment(secrets, {
+      filename: "from-url.jpg",
+      url: "https://example.com/image.jpg",
+    });
+
+    expect(result.filename).toBe("from-url.jpg");
+    expect(result.path).toBe("attachments/from-url.jpg");
+    expect(result.markdown).toBe("![from-url.jpg](attachments/from-url.jpg)");
+
+    expect(requests[0].url).toBe("https://example.com/image.jpg");
+    expect(requests[0].redirect).toBe("follow");
+    expect(requests[1].url).toBe(`${apiBase}/attachments/from-url.jpg?ref=main`);
+    expect(requests[2].url).toBe(`${apiBase}/attachments/from-url.jpg`);
+
+    const body = await written(requests[2]);
+    expect(body.bytes).toEqual(imageBytes);
+  });
+
+  it("rejects a URL that does not return an image", async () => {
+    const requests = mockGitHub(new Response("not found", { status: 404 }));
+    await expect(
+      addAttachment(secrets, {
+        filename: "from-url.jpg",
+        url: "https://example.com/image.jpg",
+      }),
+    ).rejects.toThrow("download the image");
+    expect(requests).toHaveLength(1);
+  });
+
+  it("rejects a URL that returns a non-image content type", async () => {
+    const requests = mockGitHub(
+      new Response("<html></html>", {
+        status: 200,
+        headers: { "Content-Type": "text/html" },
+      }),
+    );
+    await expect(
+      addAttachment(secrets, {
+        filename: "from-url.jpg",
+        url: "https://example.com/image.jpg",
+      }),
+    ).rejects.toThrow("did not return an image");
+    expect(requests).toHaveLength(1);
+  });
+
+  it("rejects invalid URLs", async () => {
+    const send = vi.fn();
+    vi.stubGlobal("fetch", send);
+    await expect(
+      addAttachment(secrets, {
+        filename: "from-url.jpg",
+        url: "not-a-url",
+      }),
+    ).rejects.toThrow();
+    expect(send).not.toHaveBeenCalled();
+  });
+
+  it.each([{ data: "aGVsbG8=", url: "https://example.com/image.jpg" }, {}])(
+    "rejects missing or conflicting data/url inputs: %o",
+    async (input) => {
+      const send = vi.fn();
+      vi.stubGlobal("fetch", send);
+      await expect(addAttachment(secrets, { filename: "pic.png", ...input })).rejects.toThrow(
+        "exactly one of data",
+      );
+      expect(send).not.toHaveBeenCalled();
+    },
+  );
 
   it("rejects oversized attachments", async () => {
     const send = vi.fn();

@@ -26,10 +26,14 @@ export const attachmentInputSchema = z
       .min(1)
       .max(255)
       .describe("Filename with a supported image extension (e.g. screenshot.png)."),
-    data: z.string().min(1).describe("Base64-encoded image bytes."),
+    data: z.string().min(1).describe("Base64-encoded image bytes.").optional(),
+    url: z.string().url().describe("Public URL of an image to fetch and save.").optional(),
     alt: z.string().max(500).optional().describe("Alt text for the markdown image reference."),
   })
-  .strict();
+  .strict()
+  .refine((input) => (input.data ? !input.url : !!input.url), {
+    message: "Provide exactly one of data (base64) or url.",
+  });
 
 export class AttachmentError extends Error {}
 
@@ -41,6 +45,36 @@ function sanitizeFilename(filename: string): string {
   const base = filename.replace(/\s+/g, "-").replace(/[^a-zA-Z0-9._-]/g, "");
   if (!base || base === ".") return "image.png";
   return base;
+}
+
+async function fetchImageFromUrl(url: string): Promise<Buffer> {
+  let response: Response;
+  try {
+    response = await fetch(url, {
+      redirect: "follow",
+      signal: AbortSignal.timeout(30_000),
+    });
+  } catch {
+    throw new AttachmentError("Could not download the image from the provided URL.");
+  }
+
+  if (!response.ok) {
+    throw new AttachmentError(
+      `Could not download the image from the provided URL (HTTP ${response.status}).`,
+    );
+  }
+
+  const contentType = response.headers.get("Content-Type") ?? "";
+  if (
+    contentType &&
+    !contentType.startsWith("image/") &&
+    !contentType.startsWith("application/octet-stream")
+  ) {
+    throw new AttachmentError(`The URL did not return an image (Content-Type: ${contentType}).`);
+  }
+
+  const arrayBuffer = await response.arrayBuffer();
+  return Buffer.from(arrayBuffer);
 }
 
 function githubHeaders(token: string) {
@@ -109,11 +143,18 @@ export async function addAttachment(env: NotesSecrets, input: unknown) {
 
   let decoded: Buffer;
   try {
-    const normalized = args.data.replace(/\s/g, "");
-    z.base64().parse(normalized);
-    decoded = Buffer.from(normalized, "base64");
-  } catch {
-    throw new AttachmentError("The image data is not valid base64.");
+    if (args.url) {
+      decoded = await fetchImageFromUrl(args.url);
+    } else if (args.data) {
+      const normalized = args.data.replace(/\s/g, "");
+      z.base64().parse(normalized);
+      decoded = Buffer.from(normalized, "base64");
+    } else {
+      throw new AttachmentError("Provide exactly one of data (base64) or url.");
+    }
+  } catch (error) {
+    if (error instanceof AttachmentError) throw error;
+    throw new AttachmentError("The image data is not valid.");
   }
 
   if (decoded.byteLength === 0) throw new AttachmentError("The image data is empty.");

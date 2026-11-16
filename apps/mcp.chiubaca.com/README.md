@@ -37,7 +37,7 @@ The tool creates `fleeting-notes/YYYY-MM-DD.md` with `publish_date` and the `fle
 
 ## Adding attachments
 
-`add_attachment` commits a base64-encoded image to `chiubaca/notes/attachments` on `main`. It takes a `filename` with a supported extension, base64 `data`, and optional `alt` text.
+`add_attachment` commits an image to `chiubaca/notes/attachments` on `main`. It takes a `filename` with a supported extension and either base64 `data` or a public `url`, plus optional `alt` text.
 
 ```json
 {
@@ -47,7 +47,15 @@ The tool creates `fleeting-notes/YYYY-MM-DD.md` with `publish_date` and the `fle
 }
 ```
 
-Supported extensions: `.jpg`, `.jpeg`, `.png`, `.gif`, `.webp`, `.svg`, `.avif`. The decoded image must be 10 MiB or smaller. Filenames are sanitized and existing attachments are not overwritten: a UTC timestamp is appended on collision. The tool returns the GitHub URL, stored path, MIME type, and a markdown reference such as `![alt](attachments/screenshot.png)`.
+```json
+{
+  "filename": "screenshot.png",
+  "url": "https://example.com/screenshot.png",
+  "alt": "A tiny red dot"
+}
+```
+
+Supported extensions: `.jpg`, `.jpeg`, `.png`, `.gif`, `.webp`, `.svg`, `.avif`. The decoded or downloaded image must be 10 MiB or smaller. Filenames are sanitized and existing attachments are not overwritten: a UTC timestamp is appended on collision. The tool returns the GitHub URL, stored path, MIME type, and a markdown reference such as `![alt](attachments/screenshot.png)`.
 
 ## GitHub token
 

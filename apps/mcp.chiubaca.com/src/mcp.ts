@@ -70,7 +70,7 @@ export function createMcpServer(env: NotesSecrets): McpServer {
     {
       title: "Add attachment",
       description:
-        "Save a base64-encoded image to chiubaca/notes/attachments on main. Returns a markdown reference suitable for fleeting or permanent notes. Existing attachments are not overwritten: a UTC timestamp is appended to the filename when a collision occurs. This writes to GitHub and the file may be published by the blog's notes pipeline; only call when the user asks to save an attachment.",
+        "Save an image to chiubaca/notes/attachments on main. Accepts either base64-encoded image data or a public image URL. Returns a markdown reference suitable for fleeting or permanent notes. Existing attachments are not overwritten: a UTC timestamp is appended to the filename when a collision occurs. This writes to GitHub and the file may be published by the blog's notes pipeline; only call when the user asks to save an attachment.",
       inputSchema: attachmentInputSchema,
       annotations: {
         readOnlyHint: false,
