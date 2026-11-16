@@ -11,6 +11,12 @@
     <meta name="theme-color" content="#1f1916" />
     <title>SUPER CHIUBACA 64 - Interactive Face Stretch!</title>
     <style>
+      @font-face {
+        font-family: "Typeface Mario 64";
+        src: url("/fonts/TypefaceMario64-ywA93.otf") format("opentype");
+        font-display: swap;
+      }
+
       * {
         box-sizing: border-box;
         user-select: none;
@@ -71,7 +77,8 @@
       }
       .title-box h1 {
         margin: 0 0 3px 0;
-        font-size: 19px;
+        font-family: "Typeface Mario 64", "Courier New", monospace;
+        font-size: 22px;
         letter-spacing: 0.5px;
         color: #f7d51d;
         text-shadow:
@@ -129,29 +136,7 @@
         gap: 6px;
       }
 
-      /* --- BOTTOM DOCK (Thumb-Friendly Mobile + Desktop) --- */
-      .hud-bottom {
-        position: fixed;
-        bottom: max(12px, env(safe-area-inset-bottom, 12px));
-        left: 50%;
-        transform: translateX(-50%);
-        width: min(96vw, 760px);
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        background: rgba(16, 14, 22, 0.88);
-        border: 2.5px solid #60a5fa;
-        border-radius: 14px;
-        padding: 9px 11px;
-        box-shadow: 0 5px 0 #000;
-        backdrop-filter: blur(6px);
-        z-index: 10;
-      }
-      .btn-grid {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 6px;
-      }
+      /* --- HUD BUTTONS (Sound Toggle) --- */
       .n64-btn {
         background: #2563eb;
         color: #fff;
@@ -176,49 +161,19 @@
         box-shadow: 0 1px 0 #1e3a8a;
         background: #1d4ed8;
       }
-      .n64-btn.warn {
-        background: #d97706;
-        border-color: #fde68a;
-        box-shadow: 0 3px 0 #78350f;
-        padding: 6px 10px;
-      }
       .n64-btn.icon-btn {
         background: #374151;
         border-color: #9ca3af;
         box-shadow: 0 3px 0 #111827;
         padding: 6px 10px;
       }
-      .sliders-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        padding: 2px 4px 0;
-      }
-      .slider-group {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 12px;
-        color: #bfdbfe;
-        flex: 1;
-      }
-      .slider-group span {
-        white-space: nowrap;
-        font-weight: bold;
-      }
-      .slider-group input[type="range"] {
-        width: 100%;
-        height: 22px;
-        accent-color: #f7d51d;
-        cursor: pointer;
-        margin: 0;
-      }
 
       #glove-cursor {
         position: fixed;
-        width: 46px;
-        height: 46px;
+        width: 1em;
+        height: 1em;
+        line-height: 1;
+        text-align: center;
         pointer-events: none;
         z-index: 20;
         transform: translate(-50%, -50%);
@@ -234,7 +189,7 @@
           max-width: 56%;
         }
         .title-box h1 {
-          font-size: 14px;
+          font-size: 15px;
           margin-bottom: 2px;
         }
         .title-box p {
@@ -247,43 +202,12 @@
           font-size: 11.5px;
           padding: 6px 9px;
         }
-        .hud-bottom {
-          padding: 8px 8px;
-          gap: 6px;
-          border-radius: 12px;
-        }
-        .btn-grid {
-          grid-template-columns: repeat(3, 1fr);
-          gap: 6px;
-        }
-        .n64-btn {
-          padding: 9px 4px;
-          font-size: 12px;
-        }
-        .sliders-row {
-          gap: 8px;
-        }
-        .slider-group {
-          font-size: 11px;
-        }
       }
 
       /* Landscape phone optimization (short height) */
       @media (max-height: 500px) {
         .title-box p {
           display: none;
-        }
-        .hud-bottom {
-          width: min(94vw, 680px);
-          padding: 5px 8px;
-          gap: 4px;
-        }
-        .btn-grid {
-          grid-template-columns: repeat(6, 1fr);
-        }
-        .n64-btn {
-          padding: 5px 4px;
-          font-size: 11px;
         }
       }
     </style>
@@ -293,37 +217,14 @@
       <div class="title-box">
         <h1>★ CHIUBACA 64 ★</h1>
         <p>
-          <b>Touch &amp; Drag</b> face to tug! <b>Release</b> to boing!<span class="desktop-hint">
-            <b>2-Finger / Bg Drag</b> to orbit.</span
-          >
+          <b>Touch &amp; Drag</b> face to tug! <b>Hold still</b> to grow grab. <b>Release</b> to
+          boing!<span class="desktop-hint"> <b>2-Finger / Bg Drag</b> to orbit.</span>
         </p>
       </div>
       <div class="top-right-col">
         <div id="status-badge" class="state-badge">😊 NORMAL</div>
         <div class="quick-top-btns">
           <button class="n64-btn icon-btn" id="btn-mute" title="Toggle Sound">🔊</button>
-          <button class="n64-btn warn" id="btn-reset">🔄 Reset</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="hud-bottom">
-      <div class="btn-grid">
-        <button class="n64-btn" id="btn-tug-nose">🤥 Nose</button>
-        <button class="n64-btn" id="btn-tug-cheek-l">😮 L-Cheek</button>
-        <button class="n64-btn" id="btn-tug-cheek-r">😮 R-Cheek</button>
-        <button class="n64-btn" id="btn-tug-ear">👂 Ears</button>
-        <button class="n64-btn" id="btn-tug-chin">😱 Jaw</button>
-        <button class="n64-btn" id="btn-tug-hair">💈 Hair</button>
-      </div>
-      <div class="sliders-row">
-        <div class="slider-group">
-          <span>Turn 360°:</span>
-          <input type="range" id="yaw-slider" min="-180" max="180" step="1" value="-12" />
-        </div>
-        <div class="slider-group">
-          <span>Grab Size:</span>
-          <input type="range" id="grab-radius" min="0.20" max="0.65" step="0.02" value="0.38" />
         </div>
       </div>
     </div>
@@ -4732,21 +4633,27 @@
       let grabCenterRest = null;
       let grabStartWorld = null;
       let grabCurWorld = null;
-      let grabRadius = 0.38;
+      // Grab size grows the longer you hold still on the face.
+      const GRAB_RADIUS_MIN = 0.18;
+      const GRAB_RADIUS_MAX = 0.62;
+      const GRAB_GROW_SECONDS = 1.25; // time holding still to reach max grab
+      const GRAB_STILL_DELAY = 0.09; // seconds without movement before growth starts
+      let grabRadius = GRAB_RADIUS_MIN;
+      let grabHoldSec = 0.0;
+      let grabLastMoveSec = 0.0;
+      let grabLastX = 0,
+        grabLastY = 0;
       let maxPullDist = 0.0;
       let soundCooldown = 0.0;
 
       const badgeEl = document.getElementById("status-badge");
       const gloveEl = document.getElementById("glove-cursor");
-      const yawSlider = document.getElementById("yaw-slider");
-      const radSlider = document.getElementById("grab-radius");
 
-      radSlider.addEventListener("input", (e) => {
-        grabRadius = parseFloat(e.target.value);
-      });
-      yawSlider.addEventListener("input", (e) => {
-        headYawDeg = parseFloat(e.target.value);
-      });
+      // Scale the fist cursor from small to big to show the current grab size.
+      function updateGrabHandSize() {
+        const t = (grabRadius - GRAB_RADIUS_MIN) / (GRAB_RADIUS_MAX - GRAB_RADIUS_MIN);
+        gloveEl.style.fontSize = 20 + t * 56 + "px";
+      }
 
       function setUIState(newState) {
         state = newState;
@@ -4897,9 +4804,15 @@
           grabCurWorld = hit.world.slice();
           maxPullDist = 0.0;
           dizzyTimer = 0.0;
+          grabHoldSec = 0.0;
+          grabLastMoveSec = lastTimeSec;
+          grabRadius = GRAB_RADIUS_MIN;
+          grabLastX = clientX;
+          grabLastY = clientY;
           canvas.classList.add("grabbing");
           gloveEl.textContent = "✊";
           gloveEl.style.display = "block";
+          updateGrabHandSize();
           gloveEl.style.left = clientX + "px";
           gloveEl.style.top = clientY - (isTouch ? 22 : 0) + "px";
           setUIState("shocked");
@@ -4914,6 +4827,14 @@
         gloveEl.style.left = clientX + "px";
         gloveEl.style.top = clientY - (isTouch ? 22 : 0) + "px";
 
+        // Movement pauses grab growth (the charged size is kept for the drag).
+        // Tiny jitter is ignored so the grab still counts as "held still".
+        if (isGrabbing && Math.hypot(clientX - grabLastX, clientY - grabLastY) > 3) {
+          grabLastMoveSec = lastTimeSec;
+          grabLastX = clientX;
+          grabLastY = clientY;
+        }
+
         if (isOrbiting) {
           const dx = clientX - lastMouseX;
           const dy = clientY - lastMouseY;
@@ -4921,7 +4842,6 @@
           lastMouseY = clientY;
           headYawDeg = ((headYawDeg + dx * 0.5 + 180) % 360) - 180;
           headPitchDeg = Math.max(-35, Math.min(35, headPitchDeg + dy * 0.35));
-          yawSlider.value = Math.round(headYawDeg);
           return;
         }
 
@@ -4995,6 +4915,7 @@
         if (isGrabbing) {
           isGrabbing = false;
           canvas.classList.remove("grabbing");
+          gloveEl.style.fontSize = "";
           if (isTouch) {
             gloveEl.style.display = "none";
           } else {
@@ -5033,6 +4954,7 @@
             if (isGrabbing) {
               isGrabbing = false;
               gloveEl.style.display = "none";
+              gloveEl.style.fontSize = "";
             }
             isOrbiting = true;
             const t0 = e.touches[0],
@@ -5070,7 +4992,6 @@
             lastMouseY = midY;
             headYawDeg = ((headYawDeg + dx * 0.5 + 180) % 360) - 180;
             headPitchDeg = Math.max(-35, Math.min(35, headPitchDeg + dy * 0.35));
-            yawSlider.value = Math.round(headYawDeg);
           }
         },
         { passive: false },
@@ -5092,83 +5013,22 @@
         { passive: false },
       );
 
-      // --- ONE-CLICK FUN PRESET TUGS ---
-      let presetReleaseTimeout = null;
-      function triggerPresetTug(centerOrig, deltaVec, radius = 0.38) {
-        initAudio();
-        haptic(20);
-        if (presetReleaseTimeout) clearTimeout(presetReleaseTimeout);
-        const cRest = [
-          centerOrig[0] - PIVOT[0],
-          centerOrig[1] - PIVOT[1],
-          centerOrig[2] - PIVOT[2],
-        ];
-        const R2 = radius * radius;
-        for (let i = 0; i < numVerts; i++) {
-          const dx = restPos[i * 3 + 0] - cRest[0];
-          const dy = restPos[i * 3 + 1] - cRest[1];
-          const dz = restPos[i * 3 + 2] - cRest[2];
-          const d2 = dx * dx + dy * dy + dz * dz;
-          const w = Math.exp(-d2 / (2.0 * R2)) * pinWeight[i];
-          dispU[i * 3 + 0] += deltaVec[0] * w;
-          dispU[i * 3 + 1] += deltaVec[1] * w;
-          dispU[i * 3 + 2] += deltaVec[2] * w;
-          velV[i * 3 + 0] = 0;
-          velV[i * 3 + 1] = 0;
-          velV[i * 3 + 2] = 0;
-        }
-        isGrabbing = true;
-        maxPullDist = 0.65;
-        setUIState("shocked");
-        playStretchSound(0.65);
-
-        presetReleaseTimeout = setTimeout(() => {
-          isGrabbing = false;
-          playBoingSound(0.8);
-          playDizzyChime();
-          haptic([25, 35, 18]);
-          dizzyTimer = 1.65;
-          setUIState("dizzy");
-        }, 520);
-      }
-
-      document.getElementById("btn-tug-nose").addEventListener("click", () => {
-        triggerPresetTug([0.0, -1.1, 1.3], [0.0, -0.68, -0.1], 0.3);
-      });
-      document.getElementById("btn-tug-cheek-l").addEventListener("click", () => {
-        triggerPresetTug([-0.46, -0.65, 1.24], [-0.58, -0.25, -0.08], 0.36);
-      });
-      document.getElementById("btn-tug-cheek-r").addEventListener("click", () => {
-        triggerPresetTug([0.46, -0.65, 1.24], [0.58, -0.25, -0.08], 0.36);
-      });
-      document.getElementById("btn-tug-ear").addEventListener("click", () => {
-        triggerPresetTug([0.7, 0.0, 1.32], [0.62, 0.0, 0.22], 0.32);
-        triggerPresetTug([-0.7, 0.0, 1.32], [-0.62, 0.0, 0.22], 0.32);
-      });
-      document.getElementById("btn-tug-chin").addEventListener("click", () => {
-        triggerPresetTug([0.0, -0.9, 0.78], [0.0, -0.25, -0.58], 0.36);
-      });
-      document.getElementById("btn-tug-hair").addEventListener("click", () => {
-        triggerPresetTug([0.03, -0.52, 2.45], [0.08, -0.3, 0.62], 0.38);
-      });
-      document.getElementById("btn-reset").addEventListener("click", () => {
-        dispU.fill(0);
-        velV.fill(0);
-        dizzyTimer = 0;
-        isGrabbing = false;
-        baseCamDist = 3.55;
-        headYawDeg = -11.5;
-        headPitchDeg = -4.0;
-        yawSlider.value = -12;
-        setUIState("normal");
-      });
-
       // --- MAIN 60FPS PHYSICS & N64 RENDER LOOP ---
       function stepPhysicsAndRender(nowMs) {
         const nowSec = nowMs * 0.001;
         const dt = Math.min(0.033, Math.max(0.001, nowSec - lastTimeSec));
         lastTimeSec = nowSec;
         if (soundCooldown > 0) soundCooldown -= dt;
+
+        // The longer the grab is held still, the bigger the grab (and fist) gets.
+        // Growth pauses while you drag but the charged size is kept until release.
+        if (isGrabbing && nowSec - grabLastMoveSec >= GRAB_STILL_DELAY) {
+          grabHoldSec = Math.min(GRAB_GROW_SECONDS, grabHoldSec + dt);
+          grabRadius =
+            GRAB_RADIUS_MIN +
+            (GRAB_RADIUS_MAX - GRAB_RADIUS_MIN) * (grabHoldSec / GRAB_GROW_SECONDS);
+          updateGrabHandSize();
+        }
 
         if (!isGrabbing && dizzyTimer > 0) {
           dizzyTimer -= dt;

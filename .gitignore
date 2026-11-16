@@ -4,6 +4,9 @@ node_modules/
 # PNPM
 pnpm-debug.log*
 
+# Local dev server state
+.wrangler/
+
 # Astro specific
 dist/
 .astro/
