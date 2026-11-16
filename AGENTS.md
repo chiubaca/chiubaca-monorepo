@@ -44,6 +44,7 @@ This is a pnpm workspace monorepo for all `*.chiubaca.com` sites.
 | `apps/notes.chiubaca.com`      | Cloudflare Worker  | Proxies `notes.chiubaca.com` to `chiubaca.com/fleeting-notes/`    |
 | `apps/newsletter.chiubaca.com` | Astro + Cloudflare | Newsletter site                                                   |
 | `apps/im.chiubaca.com`         | Vite               | Minimal `index.html` app                                          |
+| `apps/n64.chiubaca.com`        | WebGL + Cloudflare | Interactive N64 Mario 64 style 3D face-stretching site            |
 
 ## Shared libraries
 

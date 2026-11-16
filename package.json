@@ -12,6 +12,7 @@
     "dev": "pnpm -r dev",
     "dev:chiubaca": "pnpm -w run notes:download && pnpm -w run notes:migrate && pnpm --filter chiubaca.com dev",
     "dev:im.chiubaca": "pnpm --filter im.chiubaca.com dev",
+    "dev:n64.chiubaca": "pnpm --filter n64.chiubaca.com dev",
     "notes:download": "rm -rf tmp-notes && git clone https://github.com/chiubaca/notes tmp-notes",
     "notes:sync": "cd tmp-notes && git pull",
     "notes:migrate": "bash libs/scripts/migrate-notes.sh",
@@ -19,6 +20,7 @@
     "lint:fix": "vp check --fix",
     "chiubaca.com:build": "pnpm -w run notes:download && pnpm -w run notes:migrate && pnpm --filter chiubaca.com build",
     "chiubaca.com:deploy": "pnpm  -w run --filter chiubaca.com deploy",
+    "n64.chiubaca.com:deploy": "pnpm -w run --filter n64.chiubaca.com deploy",
     "preview": "pnpm -r preview",
     "test:node-env": "echo \"Current PATH: $PATH\" && echo \"Node location: $(which node)\" && echo \"Node version: $(node -v)\"",
     "prepare": "vp config"
