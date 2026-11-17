@@ -38,13 +38,14 @@ This is a pnpm workspace monorepo for all `*.chiubaca.com` sites.
 
 ## Apps
 
-| App                            | Stack              | Purpose                                                           |
-| ------------------------------ | ------------------ | ----------------------------------------------------------------- |
-| `apps/chiubaca.com`            | Astro + Cloudflare | Public website; consumes `fleeting-notes/` and `permanent-notes/` |
-| `apps/notes.chiubaca.com`      | Cloudflare Worker  | Proxies `notes.chiubaca.com` to `chiubaca.com/fleeting-notes/`    |
-| `apps/newsletter.chiubaca.com` | Astro + Cloudflare | Newsletter site                                                   |
-| `apps/im.chiubaca.com`         | Vite               | Minimal `index.html` app                                          |
-| `apps/n64.chiubaca.com`        | WebGL + Cloudflare | Interactive N64 Mario 64 style 3D face-stretching site            |
+| App                            | Stack               | Purpose                                                           |
+| ------------------------------ | ------------------- | ----------------------------------------------------------------- |
+| `apps/chiubaca.com`            | Astro + Cloudflare  | Public website; consumes `fleeting-notes/` and `permanent-notes/` |
+| `apps/notes.chiubaca.com`      | Cloudflare Worker   | Proxies `notes.chiubaca.com` to `chiubaca.com/fleeting-notes/`    |
+| `apps/newsletter.chiubaca.com` | Astro + Cloudflare  | Newsletter site                                                   |
+| `apps/im.chiubaca.com`         | Vite                | Minimal `index.html` app                                          |
+| `apps/mecha.chiubaca.com`      | React + R3F + Vite+ | Interactive cyberpunk 3D mecha skills portfolio                   |
+| `apps/n64.chiubaca.com`        | WebGL + Cloudflare  | Interactive N64 Mario 64 style 3D face-stretching site            |
 
 ## Shared libraries
 
