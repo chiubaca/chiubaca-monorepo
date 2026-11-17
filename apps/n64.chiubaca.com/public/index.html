@@ -76,7 +76,7 @@
         max-width: 62%;
       }
       .title-box h1 {
-        margin: 0 0 3px 0;
+        margin: 0;
         font-family: "Typeface Mario 64", "Courier New", monospace;
         font-size: 22px;
         letter-spacing: 0.5px;
@@ -85,12 +85,6 @@
           2px 2px 0 #c42c1c,
           -1px -1px 0 #000;
         white-space: nowrap;
-      }
-      .title-box p {
-        margin: 0;
-        font-size: 12px;
-        line-height: 1.3;
-        color: #e6dfd5;
       }
       .top-right-col {
         display: flex;
@@ -160,19 +154,6 @@
           font-size: 15px;
           margin-bottom: 2px;
         }
-        .title-box p {
-          font-size: 10.5px;
-        }
-        .title-box p .desktop-hint {
-          display: none;
-        }
-      }
-
-      /* Landscape phone optimization (short height) */
-      @media (max-height: 500px) {
-        .title-box p {
-          display: none;
-        }
       }
     </style>
   </head>
@@ -180,10 +161,6 @@
     <div class="hud-top">
       <div class="title-box">
         <h1>★ CHIUBACA 64 ★</h1>
-        <p>
-          <b>Touch &amp; Drag</b> face to tug! <b>Hold still</b> to grow grab. <b>Release</b> to
-          boing!<span class="desktop-hint"> <b>2-Finger / Bg Drag</b> to orbit.</span>
-        </p>
       </div>
       <div class="top-right-col">
         <div class="quick-top-btns">
