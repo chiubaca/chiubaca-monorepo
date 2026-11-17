@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="theme-color" content="#1f1916" />
-    <title>SUPER CHIUBACA 64 - Interactive Face Stretch!</title>
+    <title>SUPER CHIUBACA 64</title>
     <style>
       @font-face {
         font-family: "Typeface Mario 64";
@@ -73,7 +73,9 @@
           0 4px 0 #000,
           inset 0 0 10px rgba(247, 213, 29, 0.2);
         backdrop-filter: blur(4px);
-        max-width: 62%;
+        /* Leave room for the sound toggle on the right; otherwise the title
+           (which uses a wide display font) bleeds past the border. */
+        max-width: calc(100% - 60px);
       }
       .title-box h1 {
         margin: 0;
@@ -148,10 +150,9 @@
       @media (max-width: 680px) {
         .title-box {
           padding: 6px 10px;
-          max-width: 56%;
         }
         .title-box h1 {
-          font-size: 15px;
+          font-size: clamp(11.5px, 3.8vw, 15px);
           margin-bottom: 2px;
         }
       }
@@ -160,7 +161,7 @@
   <body>
     <div class="hud-top">
       <div class="title-box">
-        <h1>★ CHIUBACA 64 ★</h1>
+        <h1>★ SUPER CHIUBACA 64 ★</h1>
       </div>
       <div class="top-right-col">
         <div class="quick-top-btns">
