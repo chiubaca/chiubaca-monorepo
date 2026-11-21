@@ -3,41 +3,49 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0b1017" />
+    <meta name="theme-color" content="#080b08" />
     <link rel="icon" href="./vk.svg" type="image/svg+xml" />
     <title>VK-07 / Flight Deck</title>
   </head>
   <body>
-    <main class="deck" data-pose="hero">
-      <header class="mast">
-        <span
-          ><b class="mark">V<span>K</span></b
-          ><span class="badge">FRAME SYSTEMS</span></span
-        >
-        <span class="live"><i></i> LIVE 3D</span>
-      </header>
-      <section class="viewport" aria-label="Interactive 3D mech">
+    <main class="deck" data-pose="hero" data-mode="idle">
+      <section class="viewport" aria-label="Interactive VK-07 model">
         <div class="stage"></div>
-        <div class="caption">
-          <p class="eyebrow" id="index">01 / 03 — GROUND</p>
-          <h1>VK<span>–</span>07</h1>
-          <h2 id="pose-title">Open-hand</h2>
-        </div>
-        <div class="reticle" aria-hidden="true">+</div>
-        <div class="stage-label" aria-hidden="true">PERSPECTIVE FEED <span>↗</span></div>
+        <span class="feed" aria-hidden="true">● LIVE 3D // VK-07</span>
+        <span class="target-frame" aria-hidden="true"></span>
         <p class="status" role="status">Loading mech…</p>
       </section>
-      <nav class="poses" aria-label="Mech poses">
-        <button type="button" data-key="hero" aria-pressed="true">
-          <span>01</span> Open-hand <kbd>1</kbd>
-        </button>
-        <button type="button" data-key="rifle" aria-pressed="false">
-          <span>02</span> Rifle stance <kbd>2</kbd>
-        </button>
-        <button type="button" data-key="flight" aria-pressed="false">
-          <span>03</span> Banked flight <kbd>3</kbd>
-        </button>
-      </nav>
+      <aside class="terminal panel" aria-labelledby="terminal-title">
+        <header>
+          <h1 id="terminal-title">&gt;&gt; MECHA.DEV // VK-07</h1>
+          <button type="button" id="reset">[RESET_VIEW]</button>
+        </header>
+        <div class="terminal-body">
+          <p class="command" id="command">&gt;&gt; SYSTEM.INIT()</p>
+          <h2 id="system-title">INTERACTIVE MECHA SKILL MATRIX</h2>
+          <p id="system-detail">
+            Scan a system, then click or tap to lock on. Drag the model to orbit.
+          </p>
+          <p class="terminal-actions">
+            <button type="button" id="explode" aria-pressed="false" hidden>[EXPLODE]</button>
+          </p>
+        </div>
+        <footer>
+          <span>● SYSTEM_ONLINE</span><span id="lock-state" role="status">STATUS: IDLE</span>
+        </footer>
+      </aside>
+      <aside class="system-map panel" aria-labelledby="map-title">
+        <h2 id="map-title">SYSTEM_MAP</h2>
+        <div class="system-list"></div>
+      </aside>
+      <div class="controls">
+        <nav class="poses" aria-label="Mech poses">
+          <button type="button" data-key="hero" aria-pressed="true">[1] OPEN-HAND</button>
+          <button type="button" data-key="rifle" aria-pressed="false">[2] RIFLE</button>
+          <button type="button" data-key="flight" aria-pressed="false">[3] FLIGHT</button>
+        </nav>
+        <p class="hint">[HOVER] Scan &nbsp; [CLICK] Lock &nbsp; [DRAG] Orbit &nbsp; [ESC] Reset</p>
+      </div>
     </main>
     <script type="module" src="/src.js"></script>
   </body>
