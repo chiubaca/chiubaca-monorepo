@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#080b08" />
     <link rel="icon" href="./vk.svg" type="image/svg+xml" />
     <title>VK-07 / Flight Deck</title>
@@ -11,23 +11,39 @@
     <main class="deck" data-pose="hero" data-mode="idle">
       <section class="viewport" aria-label="Interactive VK-07 model">
         <div class="stage"></div>
-        <span class="feed" aria-hidden="true">● LIVE 3D // VK-07</span>
+        <span class="feed" aria-hidden="true">
+          <span>● LIVE 3D // VK-07</span>
+          <span class="touch-hint">TAP A PART · DRAG TO ORBIT</span>
+        </span>
         <span class="target-frame" aria-hidden="true"></span>
         <p class="status" role="status">Loading mech…</p>
       </section>
       <aside class="terminal panel" aria-labelledby="terminal-title">
         <header>
           <h1 id="terminal-title">&gt;&gt; MOBILE SUIT // VK-07</h1>
-          <button type="button" id="reset">[RESET_VIEW]</button>
+          <p class="mobile-target">
+            <strong id="mobile-name">VK-07</strong>
+            <small id="mobile-code">● STANDBY</small>
+          </p>
+          <div class="terminal-controls">
+            <button type="button" id="explode" aria-pressed="false" hidden>[EXPLODE]</button>
+            <button
+              type="button"
+              id="details-toggle"
+              aria-controls="terminal-details"
+              aria-expanded="false"
+              hidden
+            >
+              [INFO]
+            </button>
+            <button type="button" id="reset" aria-label="Reset view">[RESET]</button>
+          </div>
         </header>
-        <div class="terminal-body">
+        <div class="terminal-body" id="terminal-details">
           <p class="command" id="command">&gt;&gt; SYSTEM.INIT()</p>
           <h2 id="system-title">MOBILE SUIT // PARTS MANIFEST</h2>
           <p id="system-detail">
             Scan a system, then click or tap to lock on. Drag the model to orbit.
-          </p>
-          <p class="terminal-actions">
-            <button type="button" id="explode" aria-pressed="false" hidden>[EXPLODE]</button>
           </p>
         </div>
         <footer>
@@ -40,9 +56,13 @@
       </aside>
       <div class="controls">
         <nav class="poses" aria-label="Mech poses">
-          <button type="button" data-key="hero" aria-pressed="true">[1] OPEN-HAND</button>
-          <button type="button" data-key="rifle" aria-pressed="false">[2] RIFLE</button>
-          <button type="button" data-key="flight" aria-pressed="false">[3] FLIGHT</button>
+          <button type="button" data-key="hero" aria-pressed="true">
+            <kbd>[1]</kbd> OPEN-HAND
+          </button>
+          <button type="button" data-key="rifle" aria-pressed="false"><kbd>[2]</kbd> RIFLE</button>
+          <button type="button" data-key="flight" aria-pressed="false">
+            <kbd>[3]</kbd> FLIGHT
+          </button>
         </nav>
         <p class="hint">[HOVER] Scan &nbsp; [CLICK] Lock &nbsp; [DRAG] Orbit &nbsp; [ESC] Reset</p>
       </div>

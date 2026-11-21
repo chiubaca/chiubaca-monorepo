@@ -27,6 +27,15 @@ const renderedPose = () => (active() === "rifle" && request === "hero" ? "rifle"
 const entries = Object.entries(systems);
 const map = document.querySelector(".system-list");
 const explodeButton = document.querySelector("#explode");
+const detailsToggle = document.querySelector("#details-toggle");
+let detailsOpen = false;
+
+function setDetails(open) {
+  detailsOpen = open;
+  deck.dataset.details = String(open);
+  detailsToggle.setAttribute("aria-expanded", String(open));
+  detailsToggle.textContent = open ? "[CLOSE]" : "[INFO]";
+}
 
 function display() {
   const id = active();
@@ -43,6 +52,11 @@ function display() {
     ? `${system.category.toUpperCase()} // ${system.description}`
     : "Scan a system, then click or tap to lock on. Drag the model to orbit.";
   document.querySelector("#lock-state").textContent = `STATUS: ${mode.toUpperCase()}`;
+  document.querySelector("#mobile-name").textContent = system?.name ?? "VK-07";
+  document.querySelector("#mobile-code").textContent = system
+    ? `${system.designation} // ${mode.toUpperCase()}`
+    : "● STANDBY";
+  detailsToggle.hidden = !locked;
   explodeButton.hidden = !(locked && system.split);
   explodeButton.textContent = exploded ? "[REASSEMBLE]" : "[EXPLODE]";
   explodeButton.setAttribute("aria-pressed", String(exploded));
@@ -67,6 +81,7 @@ function lock(id) {
   locked = locked === id ? null : id;
   hovered = null;
   exploded = false;
+  if (before !== locked || !locked) setDetails(false);
   display();
   if (before !== active()) changeShot();
 }
@@ -74,6 +89,7 @@ function lock(id) {
 function reset() {
   hovered = locked = null;
   exploded = false;
+  setDetails(false);
   display();
   changeShot();
 }
@@ -86,7 +102,8 @@ for (const [id, system] of entries) {
   const button = document.createElement("button");
   button.type = "button";
   button.dataset.system = id;
-  for (const label of [system.part.toUpperCase(), "→", system.name]) {
+  button.setAttribute("aria-label", `${system.part}: ${system.name}`);
+  for (const label of [system.part.toUpperCase(), "→", system.name, system.designation]) {
     const span = document.createElement("span");
     span.textContent = label;
     button.append(span);
@@ -101,6 +118,7 @@ map.addEventListener("pointerleave", (event) => {
   if (event.pointerType === "mouse") preview(null);
 });
 document.querySelector("#reset").addEventListener("click", reset);
+detailsToggle.addEventListener("click", () => setDetails(!detailsOpen));
 explodeButton.addEventListener("click", () => {
   if (!locked || !systems[locked].split) return;
   exploded = !exploded;
@@ -121,7 +139,6 @@ display();
 async function boot() {
   const renderer = new T.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setClearColor(0, 0);
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
   renderer.toneMapping = T.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.17;
   stage.append(renderer.domElement);
@@ -385,6 +402,8 @@ async function boot() {
     camera.lookAt(target);
   }
   function resize() {
+    const pixelRatio = Math.min(devicePixelRatio, stage.clientWidth < 740 ? 1.5 : 1.75);
+    if (renderer.getPixelRatio() !== pixelRatio) renderer.setPixelRatio(pixelRatio);
     renderer.setSize(stage.clientWidth, stage.clientHeight, false);
     camera.aspect = stage.clientWidth / Math.max(1, stage.clientHeight);
     camera.updateProjectionMatrix();

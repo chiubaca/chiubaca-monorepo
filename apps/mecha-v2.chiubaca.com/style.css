@@ -161,8 +161,7 @@ button:focus-visible {
   letter-spacing: 0.1em;
   text-shadow: 0 0 9px #00ff4177;
 }
-.terminal header button,
-.terminal-actions button {
+.terminal header button {
   font-size: 10px;
   white-space: nowrap;
 }
@@ -182,8 +181,16 @@ button:focus-visible {
 #system-detail {
   color: #a4d7ae;
 }
-.terminal-actions {
-  margin-top: 9px;
+.terminal-controls {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 5px;
+}
+.mobile-target,
+#details-toggle,
+.touch-hint,
+.system-list button span:nth-child(4) {
+  display: none;
 }
 .system-map {
   bottom: 20px;
@@ -254,13 +261,15 @@ button:focus-visible {
     bottom: 70px;
   }
 }
-@media (max-width: 730px) {
+@media (max-width: 767px), (max-height: 500px) and (pointer: coarse) {
   .deck {
-    display: flex;
-    flex-direction: column;
-    min-height: 100svh;
-    height: auto;
-    overflow: visible;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto auto;
+    grid-template-columns: minmax(0, 1fr);
+    height: 100dvh;
+    min-height: 270px;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+      env(safe-area-inset-left);
   }
   .terminal,
   .system-map,
@@ -271,52 +280,164 @@ button:focus-visible {
     width: auto;
   }
   .terminal {
-    order: -1;
-    margin: 8px 8px 0;
+    grid-row: 1;
+    border-width: 0 0 1px;
+  }
+  .terminal header {
+    min-height: 52px;
+    padding: 4px 8px 4px 12px;
+    border: 0;
+  }
+  .terminal h1 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip-path: inset(50%);
+    overflow: hidden;
+  }
+  .mobile-target {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+  }
+  .mobile-target strong {
+    font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-shadow: 0 0 8px #00ff4155;
+  }
+  .mobile-target small {
+    white-space: nowrap;
+    color: var(--dim);
+    font-size: 9px;
+  }
+  #details-toggle:not([hidden]) {
+    display: inline-block;
+  }
+  .terminal-controls button {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 4px 6px;
+    font-size: 9px;
   }
   .terminal-body {
-    min-height: 108px;
-    padding: 8px 12px;
+    display: none;
+    position: absolute;
+    inset: 100% 0 auto;
+    max-height: 43dvh;
+    overflow: auto;
+    overscroll-behavior: contain;
+    min-height: 0;
+    padding: 12px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 8px 24px #000a;
   }
-  .terminal-body h2 {
-    font-size: 13px;
-    margin: 4px 0;
+  .deck[data-details="true"] .terminal-body {
+    display: block;
+  }
+  .terminal footer {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip-path: inset(50%);
+    overflow: hidden;
+    padding: 0;
   }
   .viewport {
-    height: clamp(270px, 48svh, 580px);
+    grid-row: 2;
+    min-height: 0;
+  }
+  .stage canvas {
+    mask-image: none;
   }
   .feed {
-    top: 10px;
-    left: 14px;
+    top: 9px;
+    left: 12px;
+    font-size: 9px;
+  }
+  .feed > span:first-child {
+    display: none;
+  }
+  .touch-hint {
+    display: inline;
   }
   .system-map {
-    margin: 0 8px;
-    padding: 7px;
+    grid-row: 3;
+    padding: 5px 8px 0;
+    border-width: 1px 0 0;
+    box-shadow: none;
   }
   .system-map h2 {
-    padding: 1px 3px 5px;
+    padding: 2px 2px 4px;
+    margin: 0;
+    border: 0;
+    font-size: 9px;
   }
   .system-list {
     display: flex;
-    overflow: auto;
-    gap: 3px;
+    overflow-x: auto;
+    gap: 5px;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line) transparent;
+    padding: 2px 2px 5px;
   }
   .system-list button {
     flex: 0 0 auto;
     width: auto;
-    display: flex;
-    gap: 5px;
-    min-height: 39px;
+    min-height: 44px;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: center;
+    gap: 2px;
+    padding: 3px 7px;
     border-color: var(--line);
   }
+  .system-list button span:nth-child(2),
+  .system-list button span:nth-child(3) {
+    display: none;
+  }
+  .system-list button span:nth-child(4) {
+    display: block;
+    font-size: 9px;
+  }
   .controls {
-    margin: 9px 8px;
-    text-align: left;
+    grid-row: 4;
+    background: var(--panel);
+    padding: 4px 8px 6px;
   }
   .poses {
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .poses button {
-    min-height: 35px;
+    min-height: 44px;
+    padding: 4px;
+  }
+  .hint,
+  .poses kbd {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) and (max-height: 500px) and (pointer: coarse) {
+  .deck {
+    grid-template-columns: minmax(0, 1fr) minmax(212px, 32vw);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+  .terminal,
+  .viewport {
+    grid-column: 1 / -1;
+  }
+  .system-map {
+    grid-column: 1;
+  }
+  .controls {
+    grid-row: 3;
+    grid-column: 2;
+    align-content: end;
+    border-top: 1px solid var(--line);
   }
 }

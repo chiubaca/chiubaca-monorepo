@@ -61,6 +61,16 @@ export const TerminalUI: React.FC<TerminalUIProps> = ({
       "",
       ">> END_ANALYSIS",
     ];
+    if (
+      matchMedia(
+        "(max-width: 767px), (max-height: 500px) and (pointer: coarse), (prefers-reduced-motion: reduce)",
+      ).matches
+    ) {
+      setDisplayLines(lines);
+      setCurrentLineIndex(lines.length);
+      setIsTyping(false);
+      return;
+    }
 
     setDisplayLines([]);
     setCurrentLineIndex(0);
@@ -109,31 +119,35 @@ export const TerminalUI: React.FC<TerminalUIProps> = ({
       <div className="terminal-header">
         <div className="terminal-title">
           <span className="terminal-prompt">&gt;&gt;</span>
-          MOBILE SUIT // HANGAR 01
+          <span className="terminal-title-desktop">MOBILE SUIT // HANGAR 01</span>
+          <span className="terminal-title-mobile">
+            <strong>{activeSkill?.name ?? "HANGAR 01"}</strong>
+            <small>
+              {activeSkill
+                ? `${activeSkill.designation} // ${selectedSkill ? "LOCKED" : "SCANNING"}`
+                : "● STANDBY"}
+            </small>
+          </span>
         </div>
         <div className="terminal-controls">
-          <button className="terminal-btn" onClick={onReset}>
-            [RESET_VIEW]
+          {selectedSkill && (
+            <button
+              type="button"
+              className="terminal-btn mobile-details-toggle"
+              aria-controls="hangar-dossier"
+              aria-expanded={isExpanded}
+              onClick={onToggleExpand}
+            >
+              {isExpanded ? "[CLOSE]" : "[INFO]"}
+            </button>
+          )}
+          <button type="button" className="terminal-btn" aria-label="Reset view" onClick={onReset}>
+            [RESET]
           </button>
         </div>
       </div>
 
-      {!isExpanded && activeSkill && (
-        <div className="terminal-compact-info">
-          <div className="compact-skill-name">{activeSkill.name.toUpperCase()}</div>
-          <div className="compact-body-part">
-            <span className="compact-label">TARGET:</span>
-            <span className="compact-value">
-              {activeSkill.designation} / {activeSkill.part.toUpperCase()}
-            </span>
-          </div>
-          <button className="terminal-btn compact-expand-btn" onClick={onToggleExpand}>
-            [VIEW_DETAILS]
-          </button>
-        </div>
-      )}
-
-      <div className="terminal-content">
+      <div className="terminal-content" id="hangar-dossier">
         {!activeSkill ? (
           <div className="terminal-welcome">
             <div className="terminal-line">

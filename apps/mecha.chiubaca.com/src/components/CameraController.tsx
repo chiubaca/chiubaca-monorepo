@@ -10,12 +10,16 @@ interface CameraControllerProps {
   defaultTarget?: Vector3;
 }
 
+const overviewPosition = new Vector3(0, 3, 10);
+const overviewTarget = new Vector3(0, 2, 0);
+
 export const CameraController: React.FC<CameraControllerProps> = ({
   targetSkill,
-  defaultPosition = new Vector3(0, 3, 10),
-  defaultTarget = new Vector3(0, 2, 0),
+  defaultPosition = overviewPosition,
+  defaultTarget = overviewTarget,
 }) => {
-  const { camera } = useThree();
+  const camera = useThree((state) => state.camera);
+  const aspect = useThree((state) => state.size.width / Math.max(1, state.size.height));
   const lookAtRef = useRef(new Vector3());
 
   const targetPos = targetSkill ? targetSkill.cameraPosition : defaultPosition;
@@ -32,13 +36,18 @@ export const CameraController: React.FC<CameraControllerProps> = ({
   }));
 
   useEffect(() => {
+    const fit = Math.max(1, Math.min(1.4, 0.66 / aspect));
+    const position = targetLookAt.clone().lerp(targetPos, fit);
+    const immediate = matchMedia("(prefers-reduced-motion: reduce)").matches;
     void api.start({
-      position: [targetPos.x, targetPos.y, targetPos.z],
+      position: [position.x, position.y, position.z],
+      immediate,
     });
     void lookAtApi.start({
       lookAt: [targetLookAt.x, targetLookAt.y, targetLookAt.z],
+      immediate,
     });
-  }, [targetSkill, targetPos, targetLookAt, api, lookAtApi]);
+  }, [aspect, targetPos, targetLookAt, api, lookAtApi]);
 
   useFrame(() => {
     const [x, y, z] = position.get();

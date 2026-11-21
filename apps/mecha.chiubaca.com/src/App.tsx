@@ -28,9 +28,9 @@ const App: React.FC = () => {
 
   const handlePartClick = useCallback(
     (skillId: string) => {
+      setIsTerminalExpanded(false);
       if (selectedSkill === skillId) {
         setSelectedSkill(null);
-        setIsTerminalExpanded(false);
       } else {
         setSelectedSkill(skillId);
         setHoveredSkill(null);
@@ -62,6 +62,7 @@ const App: React.FC = () => {
     <div className="app-container">
       <div className="canvas-container">
         <Canvas
+          dpr={[1, 1.5]}
           camera={{ position: [0, 3, 10], fov: 50 }}
           gl={{ antialias: true, alpha: true }}
           style={{ background: "transparent" }}
