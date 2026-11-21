@@ -1,0 +1,92 @@
+{
+  "head": {
+    "name": "Crown of Parallax",
+    "part": "V-Fin / Head Unit",
+    "label": "PARALLAX",
+    "designation": "VF-09",
+    "category": "Optics & attitude sensing",
+    "description": "The forked crest frames a panoramic sensor head that reads the void in stereo.",
+    "details": ["Twin V-fin attitude vanes", "Panoramic visor and cheek sensor pods"]
+  },
+  "torso": {
+    "name": "Sovereign Heart",
+    "part": "Chest / Reactor",
+    "label": "SOVEREIGN",
+    "designation": "MR-00",
+    "category": "Minovsky fusion block",
+    "description": "A sealed Minovsky reactor sits behind the chest vents. Its pulse is the only thing the pilot hears when the cockpit goes dark.",
+    "details": ["Central cockpit and reactor cradle", "Twin vented chest armor plates"]
+  },
+  "backpack": {
+    "name": "Seraph of the Outer Dark",
+    "part": "Backpack Thrusters",
+    "label": "SERAPH",
+    "designation": "BP-77",
+    "category": "Orbital propulsion",
+    "description": "A dorsal vernier pack that turns silent drift into an abrupt change of heading. On VK‑07, the wing binders flare open around it.",
+    "details": ["Dorsal vernier cluster", "Independent left and right attitude trim"]
+  },
+  "legs": {
+    "name": "Atlas Gravewalkers",
+    "part": "Leg / Vernier Units",
+    "label": "ATLAS",
+    "designation": "LV-08",
+    "category": "Landing & maneuvering",
+    "description": "Armored legs with calf verniers and reinforced ankles. Built to touch down as if the moon had flinched first.",
+    "details": ["Calf-mounted vernier banks", "Reinforced knee and ankle assemblies"]
+  },
+  "rifle": {
+    "name": "Eventide Lance",
+    "part": "Beam Rifle",
+    "label": "EVENTIDE",
+    "designation": "BR-XIII",
+    "category": "Handheld beam armament",
+    "description": "A long-frame beam rifle with a silhouette the hangar crew calls the Last Light.",
+    "details": ["Raised optic bridge", "Vented frame and long emitter shroud"]
+  },
+  "shield": {
+    "name": "Eclipse Reliquary",
+    "part": "Forearm Shield",
+    "label": "ECLIPSE",
+    "designation": "SH-13",
+    "category": "Laminated armor",
+    "description": "A tall, layered forearm shield named for the shadow it casts across the frame.",
+    "details": ["Replaceable outer face", "Reinforced perimeter and forearm coupling"]
+  },
+  "left-shoulder": {
+    "name": "Bastion of the Pale Moon",
+    "part": "Left Pauldron",
+    "label": "BASTION",
+    "designation": "PL-06",
+    "category": "Shoulder armor",
+    "description": "Overlapping armor floats over the left shoulder, keeping the joint covered through a full shield-side turn.",
+    "details": ["Overlapping shoulder plates", "Isolated shield-side pivot"]
+  },
+  "right-shoulder": {
+    "name": "Titan's Oath",
+    "part": "Right Pauldron",
+    "label": "TITAN",
+    "designation": "PR-07",
+    "category": "Shoulder armor",
+    "description": "The right pauldron rises with the arm, leaving the joint clear while still carrying the frame's identification plate.",
+    "details": ["Independent armor pivot", "Outer identification plate"]
+  },
+  "antenna": {
+    "name": "Ghost Choir",
+    "part": "Comm Antennae",
+    "label": "CHOIR",
+    "designation": "CA-02",
+    "category": "Long-range communications",
+    "description": "Twin antennae listen for fleet beacons through the Minovsky haze. Pilots say the two channels never fall silent at the same time.",
+    "details": ["Paired communications masts", "Separate receiver channels"]
+  },
+  "arms": {
+    "name": "Adamant Grasp",
+    "part": "Arm Manipulators",
+    "label": "ADAMANT",
+    "designation": "AM-10",
+    "category": "Articulated manipulators",
+    "description": "Articulated wrists and segmented hands built to handle everything from a hangar tether to the suit's own shield.",
+    "details": ["Independent wrist and finger joints", "Armored elbow and forearm assemblies"]
+  }
+}

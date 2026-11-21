@@ -28,6 +28,9 @@ export const MobileSkillsPanel: React.FC<MobileSkillsPanelProps> = ({
           return (
             <button
               key={skill.id}
+              type="button"
+              aria-pressed={isActive}
+              aria-label={`${skill.part}: ${skill.name}`}
               className={`mobile-skill-btn ${isActive ? "active" : ""} ${isHovered ? "hovered" : ""}`}
               onClick={() => handleSkillClick(skill.id)}
               onMouseEnter={() => onSkillHover(skill.id)}

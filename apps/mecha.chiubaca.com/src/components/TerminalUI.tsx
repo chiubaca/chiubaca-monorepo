@@ -47,16 +47,16 @@ export const TerminalUI: React.FC<TerminalUIProps> = ({
     }
 
     const lines = [
-      `>> SYSTEM.ANALYZE(TARGET: ${skill.bodyPart})`,
+      `>> SYSTEM.ANALYZE(TARGET: ${skill.part.toUpperCase()})`,
       "",
-      `[${skill.category}]`,
+      `[${skill.category.toUpperCase()}]`,
       "",
       `${skill.name.toUpperCase()}`,
-      `PROFICIENCY: ${skill.level}%`,
+      `DESIGNATION: ${skill.designation}`,
       "",
       skill.description,
       "",
-      "CORE_CAPABILITIES:",
+      "ASSEMBLY NOTES:",
       ...skill.details.map((detail) => `  • ${detail}`),
       "",
       ">> END_ANALYSIS",
@@ -109,7 +109,7 @@ export const TerminalUI: React.FC<TerminalUIProps> = ({
       <div className="terminal-header">
         <div className="terminal-title">
           <span className="terminal-prompt">&gt;&gt;</span>
-          MECHA.DEV // PORTFOLIO_SYS v1.0
+          MOBILE SUIT // HANGAR 01
         </div>
         <div className="terminal-controls">
           <button className="terminal-btn" onClick={onReset}>
@@ -123,7 +123,9 @@ export const TerminalUI: React.FC<TerminalUIProps> = ({
           <div className="compact-skill-name">{activeSkill.name.toUpperCase()}</div>
           <div className="compact-body-part">
             <span className="compact-label">TARGET:</span>
-            <span className="compact-value">{activeSkill.bodyPart}</span>
+            <span className="compact-value">
+              {activeSkill.designation} / {activeSkill.part.toUpperCase()}
+            </span>
           </div>
           <button className="terminal-btn compact-expand-btn" onClick={onToggleExpand}>
             [VIEW_DETAILS]
@@ -138,25 +140,25 @@ export const TerminalUI: React.FC<TerminalUIProps> = ({
               <span className="terminal-prompt">&gt;&gt;</span> SYSTEM.INIT()
             </div>
             <div className="terminal-line">
-              <span className="terminal-prompt">&gt;&gt;</span> LOADING_MECHA_FRAMEWORK...
+              <span className="terminal-prompt">&gt;&gt;</span> CALIBRATING FRAME SCANNER...
             </div>
             <div className="terminal-line">
               <span className="terminal-prompt">&gt;&gt;</span>{" "}
-              <span className="terminal-success">[OK]</span> FRAMEWORK_LOADED
+              <span className="terminal-success">[OK]</span> FRAME IDENTIFIED
             </div>
             <div className="terminal-line">
-              <span className="terminal-prompt">&gt;&gt;</span> MOUNTING_PORTFOLIO_INTERFACE...
+              <span className="terminal-prompt">&gt;&gt;</span> LOADING PARTS MANIFEST...
             </div>
             <div className="terminal-line">
               <span className="terminal-prompt">&gt;&gt;</span>{" "}
-              <span className="terminal-success">[OK]</span> INTERFACE_READY
+              <span className="terminal-success">[OK]</span> SCANNER READY
             </div>
             <div className="terminal-line spacer" />
             <div className="terminal-line terminal-highlight">
               ╔══════════════════════════════════════╗
             </div>
             <div className="terminal-line terminal-highlight">
-              ║ INTERACTIVE MECHA SKILL MATRIX ║
+              ║ MOBILE SUIT // PARTS MANIFEST ║
             </div>
             <div className="terminal-line terminal-highlight">
               ╚══════════════════════════════════════╝
@@ -166,7 +168,7 @@ export const TerminalUI: React.FC<TerminalUIProps> = ({
               <span className="terminal-prompt">&gt;&gt;</span> INSTRUCTIONS:
             </div>
             <div className="terminal-line indent">1. HOVER over body parts to scan</div>
-            <div className="terminal-line indent">2. CLICK to analyze skill details</div>
+            <div className="terminal-line indent">2. CLICK to lock on and inspect a part</div>
             <div className="terminal-line indent">3. Press [ESC] or [RESET] to return</div>
             <div className="terminal-line spacer" />
             <div className="terminal-line">
@@ -200,7 +202,7 @@ export const TerminalUI: React.FC<TerminalUIProps> = ({
           SYSTEM_ONLINE
         </div>
         <div className="terminal-stats">
-          SKILLS: 10 | STATUS: {selectedSkill ? "ANALYZING" : hoveredSkill ? "SCANNING" : "IDLE"}
+          STATUS: {selectedSkill ? "LOCKED" : hoveredSkill ? "SCANNING" : "IDLE"}
         </div>
       </div>
     </div>
@@ -210,7 +212,7 @@ export const TerminalUI: React.FC<TerminalUIProps> = ({
 function getLineClass(line: string): string {
   if (line.includes("SYSTEM.ANALYZE")) return "terminal-command";
   if (line.includes("[") && line.includes("]")) return "terminal-category";
-  if (line.includes("PROFICIENCY")) return "terminal-stat";
+  if (line.startsWith("DESIGNATION")) return "terminal-stat";
   if (line.includes(">>")) return "terminal-prompt-line";
   if (line.startsWith("  •")) return "terminal-detail";
   if (line.includes("END_ANALYSIS")) return "terminal-command";

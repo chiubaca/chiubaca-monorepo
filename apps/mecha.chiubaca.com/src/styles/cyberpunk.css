@@ -272,6 +272,12 @@ body::before {
 }
 
 .legend-item {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -282,14 +288,15 @@ body::before {
   border-radius: 2px;
 }
 
-.legend-item:hover {
+.legend-item:hover,
+.legend-item[aria-pressed="true"] {
   background: rgba(0, 255, 65, 0.1);
   text-shadow: 0 0 10px var(--terminal-green);
 }
 
 .legend-part {
   color: var(--terminal-green-dim);
-  min-width: 80px;
+  flex: 0 0 86px;
 }
 
 .legend-arrow {

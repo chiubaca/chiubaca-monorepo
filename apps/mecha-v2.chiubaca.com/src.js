@@ -23,7 +23,7 @@ let hovered = null;
 let exploded = false;
 let changeShot = () => {};
 const active = () => locked || hovered;
-const renderedPose = () => (active() === "opencode" && request === "hero" ? "rifle" : request);
+const renderedPose = () => (active() === "rifle" && request === "hero" ? "rifle" : request);
 const entries = Object.entries(systems);
 const map = document.querySelector(".system-list");
 const explodeButton = document.querySelector("#explode");
@@ -35,12 +35,12 @@ function display() {
   deck.dataset.mode = mode;
   deck.dataset.pose = renderedPose();
   document.querySelector("#command").textContent = system
-    ? `>> SYSTEM.${locked ? "ANALYZE" : "SCAN"}(${system.part})`
+    ? `>> SYSTEM.${locked ? "ANALYZE" : "SCAN"}(${system.designation} // ${system.part.toUpperCase()})`
     : ">> SYSTEM.INIT() // WAITING_FOR_INPUT";
   document.querySelector("#system-title").textContent =
-    system?.label ?? "INTERACTIVE MECHA SKILL MATRIX";
+    system?.name ?? "MOBILE SUIT // PARTS MANIFEST";
   document.querySelector("#system-detail").textContent = system
-    ? `${system.category.toUpperCase()} // ${system.detail}`
+    ? `${system.category.toUpperCase()} // ${system.description}`
     : "Scan a system, then click or tap to lock on. Drag the model to orbit.";
   document.querySelector("#lock-state").textContent = `STATUS: ${mode.toUpperCase()}`;
   explodeButton.hidden = !(locked && system.split);
@@ -86,7 +86,7 @@ for (const [id, system] of entries) {
   const button = document.createElement("button");
   button.type = "button";
   button.dataset.system = id;
-  for (const label of [system.part, "→", system.label]) {
+  for (const label of [system.part.toUpperCase(), "→", system.name]) {
     const span = document.createElement("span");
     span.textContent = label;
     button.append(span);
@@ -143,7 +143,7 @@ async function boot() {
   const asset = (name) => `${import.meta.env.BASE_URL}assets/${name}`;
   const [{ scene: model }, data] = await Promise.all([
     new GLTFLoader().loadAsync(asset("vk07-systems.glb")),
-    fetch(asset("systems-rig.json")).then((r) => {
+    fetch(asset("parts-rig.json")).then((r) => {
       if (!r.ok) throw new Error("Could not fetch pose data");
       return r.json();
     }),
@@ -170,7 +170,7 @@ async function boot() {
         for (const z of [box.min.z, box.max.z]) corners.push(vec(x, y, z));
       }
     const system = entries.find(([, spec]) => spec.mesh.test(name))?.[0];
-    const [splitSystem, offset] = data.separation[name] ?? [];
+    const offset = data.separation[name];
     const base = mesh.position.clone();
     const materials = new Set();
     mesh.traverse((child) => {
@@ -192,7 +192,6 @@ async function boot() {
       mesh,
       corners,
       system,
-      splitSystem,
       offset: offset && vec(...offset),
       base,
       materials,
@@ -366,9 +365,9 @@ async function boot() {
     target.set(0, 0, 0);
     for (const [id, weight] of focus) {
       if (weight < 0.00001) continue;
-      const extension = split.get("opus46") ?? 0;
-      let fit = measure(id, tanX, tanY, id !== "opus46" || extension === 1);
-      if (id === "opus46" && extension > 0 && extension < 1) {
+      const extension = split.get("backpack") ?? 0;
+      let fit = measure(id, tanX, tanY, id !== "backpack" || extension === 1);
+      if (id === "backpack" && extension > 0 && extension < 1) {
         const coreCenter = center.clone();
         fit = lerp(fit, measure(id, tanX, tanY), extension);
         center.lerpVectors(coreCenter, center, extension);
@@ -502,7 +501,7 @@ async function boot() {
       if (piece.offset)
         piece.mesh.position
           .copy(piece.base)
-          .addScaledVector(piece.offset, split.get(piece.splitSystem) ?? 0);
+          .addScaledVector(piece.offset, split.get(piece.system) ?? 0);
       const weight = focus.get(piece.system) ?? 0;
       for (const mat of piece.materials) {
         mat.emissive.copy(mat.userData.emissive);

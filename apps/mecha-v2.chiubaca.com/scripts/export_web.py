@@ -54,16 +54,16 @@ def part_for(obj, bone):
     side = -1 if name.endswith("_R") or bone.endswith(".R") else 1
     suffix = "R" if side < 0 else "L"
     if bone == "Head" and name.startswith("Antenna_"):
-        return f"Antenna_{suffix}", (side * .075, .015, .10), "hono"
+        return f"Antenna_{suffix}", (side * .075, .015, .10)
     if bone == "Chest" and name.startswith(("Chest_Main_", "Chest_Deck_", "Vent_")):
         suffix = name.split("_")[2]
         side = -1 if suffix == "R" else 1
-        return f"ChestShell_{suffix}", (side * .14, -.18, .055), "react"
+        return f"ChestShell_{suffix}", (side * .14, -.18, .055)
     if bone == "Shield.L" and name.startswith(("Shield_Hull", "Shield_Compass")):
-        return "ShieldFace", (0, 0, 0), "d1"
+        return "ShieldFace", (0, 0, 0)
     if bone.startswith("WingBinder"):
-        return bone, (side * .25, .10, .10), "opus46"
-    return bone, None, None
+        return bone, (side * .25, .10, .10)
+    return bone, None
 
 
 for obj in bpy.data.collections["Mech"].objects:
@@ -73,7 +73,7 @@ for obj in bpy.data.collections["Mech"].objects:
     evaluated = obj.evaluated_get(dg)
     mesh = bpy.data.meshes.new_from_object(evaluated, preserve_all_data_layers=True, depsgraph=dg)
     mesh.transform(rig.data.bones[bone].matrix_local.inverted() @ evaluated.matrix_world)
-    group, direction, system = part_for(obj, bone)
+    group, direction = part_for(obj, bone)
     part_bones[group] = bone
     if direction is not None:
         local = rig.data.bones[bone].matrix_local.to_3x3().inverted() @ Vector(direction)
@@ -82,7 +82,7 @@ for obj in bpy.data.collections["Mech"].objects:
             local = rig.data.bones[bone].matrix_local.to_3x3().inverted() @ (
                 shield.to_3x3() @ Vector((.14, 0, 0))
             )
-        separation[group] = [system, list(local)]
+        separation[group] = list(local)
     part = bpy.data.objects.new(obj.name + "_web", mesh)
     bpy.context.scene.collection.objects.link(part)
     parts[group].append(part)
@@ -119,7 +119,7 @@ for mat in {mat for obj in merged for mat in obj.data.materials if mat and mat.u
 
 bpy.ops.export_scene.gltf(filepath=str(assets / "vk07-systems.glb"), use_selection=True,
                           export_yup=False, export_animations=False)
-(assets / "systems-rig.json").write_text(json.dumps({
+(assets / "parts-rig.json").write_text(json.dumps({
     "parents": {b.name: b.parent.name if b.parent else None for b in rig.data.bones},
     "parts": part_bones, "separation": separation,
     "poses": poses, "plumes": plumes,

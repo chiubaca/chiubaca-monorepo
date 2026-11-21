@@ -104,18 +104,20 @@ const App: React.FC = () => {
 
       <div className="skill-legend">
         <div className="legend-title">SYSTEM_MAP</div>
-        {skillList.map((skill, index) => (
-          <div
-            key={index}
+        {skillList.map((skill) => (
+          <button
+            key={skill.id}
+            type="button"
             className="legend-item"
+            aria-pressed={selectedSkill === skill.id}
             onMouseEnter={() => handlePartHover(skill.id)}
             onMouseLeave={() => handlePartHover(null)}
-            style={{ cursor: "pointer" }}
+            onClick={() => handlePartClick(skill.id)}
           >
             <span className="legend-part">{skill.part}</span>
             <span className="legend-arrow">→</span>
             <span className="legend-skill">{skill.name}</span>
-          </div>
+          </button>
         ))}
       </div>
 

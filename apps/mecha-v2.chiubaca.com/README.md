@@ -1,5 +1,7 @@
 # VK-07 pose viewer
 
+Part designations and in-universe descriptions are shared with Hangar 01 in `libs/mecha-systems/catalog.json`.
+
 From the monorepo root, run `pnpm exec vp install` and `pnpm --filter mecha-v2.chiubaca.com dev`, then open the local URL. Hover over the model or system map to scan, click or tap to lock, and drag to orbit the frame or the locked part. Press `Escape` to reset the view, or use `1`, `2`, and `3` to switch poses. Some systems have an exploded view. The viewer honors the system's reduced-motion preference.
 
 Run `pnpm --filter mecha-v2.chiubaca.com build` to produce a static site in `dist/`. Run `pnpm --filter mecha-v2.chiubaca.com deploy` to build and publish it to `mecha-v2.chiubaca.com` using Cloudflare Workers Static Assets.
