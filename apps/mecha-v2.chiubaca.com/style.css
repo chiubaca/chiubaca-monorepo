@@ -1,0 +1,199 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b1017;
+  --ink: #f4f1e8;
+  --dim: #97a4b4;
+  --line: #293440;
+  --accent: #f3bf78;
+  font:
+    15px system-ui,
+    sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+}
+.deck {
+  width: min(100%, 1600px);
+  margin: auto;
+  padding: 0 clamp(16px, 4vw, 64px) 28px;
+}
+.mast {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+.mast > span {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.mark {
+  font-size: 23px;
+  font-style: italic;
+  letter-spacing: -0.14em;
+  padding-right: 0.2em;
+}
+.mark span,
+.caption h1 span,
+.stage-label span {
+  color: var(--accent);
+}
+.badge,
+.live,
+.eyebrow,
+.stage-label,
+kbd,
+.poses button span {
+  font:
+    600 10px ui-monospace,
+    monospace;
+  letter-spacing: 0.16em;
+  color: var(--dim);
+}
+.live i {
+  width: 6px;
+  height: 6px;
+  background: #8bdbb4;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #8bdbb488;
+}
+.viewport {
+  height: clamp(430px, calc(100svh - 178px), 850px);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: radial-gradient(ellipse at 58% 48%, #303e4c 0%, #171f2b 49%, #0d121a 83%);
+}
+.viewport::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background: repeating-linear-gradient(0deg, transparent 0 3px, #04070a 4px);
+}
+.stage,
+.stage canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.caption {
+  position: absolute;
+  top: clamp(18px, 5vh, 58px);
+  left: clamp(12px, 3vw, 42px);
+  pointer-events: none;
+}
+.eyebrow {
+  color: var(--accent);
+  margin: 0 0 10px;
+}
+h1,
+h2 {
+  margin: 0;
+}
+h1 {
+  font-size: clamp(44px, 8vw, 118px);
+  letter-spacing: -0.09em;
+  line-height: 0.92;
+  font-weight: 850;
+  text-shadow: 0 2px 28px #07090c;
+}
+h2 {
+  font-size: clamp(14px, 2vw, 20px);
+  font-weight: 500;
+  color: #cfdae3;
+  margin-top: 12px;
+}
+.reticle,
+.stage-label {
+  position: absolute;
+  bottom: 17px;
+  pointer-events: none;
+}
+.reticle {
+  left: 18px;
+  color: var(--dim);
+  font: 14px monospace;
+}
+.stage-label {
+  right: 18px;
+}
+.status {
+  position: absolute;
+  top: 52%;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+  color: var(--dim);
+  padding: 0 16px;
+}
+.poses {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+.poses button {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px clamp(6px, 2vw, 18px);
+  min-height: 48px;
+  background: #121a24;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font:
+    600 14px system-ui,
+    sans-serif;
+  text-align: left;
+  cursor: pointer;
+}
+.poses button:hover {
+  background: #1c2734;
+}
+.poses button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.poses button[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: #28241f;
+}
+.poses button[aria-pressed="true"] span {
+  color: var(--accent);
+}
+kbd {
+  margin-left: auto;
+  border: 1px solid var(--line);
+  padding: 3px 5px;
+}
+@media (max-width: 620px) {
+  .mast {
+    height: 58px;
+  }
+  .viewport {
+    height: clamp(370px, calc(100svh - 150px), 670px);
+  }
+  .poses button {
+    gap: 5px;
+    font-size: 12px;
+  }
+  .poses button span {
+    letter-spacing: 0;
+  }
+  kbd {
+    display: none;
+  }
+}

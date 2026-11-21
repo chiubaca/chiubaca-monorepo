@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b1017" />
+    <link rel="icon" href="./vk.svg" type="image/svg+xml" />
+    <title>VK-07 / Flight Deck</title>
+  </head>
+  <body>
+    <main class="deck" data-pose="hero">
+      <header class="mast">
+        <span
+          ><b class="mark">V<span>K</span></b
+          ><span class="badge">FRAME SYSTEMS</span></span
+        >
+        <span class="live"><i></i> LIVE 3D</span>
+      </header>
+      <section class="viewport" aria-label="Interactive 3D mech">
+        <div class="stage"></div>
+        <div class="caption">
+          <p class="eyebrow" id="index">01 / 03 — GROUND</p>
+          <h1>VK<span>–</span>07</h1>
+          <h2 id="pose-title">Open-hand</h2>
+        </div>
+        <div class="reticle" aria-hidden="true">+</div>
+        <div class="stage-label" aria-hidden="true">PERSPECTIVE FEED <span>↗</span></div>
+        <p class="status" role="status">Loading mech…</p>
+      </section>
+      <nav class="poses" aria-label="Mech poses">
+        <button type="button" data-key="hero" aria-pressed="true">
+          <span>01</span> Open-hand <kbd>1</kbd>
+        </button>
+        <button type="button" data-key="rifle" aria-pressed="false">
+          <span>02</span> Rifle stance <kbd>2</kbd>
+        </button>
+        <button type="button" data-key="flight" aria-pressed="false">
+          <span>03</span> Banked flight <kbd>3</kbd>
+        </button>
+      </nav>
+    </main>
+    <script type="module" src="/src.js"></script>
+  </body>
+</html>

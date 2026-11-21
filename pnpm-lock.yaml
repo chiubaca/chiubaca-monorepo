@@ -186,6 +186,22 @@ importers:
         specifier: 'catalog:'
         version: 4.105.0
 
+  apps/mecha-v2.chiubaca.com:
+    dependencies:
+      three:
+        specifier: 0.187.0
+        version: 0.187.0
+    devDependencies:
+      vite:
+        specifier: 'catalog:'
+        version: '@voidzero-dev/vite-plus-core@0.3.1(@types/node@26.0.1)(esbuild@0.28.1)(jiti@2.7.0)(typescript@5.8.3)(yaml@2.9.0)'
+      vite-plus:
+        specifier: 'catalog:'
+        version: 0.3.1(@types/node@26.0.1)(esbuild@0.28.1)(jiti@2.7.0)(typescript@5.8.3)(yaml@2.9.0)
+      wrangler:
+        specifier: 'catalog:'
+        version: 4.105.0
+
   apps/mecha.chiubaca.com:
     dependencies:
       '@react-spring/core':
@@ -4071,6 +4087,9 @@ packages:
 
   three@0.160.1:
     resolution: {integrity: sha512-Bgl2wPJypDOZ1stAxwfWAcJ0WQf7QzlptsxkjYiURPz+n5k4RBDLsq+6f9Y75TYxn6aHLcWz+JNmwTOXWrQTBQ==}
+
+  three@0.187.0:
+    resolution: {integrity: sha512-Qiu7R+Cmh8CstZsY1uJOSWnVlfo7ZtNLV7mF8Jltk3LB3AtDu9cRZlcnRKkAk8Y4z6KKw35z7Y7Urd7jWY8etA==}
 
   through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
@@ -8204,6 +8223,8 @@ snapshots:
       three: 0.160.1
 
   three@0.160.1: {}
+
+  three@0.187.0: {}
 
   through@2.3.8: {}
 
