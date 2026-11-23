@@ -701,13 +701,36 @@
         overflow: hidden;
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
-        box-shadow:
-          0 30px 60px -18px rgba(0, 0, 0, 0.9),
-          inset 0 0 0 0.1cqw rgba(255, 255, 255, 0.75),
-          inset 0 0 0 0.24cqw rgba(130, 136, 146, 0.55),
-          inset 0 0 0 0.42cqw rgba(0, 0, 0, 0.7),
-          inset 0 0 2.5cqw rgba(255, 255, 255, 0.07);
+        box-shadow: 0 30px 60px -18px rgba(0, 0, 0, 0.9);
         transition: box-shadow 0.35s ease;
+      }
+
+      .face::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 40;
+        border-radius: inherit;
+        padding: 0.5cqw;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.6),
+            transparent 35%,
+            transparent 62%,
+            rgba(0, 0, 0, 0.6)
+          ),
+          url("./assets/metal-silver-diag.png") center / cover;
+        -webkit-mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        mask-composite: exclude;
+        pointer-events: none;
+        filter: drop-shadow(0 0.12cqw 0.2cqw rgba(0, 0, 0, 0.85));
       }
       .card.is-powered .face {
         box-shadow:
