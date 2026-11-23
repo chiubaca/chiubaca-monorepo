@@ -267,6 +267,7 @@
                   <div class="card__shine"></div>
                   <div class="card__glare"></div>
                   <div class="card__flare"></div>
+                  <div class="rim-holo"></div>
                 </section>
 
                 <section class="face face--back" aria-label="Card back">
@@ -280,6 +281,7 @@
                   </div>
                   <div class="grain"></div>
                   <div class="card__shine card__shine--back"></div>
+                  <div class="rim-holo"></div>
                 </section>
               </div>
             </div>
@@ -398,7 +400,19 @@
           if (e.key === "Escape" && !modal.hidden) closeModal();
         });
 
-        const target = { px: 50, py: 50, bgx: 50, bgy: 50, rx: 0, ry: 0, op: 0, scale: 1, flip: 0 };
+        const target = {
+          px: 50,
+          py: 50,
+          bgx: 50,
+          bgy: 50,
+          rx: 0,
+          ry: 0,
+          op: 0,
+          scale: 1,
+          flip: 0,
+          rimx: 50,
+          rimy: 50,
+        };
         const current = { ...target };
         let flipped = false;
         let polished = false;
@@ -415,10 +429,22 @@
             ry: (x - 0.5) * 20,
             rx: -(y - 0.5) * 16,
             op: 1,
+            rimx: 100 - x * 100,
+            rimy: 100 - y * 100,
           });
         };
         const resetPointer = () =>
-          Object.assign(target, { px: 50, py: 50, bgx: 50, bgy: 50, rx: 0, ry: 0, op: 0 });
+          Object.assign(target, {
+            px: 50,
+            py: 50,
+            bgx: 50,
+            bgy: 50,
+            rx: 0,
+            ry: 0,
+            op: 0,
+            rimx: 50,
+            rimy: 50,
+          });
         card.addEventListener("pointermove", (e) => setPointer(e.clientX, e.clientY));
         card.addEventListener("pointerleave", resetPointer);
 
@@ -511,11 +537,16 @@
             ry: (x - 0.5) * 20,
             rx: -(y - 0.5) * 16,
             op: 1,
+            rimx: 100 - x * 100,
+            rimy: 100 - y * 100,
           });
         });
 
         const tick = () => {
-          for (const key in target) current[key] += (target[key] - current[key]) * 0.16;
+          for (const key in target) {
+            const ease = key === "rimx" || key === "rimy" ? 0.07 : 0.16;
+            current[key] += (target[key] - current[key]) * ease;
+          }
           const s = card.style;
           s.setProperty("--pointer-x", `${current.px.toFixed(2)}%`);
           s.setProperty("--pointer-y", `${current.py.toFixed(2)}%`);
@@ -526,6 +557,8 @@
           s.setProperty("--op", current.op.toFixed(3));
           s.setProperty("--scale", current.scale.toFixed(3));
           s.setProperty("--flip", `${current.flip.toFixed(2)}deg`);
+          s.setProperty("--rim-x", `${current.rimx.toFixed(2)}%`);
+          s.setProperty("--rim-y", `${current.rimy.toFixed(2)}%`);
           s.setProperty(
             "--pc",
             Math.min(1, Math.hypot(current.px - 50, current.py - 50) / 50).toFixed(3),
@@ -610,6 +643,8 @@
         --op: 0;
         --scale: 1;
         --pc: 0;
+        --rim-x: 50%;
+        --rim-y: 50%;
         --f1: #7a5a12;
         --f2: #ffd970;
         --f3: #b8860b;
@@ -729,6 +764,43 @@
         mask-composite: exclude;
         pointer-events: none;
         filter: drop-shadow(0 0 0.12cqw rgba(0, 0, 0, 0.55));
+      }
+
+      .rim-holo {
+        position: absolute;
+        inset: 0;
+        z-index: 41;
+        border-radius: inherit;
+        padding: 0.85cqw;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          118deg,
+          #ff4d6d 0%,
+          #ffd166 9%,
+          #2ec4b6 18%,
+          #4361ee 27%,
+          #b5179e 36%,
+          #ff4d6d 45%,
+          #ffd166 54%,
+          #2ec4b6 63%,
+          #4361ee 72%,
+          #b5179e 81%,
+          #ff4d6d 90%,
+          #ffd166 100%
+        );
+        background-size: 280% 280%;
+        background-position: var(--rim-x) var(--rim-y);
+        mix-blend-mode: color;
+        filter: saturate(1.8) brightness(1.12);
+        opacity: calc(0.3 + var(--op) * 0.6);
+        -webkit-mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        mask-composite: exclude;
       }
       .card.is-powered .face {
         box-shadow:
