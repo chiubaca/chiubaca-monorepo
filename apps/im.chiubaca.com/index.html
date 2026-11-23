@@ -1059,26 +1059,32 @@
         inset: 0;
         z-index: 1;
         pointer-events: none;
-        background: repeating-linear-gradient(
-          118deg,
-          #ff4d6d 0%,
-          #ffd166 9%,
-          #2ec4b6 18%,
-          #4361ee 27%,
-          #b5179e 36%,
-          #ff4d6d 45%,
-          #ffd166 54%,
-          #2ec4b6 63%,
-          #4361ee 72%,
-          #b5179e 81%,
-          #ff4d6d 90%,
-          #ffd166 100%
-        );
-        background-size: 260% 260%;
+        background:
+          repeating-linear-gradient(
+            118deg,
+            rgba(255, 255, 255, 0.05) 0%,
+            rgba(255, 255, 255, 0.05) 5%,
+            rgba(255, 255, 255, 0.55) 6%,
+            rgba(255, 255, 255, 0.05) 7%,
+            rgba(255, 255, 255, 0.05) 12%
+          ),
+          linear-gradient(
+            118deg,
+            #6c7a89 0%,
+            #f2f6ff 14%,
+            #9aa8b8 28%,
+            #ffffff 42%,
+            #7d8b9b 57%,
+            #dfe8f5 72%,
+            #6c7a89 100%
+          );
+        background-size:
+          220% 220%,
+          260% 260%;
         background-position: var(--photo-bg-x) var(--photo-bg-y);
         mix-blend-mode: screen;
-        filter: saturate(1.4) brightness(0.6);
-        opacity: calc(0.16 + var(--op) * 0.42);
+        filter: saturate(0.5) brightness(0.72) contrast(1.1);
+        opacity: calc(0.14 + var(--op) * 0.24);
       }
 
       .photo__accent {
