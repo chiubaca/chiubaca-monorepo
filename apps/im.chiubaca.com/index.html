@@ -719,8 +719,8 @@
           s.setProperty("--pointer-y", `${py.toFixed(2)}%`);
           s.setProperty("--bg-x", `${(37 + p.x * 26).toFixed(2)}%`);
           s.setProperty("--bg-y", `${(33 + p.y * 34).toFixed(2)}%`);
-          s.setProperty("--rx", `${(-(p.y - 0.5) * 16).toFixed(2)}deg`);
-          s.setProperty("--ry", `${((p.x - 0.5) * 20).toFixed(2)}deg`);
+          s.setProperty("--rx", `${(-(p.y - 0.5) * 10).toFixed(2)}deg`);
+          s.setProperty("--ry", `${((p.x - 0.5) * 14).toFixed(2)}deg`);
           const op = clamp(activation.value, 0, 1);
           s.setProperty("--op", op.toFixed(3));
           s.setProperty("--scale", (polishSpring.value * (1 + 0.02 * op)).toFixed(3));
@@ -990,6 +990,7 @@
 
       .face--front {
         container-type: inline-size;
+        isolation: isolate;
         background: #000;
         border: 0.12cqw solid rgba(255, 255, 255, 0.28);
       }
@@ -1768,6 +1769,20 @@
       }
 
       /* ---------- FOIL ---------- */
+      /* Keep every overlay on the same face as its parent: when the card tilts
+         far enough that a face turns away, these must not render in isolation. */
+      .grain,
+      .card__shine,
+      .card__glare,
+      .card__flare,
+      .rim-holo,
+      .face::before,
+      .face::after {
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transform: translateZ(0);
+      }
+
       .grain {
         position: absolute;
         inset: 0;
