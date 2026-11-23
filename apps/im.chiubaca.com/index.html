@@ -44,6 +44,8 @@
 
                     <div class="photo">
                       <img src="./assets/portrait-new.jpg" alt="Alex Chiu" />
+                      <span class="photo__bg-holo"></span>
+                      <span class="photo__fg-holo"></span>
                       <span class="photo__shade"></span>
                       <span class="photo__accent"></span>
                     </div>
@@ -150,6 +152,8 @@
 
                     <div class="photo photo--p">
                       <img src="./assets/portrait-new.jpg" alt="Alex Chiu" />
+                      <span class="photo__bg-holo"></span>
+                      <span class="photo__fg-holo"></span>
                       <span class="photo__shade"></span>
                       <span class="photo__accent"></span>
                     </div>
@@ -412,6 +416,10 @@
           flip: 0,
           rimx: 50,
           rimy: 50,
+          photobgx: 50,
+          photobgy: 50,
+          photofgx: 50,
+          photofgy: 50,
         };
         const current = { ...target };
         let flipped = false;
@@ -431,6 +439,10 @@
             op: 1,
             rimx: 100 - x * 100,
             rimy: 100 - y * 100,
+            photobgx: 100 - x * 100,
+            photobgy: 100 - y * 100,
+            photofgx: x * 100,
+            photofgy: y * 100,
           });
         };
         const resetPointer = () =>
@@ -444,9 +456,41 @@
             op: 0,
             rimx: 50,
             rimy: 50,
+            photobgx: 50,
+            photobgy: 50,
+            photofgx: 50,
+            photofgy: 50,
           });
+        // Touch: let a finger drag drive both the face foil and the rim holo,
+        // then hold the highlight briefly after lift-off instead of snapping off.
+        let resetTimer;
+        const resetLater = (delay) => {
+          clearTimeout(resetTimer);
+          resetTimer = setTimeout(resetPointer, delay);
+        };
+        let touchStart = null;
+
         card.addEventListener("pointermove", (e) => setPointer(e.clientX, e.clientY));
-        card.addEventListener("pointerleave", resetPointer);
+        card.addEventListener("pointerdown", (e) => {
+          clearTimeout(resetTimer);
+          if (e.pointerType !== "mouse") touchStart = { x: e.clientX, y: e.clientY };
+        });
+        card.addEventListener("pointerup", (e) => {
+          if (e.pointerType !== "mouse") resetLater(1100);
+        });
+        card.addEventListener("pointercancel", () => resetLater(400));
+        card.addEventListener("pointerleave", (e) => {
+          if (e.pointerType === "mouse") resetPointer();
+          else resetLater(1100);
+        });
+        card.addEventListener(
+          "touchmove",
+          (e) => {
+            if (!e.touches.length) return;
+            setPointer(e.touches[0].clientX, e.touches[0].clientY);
+          },
+          { passive: true },
+        );
 
         const flip = () => {
           flipped = !flipped;
@@ -455,6 +499,11 @@
         };
         card.addEventListener("click", (e) => {
           if (e.target.closest("a, button")) return;
+          if (touchStart && Math.hypot(e.clientX - touchStart.x, e.clientY - touchStart.y) > 12) {
+            touchStart = null;
+            return;
+          }
+          touchStart = null;
           flip();
         });
         card.addEventListener("keydown", (e) => {
@@ -539,12 +588,23 @@
             op: 1,
             rimx: 100 - x * 100,
             rimy: 100 - y * 100,
+            photobgx: 100 - x * 100,
+            photobgy: 100 - y * 100,
+            photofgx: x * 100,
+            photofgy: y * 100,
           });
         });
 
         const tick = () => {
           for (const key in target) {
-            const ease = key === "rimx" || key === "rimy" ? 0.07 : 0.16;
+            const ease =
+              key === "rimx" || key === "rimy"
+                ? 0.07
+                : key.startsWith("photobg")
+                  ? 0.05
+                  : key.startsWith("photofg")
+                    ? 0.13
+                    : 0.16;
             current[key] += (target[key] - current[key]) * ease;
           }
           const s = card.style;
@@ -559,6 +619,10 @@
           s.setProperty("--flip", `${current.flip.toFixed(2)}deg`);
           s.setProperty("--rim-x", `${current.rimx.toFixed(2)}%`);
           s.setProperty("--rim-y", `${current.rimy.toFixed(2)}%`);
+          s.setProperty("--photo-bg-x", `${current.photobgx.toFixed(2)}%`);
+          s.setProperty("--photo-bg-y", `${current.photobgy.toFixed(2)}%`);
+          s.setProperty("--photo-fg-x", `${current.photofgx.toFixed(2)}%`);
+          s.setProperty("--photo-fg-y", `${current.photofgy.toFixed(2)}%`);
           s.setProperty(
             "--pc",
             Math.min(1, Math.hypot(current.px - 50, current.py - 50) / 50).toFixed(3),
@@ -645,6 +709,10 @@
         --pc: 0;
         --rim-x: 50%;
         --rim-y: 50%;
+        --photo-bg-x: 50%;
+        --photo-bg-y: 50%;
+        --photo-fg-x: 50%;
+        --photo-fg-y: 50%;
         --f1: #7a5a12;
         --f2: #ffd970;
         --f3: #b8860b;
@@ -677,6 +745,7 @@
         transform: scale(var(--scale));
         transition: filter 0.35s ease;
         cursor: pointer;
+        touch-action: none;
         outline: none;
       }
       .card[data-layout="portrait"] {
@@ -863,6 +932,51 @@
       .photo__shade {
         display: none;
       }
+
+      /* Layer 1: holo in the black backdrop behind the portrait */
+      .photo__bg-holo {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          118deg,
+          #ff4d6d 0%,
+          #ffd166 9%,
+          #2ec4b6 18%,
+          #4361ee 27%,
+          #b5179e 36%,
+          #ff4d6d 45%,
+          #ffd166 54%,
+          #2ec4b6 63%,
+          #4361ee 72%,
+          #b5179e 81%,
+          #ff4d6d 90%,
+          #ffd166 100%
+        );
+        background-size: 260% 260%;
+        background-position: var(--photo-bg-x) var(--photo-bg-y);
+        mix-blend-mode: screen;
+        filter: saturate(1.4) brightness(0.6);
+        opacity: calc(0.16 + var(--op) * 0.42);
+      }
+
+      /* Layer 2: separate sheen across the portrait itself */
+      .photo__fg-holo {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        background: radial-gradient(
+          farthest-corner circle at var(--photo-fg-x) var(--photo-fg-y),
+          rgba(255, 255, 255, 0.95) 0%,
+          rgba(255, 214, 130, 0.5) 18%,
+          rgba(255, 255, 255, 0) 55%
+        );
+        mix-blend-mode: soft-light;
+        opacity: calc(0.15 + var(--op) * 0.85);
+      }
+
       .photo__accent {
         position: absolute;
         right: 0;
