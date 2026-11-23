@@ -66,7 +66,7 @@
         <div
           class="card"
           id="card"
-          data-variant="silver"
+          data-variant="rose"
           data-layout="landscape"
           tabindex="0"
           role="button"
@@ -340,18 +340,13 @@
             <button class="swatch" type="button" data-variant="gold" aria-pressed="false">
               <span class="swatch__dot swatch__dot--gold"></span>GOLD
             </button>
-            <button
-              class="swatch is-active"
-              type="button"
-              data-variant="silver"
-              aria-pressed="true"
-            >
+            <button class="swatch" type="button" data-variant="silver" aria-pressed="false">
               <span class="swatch__dot swatch__dot--silver"></span>SILVER
             </button>
             <button class="swatch" type="button" data-variant="holo" aria-pressed="false">
               <span class="swatch__dot swatch__dot--holo"></span>HOLO
             </button>
-            <button class="swatch" type="button" data-variant="rose" aria-pressed="false">
+            <button class="swatch is-active" type="button" data-variant="rose" aria-pressed="true">
               <span class="swatch__dot swatch__dot--rose"></span>ROSE
             </button>
           </div>
@@ -498,7 +493,14 @@
           });
         };
 
+        let orientationActive = false;
+        let orientationRequested = false;
+        let baseBeta = null;
+        let baseGamma = null;
+        let lastOrientationAt = 0;
+
         const setPointer = (clientX, clientY) => {
+          if (orientationActive) return;
           const r = card.getBoundingClientRect();
           pendingPointer = {
             x: clamp((clientX - r.left) / r.width, 0, 1),
@@ -509,6 +511,7 @@
           schedulePointerUpdate();
         };
         const resetPointer = () => {
+          if (orientationActive) return;
           if (pointerFrame !== null) {
             cancelAnimationFrame(pointerFrame);
             pointerFrame = null;
@@ -532,8 +535,22 @@
         card.addEventListener("pointermove", (e) => setPointer(e.clientX, e.clientY));
         card.addEventListener("pointerdown", (e) => {
           clearTimeout(resetTimer);
-          restoreSprings();
-          activation.set(1);
+          if (!orientationActive) {
+            restoreSprings();
+            activation.set(1);
+          }
+          // iOS requires a user gesture before granting motion access.
+          if (!orientationRequested && typeof DeviceOrientationEvent !== "undefined") {
+            orientationRequested = true;
+            if (typeof DeviceOrientationEvent.requestPermission === "function") {
+              DeviceOrientationEvent.requestPermission()
+                .then((state) => {
+                  if (state === "granted")
+                    window.addEventListener("deviceorientation", handleOrientation);
+                })
+                .catch(() => {});
+            }
+          }
           if (e.pointerType !== "mouse") touchStart = { x: e.clientX, y: e.clientY };
         });
         card.addEventListener("pointerup", (e) => {
@@ -628,15 +645,39 @@
           powerBtn.classList.toggle("is-active", polished);
           burst();
         });
-        window.addEventListener("deviceorientation", (e) => {
+        // Accelerometer / gyroscope: tilt relative to the position the device
+        // was held in when the first reading arrived, and hold the shimmer on.
+        function handleOrientation(e) {
           if (e.gamma == null || e.beta == null) return;
-          const x = clamp((e.gamma + 45) / 90, 0, 1);
-          const y = clamp((e.beta - 20 + 45) / 90, 0, 1);
+          if (baseGamma === null) {
+            baseGamma = e.gamma;
+            baseBeta = e.beta;
+          }
+          orientationActive = true;
+          lastOrientationAt = performance.now();
+          const dx = clamp(e.gamma - baseGamma, -25, 25) / 25;
+          const dy = clamp(e.beta - baseBeta, -25, 25) / 25;
+          if (pointerFrame !== null) {
+            cancelAnimationFrame(pointerFrame);
+            pointerFrame = null;
+          }
+          pendingPointer = null;
           restoreSprings();
-          pendingPointer = { x, y };
+          pointerTarget.x = clamp(0.5 + dx * 0.5, 0, 1);
+          pointerTarget.y = clamp(0.5 + dy * 0.5, 0, 1);
+          position.set(pointerTarget);
           activation.set(1);
-          schedulePointerUpdate();
-        });
+        }
+
+        window.addEventListener("deviceorientation", handleOrientation);
+        // If motion stops, let the pointer take over again.
+        setInterval(() => {
+          if (orientationActive && performance.now() - lastOrientationAt > 700) {
+            orientationActive = false;
+            baseGamma = null;
+            baseBeta = null;
+          }
+        }, 500);
 
         let lastTick = performance.now();
         const tick = () => {
