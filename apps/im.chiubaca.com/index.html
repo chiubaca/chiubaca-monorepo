@@ -574,33 +574,12 @@
         opacity: 0.6;
       }
 
-      .stage::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-        pointer-events: none;
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.32), transparent 45%, rgba(0, 0, 0, 0.4)),
-          url("./assets/metal-silver-diag.png") center / cover;
-        clip-path: polygon(0 0, 24% 0, 0 17%);
-        opacity: 0.62;
-      }
-
-      body.is-portrait .stage::before,
-      body.is-portrait .stage::after {
+      .stage::before,
+      .stage::after,
+      .metal-corner,
+      .metal-wedge,
+      .wedge-slash {
         display: none;
-      }
-
-      .stage::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-        pointer-events: none;
-        background: url("./assets/metal-silver-diag.png") center / cover;
-        clip-path: polygon(100% 100%, 80% 100%, 100% 86%);
-        opacity: 0.8;
       }
 
       .stage {
