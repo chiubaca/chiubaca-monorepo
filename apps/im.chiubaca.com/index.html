@@ -182,7 +182,6 @@
                     <div class="logo-mark"><i></i><i></i></div>
                     <div class="p-brand-name">CHIUBACA<sup>®</sup></div>
                     <div class="p-brand-sub">TECHNOLOGIES</div>
-                    <div class="p-brand-jp">趙永祥</div>
 
                     <div class="photo photo--p">
                       <img src="./assets/portrait-new.jpg" alt="Alex Chiu" />
@@ -278,6 +277,7 @@
                     <div class="wave wave--p"></div>
                     <div class="p-footer-rule"></div>
                     <div class="barcode barcode--p"></div>
+                    <div class="p-barcode-id">CB-001</div>
                     <div class="qr">
                       <svg viewBox="0 0 25 25" aria-hidden="true">
                         <path
@@ -287,10 +287,6 @@
                           d="M9 0h2v2H9zM12 0h1v2h-1zM15 2h2v2h-2zM9 3h2v2H9zM13 4h2v2h-2zM17 4h1v2h-1zM10 6h3v2h-3zM15 7h2v2h-2zM19 8h2v2h-2zM22 9h2v2h-2zM8 10h2v2H8zM12 10h3v2h-3zM17 11h2v2h-2zM20 12h2v2h-2zM9 14h2v2H9zM14 14h2v2h-2zM18 15h2v2h-2zM11 17h2v2h-2zM15 18h3v2h-3zM20 18h2v2h-2zM8 20h2v2H8zM12 21h2v2h-2zM16 21h2v2h-2zM20 21h2v2h-2z"
                         />
                       </svg>
-                    </div>
-                    <div class="p-qr-rule"></div>
-                    <div class="p-footer-text">
-                      EMPLOYEE PASS<br />CHIUBACA TECHNOLOGIES<br />CT-01-AC
                     </div>
                     <div class="metal-wedge metal-wedge--p"></div>
                     <div class="wedge-slash wedge-slash--p"></div>
@@ -1560,10 +1556,20 @@
         background: rgba(255, 255, 255, 0.24);
       }
       .pass--portrait .barcode--p {
-        left: 9cqw;
+        left: 43cqw;
         top: 132cqw;
         width: 23cqw;
         height: 6cqw;
+        transform: translateX(-50%);
+      }
+      .pass--portrait .p-barcode-id {
+        position: absolute;
+        left: 56cqw;
+        top: 132.8cqw;
+        font-size: 1.7cqw;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        color: #9ca2ac;
       }
       .pass--portrait .qr {
         display: none;
@@ -1572,24 +1578,6 @@
         width: 100%;
         height: 100%;
         fill: #111;
-      }
-      .pass--portrait .p-qr-rule {
-        position: absolute;
-        left: 44cqw;
-        top: 132cqw;
-        width: 0.08cqw;
-        height: 7.5cqw;
-        background: rgba(255, 255, 255, 0.28);
-      }
-      .pass--portrait .p-footer-text {
-        position: absolute;
-        left: 48cqw;
-        top: 132cqw;
-        font-size: 1.6cqw;
-        font-weight: 500;
-        line-height: 1.9;
-        letter-spacing: 0.1em;
-        color: #9a9a9a;
       }
       .pass--portrait .metal-wedge--p {
         right: 0;
