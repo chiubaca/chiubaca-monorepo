@@ -582,7 +582,7 @@
         pointer-events: none;
         background:
           linear-gradient(135deg, rgba(255, 255, 255, 0.32), transparent 45%, rgba(0, 0, 0, 0.4)),
-          url("./assets/metal-silver.png") center / cover;
+          url("./assets/metal-silver-diag.png") center / cover;
         clip-path: polygon(0 0, 24% 0, 0 17%);
         opacity: 0.62;
       }
@@ -598,7 +598,7 @@
         inset: 0;
         z-index: -1;
         pointer-events: none;
-        background: url("./assets/metal-silver.png") center / cover;
+        background: url("./assets/metal-silver-diag.png") center / cover;
         clip-path: polygon(100% 100%, 80% 100%, 100% 86%);
         opacity: 0.8;
       }
@@ -843,36 +843,32 @@
       }
       .metal-wedge {
         position: absolute;
-        background: url("./assets/metal-silver.png") center / cover;
+        background: url("./assets/metal-silver-diag.png") center / cover;
       }
       .metal-wedge::before {
         content: "";
         position: absolute;
         inset: 0;
-        background:
-          linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.75),
-            transparent 14%,
-            rgba(255, 255, 255, 0.14) 32%,
-            transparent 46%,
-            rgba(255, 255, 255, 0.5) 62%,
-            transparent 74%
-          ),
-          repeating-linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 0.18) 0 1px,
-            rgba(0, 0, 0, 0.1) 1px 2px,
-            transparent 2px 5px
-          );
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.75),
+          transparent 14%,
+          rgba(255, 255, 255, 0.14) 32%,
+          transparent 46%,
+          rgba(255, 255, 255, 0.5) 62%,
+          transparent 74%
+        );
       }
       .metal-wedge::after {
         content: "";
         position: absolute;
         inset: 0;
-        background:
-          linear-gradient(118deg, transparent 47%, rgba(255, 255, 255, 0.9) 49%, transparent 50.5%),
-          linear-gradient(118deg, transparent 45.5%, rgba(0, 0, 0, 0.4) 47%, transparent 48.5%);
+        background: linear-gradient(
+          118deg,
+          transparent 47%,
+          rgba(255, 255, 255, 0.35) 49%,
+          transparent 50.5%
+        );
       }
       .wedge-slash {
         position: absolute;
@@ -1490,17 +1486,18 @@
         width: 50cqw;
         height: 24cqw;
         clip-path: polygon(22% 100%, 100% 10%, 100% 100%);
-        background: url("./assets/metal-silver.png") center / cover;
+        background:
+          linear-gradient(
+            49deg,
+            transparent 40%,
+            rgba(226, 0, 26, 0.85) 41%,
+            rgba(226, 0, 26, 0.85) 41.5%,
+            transparent 42.5%
+          ),
+          url("./assets/metal-silver-diag.png") center / cover;
       }
       .pass--portrait .wedge-slash--p {
-        right: 8cqw;
-        bottom: 9cqw;
-        width: 10cqw;
-        height: 0.35cqw;
-        transform: skewX(-25deg) rotate(-32deg);
-        box-shadow:
-          0 0 1.6cqw rgba(226, 0, 26, 0.85),
-          0 0 0.5cqw #ff4b59;
+        display: none;
       }
       .pass--portrait .bottom-metal {
         display: none;
