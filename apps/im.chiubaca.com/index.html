@@ -66,7 +66,7 @@
         <div
           class="card"
           id="card"
-          data-variant="gold"
+          data-variant="silver"
           data-layout="landscape"
           tabindex="0"
           role="button"
@@ -365,10 +365,15 @@
 
           <p class="modal__label">FOIL FINISH</p>
           <div class="swatches" role="group" aria-label="Foil finish">
-            <button class="swatch is-active" type="button" data-variant="gold" aria-pressed="true">
+            <button class="swatch" type="button" data-variant="gold" aria-pressed="false">
               <span class="swatch__dot swatch__dot--gold"></span>GOLD
             </button>
-            <button class="swatch" type="button" data-variant="silver" aria-pressed="false">
+            <button
+              class="swatch is-active"
+              type="button"
+              data-variant="silver"
+              aria-pressed="true"
+            >
               <span class="swatch__dot swatch__dot--silver"></span>SILVER
             </button>
             <button class="swatch" type="button" data-variant="holo" aria-pressed="false">
