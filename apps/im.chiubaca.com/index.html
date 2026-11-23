@@ -70,7 +70,7 @@
           data-layout="landscape"
           tabindex="0"
           role="button"
-          aria-label="Alex Chiu's ID card. Move your pointer for foil, click to flip."
+          aria-label="Alex Chiu's ID card. Move your pointer for foil."
         >
           <div class="card__float">
             <div class="card__spin">
@@ -311,20 +311,6 @@
                   <div class="card__flare"></div>
                   <div class="rim-holo"></div>
                 </section>
-
-                <section class="face face--back" aria-label="Card back">
-                  <div class="back__inner">
-                    <div class="back__stripe"></div>
-                    <span class="back__eyebrow">CHIUBACA TECHNOLOGIES</span>
-                    <div class="back__mark">AC</div>
-                    <span class="back__code">CT-01-AC</span>
-                    <div class="back__line"></div>
-                    <p class="back__note">TAP TO FLIP BACK ↩</p>
-                  </div>
-                  <div class="grain"></div>
-                  <div class="card__shine card__shine--back"></div>
-                  <div class="rim-holo"></div>
-                </section>
               </div>
             </div>
           </div>
@@ -384,13 +370,6 @@
 
           <p class="modal__label">ACTIONS</p>
           <div class="modal__actions">
-            <button class="action" type="button" id="flipBtn">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8m0-5v5h-5M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16m8-8H3v-5"
-                /></svg
-              >FLIP
-            </button>
             <button class="action" type="button" id="shuffleBtn">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5" /></svg
@@ -414,7 +393,6 @@
         const openBtn = document.getElementById("openModal");
         const closeBtn = document.getElementById("closeModal");
         const swatches = [...document.querySelectorAll(".swatch")];
-        const flipBtn = document.getElementById("flipBtn");
         const shuffleBtn = document.getElementById("shuffleBtn");
         const powerBtn = document.getElementById("powerBtn");
         const burstLayer = card.querySelector(".burst");
@@ -503,21 +481,17 @@
         const EXIT = { stiffness: TILT.stiffness * 0.2, damping: TILT.damping * 0.5 };
         const position = new Spring({ x: 0.5, y: 0.5 }, TILT.stiffness, TILT.damping);
         const activation = new Spring(0, TILT.stiffness, TILT.damping);
-        const flipSpring = new Spring(0, TILT.stiffness, TILT.damping);
         const polishSpring = new Spring(1, TILT.stiffness, TILT.damping);
         const pointerTarget = { x: 0.5, y: 0.5 };
-        let flipped = false;
         let polished = false;
 
         const restoreSprings = () => {
           position.configure(TILT.stiffness, TILT.damping);
           activation.configure(TILT.stiffness, TILT.damping);
-          flipSpring.configure(TILT.stiffness, TILT.damping);
         };
         const softenSprings = () => {
           position.configure(EXIT.stiffness, EXIT.damping);
           activation.configure(EXIT.stiffness, EXIT.damping);
-          flipSpring.configure(EXIT.stiffness, EXIT.damping);
         };
 
         // Pointer updates are batched to one per frame, like the library's
@@ -593,39 +567,17 @@
 
         // Individual regions of the card get their own tilt target on entry,
         // so hovering the photo, links or header feels responsive too.
-        card
-          .querySelectorAll(".photo, .social, .brand-block, .back__inner, .front__foot")
-          .forEach((part) => {
-            part.addEventListener("pointerenter", (e) => {
-              if (e.pointerType !== "mouse") return;
-              restoreSprings();
-              activation.set(1);
-              const r = part.getBoundingClientRect();
-              setPointer(r.left + r.width / 2, r.top + r.height / 2);
-            });
+        card.querySelectorAll(".photo, .social, .brand-block, .front__foot").forEach((part) => {
+          part.addEventListener("pointerenter", (e) => {
+            if (e.pointerType !== "mouse") return;
+            restoreSprings();
+            activation.set(1);
+            const r = part.getBoundingClientRect();
+            setPointer(r.left + r.width / 2, r.top + r.height / 2);
           });
-
-        const flip = () => {
-          flipped = !flipped;
-          restoreSprings();
-          flipSpring.set(flipped ? 180 : 0);
-          resetPointer();
-        };
-        card.addEventListener("click", (e) => {
-          if (e.target.closest("a, button")) return;
-          if (touchStart && Math.hypot(e.clientX - touchStart.x, e.clientY - touchStart.y) > 12) {
-            touchStart = null;
-            return;
-          }
-          touchStart = null;
-          flip();
         });
+
         card.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            flip();
-            return;
-          }
           const dir = {
             ArrowLeft: [-1, 0],
             ArrowRight: [1, 0],
@@ -640,7 +592,6 @@
             r.top + (clamp(pointerTarget.y * 100 + dir[1] * 8, 0, 100) / 100) * r.height,
           );
         });
-        flipBtn.addEventListener("click", flip);
 
         const setVariant = (v) => {
           card.dataset.variant = v;
@@ -707,7 +658,6 @@
           for (let i = 0; i < substeps; i++) {
             position.step();
             activation.step();
-            flipSpring.step();
             polishSpring.step();
           }
 
@@ -724,7 +674,6 @@
           const op = clamp(activation.value, 0, 1);
           s.setProperty("--op", op.toFixed(3));
           s.setProperty("--scale", (polishSpring.value * (1 + 0.02 * op)).toFixed(3));
-          s.setProperty("--flip", `${flipSpring.value.toFixed(2)}deg`);
           s.setProperty("--rim-x", `${((1 - p.x) * 100).toFixed(2)}%`);
           s.setProperty("--rim-y", `${((1 - p.y) * 100).toFixed(2)}%`);
           s.setProperty("--photo-bg-x", `${((1 - p.x) * 100).toFixed(2)}%`);
@@ -815,7 +764,6 @@
         --bg-y: 50%;
         --rx: 0deg;
         --ry: 0deg;
-        --flip: 0deg;
         --op: 0;
         --scale: 1;
         --pc: 0;
@@ -904,7 +852,7 @@
         }
       }
       .card__rotator {
-        transform: rotateY(calc(var(--flip) + var(--ry))) rotateX(var(--rx));
+        transform: rotateY(var(--ry)) rotateX(var(--rx));
         will-change: transform;
       }
 
@@ -919,7 +867,9 @@
           0 2cqw 4cqw -1cqw rgba(0, 0, 0, 0.95),
           0 0.5cqw 1cqw rgba(0, 0, 0, 0.7),
           0 0 0 0.12cqw rgba(255, 255, 255, 0.12);
-        transition: box-shadow 0.35s ease;
+        transition:
+          box-shadow 0.35s ease,
+          opacity 0.45s ease;
       }
 
       .face::after {
@@ -995,8 +945,7 @@
         border: 0.12cqw solid rgba(255, 255, 255, 0.28);
       }
 
-      .face--front::before,
-      .face--back::before {
+      .face--front::before {
         content: "";
         position: absolute;
         inset: 0.85cqw;
@@ -1720,58 +1669,6 @@
       }
       .pass--portrait .bottom-metal {
         display: none;
-      }
-
-      /* ---------- BACK ---------- */
-      .face--back {
-        transform: rotateY(180deg);
-        display: grid;
-        place-items: center;
-        background: radial-gradient(80% 120% at 50% 0%, #22262d, #121419 60%, #0b0c10);
-        color: #f2f2f2;
-      }
-      .back__inner {
-        position: relative;
-        z-index: 3;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.7rem;
-        width: 100%;
-        height: 100%;
-        padding: 8%;
-      }
-      .back__stripe {
-        width: 46px;
-        height: 6px;
-        background: #f12431;
-        transform: skewX(-22deg);
-      }
-      .back__eyebrow {
-        font-size: clamp(7px, 1.5vw, 11px);
-        letter-spacing: 0.35em;
-        color: #9aa1ac;
-      }
-      .back__mark {
-        font-family: "DM Serif Display", Georgia, serif;
-        font-size: clamp(54px, 12vw, 110px);
-        line-height: 1;
-      }
-      .back__code {
-        font-size: clamp(8px, 1.6vw, 12px);
-        letter-spacing: 0.3em;
-        color: #f12431;
-      }
-      .back__line {
-        width: 30%;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, #f12431, transparent);
-      }
-      .back__note {
-        margin: 0;
-        font-size: clamp(7px, 1.4vw, 10px);
-        letter-spacing: 0.2em;
-        color: #7f8794;
       }
 
       /* ---------- FOIL ---------- */
