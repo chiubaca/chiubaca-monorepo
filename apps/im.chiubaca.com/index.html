@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@1&family=Montserrat:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
@@ -21,425 +21,1959 @@
   </head>
 
   <body>
-    <main class="center">
-      <div class="card">
-        <div class="card__3d">
-          <div class="card__inner">
-            <div class="info__wrapper">
-              <h1 class="title">Alex Chiu</h1>
+    <main class="stage">
+      <div class="scene">
+        <div
+          class="card"
+          id="card"
+          data-variant="gold"
+          data-layout="landscape"
+          tabindex="0"
+          role="button"
+          aria-label="Alex Chiu's ID card. Move your pointer for foil, click to flip."
+        >
+          <div class="card__float">
+            <div class="card__spin">
+              <div class="card__rotator">
+                <section class="face face--front" aria-label="Card front">
+                  <div class="pass pass--landscape">
+                    <div class="metal-corner metal-corner--tl"></div>
+                    <div class="red-chip"></div>
+                    <div class="side-jp">社員証</div>
+                    <div class="side-line"></div>
 
-              <div class="bio">
-                <p>Full-stack Web Developer</p>
-                <p>Bringing ideas to life with code ✨</p>
+                    <div class="photo">
+                      <img src="./assets/portrait-landscape.jpg" alt="Alex Chiu" />
+                      <span class="photo__shade"></span>
+                      <span class="photo__accent"></span>
+                    </div>
+                    <div class="barcode"></div>
+                    <div class="photo-id">CB-001</div>
+
+                    <div class="brand-block">
+                      <div class="logo-mark"><i></i><i></i></div>
+                      <div class="brand-words">
+                        <div class="brand-name">CHIUBACA</div>
+                        <div class="brand-sub">TECHNOLOGIES</div>
+                      </div>
+                      <div class="vert-divider"></div>
+                      <div class="brand-jp">
+                        <div>チューバカ・テクノロジーズ</div>
+                        <div class="brand-city">TOKYO / LONDON</div>
+                      </div>
+                    </div>
+
+                    <div class="rule rule--1"></div>
+                    <div class="pass-label">EMPLOYEE PASS <span>//</span> ID: CB-001</div>
+                    <div class="rule rule--2"></div>
+                    <div class="person-name">Alex Chiu</div>
+                    <div class="person-role">
+                      FULL-STACK SOFTWARE ENGINEER <span class="slash">/</span>
+                    </div>
+                    <div class="rule rule--3"></div>
+                    <div class="tagline">Bringing ideas to life with code <span>✨</span></div>
+
+                    <div class="social-row">
+                      <a
+                        class="social"
+                        href="https://github.com/chiubaca"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path
+                            d="M12 .3A12 12 0 0 0 8.2 23.5c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"
+                          />
+                        </svg>
+                        <span>GitHub</span>
+                      </a>
+                      <a
+                        class="social"
+                        href="https://twitter.com/chiubaca"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path
+                            d="M18.2 2.3h3.3l-7.2 8.2 8.5 11.2h-6.7l-5.2-6.8-6.7 6.8H.5l7.7-8.8L0 2.3h6.8l4.8 6.3 6.6-6.3Zm-1.2 17.5h1.8L7.4 4.2H5.4L17 19.8Z"
+                          />
+                        </svg>
+                        <span>X</span>
+                      </a>
+                      <a
+                        class="social"
+                        href="https://www.linkedin.com/in/achiu1/"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path
+                            d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.6h.1c.5-1 1.8-2 3.7-2 4 0 4.4 2.5 4.4 5.8V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9V9Z"
+                          />
+                        </svg>
+                        <span>LinkedIn</span>
+                      </a>
+                      <a class="social" href="mailto:alexchiu11@gmail.com">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M3 6h18v12H3z" />
+                          <path d="m3 7 9 6 9-6" />
+                        </svg>
+                        <span>Email</span>
+                      </a>
+                      <a class="social" href="https://chiubaca.com/" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path
+                            d="M4 5h14v14H6a2 2 0 0 1-2-2V5Zm2 4h8M6 13h8M6 16h5M18 8h2v11h-2"
+                          />
+                        </svg>
+                        <span>Blog</span>
+                      </a>
+                    </div>
+
+                    <div class="wave"></div>
+                    <div class="metal-wedge"></div>
+                    <div class="wedge-slash"></div>
+                  </div>
+
+                  <div class="pass pass--portrait">
+                    <div class="metal-corner metal-corner--tl"></div>
+                    <div class="top-clip"><span></span></div>
+
+                    <div class="logo-mark"><i></i><i></i></div>
+                    <div class="p-brand-name">CHIUBACA<sup>®</sup></div>
+                    <div class="p-brand-jp">チューバカ・テクノロジーズ</div>
+
+                    <div class="p-divider"></div>
+                    <div class="p-code">CT-01</div>
+                    <div class="p-division">TECHNOLOGY<br />DEVELOPMENT<br />DIVISION</div>
+                    <div class="p-code-rule"></div>
+
+                    <div class="photo photo--p">
+                      <img src="./assets/portrait-vertical.jpg" alt="Alex Chiu" />
+                      <span class="photo__shade"></span>
+                      <span class="photo__accent"></span>
+                    </div>
+
+                    <div class="p-mid-line"></div>
+                    <div class="p-role-jp">開発エンジニア</div>
+                    <div class="p-mini-rule"></div>
+                    <div class="p-name">ALEX CHIU</div>
+                    <div class="p-role">FULL-STACK<br />SOFTWARE ENGINEER</div>
+                    <div class="p-tagline">
+                      Bringing ideas to life<br />with code <span>✨</span>
+                    </div>
+
+                    <div class="p-red-bar"></div>
+                    <div class="social-list">
+                      <a
+                        class="social social--p"
+                        href="https://github.com/chiubaca"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path
+                            d="M12 .3A12 12 0 0 0 8.2 23.5c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"
+                          />
+                        </svg>
+                        <span>GitHub</span>
+                        <svg class="ext" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M7 17 17 7M9 7h8v8" />
+                        </svg>
+                      </a>
+                      <a
+                        class="social social--p"
+                        href="https://twitter.com/chiubaca"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path
+                            d="M18.2 2.3h3.3l-7.2 8.2 8.5 11.2h-6.7l-5.2-6.8-6.7 6.8H.5l7.7-8.8L0 2.3h6.8l4.8 6.3 6.6-6.3Zm-1.2 17.5h1.8L7.4 4.2H5.4L17 19.8Z"
+                          />
+                        </svg>
+                        <span>Twitter (X)</span>
+                        <svg class="ext" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M7 17 17 7M9 7h8v8" />
+                        </svg>
+                      </a>
+                      <a
+                        class="social social--p"
+                        href="https://www.linkedin.com/in/achiu1/"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path
+                            d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.6h.1c.5-1 1.8-2 3.7-2 4 0 4.4 2.5 4.4 5.8V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9V9Z"
+                          />
+                        </svg>
+                        <span>LinkedIn</span>
+                        <svg class="ext" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M7 17 17 7M9 7h8v8" />
+                        </svg>
+                      </a>
+                      <a class="social social--p" href="mailto:alexchiu11@gmail.com">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M3 6h18v12H3z" />
+                          <path d="m3 7 9 6 9-6" />
+                        </svg>
+                        <span>Email</span>
+                        <svg class="ext" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M7 17 17 7M9 7h8v8" />
+                        </svg>
+                      </a>
+                      <a
+                        class="social social--p"
+                        href="https://chiubaca.com/"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path
+                            d="M4 5h14v14H6a2 2 0 0 1-2-2V5Zm2 4h8M6 13h8M6 16h5M18 8h2v11h-2"
+                          />
+                        </svg>
+                        <span>Blog</span>
+                        <svg class="ext" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M7 17 17 7M9 7h8v8" />
+                        </svg>
+                      </a>
+                    </div>
+
+                    <div class="wave wave--p"></div>
+                    <div class="p-footer-rule"></div>
+                    <div class="barcode barcode--p"></div>
+                    <div class="qr">
+                      <svg viewBox="0 0 25 25" aria-hidden="true">
+                        <path
+                          d="M0 0h7v7H0zM2 2v3h3V2zM18 0h7v7h-7zM20 2v3h3V2zM0 18h7v7H0zM2 20v3h3v-3z"
+                        />
+                        <path
+                          d="M9 0h2v2H9zM12 0h1v2h-1zM15 2h2v2h-2zM9 3h2v2H9zM13 4h2v2h-2zM17 4h1v2h-1zM10 6h3v2h-3zM15 7h2v2h-2zM19 8h2v2h-2zM22 9h2v2h-2zM8 10h2v2H8zM12 10h3v2h-3zM17 11h2v2h-2zM20 12h2v2h-2zM9 14h2v2H9zM14 14h2v2h-2zM18 15h2v2h-2zM11 17h2v2h-2zM15 18h3v2h-3zM20 18h2v2h-2zM8 20h2v2H8zM12 21h2v2h-2zM16 21h2v2h-2zM20 21h2v2h-2z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="p-qr-rule"></div>
+                    <div class="p-footer-text">
+                      EMPLOYEE PASS<br />CHIUBACA TECHNOLOGIES<br />CT-01-AC
+                    </div>
+                    <div class="metal-wedge metal-wedge--p"></div>
+                    <div class="wedge-slash wedge-slash--p"></div>
+                    <div class="bottom-metal"></div>
+                  </div>
+
+                  <div class="grain"></div>
+                  <div class="card__shine"></div>
+                  <div class="card__glare"></div>
+                  <div class="card__flare"></div>
+                </section>
+
+                <section class="face face--back" aria-label="Card back">
+                  <div class="back__inner">
+                    <div class="back__stripe"></div>
+                    <span class="back__eyebrow">CHIUBACA TECHNOLOGIES</span>
+                    <div class="back__mark">AC</div>
+                    <span class="back__code">CT-01-AC</span>
+                    <div class="back__line"></div>
+                    <p class="back__note">TAP TO FLIP BACK ↩</p>
+                  </div>
+                  <div class="grain"></div>
+                  <div class="card__shine card__shine--back"></div>
+                </section>
               </div>
-
-              <div class="socials">
-                <a class="link" target="_blank" href="https://github.com/chiubaca"
-                  ><svg width="12" height="12" viewbox="0 0 24 24">
-                    <path
-                      d="M20.38 8.53c.16-.4.68-1.99-.17-4.14c0 0-1.31-.39-4.3 1.61c-1.25-.33-2.58-.38-3.91-.38c-1.12 0-2.66.05-3.91.38c-2.99-2.03-4.3-1.61-4.3-1.61c-.85 2.12-.33 3.74-.16 4.14C2.61 9.62 2 11 2 12.72c0 6.44 4.16 7.89 10 7.89c5.79 0 10-1.45 10-7.89c0-1.72-.61-3.1-1.62-4.19M12 19.38c-4.12 0-7.47-.19-7.47-4.19c0-.95.47-1.85 1.27-2.58c1.34-1.23 3.63-.58 6.2-.58c2.59 0 4.85-.65 6.2.58c.8.73 1.3 1.62 1.3 2.58c0 3.99-3.37 4.19-7.5 4.19m-3.14-6.26c-.82 0-1.5 1-1.5 2.22c0 1.23.68 2.24 1.5 2.24c.83 0 1.5-1 1.5-2.24c0-1.23-.67-2.22-1.5-2.22m6.28 0c-.83 0-1.5.99-1.5 2.22c0 1.24.67 2.24 1.5 2.24c.82 0 1.5-1 1.5-2.24c0-1.23-.64-2.22-1.5-2.22z"
-                      fill="#ff4d00"
-                    />
-                  </svg>
-                  GitHub</a
-                >
-                <a class="link" target="_blank" href="https://twitter.com/chiubaca"
-                  ><svg width="12" height="12" viewbox="0 0 24 24">
-                    <path
-                      fill="#ff4d00"
-                      d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.12c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23Z"
-                    />
-                  </svg>
-                  Twitter</a
-                >
-                <a class="link" target="_blank" href="https://www.linkedin.com/in/achiu1/"
-                  ><svg width="12" height="12" viewbox="0 0 24 24">
-                    <path
-                      fill="#ff4d00"
-                      d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 12.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.12 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z"
-                    />
-                  </svg>
-                  LinkedIn</a
-                >
-                <a class="link" target="_blank" href="mailto: alexchiu11@gmail.com"
-                  ><svg width="12" height="12" viewbox="0 0 24 24">
-                    <path
-                      fill="#ff4d00"
-                      d="m20 8l-8 5l-8-5V6l8 5l8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"
-                    />
-                  </svg>
-                  Email</a
-                >
-                <a class="link" target="_blank" href="https://chiubaca.com/"
-                  ><svg width="12" height="12" viewbox="0 0 24 24">
-                    <path
-                      fill="#ff4d00"
-                      d="M18.5 2h-13C3.6 2 2 3.6 2 5.5v13C2 20.4 3.6 22 5.5 22H16l6-6V5.5C22 3.6 20.4 2 18.5 2M6 7h12v2H6V7m0 4h12v2H6v-2m7 6H6v-2h7v2m2 3v-1.5c0-1.9 1.6-3.5 3.5-3.5H20l-5 5Z"
-                    />
-                  </svg>
-                  Blog</a
-                >
-              </div>
-            </div>
-
-            <div class="pic__wrapper">
-              <img class="profile-pic" src="./assets/profile_pic.jpg" alt="its me, alex" />
-              <div class="card__layer2"></div>
             </div>
           </div>
+          <div class="burst" aria-hidden="true"></div>
+        </div>
+      </div>
 
-          <div class="card__soft-light"></div>
+      <button
+        class="customise-btn"
+        id="openModal"
+        type="button"
+        aria-haspopup="dialog"
+        aria-controls="studioModal"
+      >
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="m12 3 1.6 4.9 4.9 1.6-4.9 1.6L12 16l-1.6-4.9L5.5 9.5l4.9-1.6L12 3ZM19 15l.8 2.2 2.2.8-2.2.8L19 21l-.8-2.2-2.2-.8 2.2-.8L19 15Z"
+          />
+        </svg>
+        CUSTOMISE CARD
+      </button>
+
+      <div class="modal-backdrop" id="studioModal" hidden>
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+          <header class="modal__head">
+            <div>
+              <span class="modal__eyebrow">✦ CARD STUDIO</span>
+              <h2 id="modalTitle">Make it yours</h2>
+            </div>
+            <button class="modal__close" id="closeModal" type="button" aria-label="Close">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 6l12 12M18 6 6 18" />
+              </svg>
+            </button>
+          </header>
+
+          <p class="modal__label">FOIL FINISH</p>
+          <div class="swatches" role="group" aria-label="Foil finish">
+            <button class="swatch is-active" type="button" data-variant="gold" aria-pressed="true">
+              <span class="swatch__dot swatch__dot--gold"></span>GOLD
+            </button>
+            <button class="swatch" type="button" data-variant="silver" aria-pressed="false">
+              <span class="swatch__dot swatch__dot--silver"></span>SILVER
+            </button>
+            <button class="swatch" type="button" data-variant="holo" aria-pressed="false">
+              <span class="swatch__dot swatch__dot--holo"></span>HOLO
+            </button>
+            <button class="swatch" type="button" data-variant="rose" aria-pressed="false">
+              <span class="swatch__dot swatch__dot--rose"></span>ROSE
+            </button>
+          </div>
+
+          <p class="modal__label">ACTIONS</p>
+          <div class="modal__actions">
+            <button class="action" type="button" id="flipBtn">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8m0-5v5h-5M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16m8-8H3v-5"
+                /></svg
+              >FLIP
+            </button>
+            <button class="action" type="button" id="shuffleBtn">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5" /></svg
+              >SHUFFLE
+            </button>
+            <button class="action action--power" type="button" id="powerBtn" aria-pressed="false">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z" /></svg
+              >POLISH
+            </button>
+          </div>
+          <p class="modal__hint">Move your pointer over the card to catch the foil ✦</p>
         </div>
       </div>
     </main>
+
+    <script>
+      (() => {
+        const card = document.getElementById("card");
+        const modal = document.getElementById("studioModal");
+        const openBtn = document.getElementById("openModal");
+        const closeBtn = document.getElementById("closeModal");
+        const swatches = [...document.querySelectorAll(".swatch")];
+        const flipBtn = document.getElementById("flipBtn");
+        const shuffleBtn = document.getElementById("shuffleBtn");
+        const powerBtn = document.getElementById("powerBtn");
+        const burstLayer = card.querySelector(".burst");
+        const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+
+        const updateLayout = () => {
+          const small = window.matchMedia("(max-width: 900px)").matches;
+          const portrait = small && window.matchMedia("(orientation: portrait)").matches;
+          card.dataset.layout = portrait ? "portrait" : "landscape";
+          document.body.classList.toggle("is-portrait", portrait);
+        };
+        updateLayout();
+        window.addEventListener("resize", updateLayout);
+        window.addEventListener("orientationchange", updateLayout);
+
+        const openModal = () => {
+          modal.hidden = false;
+          closeBtn.focus();
+        };
+        const closeModal = () => {
+          modal.hidden = true;
+          openBtn.focus();
+        };
+        openBtn.addEventListener("click", openModal);
+        closeBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && !modal.hidden) closeModal();
+        });
+
+        const target = { px: 50, py: 50, bgx: 50, bgy: 50, rx: 0, ry: 0, op: 0, scale: 1, flip: 0 };
+        const current = { ...target };
+        let flipped = false;
+        let polished = false;
+
+        const setPointer = (clientX, clientY) => {
+          const r = card.getBoundingClientRect();
+          const x = clamp((clientX - r.left) / r.width, 0, 1);
+          const y = clamp((clientY - r.top) / r.height, 0, 1);
+          Object.assign(target, {
+            px: x * 100,
+            py: y * 100,
+            bgx: 37 + x * 26,
+            bgy: 33 + y * 34,
+            ry: (x - 0.5) * 20,
+            rx: -(y - 0.5) * 16,
+            op: 1,
+          });
+        };
+        const resetPointer = () =>
+          Object.assign(target, { px: 50, py: 50, bgx: 50, bgy: 50, rx: 0, ry: 0, op: 0 });
+        card.addEventListener("pointermove", (e) => setPointer(e.clientX, e.clientY));
+        card.addEventListener("pointerleave", resetPointer);
+
+        const flip = () => {
+          flipped = !flipped;
+          target.flip = flipped ? 180 : 0;
+          resetPointer();
+        };
+        card.addEventListener("click", (e) => {
+          if (e.target.closest("a, button")) return;
+          flip();
+        });
+        card.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            flip();
+            return;
+          }
+          const dir = {
+            ArrowLeft: [-1, 0],
+            ArrowRight: [1, 0],
+            ArrowUp: [0, -1],
+            ArrowDown: [0, 1],
+          }[e.key];
+          if (!dir) return;
+          e.preventDefault();
+          const r = card.getBoundingClientRect();
+          setPointer(
+            r.left + (clamp(target.px + dir[0] * 8, 0, 100) / 100) * r.width,
+            r.top + (clamp(target.py + dir[1] * 8, 0, 100) / 100) * r.height,
+          );
+        });
+        flipBtn.addEventListener("click", flip);
+
+        const setVariant = (v) => {
+          card.dataset.variant = v;
+          swatches.forEach((s) => {
+            const on = s.dataset.variant === v;
+            s.classList.toggle("is-active", on);
+            s.setAttribute("aria-pressed", String(on));
+          });
+        };
+        swatches.forEach((s) => s.addEventListener("click", () => setVariant(s.dataset.variant)));
+
+        const burst = () => {
+          for (let i = 0; i < 14; i++) {
+            const sp = document.createElement("span");
+            sp.className = "spark";
+            const a = (Math.PI * 2 * i) / 14 + Math.random() * 0.5;
+            const d = 90 + Math.random() * 120;
+            sp.style.setProperty("--tx", `${Math.cos(a) * d}px`);
+            sp.style.setProperty("--ty", `${Math.sin(a) * d}px`);
+            sp.style.left = `${30 + Math.random() * 40}%`;
+            sp.style.top = `${30 + Math.random() * 40}%`;
+            sp.style.animationDelay = `${Math.random() * 0.12}s`;
+            burstLayer.appendChild(sp);
+            sp.addEventListener("animationend", () => sp.remove());
+          }
+        };
+        shuffleBtn.addEventListener("click", () => {
+          const opts = swatches
+            .map((s) => s.dataset.variant)
+            .filter((v) => v !== card.dataset.variant);
+          setVariant(opts[Math.floor(Math.random() * opts.length)]);
+          card.classList.remove("is-shuffling");
+          void card.offsetWidth;
+          card.classList.add("is-shuffling");
+          burst();
+        });
+        card
+          .querySelector(".card__spin")
+          .addEventListener("animationend", () => card.classList.remove("is-shuffling"));
+        powerBtn.addEventListener("click", () => {
+          polished = !polished;
+          target.scale = polished ? 1.06 : 1;
+          card.classList.toggle("is-powered", polished);
+          powerBtn.setAttribute("aria-pressed", String(polished));
+          powerBtn.classList.toggle("is-active", polished);
+          burst();
+        });
+        window.addEventListener("deviceorientation", (e) => {
+          if (e.gamma == null || e.beta == null) return;
+          const x = clamp((e.gamma + 45) / 90, 0, 1);
+          const y = clamp((e.beta - 20 + 45) / 90, 0, 1);
+          Object.assign(target, {
+            px: x * 100,
+            py: y * 100,
+            bgx: 37 + x * 26,
+            bgy: 33 + y * 34,
+            ry: (x - 0.5) * 20,
+            rx: -(y - 0.5) * 16,
+            op: 1,
+          });
+        });
+
+        const tick = () => {
+          for (const key in target) current[key] += (target[key] - current[key]) * 0.16;
+          const s = card.style;
+          s.setProperty("--pointer-x", `${current.px.toFixed(2)}%`);
+          s.setProperty("--pointer-y", `${current.py.toFixed(2)}%`);
+          s.setProperty("--bg-x", `${current.bgx.toFixed(2)}%`);
+          s.setProperty("--bg-y", `${current.bgy.toFixed(2)}%`);
+          s.setProperty("--rx", `${current.rx.toFixed(2)}deg`);
+          s.setProperty("--ry", `${current.ry.toFixed(2)}deg`);
+          s.setProperty("--op", current.op.toFixed(3));
+          s.setProperty("--scale", current.scale.toFixed(3));
+          s.setProperty("--flip", `${current.flip.toFixed(2)}deg`);
+          s.setProperty(
+            "--pc",
+            Math.min(1, Math.hypot(current.px - 50, current.py - 50) / 50).toFixed(3),
+          );
+          requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      })();
+    </script>
+
+    <style>
+      @import "normalize.css";
+
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Montserrat", sans-serif;
+        color: #f2f2f2;
+        background:
+          radial-gradient(120% 80% at 50% -20%, #2a2d33 0%, transparent 60%),
+          radial-gradient(90% 70% at 50% 120%, #24262b 0%, transparent 60%), #101114;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.07),
+            transparent 35%,
+            transparent 65%,
+            rgba(255, 255, 255, 0.05)
+          ),
+          url("./assets/metal-dark.png") center / 720px repeat;
+        opacity: 0.6;
+      }
+
+      .stage::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.55), transparent 38%, rgba(0, 0, 0, 0.28)),
+          url("./assets/metal-silver.png") center / cover;
+        clip-path: polygon(0 0, 24% 0, 0 17%);
+        opacity: 0.85;
+      }
+
+      body.is-portrait .stage::before,
+      body.is-portrait .stage::after {
+        display: none;
+      }
+
+      .stage::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.45), transparent 38%, rgba(0, 0, 0, 0.32)),
+          url("./assets/metal-silver.png") center / cover;
+        clip-path: polygon(100% 100%, 80% 100%, 100% 86%);
+        opacity: 0.8;
+      }
+
+      .stage {
+        position: relative;
+        z-index: 1;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.4rem;
+        padding: 2rem 1rem;
+      }
+
+      .scene {
+        perspective: 1400px;
+        perspective-origin: 50% 45%;
+      }
+
+      .card {
+        --pointer-x: 50%;
+        --pointer-y: 50%;
+        --bg-x: 50%;
+        --bg-y: 50%;
+        --rx: 0deg;
+        --ry: 0deg;
+        --flip: 0deg;
+        --op: 0;
+        --scale: 1;
+        --pc: 0;
+        --f1: #7a5a12;
+        --f2: #ffd970;
+        --f3: #b8860b;
+        --f4: #fff1b8;
+        --f5: #a66f1b;
+        --f6: #f3c75e;
+        --foil-angle: 112deg;
+        --foil-filter: contrast(1.15) saturate(1.3);
+        --foil-layers:
+          linear-gradient(
+            var(--foil-angle),
+            var(--f1) 0%,
+            var(--f2) 14%,
+            var(--f3) 28%,
+            var(--f4) 42%,
+            var(--f5) 57%,
+            var(--f6) 72%,
+            var(--f1) 86%,
+            var(--f2) 100%
+          ),
+          radial-gradient(
+            farthest-corner circle at var(--pointer-x) var(--pointer-y),
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(255, 255, 255, 0.1) 32%,
+            rgba(0, 0, 0, 0.45) 92%
+          );
+        position: relative;
+        width: min(97vw, 1560px, calc(96dvh * 2));
+        aspect-ratio: 2 / 1;
+        transform: scale(var(--scale));
+        transition: filter 0.35s ease;
+        cursor: pointer;
+        outline: none;
+      }
+      .card[data-layout="portrait"] {
+        width: min(88vw, 430px, calc(78dvh * 0.667));
+        aspect-ratio: 1024 / 1536;
+      }
+      .card[data-layout="portrait"] .face {
+        inset: 2%;
+        border-radius: 3%;
+      }
+      .card[data-layout="landscape"] .face--front {
+        clip-path: polygon(0 0, 100% 0, 100% 91%, 91% 100%, 0 100%);
+      }
+      .card:focus-visible .face {
+        box-shadow:
+          0 0 0 2px #e8c46a,
+          0 0 0 6px #e8c46a55,
+          0 30px 60px -18px #000;
+      }
+
+      .card__float,
+      .card__spin,
+      .card__rotator {
+        position: absolute;
+        inset: 0;
+        transform-style: preserve-3d;
+      }
+      .card__float {
+        animation: float 7s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-7px);
+        }
+      }
+      .card.is-shuffling .card__spin {
+        animation: shuffle-spin 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+      @keyframes shuffle-spin {
+        from {
+          transform: rotateY(0);
+        }
+        to {
+          transform: rotateY(360deg);
+        }
+      }
+      .card__rotator {
+        transform: rotateY(calc(var(--flip) + var(--ry))) rotateX(var(--rx));
+        will-change: transform;
+      }
+
+      .face {
+        position: absolute;
+        inset: 0;
+        border-radius: 1.9cqw;
+        overflow: hidden;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        box-shadow:
+          0 30px 60px -18px rgba(0, 0, 0, 0.9),
+          inset 0 0 0 0.1cqw rgba(255, 255, 255, 0.75),
+          inset 0 0 0 0.24cqw rgba(130, 136, 146, 0.55),
+          inset 0 0 0 0.42cqw rgba(0, 0, 0, 0.7),
+          inset 0 0 2.5cqw rgba(255, 255, 255, 0.07);
+        transition: box-shadow 0.35s ease;
+      }
+      .card.is-powered .face {
+        box-shadow:
+          0 0 0 2px #e8c46a,
+          0 0 40px 10px rgba(232, 196, 106, 0.42),
+          0 30px 60px -18px #000;
+      }
+
+      .face--front {
+        container-type: inline-size;
+        background:
+          radial-gradient(120% 100% at 50% 0%, rgba(255, 255, 255, 0.06), transparent 60%),
+          linear-gradient(
+            128deg,
+            rgba(255, 255, 255, 0.055) 0%,
+            transparent 26%,
+            transparent 72%,
+            rgba(255, 255, 255, 0.035) 100%
+          ),
+          url("./assets/metal-dark.png") center / cover,
+          #16181c;
+        border: 0.12cqw solid rgba(255, 255, 255, 0.38);
+      }
+
+      .face--front::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background:
+          repeating-linear-gradient(
+            115deg,
+            rgba(255, 255, 255, 0.035) 0 1px,
+            rgba(0, 0, 0, 0.05) 1px 2px,
+            transparent 2px 5px
+          ),
+          repeating-linear-gradient(25deg, rgba(255, 255, 255, 0.014) 0 1px, transparent 1px 4px);
+      }
+
+      .pass {
+        position: absolute;
+        inset: 0;
+        display: none;
+        z-index: 2;
+      }
+      .card[data-layout="landscape"] .pass--landscape {
+        transform: translate(-1cqw, -3.3cqw);
+      }
+      .card[data-layout="landscape"] .pass--landscape .metal-wedge {
+        transform: translate(1cqw, 3.3cqw);
+      }
+      .card[data-layout="landscape"] .pass--landscape .wedge-slash {
+        transform: translate(1cqw, 3.3cqw) skewX(-25deg);
+      }
+      .card[data-layout="landscape"] .pass--landscape,
+      .card[data-layout="portrait"] .pass--portrait {
+        display: block;
+      }
+
+      .pass .photo {
+        position: absolute;
+        overflow: hidden;
+        background: linear-gradient(135deg, #d5d7da, #8b8f95);
+      }
+      .pass .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+      .photo__shade {
+        display: none;
+      }
+      .photo__accent {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        display: none;
+        background: linear-gradient(135deg, #ff2434, #b4000c);
+      }
+      .pass--portrait .photo--p .photo__accent {
+        display: block;
+        width: 6cqw;
+        height: 1.1cqw;
+        right: -0.4cqw;
+        bottom: 1.6cqw;
+        transform: rotate(-45deg);
+        transform-origin: center;
+        box-shadow: 0 0 0.6cqw rgba(226, 0, 26, 0.45);
+      }
+
+      .logo-mark {
+        position: absolute;
+        display: flex;
+        gap: 0.55cqw;
+        transform: skewX(-32deg);
+      }
+      .logo-mark i {
+        display: block;
+        background: linear-gradient(180deg, #ff1f35, #d0021b);
+        box-shadow: 0 0 0.4cqw rgba(226, 0, 26, 0.45);
+      }
+
+      .metal-corner {
+        position: absolute;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.4), transparent 45%, rgba(0, 0, 0, 0.3)),
+          url("./assets/metal-silver.png") center / cover;
+      }
+      .metal-wedge {
+        position: absolute;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.32), transparent 42%, rgba(0, 0, 0, 0.28)),
+          url("./assets/metal-silver.png") center / cover;
+      }
+      .metal-wedge::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.75),
+            transparent 14%,
+            rgba(255, 255, 255, 0.14) 32%,
+            transparent 46%,
+            rgba(255, 255, 255, 0.5) 62%,
+            transparent 74%
+          ),
+          repeating-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.18) 0 1px,
+            rgba(0, 0, 0, 0.1) 1px 2px,
+            transparent 2px 5px
+          );
+      }
+      .metal-wedge::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(118deg, transparent 47%, rgba(255, 255, 255, 0.9) 49%, transparent 50.5%),
+          linear-gradient(118deg, transparent 45.5%, rgba(0, 0, 0, 0.4) 47%, transparent 48.5%);
+      }
+      .wedge-slash {
+        position: absolute;
+        background: linear-gradient(135deg, #ff2b39, #c00611);
+        transform: skewX(-25deg);
+      }
+      .wave {
+        position: absolute;
+        background: repeating-radial-gradient(
+          circle at 50% 100%,
+          transparent 0 1.5cqw,
+          rgba(255, 255, 255, 0.075) 1.5cqw 1.62cqw
+        );
+        -webkit-mask-image: linear-gradient(to top, #000, transparent);
+        mask-image: linear-gradient(to top, #000, transparent);
+      }
+
+      .rule {
+        position: absolute;
+        height: 0.06cqw;
+        background: rgba(255, 255, 255, 0.28);
+      }
+      .barcode {
+        position: absolute;
+        background: repeating-linear-gradient(
+          90deg,
+          #d9d9d9 0 0.1cqw,
+          transparent 0.1cqw 0.25cqw,
+          #d9d9d9 0.25cqw 0.48cqw,
+          transparent 0.48cqw 0.6cqw,
+          #d9d9d9 0.6cqw 0.68cqw,
+          transparent 0.68cqw 0.92cqw,
+          #d9d9d9 0.92cqw 1.15cqw,
+          transparent 1.15cqw 1.3cqw
+        );
+        opacity: 0.85;
+      }
+
+      /* ---------- LANDSCAPE ---------- */
+      .pass--landscape .metal-corner--tl {
+        left: 0;
+        top: 0;
+        width: 22cqw;
+        height: 10cqw;
+        clip-path: polygon(0 0, 100% 0, 0 100%);
+      }
+      .pass--landscape .red-chip {
+        position: absolute;
+        left: 3.4cqw;
+        top: 4.2cqw;
+        width: 1.4cqw;
+        height: 1.4cqw;
+        background: #f12431;
+      }
+      .pass--landscape .side-jp {
+        position: absolute;
+        left: 2.2cqw;
+        top: 9.6cqw;
+        writing-mode: vertical-rl;
+        font-family: "Noto Sans JP", sans-serif;
+        font-size: 2.1cqw;
+        letter-spacing: 0.32em;
+        color: #e7e7e7;
+      }
+      .pass--landscape .side-line {
+        position: absolute;
+        left: 3.9cqw;
+        top: 20.5cqw;
+        width: 0.07cqw;
+        height: 13cqw;
+        background: rgba(255, 255, 255, 0.28);
+      }
+      .pass--landscape .photo {
+        left: 8.3cqw;
+        top: 8.8cqw;
+        width: 26.2cqw;
+        height: 37.2cqw;
+        padding: 0.1cqw;
+        clip-path: polygon(
+          0 0,
+          calc(100% - 4cqw) 0,
+          100% 4cqw,
+          100% calc(100% - 3cqw),
+          calc(100% - 3cqw) 100%,
+          0 100%
+        );
+      }
+      .pass--landscape .photo img {
+        clip-path: polygon(
+          0 0,
+          calc(100% - 4cqw) 0,
+          100% 4cqw,
+          100% calc(100% - 3cqw),
+          calc(100% - 3cqw) 100%,
+          0 100%
+        );
+      }
+      .pass--landscape .photo__accent {
+        width: 3.2cqw;
+        height: 0.7cqw;
+        transform: rotate(-45deg) translate(0.6cqw, 1.1cqw);
+        transform-origin: bottom right;
+      }
+      .pass--landscape .barcode {
+        left: 8.3cqw;
+        top: 47.9cqw;
+        width: 8cqw;
+        height: 2.3cqw;
+      }
+      .pass--landscape .photo-id {
+        position: absolute;
+        left: 17.5cqw;
+        top: 48.1cqw;
+        font-size: 1.7cqw;
+        letter-spacing: 0.2em;
+        color: #9ca2ac;
+      }
+
+      .pass--landscape .logo-mark {
+        left: 38.1cqw;
+        top: 6.9cqw;
+        gap: 0.7cqw;
+      }
+      .pass--landscape .logo-mark i {
+        width: 2.2cqw;
+        height: 2.9cqw;
+      }
+      .pass--landscape .brand-words {
+        position: absolute;
+        left: 44.4cqw;
+        top: 6.9cqw;
+      }
+      .pass--landscape .brand-name {
+        font-size: 4.2cqw;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        line-height: 1;
+        color: #e9e9e9;
+      }
+      .pass--landscape .brand-sub {
+        margin-top: 0.5cqw;
+        font-size: 1.16cqw;
+        font-weight: 500;
+        letter-spacing: 0.6em;
+        color: #9ba0a8;
+      }
+      .pass--landscape .vert-divider {
+        position: absolute;
+        left: 72.5cqw;
+        top: 7.1cqw;
+        width: 0.07cqw;
+        height: 5.2cqw;
+        background: rgba(255, 255, 255, 0.3);
+      }
+      .pass--landscape .brand-jp {
+        position: absolute;
+        left: 75.5cqw;
+        top: 7.5cqw;
+        font-family: "Noto Sans JP", sans-serif;
+        font-size: 1.7cqw;
+        color: #d5d6d9;
+      }
+      .pass--landscape .brand-city {
+        margin-top: 1.2cqw;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.16cqw;
+        letter-spacing: 0.24em;
+        color: #9ba0a8;
+      }
+
+      .pass--landscape .rule--1 {
+        left: 38.2cqw;
+        top: 14.5cqw;
+        width: 56.8cqw;
+      }
+      .pass--landscape .rule--2 {
+        left: 38.2cqw;
+        top: 19.2cqw;
+        width: 56.8cqw;
+      }
+      .pass--landscape .rule--3 {
+        left: 38.2cqw;
+        top: 31.2cqw;
+        width: 56.8cqw;
+      }
+      .pass--landscape .pass-label {
+        position: absolute;
+        left: 38.2cqw;
+        top: 16.2cqw;
+        font-size: 0.98cqw;
+        letter-spacing: 0.24em;
+        color: #9ba0a8;
+      }
+      .pass--landscape .pass-label span {
+        margin: 0 1.2cqw;
+        color: #6f747c;
+      }
+      .pass--landscape .person-name {
+        position: absolute;
+        left: 39cqw;
+        top: 20.5cqw;
+        font-size: 6.7cqw;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        line-height: 1;
+        color: #fff;
+      }
+      .pass--landscape .person-role {
+        position: absolute;
+        left: 39cqw;
+        top: 27.5cqw;
+        font-size: 1.86cqw;
+        font-weight: 400;
+        letter-spacing: 0.34em;
+        color: #d7d9dd;
+      }
+      .pass--landscape .person-role .slash {
+        display: inline-block;
+        margin-left: 0.6cqw;
+        color: #f12431;
+        font-weight: 900;
+        transform: skewX(-20deg);
+      }
+      .pass--landscape .tagline {
+        position: absolute;
+        left: 39.5cqw;
+        top: 33cqw;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-style: italic;
+        font-size: 2.15cqw;
+        color: #eaeaea;
+      }
+      .pass--landscape .tagline span {
+        margin-left: 0.4cqw;
+        font-style: normal;
+      }
+
+      .pass--landscape .social-row {
+        position: absolute;
+        left: 38cqw;
+        top: 39.2cqw;
+        width: 56cqw;
+        height: 10cqw;
+        display: flex;
+        align-items: flex-start;
+      }
+      .pass--landscape .social {
+        position: absolute;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.1cqw;
+        width: 9cqw;
+        color: #d5d8df;
+        text-decoration: none;
+      }
+      .pass--landscape .social svg {
+        width: 3.5cqw;
+        height: 3.5cqw;
+        fill: currentColor;
+      }
+      .pass--landscape .social svg[fill="none"] {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.6;
+      }
+      .pass--landscape .social span {
+        font-size: 1.12cqw;
+        letter-spacing: 0.04em;
+        color: #d5d6d9;
+      }
+      .pass--landscape .social:nth-child(1) {
+        left: 4.2cqw;
+      }
+      .pass--landscape .social:nth-child(2) {
+        left: 14.6cqw;
+      }
+      .pass--landscape .social:nth-child(3) {
+        left: 26.4cqw;
+      }
+      .pass--landscape .social:nth-child(4) {
+        left: 38.8cqw;
+      }
+      .pass--landscape .social:nth-child(5) {
+        left: 50.8cqw;
+      }
+      .pass--landscape .social::before {
+        content: "";
+        position: absolute;
+        left: -2.7cqw;
+        top: -0.4cqw;
+        width: 0.06cqw;
+        height: 4.2cqw;
+        background: rgba(255, 255, 255, 0.28);
+      }
+      .pass--landscape .social:nth-child(1)::before {
+        display: none;
+      }
+
+      .pass--landscape .wave {
+        display: none;
+      }
+      .pass--landscape .metal-wedge {
+        right: 0;
+        bottom: 0;
+        width: 27cqw;
+        height: 5cqw;
+        clip-path: polygon(22% 100%, 100% 16%, 100% 100%);
+      }
+      .pass--landscape .wedge-slash {
+        right: 5cqw;
+        bottom: 0.9cqw;
+        width: 6cqw;
+        height: 1cqw;
+        box-shadow: 0 0 1cqw rgba(241, 36, 49, 0.6);
+      }
+
+      /* ---------- PORTRAIT ---------- */
+      .pass--portrait .metal-corner--tl {
+        left: 0;
+        top: 0;
+        width: 18cqw;
+        height: 11cqw;
+        clip-path: polygon(0 0, 100% 0, 0 100%);
+      }
+      .pass--portrait .top-clip {
+        position: absolute;
+        left: 50%;
+        top: -4cqw;
+        transform: translateX(-50%);
+        width: 21cqw;
+        height: 10cqw;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.45), transparent 40%, rgba(0, 0, 0, 0.3)),
+          url("./assets/metal-silver.png") center / cover;
+        border-radius: 0.6cqw;
+        box-shadow:
+          0 0.6cqw 2.2cqw rgba(0, 0, 0, 0.8),
+          inset 0 0.15cqw 0.3cqw rgba(255, 255, 255, 0.7),
+          inset 0 -0.2cqw 0.4cqw rgba(0, 0, 0, 0.5),
+          inset 0 0 0 0.15cqw rgba(255, 255, 255, 0.4);
+      }
+      .pass--portrait .top-clip span {
+        position: absolute;
+        left: 18%;
+        right: 18%;
+        bottom: 1.1cqw;
+        height: 0.45cqw;
+        background: #e2001a;
+        box-shadow:
+          0 0 3cqw #e2001a,
+          0 0 1.2cqw #ff5b68;
+      }
+      .pass--portrait .logo-mark {
+        left: 11cqw;
+        top: 16cqw;
+      }
+      .pass--portrait .logo-mark i {
+        width: 3.6cqw;
+        height: 5cqw;
+      }
+      .pass--portrait .p-brand-name {
+        position: absolute;
+        left: 22cqw;
+        top: 15.4cqw;
+        font-size: 6.9cqw;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        line-height: 1;
+        color: #ededed;
+      }
+      .pass--portrait .p-brand-name sup {
+        font-size: 1.2cqw;
+        vertical-align: super;
+      }
+      .pass--portrait .p-brand-jp {
+        position: absolute;
+        left: 22cqw;
+        top: 22.6cqw;
+        font-family: "Noto Sans JP", sans-serif;
+        font-size: 2.8cqw;
+        letter-spacing: 0.1em;
+        color: #d4d5d8;
+      }
+      .pass--portrait .p-divider {
+        position: absolute;
+        left: 76cqw;
+        top: 10.2cqw;
+        width: 0.08cqw;
+        height: 14cqw;
+        background: rgba(255, 255, 255, 0.28);
+      }
+      .pass--portrait .p-code {
+        position: absolute;
+        left: 78cqw;
+        top: 10.4cqw;
+        font-size: 6.1cqw;
+        font-weight: 700;
+        color: #d0d1d4;
+      }
+      .pass--portrait .p-division {
+        position: absolute;
+        left: 78cqw;
+        top: 18cqw;
+        font-size: 1.5cqw;
+        font-weight: 500;
+        line-height: 1.8;
+        letter-spacing: 0.2em;
+        color: #8f949c;
+      }
+      .pass--portrait .p-code-rule {
+        position: absolute;
+        left: 78cqw;
+        top: 26cqw;
+        width: 5cqw;
+        height: 0.22cqw;
+        background: #e2001a;
+      }
+
+      .pass--portrait .photo--p {
+        left: 9cqw;
+        top: 30cqw;
+        width: 38cqw;
+        height: 46cqw;
+        padding: 0.12cqw;
+        clip-path: polygon(
+          4cqw 0,
+          calc(100% - 5cqw) 0,
+          100% 5cqw,
+          100% calc(100% - 4cqw),
+          calc(100% - 4cqw) 100%,
+          4cqw 100%,
+          0 calc(100% - 4cqw),
+          0 4cqw
+        );
+      }
+      .pass--portrait .photo--p img {
+        clip-path: polygon(
+          4cqw 0,
+          calc(100% - 5cqw) 0,
+          100% 5cqw,
+          100% calc(100% - 4cqw),
+          calc(100% - 4cqw) 100%,
+          4cqw 100%,
+          0 calc(100% - 4cqw),
+          0 4cqw
+        );
+        object-position: center 22%;
+        transform: scale(1.12);
+        transform-origin: 50% 26%;
+      }
+      .pass--portrait .photo--p .photo__accent {
+        width: 4.2cqw;
+        height: 0.9cqw;
+        transform: rotate(-45deg) translate(1cqw, 1.6cqw);
+        transform-origin: bottom right;
+      }
+
+      .pass--portrait .p-mid-line {
+        position: absolute;
+        left: 50cqw;
+        top: 34cqw;
+        width: 0.08cqw;
+        height: 40cqw;
+        background: rgba(255, 255, 255, 0.24);
+      }
+      .pass--portrait .p-role-jp {
+        position: absolute;
+        left: 54.5cqw;
+        top: 34.5cqw;
+        font-family: "Noto Sans JP", sans-serif;
+        font-size: 3.1cqw;
+        color: #e2e3e5;
+      }
+      .pass--portrait .p-mini-rule {
+        position: absolute;
+        left: 54.5cqw;
+        top: 40.5cqw;
+        width: 5cqw;
+        height: 0.08cqw;
+        background: rgba(255, 255, 255, 0.5);
+      }
+      .pass--portrait .p-name {
+        position: absolute;
+        left: 54.3cqw;
+        top: 43cqw;
+        font-size: 7.1cqw;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        line-height: 1;
+        color: #fff;
+      }
+      .pass--portrait .p-role {
+        position: absolute;
+        left: 54.5cqw;
+        top: 51.5cqw;
+        font-size: 2.9cqw;
+        font-weight: 400;
+        line-height: 1.45;
+        letter-spacing: 0.1em;
+        color: #d2d4d8;
+      }
+      .pass--portrait .p-tagline {
+        position: absolute;
+        left: 54.5cqw;
+        top: 61.5cqw;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-style: italic;
+        font-size: 3.1cqw;
+        line-height: 1.45;
+        color: #e9e9ea;
+      }
+      .pass--portrait .p-tagline span {
+        font-style: normal;
+      }
+
+      .pass--portrait .p-red-bar {
+        position: absolute;
+        left: 8.5cqw;
+        top: 84cqw;
+        width: 0.35cqw;
+        height: 15cqw;
+        background: linear-gradient(180deg, #d81024, #8e0009);
+      }
+      .pass--portrait .social-list {
+        position: absolute;
+        left: 15cqw;
+        right: 15cqw;
+        top: 81.5cqw;
+      }
+      .pass--portrait .social--p {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 5cqw;
+        height: 9cqw;
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 0.08cqw solid rgba(255, 255, 255, 0.32);
+      }
+      .pass--portrait .social--p svg {
+        width: 5cqw;
+        height: 5cqw;
+        fill: currentColor;
+      }
+      .pass--portrait .social--p svg[fill="none"] {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.5;
+      }
+      .pass--portrait .social--p .ext {
+        width: 3.6cqw;
+        height: 3.6cqw;
+        margin-left: auto;
+        opacity: 1;
+        stroke-width: 1.8;
+      }
+      .pass--portrait .social--p span {
+        font-size: 3.1cqw;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+      }
+
+      .pass--portrait .wave--p {
+        left: 56cqw;
+        top: 104cqw;
+        width: 36cqw;
+        height: 12cqw;
+        background: repeating-radial-gradient(
+          circle at 50% 100%,
+          transparent 0 1.5cqw,
+          rgba(255, 255, 255, 0.11) 1.5cqw 1.62cqw
+        );
+      }
+      .pass--portrait .p-footer-rule {
+        position: absolute;
+        left: 3cqw;
+        right: 3cqw;
+        top: 128.5cqw;
+        height: 0.08cqw;
+        background: rgba(255, 255, 255, 0.24);
+      }
+      .pass--portrait .barcode--p {
+        left: 9cqw;
+        top: 132cqw;
+        width: 23cqw;
+        height: 6cqw;
+      }
+      .pass--portrait .qr {
+        position: absolute;
+        left: 35cqw;
+        top: 131.5cqw;
+        width: 8.5cqw;
+        height: 8.5cqw;
+        background: #fff;
+        padding: 0.4cqw;
+      }
+      .pass--portrait .qr svg {
+        width: 100%;
+        height: 100%;
+        fill: #111;
+      }
+      .pass--portrait .p-qr-rule {
+        position: absolute;
+        left: 44cqw;
+        top: 132cqw;
+        width: 0.08cqw;
+        height: 7.5cqw;
+        background: rgba(255, 255, 255, 0.28);
+      }
+      .pass--portrait .p-footer-text {
+        position: absolute;
+        left: 48cqw;
+        top: 132cqw;
+        font-size: 1.6cqw;
+        font-weight: 500;
+        line-height: 1.9;
+        letter-spacing: 0.1em;
+        color: #9a9a9a;
+      }
+      .pass--portrait .metal-wedge--p {
+        right: 0;
+        bottom: 0;
+        width: 50cqw;
+        height: 24cqw;
+        clip-path: polygon(22% 100%, 100% 10%, 100% 100%);
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent 42%, rgba(0, 0, 0, 0.3)),
+          url("./assets/metal-silver.png") center / cover;
+      }
+      .pass--portrait .wedge-slash--p {
+        right: 8cqw;
+        bottom: 9cqw;
+        width: 10cqw;
+        height: 0.35cqw;
+        transform: skewX(-25deg) rotate(-32deg);
+        box-shadow:
+          0 0 1.6cqw rgba(226, 0, 26, 0.85),
+          0 0 0.5cqw #ff4b59;
+      }
+      .pass--portrait .bottom-metal {
+        display: none;
+      }
+
+      /* ---------- BACK ---------- */
+      .face--back {
+        transform: rotateY(180deg);
+        display: grid;
+        place-items: center;
+        background: radial-gradient(80% 120% at 50% 0%, #22262d, #121419 60%, #0b0c10);
+        color: #f2f2f2;
+      }
+      .back__inner {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.7rem;
+        width: 100%;
+        height: 100%;
+        padding: 8%;
+      }
+      .back__stripe {
+        width: 46px;
+        height: 6px;
+        background: #f12431;
+        transform: skewX(-22deg);
+      }
+      .back__eyebrow {
+        font-size: clamp(7px, 1.5vw, 11px);
+        letter-spacing: 0.35em;
+        color: #9aa1ac;
+      }
+      .back__mark {
+        font-family: "DM Serif Display", Georgia, serif;
+        font-size: clamp(54px, 12vw, 110px);
+        line-height: 1;
+      }
+      .back__code {
+        font-size: clamp(8px, 1.6vw, 12px);
+        letter-spacing: 0.3em;
+        color: #f12431;
+      }
+      .back__line {
+        width: 30%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #f12431, transparent);
+      }
+      .back__note {
+        margin: 0;
+        font-size: clamp(7px, 1.4vw, 10px);
+        letter-spacing: 0.2em;
+        color: #7f8794;
+      }
+
+      /* ---------- FOIL ---------- */
+      .grain {
+        position: absolute;
+        inset: 0;
+        z-index: 8;
+        pointer-events: none;
+        opacity: 0.05;
+        mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+      .card__shine {
+        position: absolute;
+        inset: 0;
+        z-index: 9;
+        pointer-events: none;
+        border-radius: inherit;
+        background-image: var(--foil-layers);
+        background-size:
+          400% 400%,
+          cover;
+        background-position:
+          calc(((50% - var(--bg-x)) * 2.6) + 50%) calc(((50% - var(--bg-y)) * 3.2) + 50%),
+          center;
+        background-blend-mode: overlay;
+        mix-blend-mode: color-dodge;
+        filter: var(--foil-filter);
+        opacity: calc(0.03 + var(--op) * 0.33);
+      }
+      .card__shine::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+          var(--foil-angle),
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0) 5%,
+          rgba(255, 255, 255, 0.22) 5.5%,
+          rgba(255, 255, 255, 0) 6%,
+          rgba(255, 255, 255, 0) 11%
+        );
+        background-size: 260% 260%;
+        background-position: calc(((50% - var(--bg-x)) * 1.7) + 50%)
+          calc(((50% - var(--bg-y)) * 1.7) + 50%);
+        mix-blend-mode: soft-light;
+      }
+      .card__shine::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(circle at 18% 26%, rgba(255, 255, 255, 0.8) 0 1px, transparent 2px),
+          radial-gradient(circle at 66% 58%, rgba(255, 255, 255, 0.7) 0 1.3px, transparent 2.3px);
+        background-size:
+          67px 67px,
+          93px 93px;
+        background-position: calc(((50% - var(--bg-x)) * 1.2) + 50%)
+          calc(((50% - var(--bg-y)) * 1.2) + 50%);
+        mix-blend-mode: color-dodge;
+        filter: brightness(calc(1.05 - var(--pc) * 0.25));
+      }
+      .card__glare {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        pointer-events: none;
+        border-radius: inherit;
+        background: radial-gradient(
+          farthest-corner circle at var(--pointer-x) var(--pointer-y),
+          rgba(255, 255, 255, 0.38) 8%,
+          rgba(255, 255, 255, 0.12) 25%,
+          rgba(255, 255, 255, 0) 55%,
+          rgba(0, 0, 0, 0.14) 100%
+        );
+        mix-blend-mode: overlay;
+        opacity: calc(var(--op) * 0.7);
+      }
+      .card__flare {
+        position: absolute;
+        inset: -20%;
+        z-index: 11;
+        pointer-events: none;
+        background: linear-gradient(
+          108deg,
+          transparent 43%,
+          rgba(255, 255, 255, 0.18) 49%,
+          rgba(255, 255, 255, 0.45) 50%,
+          rgba(255, 255, 255, 0.18) 51%,
+          transparent 57%
+        );
+        background-size: 240% 240%;
+        background-position: calc(((50% - var(--bg-x)) * 2.4) + 50%) center;
+        mix-blend-mode: soft-light;
+        opacity: calc(var(--op) * 0.5);
+      }
+      .card__shine--back {
+        mix-blend-mode: color-dodge;
+        opacity: calc(0.02 + var(--op) * 0.18);
+      }
+
+      .burst {
+        position: absolute;
+        inset: 0;
+        z-index: 99;
+        pointer-events: none;
+        overflow: visible;
+      }
+      .spark {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        margin: -3px;
+        border-radius: 50%;
+        background: #fff3b0;
+        box-shadow: 0 0 8px 2px #e8c46a;
+        animation: spark-fly 0.75s ease-out forwards;
+      }
+      @keyframes spark-fly {
+        from {
+          transform: translate(0, 0) scale(0.4);
+          opacity: 1;
+        }
+        to {
+          transform: translate(var(--tx), var(--ty)) scale(0);
+          opacity: 0;
+        }
+      }
+
+      /* ---------- UI ---------- */
+      .customise-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.6rem 1.1rem;
+        border-radius: 999px;
+        border: 1px solid rgba(232, 196, 106, 0.35);
+        background: rgba(16, 20, 34, 0.7);
+        color: #e8c46a;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        transition:
+          transform 0.18s ease,
+          background 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+      .customise-btn:hover {
+        transform: translateY(-2px);
+        background: rgba(232, 196, 106, 0.14);
+        box-shadow: 0 0 20px -6px #e8c46a;
+      }
+      .customise-btn svg {
+        width: 14px;
+        height: 14px;
+        stroke: currentColor;
+        stroke-width: 1.5;
+        stroke-linejoin: round;
+      }
+
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 200;
+        display: grid;
+        place-items: center;
+        padding: 1rem;
+        background: rgba(4, 6, 12, 0.72);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+      }
+      .modal-backdrop[hidden] {
+        display: none;
+      }
+      .modal {
+        width: min(100%, 420px);
+        padding: 1.5rem;
+        border-radius: 18px;
+        border: 1px solid rgba(232, 196, 106, 0.25);
+        background: linear-gradient(160deg, #161b2c, #0c1020);
+        box-shadow: 0 30px 80px -20px #000;
+        animation: modal-in 0.22s ease-out;
+      }
+      @keyframes modal-in {
+        from {
+          opacity: 0;
+          transform: translateY(12px) scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .modal__head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+      }
+      .modal__eyebrow {
+        font-size: 8px;
+        letter-spacing: 0.28em;
+        color: #e8c46a;
+      }
+      .modal h2 {
+        margin: 0.3rem 0 0;
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .modal__close {
+        display: grid;
+        place-items: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: transparent;
+        color: #c9d2e8;
+      }
+      .modal__close svg {
+        width: 14px;
+        height: 14px;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+      }
+      .modal__label {
+        margin: 1.2rem 0 0.6rem;
+        font-size: 8px;
+        letter-spacing: 0.26em;
+        color: #8d84a8;
+      }
+      .swatches,
+      .modal__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+      }
+      button {
+        font-family: inherit;
+        cursor: pointer;
+      }
+      .swatch,
+      .action {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0.5rem 0.75rem;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        color: #c9d2e8;
+        font-size: 8px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        transition:
+          transform 0.16s ease,
+          background 0.16s ease,
+          border-color 0.16s ease,
+          color 0.16s ease;
+      }
+      .swatch:hover,
+      .action:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .swatch.is-active {
+        border-color: #d4af37;
+        background: rgba(212, 175, 55, 0.14);
+        color: #fff3cf;
+        box-shadow: 0 0 14px -4px #d4af37;
+      }
+      .swatch__dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+      }
+      .swatch__dot--gold {
+        background: linear-gradient(135deg, #7a5a12, #ffd970, #b8860b, #fff1b8);
+      }
+      .swatch__dot--silver {
+        background: linear-gradient(135deg, #6c7a89, #f2f6ff, #9aa8b8, #fff);
+      }
+      .swatch__dot--holo {
+        background: conic-gradient(#ff4d6d, #ff9f1c, #ffe066, #2ec4b6, #4361ee, #b5179e, #ff4d6d);
+      }
+      .swatch__dot--rose {
+        background: linear-gradient(135deg, #7a3b2e, #ffb3a7, #b5654f, #ffe0d6);
+      }
+      .action svg {
+        width: 12px;
+        height: 12px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.9;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .action--power {
+        border-color: rgba(232, 196, 106, 0.42);
+        color: #e8c46a;
+      }
+      .action--power svg {
+        fill: currentColor;
+        stroke: none;
+      }
+      .action--power.is-active {
+        background: rgba(232, 196, 106, 0.16);
+        box-shadow: 0 0 18px -4px #e8c46a;
+      }
+      .modal__hint {
+        margin: 1.2rem 0 0;
+        font-size: 8px;
+        letter-spacing: 0.08em;
+        color: #68749b;
+        text-align: center;
+      }
+
+      .card[data-variant="silver"] {
+        --f1: #6c7a89;
+        --f2: #f2f6ff;
+        --f3: #9aa8b8;
+        --f4: #fff;
+        --f5: #7d8b9b;
+        --f6: #dfe8f5;
+        --foil-angle: 125deg;
+        --foil-filter: contrast(1.1) saturate(0.9);
+      }
+      .card[data-variant="holo"] {
+        --f1: #ff4d6d;
+        --f2: #ff9f1c;
+        --f3: #ffe066;
+        --f4: #2ec4b6;
+        --f5: #4361ee;
+        --f6: #b5179e;
+        --foil-angle: 118deg;
+        --foil-filter: contrast(1.2) saturate(1.4);
+        --foil-layers:
+          repeating-linear-gradient(
+            var(--foil-angle),
+            var(--f1) 0%,
+            var(--f2) 10%,
+            var(--f3) 20%,
+            var(--f4) 30%,
+            var(--f5) 40%,
+            var(--f6) 50%,
+            var(--f1) 60%,
+            var(--f2) 70%,
+            var(--f3) 80%,
+            var(--f4) 90%,
+            var(--f5) 100%
+          ),
+          radial-gradient(
+            farthest-corner circle at var(--pointer-x) var(--pointer-y),
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(255, 255, 255, 0.1) 30%,
+            rgba(0, 0, 0, 0.45) 92%
+          );
+      }
+      .card[data-variant="rose"] {
+        --f1: #7a3b2e;
+        --f2: #ffb3a7;
+        --f3: #b5654f;
+        --f4: #ffe0d6;
+        --f5: #9e4f3d;
+        --f6: #e89a86;
+        --foil-angle: 105deg;
+        --foil-filter: contrast(1.15) saturate(1.3);
+      }
+
+      @media (orientation: landscape) {
+        .stage {
+          padding: 0.8rem 1rem;
+        }
+      }
+      @media (orientation: landscape) and (max-height: 500px) {
+        .stage {
+          gap: 0.6rem;
+          padding: 0.7rem 1rem;
+        }
+        .card {
+          width: min(96vw, 1100px, calc(86dvh * 1.778));
+        }
+        .customise-btn {
+          padding: 0.4rem 0.9rem;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .card__float,
+        .card.is-shuffling .card__spin,
+        .spark,
+        .modal {
+          animation: none;
+        }
+      }
+    </style>
   </body>
 </html>
-<style>
-  @import "normalize.css";
-
-  :root {
-    --tablet-bp: 426px;
-    --desktop-bp: 870px;
-
-    --step: 50%;
-    --alpha: 0.0001;
-    --pattern: url("./assets/pattern.png") center / 100%;
-
-    --diagonal: repeating-linear-gradient(
-        128deg,
-        #0e122e 0%,
-        hsl(180, 10%, 60%, var(--alpha)) 3.8%,
-        hsl(180, 10%, 60%, var(--alpha)) 4.5%,
-        hsl(180, 10%, 60%, var(--alpha)) 5.2%,
-        #0e122e 10%,
-        #0e122e 12%
-      )
-      var(--bg-x, 10%) var(--bg-y, 10%) / 500%;
-    --shade: radial-gradient(
-        farthest-corner circle at var(--x, 10%) var(--y, 10%),
-        rgba(255, 255, 255, 0.1) 12%,
-        rgba(255, 255, 255, 0.12) 20%,
-        rgba(255, 255, 255, 0.25) 120%
-      )
-      var(--bg-x, 10%) var(--bg-y, 10%) / 300%;
-  }
-
-  html {
-    background-color: #e7e7e7;
-    color: whitesmoke;
-    overflow: hidden;
-  }
-
-  body {
-    animation: fadeInAnimation ease 3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-  }
-
-  @keyframes fadeInAnimation {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-
-  .center {
-    height: var(--app-height, 100vh);
-    display: grid;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .card {
-    /* mobile */
-    perspective: 800px;
-    width: 20rem;
-    aspect-ratio: 1/2;
-    position: relative;
-  }
-
-  .card__3d {
-    transform: rotateY(var(--r-x)) rotateX(var(--r-y));
-    clip-path: inset(0 0 0 0 round 10px);
-    background-color: rgba(211, 211, 211, 0.613);
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.1s;
-  }
-
-  .card__3d:not(:hover) {
-    transition: transform 1s;
-    transform: rotateY(0deg) rotateX(0deg);
-  }
-
-  .card__soft-light {
-    position: absolute;
-    inset: 0;
-    z-index: 20;
-    mix-blend-mode: soft-light;
-    transition: transform 0.1s;
-    background: radial-gradient(
-      farthest-corner circle at var(--x, 10%) var(--y, 20%),
-      rgba(255, 255, 255, 0.8) 10%,
-      rgba(255, 255, 255, 0.65) 20%,
-      rgba(255, 255, 255, 0) 90%
-    );
-  }
-
-  .card__layer2 {
-    position: absolute;
-    z-index: 30;
-    width: 100%;
-    height: 100%;
-    mix-blend-mode: color-dodge;
-    will-change: background;
-    transition-property: opacity;
-    border-radius: 10px;
-    background-blend-mode: hue, hue, hard-light, overlay;
-    /* background: var(--diagonal); */
-  }
-
-  /* second crazy blend  */
-  .card__layer2:after {
-    border-radius: 10px;
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--pattern), var(--diagonal), var(--shade);
-    /* get different effect by tweaking mix-blend-mode*/
-    mix-blend-mode: lighten;
-    background-size:
-      75%,
-      200% 400%,
-      800%,
-      200%;
-    background-position:
-      center,
-      0% var(--bg-y),
-      calc(var(--bg-x) * -1) calc(var(--bg-y) * -1),
-      var(--bg-x) var(--bg-y);
-    background-blend-mode: soft-light, hue, hard-light;
-  }
-
-  .card__inner {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: var(--pattern);
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-content: space-between;
-    align-items: center;
-  }
-
-  .info-wrapper {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .socials {
-    padding-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    gap: 1rem;
-    width: 100%;
-  }
-
-  .link {
-    font-family: "Inconsolata", monospace;
-    z-index: 50;
-    color: whitesmoke;
-    background-color: #9a9a9a73;
-    padding: 0.3rem;
-    font-size: 0.7rem;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    transition: background-color 1s;
-    border-radius: 5px;
-  }
-
-  .link:hover {
-    background-color: #9a9a9ad6;
-  }
-
-  .title {
-    text-align: center;
-    font-family: "Inconsolata", monospace;
-    font-size: 1.8rem;
-  }
-
-  .bio {
-    text-align: center;
-    font-family: "Inconsolata", monospace;
-    font-size: 0.9rem;
-  }
-
-  .pic__wrapper {
-    position: relative;
-    width: 80%;
-    aspect-ratio: 1/1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .profile-pic {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-
-  @media (min-width: 426px) {
-    /* tablet */
-    .card {
-      width: 26rem;
-      aspect-ratio: 1/2;
-    }
-
-    .title {
-      font-size: 2rem;
-    }
-
-    .bio {
-      font-size: 1.2rem;
-    }
-  }
-
-  @media (min-width: 900px) {
-    /* desktop */
-    .card {
-      width: 60rem;
-      aspect-ratio: 2/1;
-    }
-
-    .card__inner {
-      flex-direction: row;
-
-      gap: 2rem;
-      padding: 5rem;
-    }
-
-    .info-wrapper {
-      flex: 1;
-    }
-
-    .pic__wrapper {
-      flex: 1;
-    }
-
-    .link {
-      width: 30%;
-      font-size: 0.9rem;
-    }
-
-    .title {
-      font-size: 3rem;
-    }
-
-    .bio {
-      font-size: 1.2rem;
-    }
-
-    .socials {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      width: 100%;
-    }
-  }
-</style>
-
-<script>
-  const el = document.querySelector(".card");
-
-  let w = el.clientWidth;
-  let h = el.clientHeight;
-  let b = el.getBoundingClientRect();
-
-  const handlePosition = (X, Y) => {
-    let rX = -(X - 0.5) * 26;
-    let rY = (Y - 0.5) * 26;
-
-    let bgX = 40 + 20 * X;
-    let bgY = 40 + 20 * Y;
-
-    document.documentElement.style.setProperty("--x", 100 * X + "%");
-    document.documentElement.style.setProperty("--y", 100 * Y + "%");
-
-    document.documentElement.style.setProperty("--r-x", rX + "deg");
-    document.documentElement.style.setProperty("--r-y", rY + "deg");
-
-    document.documentElement.style.setProperty("--bg-x", bgX + "%");
-    document.documentElement.style.setProperty("--bg-y", bgY + "%");
-  };
-
-  el.addEventListener("mousemove", (e) => {
-    let X = (e.clientX - b.left) / w;
-    let Y = (e.clientY - b.top) / h;
-    handlePosition(X, Y);
-  });
-
-  el.addEventListener("touchmove", (e) => {
-    let X = (e.targetTouches[0].clientX - b.left) / w;
-    let Y = (e.targetTouches[0].clientY - b.top) / h;
-    handlePosition(X, Y);
-  });
-
-  const handleOrientation = (event) => {
-    const { beta, gamma } = event;
-
-    // Normalize gamma (-90 to 90) to X (0 to 1)
-    const X = (gamma + 90) / 180;
-
-    // Normalize beta (-180 to 180) to Y (0 to 1), clamping beta to a reasonable range for tilting
-    const clampedBeta = Math.max(-90, Math.min(90, beta));
-    const Y = (clampedBeta + 90) / 180;
-
-    handlePosition(X, Y);
-  };
-
-  if (window.DeviceOrientationEvent) {
-    window.addEventListener("deviceorientation", handleOrientation);
-  }
-
-  // fix mobile for browser chopping off bottom of card
-  // https://stackoverflow.com/a/50683190/7207193
-  const appHeight = () => {
-    const doc = document.documentElement;
-    doc.style.setProperty("--app-height", `${window.innerHeight}px`);
-  };
-  window.addEventListener("resize", appHeight);
-  appHeight();
-</script>
-
-<script
-  defer
-  async
-  src="https://cdn.counter.dev/script.js"
-  data-id="91ee2db8-dc88-40a2-9529-ef18149e911b"
-  data-utcoffset="0"
-></script>
-<script>
-  (function () {
-    window.counterscale = {
-      q: [["set", "siteId", "im-chiubaca"], ["trackPageview"]],
-    };
-  })();
-</script>
-<script
-  id="counterscale-script"
-  src="https://counterscale.chiubaca.workers.dev/tracker.js"
-  defer
-></script>
