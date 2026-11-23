@@ -447,57 +447,117 @@
           if (e.key === "Escape" && !modal.hidden) closeModal();
         });
 
-        const target = {
-          px: 50,
-          py: 50,
-          bgx: 50,
-          bgy: 50,
-          rx: 0,
-          ry: 0,
-          op: 0,
-          scale: 1,
-          flip: 0,
-          rimx: 50,
-          rimy: 50,
-          photobgx: 50,
-          photobgy: 50,
-        };
-        const current = { ...target };
+        // Spring physics adapted from simeydotme/hover-tilt: separate springs for
+        // pointer position and activation, with softer settings on exit so the
+        // card eases back instead of snapping.
+        class Spring {
+          constructor(value, stiffness = 0.15, damping = 0.6, precision = 0.001) {
+            this.value = typeof value === "object" ? { ...value } : value;
+            this.target = typeof value === "object" ? { ...value } : value;
+            this.velocity =
+              typeof value === "object"
+                ? Object.fromEntries(Object.keys(value).map((k) => [k, 0]))
+                : 0;
+            this.stiffness = stiffness;
+            this.damping = damping;
+            this.precision = precision;
+          }
+          set(next) {
+            if (typeof next === "object") Object.assign(this.target, next);
+            else this.target = next;
+          }
+          configure(stiffness, damping) {
+            this.stiffness = stiffness;
+            this.damping = damping;
+          }
+          step() {
+            if (typeof this.value === "object") {
+              for (const key in this.value) {
+                const force = (this.target[key] - this.value[key]) * this.stiffness;
+                this.velocity[key] = (this.velocity[key] + force) * this.damping;
+                this.value[key] += this.velocity[key];
+                if (
+                  Math.abs(this.target[key] - this.value[key]) < this.precision &&
+                  Math.abs(this.velocity[key]) < this.precision
+                ) {
+                  this.value[key] = this.target[key];
+                  this.velocity[key] = 0;
+                }
+              }
+            } else {
+              const force = (this.target - this.value) * this.stiffness;
+              this.velocity = (this.velocity + force) * this.damping;
+              this.value += this.velocity;
+              if (
+                Math.abs(this.target - this.value) < this.precision &&
+                Math.abs(this.velocity) < this.precision
+              ) {
+                this.value = this.target;
+                this.velocity = 0;
+              }
+            }
+          }
+        }
+
+        const TILT = { stiffness: 0.15, damping: 0.6 };
+        const EXIT = { stiffness: TILT.stiffness * 0.2, damping: TILT.damping * 0.5 };
+        const position = new Spring({ x: 0.5, y: 0.5 }, TILT.stiffness, TILT.damping);
+        const activation = new Spring(0, TILT.stiffness, TILT.damping);
+        const flipSpring = new Spring(0, TILT.stiffness, TILT.damping);
+        const polishSpring = new Spring(1, TILT.stiffness, TILT.damping);
+        const pointerTarget = { x: 0.5, y: 0.5 };
         let flipped = false;
         let polished = false;
 
-        const setPointer = (clientX, clientY) => {
-          const r = card.getBoundingClientRect();
-          const x = clamp((clientX - r.left) / r.width, 0, 1);
-          const y = clamp((clientY - r.top) / r.height, 0, 1);
-          Object.assign(target, {
-            px: x * 100,
-            py: y * 100,
-            bgx: 37 + x * 26,
-            bgy: 33 + y * 34,
-            ry: (x - 0.5) * 20,
-            rx: -(y - 0.5) * 16,
-            op: 1,
-            rimx: 100 - x * 100,
-            rimy: 100 - y * 100,
-            photobgx: 100 - x * 100,
-            photobgy: 100 - y * 100,
+        const restoreSprings = () => {
+          position.configure(TILT.stiffness, TILT.damping);
+          activation.configure(TILT.stiffness, TILT.damping);
+          flipSpring.configure(TILT.stiffness, TILT.damping);
+        };
+        const softenSprings = () => {
+          position.configure(EXIT.stiffness, EXIT.damping);
+          activation.configure(EXIT.stiffness, EXIT.damping);
+          flipSpring.configure(EXIT.stiffness, EXIT.damping);
+        };
+
+        // Pointer updates are batched to one per frame, like the library's
+        // pendingPointerMove / requestAnimationFrame scheduling.
+        let pendingPointer = null;
+        let pointerFrame = null;
+        const schedulePointerUpdate = () => {
+          if (pointerFrame !== null || !pendingPointer) return;
+          pointerFrame = requestAnimationFrame(() => {
+            pointerFrame = null;
+            if (!pendingPointer) return;
+            pointerTarget.x = pendingPointer.x;
+            pointerTarget.y = pendingPointer.y;
+            position.set(pointerTarget);
+            pendingPointer = null;
           });
         };
-        const resetPointer = () =>
-          Object.assign(target, {
-            px: 50,
-            py: 50,
-            bgx: 50,
-            bgy: 50,
-            rx: 0,
-            ry: 0,
-            op: 0,
-            rimx: 50,
-            rimy: 50,
-            photobgx: 50,
-            photobgy: 50,
-          });
+
+        const setPointer = (clientX, clientY) => {
+          const r = card.getBoundingClientRect();
+          pendingPointer = {
+            x: clamp((clientX - r.left) / r.width, 0, 1),
+            y: clamp((clientY - r.top) / r.height, 0, 1),
+          };
+          restoreSprings();
+          activation.set(1);
+          schedulePointerUpdate();
+        };
+        const resetPointer = () => {
+          if (pointerFrame !== null) {
+            cancelAnimationFrame(pointerFrame);
+            pointerFrame = null;
+          }
+          pendingPointer = null;
+          softenSprings();
+          pointerTarget.x = 0.5;
+          pointerTarget.y = 0.5;
+          position.set(pointerTarget);
+          activation.set(0);
+        };
         // Touch: let a finger drag drive both the face foil and the rim holo,
         // then hold the highlight briefly after lift-off instead of snapping off.
         let resetTimer;
@@ -510,6 +570,8 @@
         card.addEventListener("pointermove", (e) => setPointer(e.clientX, e.clientY));
         card.addEventListener("pointerdown", (e) => {
           clearTimeout(resetTimer);
+          restoreSprings();
+          activation.set(1);
           if (e.pointerType !== "mouse") touchStart = { x: e.clientX, y: e.clientY };
         });
         card.addEventListener("pointerup", (e) => {
@@ -517,7 +579,7 @@
         });
         card.addEventListener("pointercancel", () => resetLater(400));
         card.addEventListener("pointerleave", (e) => {
-          if (e.pointerType === "mouse") resetPointer();
+          if (e.pointerType === "mouse") resetLater(200);
           else resetLater(1100);
         });
         card.addEventListener(
@@ -529,9 +591,24 @@
           { passive: true },
         );
 
+        // Individual regions of the card get their own tilt target on entry,
+        // so hovering the photo, links or header feels responsive too.
+        card
+          .querySelectorAll(".photo, .social, .brand-block, .back__inner, .front__foot")
+          .forEach((part) => {
+            part.addEventListener("pointerenter", (e) => {
+              if (e.pointerType !== "mouse") return;
+              restoreSprings();
+              activation.set(1);
+              const r = part.getBoundingClientRect();
+              setPointer(r.left + r.width / 2, r.top + r.height / 2);
+            });
+          });
+
         const flip = () => {
           flipped = !flipped;
-          target.flip = flipped ? 180 : 0;
+          restoreSprings();
+          flipSpring.set(flipped ? 180 : 0);
           resetPointer();
         };
         card.addEventListener("click", (e) => {
@@ -559,8 +636,8 @@
           e.preventDefault();
           const r = card.getBoundingClientRect();
           setPointer(
-            r.left + (clamp(target.px + dir[0] * 8, 0, 100) / 100) * r.width,
-            r.top + (clamp(target.py + dir[1] * 8, 0, 100) / 100) * r.height,
+            r.left + (clamp(pointerTarget.x * 100 + dir[0] * 8, 0, 100) / 100) * r.width,
+            r.top + (clamp(pointerTarget.y * 100 + dir[1] * 8, 0, 100) / 100) * r.height,
           );
         });
         flipBtn.addEventListener("click", flip);
@@ -605,7 +682,8 @@
           .addEventListener("animationend", () => card.classList.remove("is-shuffling"));
         powerBtn.addEventListener("click", () => {
           polished = !polished;
-          target.scale = polished ? 1.06 : 1;
+          restoreSprings();
+          polishSpring.set(polished ? 1.06 : 1);
           card.classList.toggle("is-powered", polished);
           powerBtn.setAttribute("aria-pressed", String(polished));
           powerBtn.classList.toggle("is-active", polished);
@@ -615,45 +693,43 @@
           if (e.gamma == null || e.beta == null) return;
           const x = clamp((e.gamma + 45) / 90, 0, 1);
           const y = clamp((e.beta - 20 + 45) / 90, 0, 1);
-          Object.assign(target, {
-            px: x * 100,
-            py: y * 100,
-            bgx: 37 + x * 26,
-            bgy: 33 + y * 34,
-            ry: (x - 0.5) * 20,
-            rx: -(y - 0.5) * 16,
-            op: 1,
-            rimx: 100 - x * 100,
-            rimy: 100 - y * 100,
-            photobgx: 100 - x * 100,
-            photobgy: 100 - y * 100,
-          });
+          restoreSprings();
+          pendingPointer = { x, y };
+          activation.set(1);
+          schedulePointerUpdate();
         });
 
+        let lastTick = performance.now();
         const tick = () => {
-          for (const key in target) {
-            const ease =
-              key === "rimx" || key === "rimy" ? 0.07 : key.startsWith("photobg") ? 0.05 : 0.16;
-            current[key] += (target[key] - current[key]) * ease;
+          const now = performance.now();
+          const substeps = clamp(Math.round((now - lastTick) / 16.67), 1, 8);
+          lastTick = now;
+          for (let i = 0; i < substeps; i++) {
+            position.step();
+            activation.step();
+            flipSpring.step();
+            polishSpring.step();
           }
+
+          const p = { x: clamp(position.value.x, 0, 1), y: clamp(position.value.y, 0, 1) };
+          const px = p.x * 100;
+          const py = p.y * 100;
           const s = card.style;
-          s.setProperty("--pointer-x", `${current.px.toFixed(2)}%`);
-          s.setProperty("--pointer-y", `${current.py.toFixed(2)}%`);
-          s.setProperty("--bg-x", `${current.bgx.toFixed(2)}%`);
-          s.setProperty("--bg-y", `${current.bgy.toFixed(2)}%`);
-          s.setProperty("--rx", `${current.rx.toFixed(2)}deg`);
-          s.setProperty("--ry", `${current.ry.toFixed(2)}deg`);
-          s.setProperty("--op", current.op.toFixed(3));
-          s.setProperty("--scale", current.scale.toFixed(3));
-          s.setProperty("--flip", `${current.flip.toFixed(2)}deg`);
-          s.setProperty("--rim-x", `${current.rimx.toFixed(2)}%`);
-          s.setProperty("--rim-y", `${current.rimy.toFixed(2)}%`);
-          s.setProperty("--photo-bg-x", `${current.photobgx.toFixed(2)}%`);
-          s.setProperty("--photo-bg-y", `${current.photobgy.toFixed(2)}%`);
-          s.setProperty(
-            "--pc",
-            Math.min(1, Math.hypot(current.px - 50, current.py - 50) / 50).toFixed(3),
-          );
+          s.setProperty("--pointer-x", `${px.toFixed(2)}%`);
+          s.setProperty("--pointer-y", `${py.toFixed(2)}%`);
+          s.setProperty("--bg-x", `${(37 + p.x * 26).toFixed(2)}%`);
+          s.setProperty("--bg-y", `${(33 + p.y * 34).toFixed(2)}%`);
+          s.setProperty("--rx", `${(-(p.y - 0.5) * 16).toFixed(2)}deg`);
+          s.setProperty("--ry", `${((p.x - 0.5) * 20).toFixed(2)}deg`);
+          const op = clamp(activation.value, 0, 1);
+          s.setProperty("--op", op.toFixed(3));
+          s.setProperty("--scale", (polishSpring.value * (1 + 0.02 * op)).toFixed(3));
+          s.setProperty("--flip", `${flipSpring.value.toFixed(2)}deg`);
+          s.setProperty("--rim-x", `${((1 - p.x) * 100).toFixed(2)}%`);
+          s.setProperty("--rim-y", `${((1 - p.y) * 100).toFixed(2)}%`);
+          s.setProperty("--photo-bg-x", `${((1 - p.x) * 100).toFixed(2)}%`);
+          s.setProperty("--photo-bg-y", `${((1 - p.y) * 100).toFixed(2)}%`);
+          s.setProperty("--pc", Math.min(1, Math.hypot(px - 50, py - 50) / 50).toFixed(3));
           requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
