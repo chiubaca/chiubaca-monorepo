@@ -581,10 +581,10 @@
         z-index: -1;
         pointer-events: none;
         background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.55), transparent 38%, rgba(0, 0, 0, 0.28)),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.32), transparent 45%, rgba(0, 0, 0, 0.4)),
           url("./assets/metal-silver.png") center / cover;
         clip-path: polygon(0 0, 24% 0, 0 17%);
-        opacity: 0.85;
+        opacity: 0.62;
       }
 
       body.is-portrait .stage::before,
@@ -598,9 +598,7 @@
         inset: 0;
         z-index: -1;
         pointer-events: none;
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.45), transparent 38%, rgba(0, 0, 0, 0.32)),
-          url("./assets/metal-silver.png") center / cover;
+        background: url("./assets/metal-silver.png") center / cover;
         clip-path: polygon(100% 100%, 80% 100%, 100% 86%);
         opacity: 0.8;
       }
@@ -753,7 +751,7 @@
             transparent 72%,
             rgba(255, 255, 255, 0.035) 100%
           ),
-          url("./assets/metal-dark.png") center / cover,
+          url("./assets/tex-carbon.jpg") center / cover,
           #16181c;
         border: 0.12cqw solid rgba(255, 255, 255, 0.38);
       }
@@ -841,15 +839,11 @@
 
       .metal-corner {
         position: absolute;
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.4), transparent 45%, rgba(0, 0, 0, 0.3)),
-          url("./assets/metal-silver.png") center / cover;
+        background: url("./assets/tex-corner-tl.jpg") center / cover;
       }
       .metal-wedge {
         position: absolute;
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.32), transparent 42%, rgba(0, 0, 0, 0.28)),
-          url("./assets/metal-silver.png") center / cover;
+        background: url("./assets/metal-silver.png") center / cover;
       }
       .metal-wedge::before {
         content: "";
@@ -928,7 +922,7 @@
       .pass--landscape .red-chip {
         position: absolute;
         left: 3.4cqw;
-        top: 4.2cqw;
+        top: 8.2cqw;
         width: 1.4cqw;
         height: 1.4cqw;
         background: #f12431;
@@ -936,7 +930,7 @@
       .pass--landscape .side-jp {
         position: absolute;
         left: 2.2cqw;
-        top: 9.6cqw;
+        top: 11.2cqw;
         writing-mode: vertical-rl;
         font-family: "Noto Sans JP", sans-serif;
         font-size: 2.1cqw;
@@ -1212,9 +1206,7 @@
         transform: translateX(-50%);
         width: 21cqw;
         height: 10cqw;
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.45), transparent 40%, rgba(0, 0, 0, 0.3)),
-          url("./assets/metal-silver.png") center / cover;
+        background: url("./assets/tex-top-clip.jpg") center / cover;
         border-radius: 0.6cqw;
         box-shadow:
           0 0.6cqw 2.2cqw rgba(0, 0, 0, 0.8),
@@ -1223,15 +1215,7 @@
           inset 0 0 0 0.15cqw rgba(255, 255, 255, 0.4);
       }
       .pass--portrait .top-clip span {
-        position: absolute;
-        left: 18%;
-        right: 18%;
-        bottom: 1.1cqw;
-        height: 0.45cqw;
-        background: #e2001a;
-        box-shadow:
-          0 0 3cqw #e2001a,
-          0 0 1.2cqw #ff5b68;
+        display: none;
       }
       .pass--portrait .logo-mark {
         left: 11cqw;
@@ -1506,9 +1490,7 @@
         width: 50cqw;
         height: 24cqw;
         clip-path: polygon(22% 100%, 100% 10%, 100% 100%);
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent 42%, rgba(0, 0, 0, 0.3)),
-          url("./assets/metal-silver.png") center / cover;
+        background: url("./assets/metal-silver.png") center / cover;
       }
       .pass--portrait .wedge-slash--p {
         right: 8cqw;
