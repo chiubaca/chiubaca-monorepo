@@ -955,6 +955,15 @@
         position: absolute;
         overflow: hidden;
         background: #000;
+        clip-path: polygon(
+          3.5cqw 0,
+          100% 0,
+          100% calc(100% - 3.5cqw),
+          calc(100% - 3.5cqw) 100%,
+          0 100%,
+          0 3.5cqw
+        );
+        filter: drop-shadow(0 0 0.3cqw rgba(0, 229, 255, 0.35));
       }
       .pass .photo img {
         width: 100%;
@@ -1582,13 +1591,7 @@
         height: 6cqw;
       }
       .pass--portrait .qr {
-        position: absolute;
-        left: 35cqw;
-        top: 131.5cqw;
-        width: 8.5cqw;
-        height: 8.5cqw;
-        background: #fff;
-        padding: 0.4cqw;
+        display: none;
       }
       .pass--portrait .qr svg {
         width: 100%;
