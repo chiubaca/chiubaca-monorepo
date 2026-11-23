@@ -43,7 +43,7 @@
                     <div class="side-line"></div>
 
                     <div class="photo">
-                      <img src="./assets/portrait-landscape.jpg" alt="Alex Chiu" />
+                      <img src="./assets/portrait-new.jpg" alt="Alex Chiu" />
                       <span class="photo__shade"></span>
                       <span class="photo__accent"></span>
                     </div>
@@ -149,7 +149,7 @@
                     <div class="p-code-rule"></div>
 
                     <div class="photo photo--p">
-                      <img src="./assets/portrait-vertical.jpg" alt="Alex Chiu" />
+                      <img src="./assets/portrait-new.jpg" alt="Alex Chiu" />
                       <span class="photo__shade"></span>
                       <span class="photo__accent"></span>
                     </div>
@@ -718,34 +718,12 @@
 
       .face--front {
         container-type: inline-size;
-        background:
-          radial-gradient(120% 100% at 50% 0%, rgba(255, 255, 255, 0.06), transparent 60%),
-          linear-gradient(
-            128deg,
-            rgba(255, 255, 255, 0.055) 0%,
-            transparent 26%,
-            transparent 72%,
-            rgba(255, 255, 255, 0.035) 100%
-          ),
-          url("./assets/tex-carbon.jpg") center / cover,
-          #16181c;
-        border: 0.12cqw solid rgba(255, 255, 255, 0.38);
+        background: #000;
+        border: 0.12cqw solid rgba(255, 255, 255, 0.28);
       }
 
       .face--front::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        pointer-events: none;
-        background:
-          repeating-linear-gradient(
-            115deg,
-            rgba(255, 255, 255, 0.035) 0 1px,
-            rgba(0, 0, 0, 0.05) 1px 2px,
-            transparent 2px 5px
-          ),
-          repeating-linear-gradient(25deg, rgba(255, 255, 255, 0.014) 0 1px, transparent 1px 4px);
+        display: none;
       }
 
       .pass {
@@ -771,13 +749,13 @@
       .pass .photo {
         position: absolute;
         overflow: hidden;
-        background: linear-gradient(135deg, #d5d7da, #8b8f95);
+        background: #000;
       }
       .pass .photo img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center;
+        object-position: center center;
         display: block;
       }
       .photo__shade {
@@ -791,14 +769,7 @@
         background: linear-gradient(135deg, #ff2434, #b4000c);
       }
       .pass--portrait .photo--p .photo__accent {
-        display: block;
-        width: 6cqw;
-        height: 1.1cqw;
-        right: -0.4cqw;
-        bottom: 1.6cqw;
-        transform: rotate(-45deg);
-        transform-origin: center;
-        box-shadow: 0 0 0.6cqw rgba(226, 0, 26, 0.45);
+        display: none;
       }
 
       .logo-mark {
@@ -922,25 +893,6 @@
         top: 8.8cqw;
         width: 26.2cqw;
         height: 37.2cqw;
-        padding: 0.1cqw;
-        clip-path: polygon(
-          0 0,
-          calc(100% - 4cqw) 0,
-          100% 4cqw,
-          100% calc(100% - 3cqw),
-          calc(100% - 3cqw) 100%,
-          0 100%
-        );
-      }
-      .pass--landscape .photo img {
-        clip-path: polygon(
-          0 0,
-          calc(100% - 4cqw) 0,
-          100% 4cqw,
-          100% calc(100% - 3cqw),
-          calc(100% - 3cqw) 100%,
-          0 100%
-        );
       }
       .pass--landscape .photo__accent {
         width: 3.2cqw;
@@ -1260,38 +1212,9 @@
         top: 30cqw;
         width: 38cqw;
         height: 46cqw;
-        padding: 0.12cqw;
-        clip-path: polygon(
-          4cqw 0,
-          calc(100% - 5cqw) 0,
-          100% 5cqw,
-          100% calc(100% - 4cqw),
-          calc(100% - 4cqw) 100%,
-          4cqw 100%,
-          0 calc(100% - 4cqw),
-          0 4cqw
-        );
       }
       .pass--portrait .photo--p img {
-        clip-path: polygon(
-          4cqw 0,
-          calc(100% - 5cqw) 0,
-          100% 5cqw,
-          100% calc(100% - 4cqw),
-          calc(100% - 4cqw) 100%,
-          4cqw 100%,
-          0 calc(100% - 4cqw),
-          0 4cqw
-        );
-        object-position: center 22%;
-        transform: scale(1.12);
-        transform-origin: 50% 26%;
-      }
-      .pass--portrait .photo--p .photo__accent {
-        width: 4.2cqw;
-        height: 0.9cqw;
-        transform: rotate(-45deg) translate(1cqw, 1.6cqw);
-        transform-origin: bottom right;
+        object-position: center center;
       }
 
       .pass--portrait .p-mid-line {
