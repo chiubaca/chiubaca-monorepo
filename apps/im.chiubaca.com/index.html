@@ -18,6 +18,46 @@
       content="Hey, I'm Alex Chiu, a full-stack web developer. Take my card..."
     />
     <title>Alex Chiu | ᴛᴀᴋᴇ ᴍʏ ᴄᴀʀᴅ...</title>
+    <style>
+      /* Critical paint guard: keep the card hidden until fonts and styles are
+         ready so there is no flash of unstyled content on first load. */
+      html {
+        background: #0b0f1a;
+      }
+      .stage {
+        opacity: 0;
+      }
+      html.is-ready .stage {
+        opacity: 1;
+        transition: opacity 0.9s ease;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html.is-ready .stage {
+          transition: none;
+        }
+      }
+    </style>
+    <script>
+      (function () {
+        var reveal = function () {
+          document.documentElement.classList.add("is-ready");
+        };
+        var domReady = new Promise(function (resolve) {
+          if (document.readyState !== "loading") resolve();
+          else document.addEventListener("DOMContentLoaded", resolve);
+        });
+        var fontsReady =
+          document.fonts && document.fonts.ready
+            ? Promise.race([
+                document.fonts.ready,
+                new Promise(function (resolve) {
+                  setTimeout(resolve, 1500);
+                }),
+              ])
+            : Promise.resolve();
+        Promise.all([domReady, fontsReady]).then(reveal);
+      })();
+    </script>
   </head>
 
   <body>
