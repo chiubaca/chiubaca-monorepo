@@ -480,8 +480,8 @@
             const part = tiltPart();
             if (!part) return;
             const rect = part.getBoundingClientRect();
-            const x = rect.left + (0.5 + (filteredGamma / limit.gamma) * gyroRange) * rect.width;
-            const y = rect.top + (0.5 + (filteredBeta / limit.beta) * gyroRange) * rect.height;
+            const x = rect.left + (0.5 - (filteredGamma / limit.gamma) * gyroRange) * rect.width;
+            const y = rect.top + (0.5 - (filteredBeta / limit.beta) * gyroRange) * rect.height;
 
             dispatchGyroPointer("pointerenter", x, y);
             dispatchGyroPointer("pointermove", x, y);
