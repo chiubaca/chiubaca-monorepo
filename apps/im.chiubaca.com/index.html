@@ -351,6 +351,21 @@
             </button>
           </div>
 
+          <p class="modal__label">TILT EXAGGERATION</p>
+          <div class="tilt-control">
+            <span class="tilt-control__value" id="tiltValue">1.0×</span>
+            <input
+              id="tiltRange"
+              class="tilt-range"
+              type="range"
+              min="0"
+              max="2"
+              step="0.1"
+              value="1"
+              aria-label="Tilt exaggeration"
+            />
+          </div>
+
           <p class="modal__label">ACTIONS</p>
           <div class="modal__actions">
             <button class="action" type="button" id="shuffleBtn">
@@ -378,6 +393,9 @@
         const swatches = [...document.querySelectorAll(".swatch")];
         const shuffleBtn = document.getElementById("shuffleBtn");
         const powerBtn = document.getElementById("powerBtn");
+        const tiltRange = document.getElementById("tiltRange");
+        const tiltValue = document.getElementById("tiltValue");
+        let tiltFactor = Number(tiltRange.value);
         const burstLayer = card.querySelector(".burst");
         const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
 
@@ -608,6 +626,11 @@
         };
         swatches.forEach((s) => s.addEventListener("click", () => setVariant(s.dataset.variant)));
 
+        tiltRange.addEventListener("input", () => {
+          tiltFactor = Number(tiltRange.value);
+          tiltValue.textContent = `${tiltFactor.toFixed(1)}×`;
+        });
+
         const burst = () => {
           for (let i = 0; i < 14; i++) {
             const sp = document.createElement("span");
@@ -698,8 +721,8 @@
           s.setProperty("--pointer-y", `${py.toFixed(2)}%`);
           s.setProperty("--bg-x", `${(37 + p.x * 26).toFixed(2)}%`);
           s.setProperty("--bg-y", `${(33 + p.y * 34).toFixed(2)}%`);
-          s.setProperty("--rx", `${(-(p.y - 0.5) * 10).toFixed(2)}deg`);
-          s.setProperty("--ry", `${((p.x - 0.5) * 14).toFixed(2)}deg`);
+          s.setProperty("--rx", `${(-(p.y - 0.5) * 10 * tiltFactor).toFixed(2)}deg`);
+          s.setProperty("--ry", `${((p.x - 0.5) * 14 * tiltFactor).toFixed(2)}deg`);
           const op = clamp(activation.value, 0, 1);
           s.setProperty("--op", op.toFixed(3));
           s.setProperty("--scale", (polishSpring.value * (1 + 0.02 * op)).toFixed(3));
@@ -1890,6 +1913,47 @@
         font-size: 8px;
         letter-spacing: 0.26em;
         color: #8d84a8;
+      }
+      .tilt-control {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .tilt-control__value {
+        min-width: 3ch;
+        font-size: 10px;
+        font-weight: 700;
+        color: #e8c46a;
+        text-align: right;
+      }
+      .tilt-range {
+        flex: 1;
+        height: 4px;
+        margin: 0;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #e8c46a, #6c7a89);
+        appearance: none;
+        -webkit-appearance: none;
+        outline: none;
+        cursor: pointer;
+      }
+      .tilt-range::-webkit-slider-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #f6f7f8;
+        border: 2px solid #e8c46a;
+        box-shadow: 0 0 8px rgba(232, 196, 106, 0.6);
+        appearance: none;
+        -webkit-appearance: none;
+      }
+      .tilt-range::-moz-range-thumb {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #f6f7f8;
+        border: 2px solid #e8c46a;
+        box-shadow: 0 0 8px rgba(232, 196, 106, 0.6);
       }
       .swatches,
       .modal__actions {
