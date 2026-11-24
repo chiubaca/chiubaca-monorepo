@@ -722,8 +722,8 @@
           s.setProperty("--bg-x", `${(37 + p.x * 26).toFixed(2)}%`);
           s.setProperty("--bg-y", `${(33 + p.y * 34).toFixed(2)}%`);
           // The hovered corner lifts toward the viewer; the shadow falls away from it.
-          s.setProperty("--rx", `${(-(p.y - 0.5) * 20 * tiltFactor).toFixed(2)}deg`);
-          s.setProperty("--ry", `${((p.x - 0.5) * 20 * tiltFactor).toFixed(2)}deg`);
+          s.setProperty("--rx", `${((p.y - 0.5) * 20 * tiltFactor).toFixed(2)}deg`);
+          s.setProperty("--ry", `${((0.5 - p.x) * 20 * tiltFactor).toFixed(2)}deg`);
           s.setProperty("--shadow-x", (1 - p.x * 2).toFixed(3));
           s.setProperty("--shadow-y", (1 - p.y * 2).toFixed(3));
           const op = clamp(activation.value, 0, 1);
