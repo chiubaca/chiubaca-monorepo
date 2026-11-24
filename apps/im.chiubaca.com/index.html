@@ -721,8 +721,11 @@
           s.setProperty("--pointer-y", `${py.toFixed(2)}%`);
           s.setProperty("--bg-x", `${(37 + p.x * 26).toFixed(2)}%`);
           s.setProperty("--bg-y", `${(33 + p.y * 34).toFixed(2)}%`);
-          s.setProperty("--rx", `${(-(p.y - 0.5) * 10 * tiltFactor).toFixed(2)}deg`);
-          s.setProperty("--ry", `${((p.x - 0.5) * 14 * tiltFactor).toFixed(2)}deg`);
+          // hover-tilt convention: the hovered corner lifts toward the viewer.
+          s.setProperty("--rx", `${((p.y - 0.5) * 20 * tiltFactor).toFixed(2)}deg`);
+          s.setProperty("--ry", `${((0.5 - p.x) * 20 * tiltFactor).toFixed(2)}deg`);
+          s.setProperty("--shadow-x", (p.x * 2 - 1).toFixed(3));
+          s.setProperty("--shadow-y", (p.y * 2 - 1).toFixed(3));
           const op = clamp(activation.value, 0, 1);
           s.setProperty("--op", op.toFixed(3));
           s.setProperty("--scale", (polishSpring.value * (1 + 0.02 * op)).toFixed(3));
@@ -819,6 +822,8 @@
         --op: 0;
         --scale: 1;
         --pc: 0;
+        --shadow-x: 0;
+        --shadow-y: 0;
         --rim-x: 50%;
         --rim-y: 50%;
         --photo-bg-x: 50%;
@@ -904,7 +909,7 @@
         }
       }
       .card__rotator {
-        transform: rotateY(var(--ry)) rotateX(var(--rx));
+        transform: rotateY(var(--ry)) rotateX(var(--rx)) translate3d(0, 0, 0.01px);
         will-change: transform;
       }
 
@@ -916,12 +921,12 @@
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
         box-shadow:
-          0 2cqw 4cqw -1cqw rgba(0, 0, 0, 0.95),
-          0 0.5cqw 1cqw rgba(0, 0, 0, 0.7),
+          calc(var(--shadow-x) * 1.4cqw) calc(var(--shadow-y) * 0.7cqw + 1.2cqw) 4cqw -1cqw
+            rgba(0, 0, 0, 0.95),
+          calc(var(--shadow-x) * 0.5cqw) calc(var(--shadow-y) * 0.3cqw + 0.4cqw) 1cqw
+            rgba(0, 0, 0, 0.7),
           0 0 0 0.12cqw rgba(255, 255, 255, 0.12);
-        transition:
-          box-shadow 0.35s ease,
-          opacity 0.45s ease;
+        transition: opacity 0.45s ease;
       }
 
       .face::after {
