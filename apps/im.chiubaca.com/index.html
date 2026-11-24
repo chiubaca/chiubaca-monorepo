@@ -432,6 +432,7 @@
           const limit = { gamma: 16, beta: 18 };
           let baseBeta = null;
           let baseGamma = null;
+          let orientationSource = null;
           let listening = false;
           let pointerOverrideUntil = 0;
 
@@ -452,6 +453,8 @@
           const handleOrientation = (event) => {
             if (event.beta == null || event.gamma == null) return;
             if (performance.now() < pointerOverrideUntil) return;
+            if (orientationSource && event.type !== orientationSource) return;
+            orientationSource = event.type;
             if (baseBeta === null || baseGamma === null) {
               baseBeta = event.beta;
               baseGamma = event.gamma;
@@ -472,6 +475,7 @@
             if (listening) return;
             listening = true;
             window.addEventListener("deviceorientation", handleOrientation, true);
+            window.addEventListener("deviceorientationabsolute", handleOrientation, true);
           };
           const requestGyroPermission = () => {
             if (listening || typeof DeviceOrientationEvent === "undefined") return;
@@ -497,11 +501,13 @@
           window.addEventListener("orientationchange", () => {
             baseBeta = null;
             baseGamma = null;
+            orientationSource = null;
           });
           document.addEventListener("visibilitychange", () => {
             if (!document.hidden) {
               baseBeta = null;
               baseGamma = null;
+              orientationSource = null;
             }
           });
 
