@@ -80,7 +80,7 @@
             data-layout="landscape"
             tabindex="0"
             role="button"
-            aria-label="Alex Chiu's ID card. Move your pointer for foil."
+            aria-label="Alex Chiu's ID card. Move your pointer or tilt your device for foil."
           >
             <div class="card__float">
               <div class="card__spin">
@@ -419,6 +419,104 @@
         updateLayout();
         window.addEventListener("resize", updateLayout);
         window.addEventListener("orientationchange", updateLayout);
+
+        // Feed device orientation into HoverTilt's own pointer/spring pipeline.
+        // The component has no public gyro API, so its exposed tilt part receives
+        // synthetic pointer coordinates derived from beta/gamma.
+        if (
+          "DeviceOrientationEvent" in window ||
+          "ondeviceorientation" in window ||
+          window.matchMedia("(pointer: coarse)").matches
+        ) {
+          const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+          const limit = { gamma: 16, beta: 18 };
+          let baseBeta = null;
+          let baseGamma = null;
+          let listening = false;
+          let pointerOverrideUntil = 0;
+
+          const tiltPart = () => hoverTilt.shadowRoot?.querySelector('[part="tilt"]');
+          const dispatchGyroPointer = (type, x, y) => {
+            const part = tiltPart();
+            if (!part) return;
+            const event = new PointerEvent(type, {
+              bubbles: type !== "pointerenter",
+              composed: true,
+              pointerType: "mouse",
+              isPrimary: true,
+              clientX: x,
+              clientY: y,
+            });
+            part.dispatchEvent(event);
+          };
+          const handleOrientation = (event) => {
+            if (event.beta == null || event.gamma == null) return;
+            if (performance.now() < pointerOverrideUntil) return;
+            if (baseBeta === null || baseGamma === null) {
+              baseBeta = event.beta;
+              baseGamma = event.gamma;
+            }
+
+            const gamma = clamp(event.gamma - baseGamma, -limit.gamma, limit.gamma);
+            const beta = clamp(event.beta - baseBeta, -limit.beta, limit.beta);
+            const part = tiltPart();
+            if (!part) return;
+            const rect = part.getBoundingClientRect();
+            const x = rect.left + ((gamma + limit.gamma) / (limit.gamma * 2)) * rect.width;
+            const y = rect.top + ((beta + limit.beta) / (limit.beta * 2)) * rect.height;
+
+            dispatchGyroPointer("pointerenter", x, y);
+            dispatchGyroPointer("pointermove", x, y);
+          };
+          const startGyro = () => {
+            if (listening) return;
+            listening = true;
+            window.addEventListener("deviceorientation", handleOrientation, true);
+          };
+          const requestGyroPermission = () => {
+            if (listening || typeof DeviceOrientationEvent === "undefined") return;
+            if (typeof DeviceOrientationEvent.requestPermission !== "function") {
+              startGyro();
+              return;
+            }
+            DeviceOrientationEvent.requestPermission()
+              .then((state) => {
+                if (state === "granted") startGyro();
+              })
+              .catch(() => {});
+          };
+          const overrideGyro = (event) => {
+            if (!event.isTrusted) return;
+            pointerOverrideUntil = performance.now() + 1100;
+            baseBeta = null;
+            baseGamma = null;
+          };
+
+          hoverTilt.addEventListener("pointerdown", overrideGyro, true);
+          hoverTilt.addEventListener("pointermove", overrideGyro, { capture: true, passive: true });
+          window.addEventListener("orientationchange", () => {
+            baseBeta = null;
+            baseGamma = null;
+          });
+          document.addEventListener("visibilitychange", () => {
+            if (!document.hidden) {
+              baseBeta = null;
+              baseGamma = null;
+            }
+          });
+
+          if (
+            typeof DeviceOrientationEvent !== "undefined" &&
+            typeof DeviceOrientationEvent.requestPermission === "function"
+          ) {
+            window.addEventListener("pointerdown", requestGyroPermission, {
+              once: true,
+              capture: true,
+            });
+          } else {
+            startGyro();
+          }
+        }
 
         const openModal = () => {
           modal.hidden = false;
