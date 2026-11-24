@@ -63,18 +63,27 @@
   <body>
     <main class="stage">
       <div class="scene">
-        <div
-          class="card"
-          id="card"
-          data-variant="rose"
-          data-layout="landscape"
-          tabindex="0"
-          role="button"
-          aria-label="Alex Chiu's ID card. Move your pointer for foil."
+        <hover-tilt
+          id="hoverTilt"
+          class="card-tilt"
+          tilt-factor="1.5"
+          scale-factor="1.02"
+          spring-options='{"stiffness":0.066,"damping":0.25,"precision":0.01}'
+          tilt-spring-options='{"stiffness":0.066,"damping":0.25,"precision":0.01}'
+          exit-delay="500"
+          glare-intensity="0"
         >
-          <div class="card__float">
-            <div class="card__spin">
-              <div class="card__rotator">
+          <div
+            class="card"
+            id="card"
+            data-variant="rose"
+            data-layout="landscape"
+            tabindex="0"
+            role="button"
+            aria-label="Alex Chiu's ID card. Move your pointer for foil."
+          >
+            <div class="card__float">
+              <div class="card__spin">
                 <section class="face face--front" aria-label="Card front">
                   <div class="pass pass--landscape">
                     <div class="metal-corner metal-corner--tl"></div>
@@ -301,9 +310,9 @@
                 </section>
               </div>
             </div>
+            <div class="burst" aria-hidden="true"></div>
           </div>
-          <div class="burst" aria-hidden="true"></div>
-        </div>
+        </hover-tilt>
       </div>
 
       <button
@@ -353,15 +362,15 @@
 
           <p class="modal__label">TILT EXAGGERATION</p>
           <div class="tilt-control">
-            <span class="tilt-control__value" id="tiltValue">1.0×</span>
+            <span class="tilt-control__value" id="tiltValue">1.5×</span>
             <input
               id="tiltRange"
               class="tilt-range"
               type="range"
               min="0"
-              max="2"
+              max="1.5"
               step="0.1"
-              value="1"
+              value="1.5"
               aria-label="Tilt exaggeration"
             />
           </div>
@@ -384,9 +393,12 @@
       </div>
     </main>
 
-    <script>
+    <script type="module">
+      import "hover-tilt/web-component";
+
       (() => {
         const card = document.getElementById("card");
+        const hoverTilt = document.getElementById("hoverTilt");
         const modal = document.getElementById("studioModal");
         const openBtn = document.getElementById("openModal");
         const closeBtn = document.getElementById("closeModal");
@@ -395,9 +407,8 @@
         const powerBtn = document.getElementById("powerBtn");
         const tiltRange = document.getElementById("tiltRange");
         const tiltValue = document.getElementById("tiltValue");
-        let tiltFactor = Number(tiltRange.value);
         const burstLayer = card.querySelector(".burst");
-        const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+        let polished = false;
 
         const updateLayout = () => {
           const small = window.matchMedia("(max-width: 900px)").matches;
@@ -426,196 +437,6 @@
           if (e.key === "Escape" && !modal.hidden) closeModal();
         });
 
-        // Spring physics adapted from simeydotme/hover-tilt: separate springs for
-        // pointer position and activation, with softer settings on exit so the
-        // card eases back instead of snapping.
-        class Spring {
-          constructor(value, stiffness = 0.15, damping = 0.6, precision = 0.001) {
-            this.value = typeof value === "object" ? { ...value } : value;
-            this.target = typeof value === "object" ? { ...value } : value;
-            this.velocity =
-              typeof value === "object"
-                ? Object.fromEntries(Object.keys(value).map((k) => [k, 0]))
-                : 0;
-            this.stiffness = stiffness;
-            this.damping = damping;
-            this.precision = precision;
-          }
-          set(next) {
-            if (typeof next === "object") Object.assign(this.target, next);
-            else this.target = next;
-          }
-          configure(stiffness, damping) {
-            this.stiffness = stiffness;
-            this.damping = damping;
-          }
-          step() {
-            if (typeof this.value === "object") {
-              for (const key in this.value) {
-                const force = (this.target[key] - this.value[key]) * this.stiffness;
-                this.velocity[key] = (this.velocity[key] + force) * this.damping;
-                this.value[key] += this.velocity[key];
-                if (
-                  Math.abs(this.target[key] - this.value[key]) < this.precision &&
-                  Math.abs(this.velocity[key]) < this.precision
-                ) {
-                  this.value[key] = this.target[key];
-                  this.velocity[key] = 0;
-                }
-              }
-            } else {
-              const force = (this.target - this.value) * this.stiffness;
-              this.velocity = (this.velocity + force) * this.damping;
-              this.value += this.velocity;
-              if (
-                Math.abs(this.target - this.value) < this.precision &&
-                Math.abs(this.velocity) < this.precision
-              ) {
-                this.value = this.target;
-                this.velocity = 0;
-              }
-            }
-          }
-        }
-
-        const TILT = { stiffness: 0.15, damping: 0.6 };
-        const EXIT = { stiffness: TILT.stiffness * 0.2, damping: TILT.damping * 0.5 };
-        const position = new Spring({ x: 0.5, y: 0.5 }, TILT.stiffness, TILT.damping);
-        const activation = new Spring(0, TILT.stiffness, TILT.damping);
-        const polishSpring = new Spring(1, TILT.stiffness, TILT.damping);
-        const pointerTarget = { x: 0.5, y: 0.5 };
-        let polished = false;
-
-        const restoreSprings = () => {
-          position.configure(TILT.stiffness, TILT.damping);
-          activation.configure(TILT.stiffness, TILT.damping);
-        };
-        const softenSprings = () => {
-          position.configure(EXIT.stiffness, EXIT.damping);
-          activation.configure(EXIT.stiffness, EXIT.damping);
-        };
-
-        // Pointer updates are batched to one per frame, like the library's
-        // pendingPointerMove / requestAnimationFrame scheduling.
-        let pendingPointer = null;
-        let pointerFrame = null;
-        const schedulePointerUpdate = () => {
-          if (pointerFrame !== null || !pendingPointer) return;
-          pointerFrame = requestAnimationFrame(() => {
-            pointerFrame = null;
-            if (!pendingPointer) return;
-            pointerTarget.x = pendingPointer.x;
-            pointerTarget.y = pendingPointer.y;
-            position.set(pointerTarget);
-            pendingPointer = null;
-          });
-        };
-
-        let orientationActive = false;
-        let orientationRequested = false;
-        let baseBeta = null;
-        let baseGamma = null;
-        let lastOrientationAt = 0;
-
-        const setPointer = (clientX, clientY) => {
-          if (orientationActive) return;
-          const r = card.getBoundingClientRect();
-          pendingPointer = {
-            x: clamp((clientX - r.left) / r.width, 0, 1),
-            y: clamp((clientY - r.top) / r.height, 0, 1),
-          };
-          restoreSprings();
-          activation.set(1);
-          schedulePointerUpdate();
-        };
-        const resetPointer = () => {
-          if (orientationActive) return;
-          if (pointerFrame !== null) {
-            cancelAnimationFrame(pointerFrame);
-            pointerFrame = null;
-          }
-          pendingPointer = null;
-          softenSprings();
-          pointerTarget.x = 0.5;
-          pointerTarget.y = 0.5;
-          position.set(pointerTarget);
-          activation.set(0);
-        };
-        // Touch: let a finger drag drive both the face foil and the rim holo,
-        // then hold the highlight briefly after lift-off instead of snapping off.
-        let resetTimer;
-        const resetLater = (delay) => {
-          clearTimeout(resetTimer);
-          resetTimer = setTimeout(resetPointer, delay);
-        };
-        let touchStart = null;
-
-        card.addEventListener("pointermove", (e) => setPointer(e.clientX, e.clientY));
-        card.addEventListener("pointerdown", (e) => {
-          clearTimeout(resetTimer);
-          if (!orientationActive) {
-            restoreSprings();
-            activation.set(1);
-          }
-          // iOS requires a user gesture before granting motion access.
-          if (!orientationRequested && typeof DeviceOrientationEvent !== "undefined") {
-            orientationRequested = true;
-            if (typeof DeviceOrientationEvent.requestPermission === "function") {
-              DeviceOrientationEvent.requestPermission()
-                .then((state) => {
-                  if (state === "granted")
-                    window.addEventListener("deviceorientation", handleOrientation);
-                })
-                .catch(() => {});
-            }
-          }
-          if (e.pointerType !== "mouse") touchStart = { x: e.clientX, y: e.clientY };
-        });
-        card.addEventListener("pointerup", (e) => {
-          if (e.pointerType !== "mouse") resetLater(1100);
-        });
-        card.addEventListener("pointercancel", () => resetLater(400));
-        card.addEventListener("pointerleave", (e) => {
-          if (e.pointerType === "mouse") resetLater(200);
-          else resetLater(1100);
-        });
-        card.addEventListener(
-          "touchmove",
-          (e) => {
-            if (!e.touches.length) return;
-            setPointer(e.touches[0].clientX, e.touches[0].clientY);
-          },
-          { passive: true },
-        );
-
-        // Individual regions of the card get their own tilt target on entry,
-        // so hovering the photo, links or header feels responsive too.
-        card.querySelectorAll(".photo, .social, .brand-block, .front__foot").forEach((part) => {
-          part.addEventListener("pointerenter", (e) => {
-            if (e.pointerType !== "mouse") return;
-            restoreSprings();
-            activation.set(1);
-            const r = part.getBoundingClientRect();
-            setPointer(r.left + r.width / 2, r.top + r.height / 2);
-          });
-        });
-
-        card.addEventListener("keydown", (e) => {
-          const dir = {
-            ArrowLeft: [-1, 0],
-            ArrowRight: [1, 0],
-            ArrowUp: [0, -1],
-            ArrowDown: [0, 1],
-          }[e.key];
-          if (!dir) return;
-          e.preventDefault();
-          const r = card.getBoundingClientRect();
-          setPointer(
-            r.left + (clamp(pointerTarget.x * 100 + dir[0] * 8, 0, 100) / 100) * r.width,
-            r.top + (clamp(pointerTarget.y * 100 + dir[1] * 8, 0, 100) / 100) * r.height,
-          );
-        });
-
         const setVariant = (v) => {
           card.dataset.variant = v;
           swatches.forEach((s) => {
@@ -627,8 +448,9 @@
         swatches.forEach((s) => s.addEventListener("click", () => setVariant(s.dataset.variant)));
 
         tiltRange.addEventListener("input", () => {
-          tiltFactor = Number(tiltRange.value);
-          tiltValue.textContent = `${tiltFactor.toFixed(1)}×`;
+          const value = Number(tiltRange.value);
+          tiltValue.textContent = `${value.toFixed(1)}×`;
+          hoverTilt.setAttribute("tilt-factor", value.toFixed(1));
         });
 
         const burst = () => {
@@ -661,82 +483,12 @@
           .addEventListener("animationend", () => card.classList.remove("is-shuffling"));
         powerBtn.addEventListener("click", () => {
           polished = !polished;
-          restoreSprings();
-          polishSpring.set(polished ? 1.06 : 1);
+          hoverTilt.setAttribute("scale-factor", polished ? "1.08" : "1.02");
           card.classList.toggle("is-powered", polished);
           powerBtn.setAttribute("aria-pressed", String(polished));
           powerBtn.classList.toggle("is-active", polished);
           burst();
         });
-        // Accelerometer / gyroscope: tilt relative to the position the device
-        // was held in when the first reading arrived, and hold the shimmer on.
-        function handleOrientation(e) {
-          if (e.gamma == null || e.beta == null) return;
-          if (baseGamma === null) {
-            baseGamma = e.gamma;
-            baseBeta = e.beta;
-          }
-          orientationActive = true;
-          lastOrientationAt = performance.now();
-          const dx = clamp(e.gamma - baseGamma, -25, 25) / 25;
-          const dy = clamp(e.beta - baseBeta, -25, 25) / 25;
-          if (pointerFrame !== null) {
-            cancelAnimationFrame(pointerFrame);
-            pointerFrame = null;
-          }
-          pendingPointer = null;
-          restoreSprings();
-          pointerTarget.x = clamp(0.5 + dx * 0.5, 0, 1);
-          pointerTarget.y = clamp(0.5 + dy * 0.5, 0, 1);
-          position.set(pointerTarget);
-          activation.set(1);
-        }
-
-        window.addEventListener("deviceorientation", handleOrientation);
-        // If motion stops, let the pointer take over again.
-        setInterval(() => {
-          if (orientationActive && performance.now() - lastOrientationAt > 700) {
-            orientationActive = false;
-            baseGamma = null;
-            baseBeta = null;
-          }
-        }, 500);
-
-        let lastTick = performance.now();
-        const tick = () => {
-          const now = performance.now();
-          const substeps = clamp(Math.round((now - lastTick) / 16.67), 1, 8);
-          lastTick = now;
-          for (let i = 0; i < substeps; i++) {
-            position.step();
-            activation.step();
-            polishSpring.step();
-          }
-
-          const p = { x: clamp(position.value.x, 0, 1), y: clamp(position.value.y, 0, 1) };
-          const px = p.x * 100;
-          const py = p.y * 100;
-          const s = card.style;
-          s.setProperty("--pointer-x", `${px.toFixed(2)}%`);
-          s.setProperty("--pointer-y", `${py.toFixed(2)}%`);
-          s.setProperty("--bg-x", `${(37 + p.x * 26).toFixed(2)}%`);
-          s.setProperty("--bg-y", `${(33 + p.y * 34).toFixed(2)}%`);
-          // The hovered corner lifts toward the viewer; the shadow falls away from it.
-          s.setProperty("--rx", `${((p.y - 0.5) * 20 * tiltFactor).toFixed(2)}deg`);
-          s.setProperty("--ry", `${((0.5 - p.x) * 20 * tiltFactor).toFixed(2)}deg`);
-          s.setProperty("--shadow-x", (1 - p.x * 2).toFixed(3));
-          s.setProperty("--shadow-y", (1 - p.y * 2).toFixed(3));
-          const op = clamp(activation.value, 0, 1);
-          s.setProperty("--op", op.toFixed(3));
-          s.setProperty("--scale", (polishSpring.value * (1 + 0.02 * op)).toFixed(3));
-          s.setProperty("--rim-x", `${((1 - p.x) * 100).toFixed(2)}%`);
-          s.setProperty("--rim-y", `${((1 - p.y) * 100).toFixed(2)}%`);
-          s.setProperty("--photo-bg-x", `${((1 - p.x) * 100).toFixed(2)}%`);
-          s.setProperty("--photo-bg-y", `${((1 - p.y) * 100).toFixed(2)}%`);
-          s.setProperty("--pc", Math.min(1, Math.hypot(px - 50, py - 50) / 50).toFixed(3));
-          requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
       })();
     </script>
 
@@ -808,26 +560,35 @@
       }
 
       .scene {
-        perspective: 1400px;
-        perspective-origin: 50% 45%;
+        position: relative;
+      }
+
+      .card-tilt {
+        display: block;
+        width: min(97vw, 1560px, calc(96dvh * 2));
+        aspect-ratio: 2 / 1;
+      }
+      body.is-portrait .card-tilt {
+        width: min(88vw, 430px, calc(78dvh * 0.667));
+        aspect-ratio: 1024 / 1536;
+      }
+      .card-tilt::part(tilt)::before {
+        display: none;
       }
 
       .card {
-        --pointer-x: 50%;
-        --pointer-y: 50%;
-        --bg-x: 50%;
-        --bg-y: 50%;
-        --rx: 0deg;
-        --ry: 0deg;
-        --op: 0;
-        --scale: 1;
-        --pc: 0;
-        --shadow-x: 0;
-        --shadow-y: 0;
-        --rim-x: 50%;
-        --rim-y: 50%;
-        --photo-bg-x: 50%;
-        --photo-bg-y: 50%;
+        --pointer-x: calc(var(--hover-tilt-x, 0.5) * 100%);
+        --pointer-y: calc(var(--hover-tilt-y, 0.5) * 100%);
+        --bg-x: calc(37% + var(--hover-tilt-x, 0.5) * 26%);
+        --bg-y: calc(33% + var(--hover-tilt-y, 0.5) * 34%);
+        --op: var(--hover-tilt-opacity, 0);
+        --pc: var(--hover-tilt-at-edge, 0);
+        --shadow-x: calc(var(--hover-tilt-x, 0.5) * 2 - 1);
+        --shadow-y: calc(var(--hover-tilt-y, 0.5) * 2 - 1);
+        --rim-x: calc((1 - var(--hover-tilt-x, 0.5)) * 100%);
+        --rim-y: calc((1 - var(--hover-tilt-y, 0.5)) * 100%);
+        --photo-bg-x: calc((1 - var(--hover-tilt-x, 0.5)) * 100%);
+        --photo-bg-y: calc((1 - var(--hover-tilt-y, 0.5)) * 100%);
         --f1: #7a5a12;
         --f2: #ffd970;
         --f3: #b8860b;
@@ -855,16 +616,14 @@
             rgba(0, 0, 0, 0.45) 92%
           );
         position: relative;
-        width: min(97vw, 1560px, calc(96dvh * 2));
+        width: 100%;
         aspect-ratio: 2 / 1;
-        transform: scale(var(--scale));
+        transform-style: preserve-3d;
         transition: filter 0.35s ease;
         cursor: pointer;
-        touch-action: none;
         outline: none;
       }
       .card[data-layout="portrait"] {
-        width: min(88vw, 430px, calc(78dvh * 0.667));
         aspect-ratio: 1024 / 1536;
       }
       .card[data-layout="portrait"] .face {
@@ -879,8 +638,7 @@
       }
 
       .card__float,
-      .card__spin,
-      .card__rotator {
+      .card__spin {
         position: absolute;
         inset: 0;
         transform-style: preserve-3d;
@@ -908,11 +666,6 @@
           transform: rotateY(360deg);
         }
       }
-      .card__rotator {
-        transform: rotateY(var(--ry)) rotateX(var(--rx)) translate3d(0, 0, 0.01px);
-        will-change: transform;
-      }
-
       .face {
         position: absolute;
         inset: 0;

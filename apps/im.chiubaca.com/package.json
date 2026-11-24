@@ -4,5 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "npx vite . --open"
+  },
+  "dependencies": {
+    "hover-tilt": "^1.0.0"
   }
 }
