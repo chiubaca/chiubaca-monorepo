@@ -69,7 +69,7 @@
           tilt-factor="1.5"
           scale-factor="1.02"
           spring-options='{"stiffness":0.066,"damping":0.25,"precision":0.01}'
-          tilt-spring-options='{"stiffness":0.066,"damping":0.25,"precision":0.01}'
+          tilt-spring-options='{"stiffness":0.05,"damping":0.45,"precision":0.01}'
           exit-delay="500"
           glare-intensity="0"
         >
@@ -429,9 +429,14 @@
           window.matchMedia("(pointer: coarse)").matches
         ) {
           const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
-          const limit = { gamma: 16, beta: 18 };
+          const limit = { gamma: 24, beta: 28 };
+          const gyroRange = 0.35;
+          const smoothingTime = 140;
           let baseBeta = null;
           let baseGamma = null;
+          let filteredGamma = 0;
+          let filteredBeta = 0;
+          let lastGyroAt = null;
           let orientationSource = null;
           let listening = false;
           let pointerOverrideUntil = 0;
@@ -458,15 +463,25 @@
             if (baseBeta === null || baseGamma === null) {
               baseBeta = event.beta;
               baseGamma = event.gamma;
+              filteredGamma = 0;
+              filteredBeta = 0;
+              lastGyroAt = performance.now();
             }
 
             const gamma = clamp(event.gamma - baseGamma, -limit.gamma, limit.gamma);
             const beta = clamp(event.beta - baseBeta, -limit.beta, limit.beta);
+            const now = performance.now();
+            const elapsed = clamp(now - lastGyroAt, 0, 64);
+            const easing = 1 - Math.exp(-elapsed / smoothingTime);
+            lastGyroAt = now;
+            filteredGamma += (gamma - filteredGamma) * easing;
+            filteredBeta += (beta - filteredBeta) * easing;
+
             const part = tiltPart();
             if (!part) return;
             const rect = part.getBoundingClientRect();
-            const x = rect.left + ((gamma + limit.gamma) / (limit.gamma * 2)) * rect.width;
-            const y = rect.top + ((beta + limit.beta) / (limit.beta * 2)) * rect.height;
+            const x = rect.left + (0.5 + (filteredGamma / limit.gamma) * gyroRange) * rect.width;
+            const y = rect.top + (0.5 + (filteredBeta / limit.beta) * gyroRange) * rect.height;
 
             dispatchGyroPointer("pointerenter", x, y);
             dispatchGyroPointer("pointermove", x, y);
@@ -494,6 +509,9 @@
             pointerOverrideUntil = performance.now() + 1100;
             baseBeta = null;
             baseGamma = null;
+            filteredGamma = 0;
+            filteredBeta = 0;
+            lastGyroAt = null;
           };
 
           hoverTilt.addEventListener("pointerdown", overrideGyro, true);
@@ -501,12 +519,18 @@
           window.addEventListener("orientationchange", () => {
             baseBeta = null;
             baseGamma = null;
+            filteredGamma = 0;
+            filteredBeta = 0;
+            lastGyroAt = null;
             orientationSource = null;
           });
           document.addEventListener("visibilitychange", () => {
             if (!document.hidden) {
               baseBeta = null;
               baseGamma = null;
+              filteredGamma = 0;
+              filteredBeta = 0;
+              lastGyroAt = null;
               orientationSource = null;
             }
           });
