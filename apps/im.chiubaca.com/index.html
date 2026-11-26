@@ -111,6 +111,8 @@
             <div class="card__float">
               <div class="card__spin">
                 <section class="face face--front" aria-label="Card front">
+                  <div class="card__holo"></div>
+                  <div class="card__circuits"></div>
                   <div class="pass pass--landscape">
                     <div class="metal-corner metal-corner--tl"></div>
                     <div class="red-chip"></div>
@@ -118,8 +120,9 @@
                     <div class="side-line"></div>
 
                     <div class="photo">
-                      <img src="./assets/portrait-new.jpg" alt="Alex Chiu" />
-                      <span class="photo__bg-holo"></span>
+                      <span class="photo__film"></span>
+                      <img src="./assets/portrait-cutout.png" alt="Alex Chiu" />
+                      <span class="photo__motif"></span>
                       <span class="photo__shade"></span>
                       <span class="photo__accent"></span>
                     </div>
@@ -219,8 +222,9 @@
                     <div class="p-brand-sub">TECHNOLOGIES</div>
 
                     <div class="photo photo--p">
-                      <img src="./assets/portrait-new.jpg" alt="Alex Chiu" />
-                      <span class="photo__bg-holo"></span>
+                      <span class="photo__film"></span>
+                      <img src="./assets/portrait-cutout.png" alt="Alex Chiu" />
+                      <span class="photo__motif"></span>
                       <span class="photo__shade"></span>
                       <span class="photo__accent"></span>
                     </div>
@@ -741,8 +745,6 @@
         --shadow-y: calc(var(--hover-tilt-y, 0.5) * 2 - 1);
         --rim-x: calc((1 - var(--hover-tilt-x, 0.5)) * 100%);
         --rim-y: calc((1 - var(--hover-tilt-y, 0.5)) * 100%);
-        --photo-bg-x: calc((1 - var(--hover-tilt-x, 0.5)) * 100%);
-        --photo-bg-y: calc((1 - var(--hover-tilt-y, 0.5)) * 100%);
         --f1: #7a5a12;
         --f2: #ffd970;
         --f3: #b8860b;
@@ -769,6 +771,16 @@
             rgba(255, 255, 255, 0.1) 32%,
             rgba(0, 0, 0, 0.45) 92%
           );
+        --silver-film: linear-gradient(
+          118deg,
+          rgba(164, 192, 220, 0.7) 0%,
+          rgba(242, 249, 255, 0.9) 14%,
+          rgba(188, 186, 216, 0.65) 28%,
+          rgba(255, 255, 255, 0.95) 42%,
+          rgba(174, 210, 220, 0.68) 57%,
+          rgba(238, 232, 212, 0.85) 72%,
+          rgba(164, 192, 220, 0.7) 100%
+        );
         position: relative;
         width: 100%;
         aspect-ratio: 2 / 1;
@@ -866,26 +878,12 @@
         border-radius: inherit;
         padding: 0.85cqw;
         pointer-events: none;
-        background: repeating-linear-gradient(
-          118deg,
-          #ff4d6d 0%,
-          #ffd166 9%,
-          #2ec4b6 18%,
-          #4361ee 27%,
-          #b5179e 36%,
-          #ff4d6d 45%,
-          #ffd166 54%,
-          #2ec4b6 63%,
-          #4361ee 72%,
-          #b5179e 81%,
-          #ff4d6d 90%,
-          #ffd166 100%
-        );
-        background-size: 280% 280%;
+        background: var(--silver-film);
+        background-size: 240% 240%;
         background-position: var(--rim-x) var(--rim-y);
-        mix-blend-mode: color;
-        filter: saturate(1.8) brightness(1.12);
-        opacity: calc(0.3 + var(--op) * 0.6);
+        mix-blend-mode: screen;
+        filter: saturate(0.85) brightness(1.05);
+        opacity: calc(0.55 + var(--op) * 0.2);
         -webkit-mask:
           linear-gradient(#000 0 0) content-box,
           linear-gradient(#000 0 0);
@@ -925,7 +923,8 @@
         position: absolute;
         inset: 0;
         display: none;
-        z-index: 2;
+        /* Above the foil overlays so the headshot never picks up a holo wash. */
+        z-index: 12;
       }
       .card[data-layout="landscape"] .pass--landscape {
         transform: translate(-1cqw, -3.3cqw);
@@ -955,7 +954,51 @@
         );
         filter: drop-shadow(0 0 0.3cqw rgba(0, 229, 255, 0.35));
       }
+      /* Transparent silver film backing the headshot. The image sits on top of
+         it so the portrait itself never picks up a holographic wash. */
+      .photo__film {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background: var(--silver-film);
+        background-size: 240% 240%;
+        background-position: var(--bg-x) var(--bg-y);
+        filter: saturate(0.85) brightness(1.05);
+      }
+      /* HUD marks on the portrait: corner brackets and edge ticks only —
+         no reticle over the face. Fixed in place, shimmering in situ. */
+      .photo__motif {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 140'%3E%3Cg fill='none' stroke='white' stroke-width='1'%3E%3Cpath d='M8 26V8h18M92 26V8H74M8 114v18h18M92 114v18H74'/%3E%3Cpath d='M50 8v6M50 126v6M8 70h6M86 70h6'/%3E%3C/g%3E%3C/svg%3E")
+          center / 100% 100% no-repeat;
+        mix-blend-mode: screen;
+        animation: motif-shimmer 4.2s ease-in-out infinite;
+      }
+      @keyframes motif-shimmer {
+        0%,
+        100% {
+          opacity: 0.28;
+          filter: hue-rotate(0deg);
+        }
+        50% {
+          opacity: 0.6;
+          filter: hue-rotate(70deg);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .photo__motif {
+          animation: none;
+          opacity: 0.38;
+        }
+      }
       .pass .photo img {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -964,40 +1007,6 @@
       }
       .photo__shade {
         display: none;
-      }
-
-      /* Layer 1: holo in the black backdrop behind the portrait */
-      .photo__bg-holo {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        pointer-events: none;
-        background:
-          repeating-linear-gradient(
-            118deg,
-            rgba(255, 255, 255, 0.05) 0%,
-            rgba(255, 255, 255, 0.05) 5%,
-            rgba(255, 255, 255, 0.55) 6%,
-            rgba(255, 255, 255, 0.05) 7%,
-            rgba(255, 255, 255, 0.05) 12%
-          ),
-          linear-gradient(
-            118deg,
-            #6c7a89 0%,
-            #f2f6ff 14%,
-            #9aa8b8 28%,
-            #ffffff 42%,
-            #7d8b9b 57%,
-            #dfe8f5 72%,
-            #6c7a89 100%
-          );
-        background-size:
-          220% 220%,
-          260% 260%;
-        background-position: var(--photo-bg-x) var(--photo-bg-y);
-        mix-blend-mode: screen;
-        filter: saturate(0.5) brightness(0.72) contrast(1.1);
-        opacity: calc(0.14 + var(--op) * 0.24);
       }
 
       .photo__accent {
@@ -1581,6 +1590,8 @@
       /* ---------- FOIL ---------- */
       /* Keep every overlay on the same face as its parent: when the card tilts
          far enough that a face turns away, these must not render in isolation. */
+      .card__holo,
+      .card__circuits,
       .grain,
       .card__shine,
       .card__glare,
@@ -1591,6 +1602,81 @@
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
         transform: translateZ(0);
+      }
+
+      /* Oil-slick iridescence on the card body: soft rainbow swells over the
+         dark base. Fixed in place, shimmering in situ. */
+      .card__holo {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        border-radius: inherit;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse 85% 65% at 22% 18%, rgba(255, 77, 109, 0.42), transparent 62%),
+          radial-gradient(ellipse 80% 60% at 78% 32%, rgba(255, 209, 102, 0.34), transparent 60%),
+          radial-gradient(ellipse 90% 70% at 28% 82%, rgba(46, 196, 182, 0.4), transparent 62%),
+          radial-gradient(ellipse 80% 60% at 82% 86%, rgba(67, 97, 238, 0.36), transparent 60%),
+          conic-gradient(
+            from 200deg at 50% 50%,
+            rgba(181, 23, 158, 0.26),
+            rgba(255, 77, 109, 0.26),
+            rgba(255, 209, 102, 0.26),
+            rgba(46, 196, 182, 0.26),
+            rgba(67, 97, 238, 0.26),
+            rgba(181, 23, 158, 0.26)
+          );
+        background-blend-mode: screen, screen, screen, screen, normal;
+        mix-blend-mode: screen;
+        animation: oil-slick-shimmer 7s ease-in-out infinite;
+      }
+      @keyframes oil-slick-shimmer {
+        0%,
+        100% {
+          opacity: 0.24;
+          filter: saturate(1.15) brightness(0.9) hue-rotate(0deg);
+        }
+        50% {
+          opacity: 0.46;
+          filter: saturate(1.5) brightness(1.08) hue-rotate(55deg);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .card__holo {
+          animation: none;
+          opacity: 0.34;
+        }
+      }
+
+      /* Faint, fully interconnected PCB traces printed on the card body.
+         Static, shimmering in place, and hidden behind the pass content. */
+      .card__circuits {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        border-radius: inherit;
+        pointer-events: none;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='white' stroke-width='0.8'%3E%3Cpath d='M0 30h160M0 120h160M80 0v160M40 30v45h40M120 120v-35h-40'/%3E%3Cg fill='white' stroke='none'%3E%3Ccircle cx='80' cy='30' r='2.4'/%3E%3Ccircle cx='80' cy='120' r='2.4'/%3E%3Ccircle cx='40' cy='75' r='2'/%3E%3Ccircle cx='120' cy='85' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+          0 0 / 34cqw 34cqw repeat;
+        mix-blend-mode: screen;
+        animation: circuit-shimmer 5.5s ease-in-out infinite;
+      }
+      @keyframes circuit-shimmer {
+        0%,
+        100% {
+          opacity: 0.08;
+          filter: hue-rotate(0deg);
+        }
+        50% {
+          opacity: 0.24;
+          filter: hue-rotate(60deg);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .card__circuits {
+          animation: none;
+          opacity: 0.14;
+        }
       }
 
       .grain {
@@ -1618,7 +1704,7 @@
         background-blend-mode: overlay;
         mix-blend-mode: color-dodge;
         filter: var(--foil-filter);
-        opacity: calc(0.03 + var(--op) * 0.33);
+        opacity: calc(0.02 + var(--op) * 0.12);
       }
       .card__shine::before {
         content: "";
@@ -1637,21 +1723,6 @@
           calc(((50% - var(--bg-y)) * 1.7) + 50%);
         mix-blend-mode: soft-light;
       }
-      .card__shine::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image:
-          radial-gradient(circle at 18% 26%, rgba(255, 255, 255, 0.8) 0 1px, transparent 2px),
-          radial-gradient(circle at 66% 58%, rgba(255, 255, 255, 0.7) 0 1.3px, transparent 2.3px);
-        background-size:
-          67px 67px,
-          93px 93px;
-        background-position: calc(((50% - var(--bg-x)) * 1.2) + 50%)
-          calc(((50% - var(--bg-y)) * 1.2) + 50%);
-        mix-blend-mode: color-dodge;
-        filter: brightness(calc(1.05 - var(--pc) * 0.25));
-      }
       .card__glare {
         position: absolute;
         inset: 0;
@@ -1666,7 +1737,7 @@
           rgba(0, 0, 0, 0.14) 100%
         );
         mix-blend-mode: overlay;
-        opacity: calc(var(--op) * 0.7);
+        opacity: calc(var(--op) * 0.22);
       }
       .card__flare {
         position: absolute;
@@ -1684,11 +1755,11 @@
         background-size: 240% 240%;
         background-position: calc(((50% - var(--bg-x)) * 2.4) + 50%) center;
         mix-blend-mode: soft-light;
-        opacity: calc(var(--op) * 0.5);
+        opacity: calc(var(--op) * 0.18);
       }
       .card__shine--back {
         mix-blend-mode: color-dodge;
-        opacity: calc(0.02 + var(--op) * 0.18);
+        opacity: calc(0.01 + var(--op) * 0.07);
       }
 
       .burst {
