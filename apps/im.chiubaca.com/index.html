@@ -89,16 +89,7 @@
   <body>
     <main class="stage">
       <div class="scene">
-        <hover-tilt
-          id="hoverTilt"
-          class="card-tilt"
-          tilt-factor="1.5"
-          scale-factor="1.02"
-          spring-options='{"stiffness":0.066,"damping":0.25,"precision":0.01}'
-          tilt-spring-options='{"stiffness":0.05,"damping":0.45,"precision":0.01}'
-          exit-delay="500"
-          glare-intensity="0"
-        >
+        <div id="hoverTilt" class="card-tilt">
           <div
             class="card"
             id="card"
@@ -111,6 +102,13 @@
             <div class="card__float">
               <div class="card__spin">
                 <section class="face face--front" aria-label="Card front">
+                  <canvas
+                    class="card__gpu"
+                    id="holoCanvas"
+                    aria-hidden="true"
+                    width="1"
+                    height="1"
+                  ></canvas>
                   <div class="card__holo"></div>
                   <div class="card__circuits"></div>
                   <div class="pass pass--landscape">
@@ -342,7 +340,7 @@
             </div>
             <div class="burst" aria-hidden="true"></div>
           </div>
-        </hover-tilt>
+        </div>
       </div>
 
       <button
@@ -424,7 +422,8 @@
     </main>
 
     <script type="module">
-      import "hover-tilt/web-component";
+      import { createCardMotion } from "./card-motion.js";
+      import { createHoloRenderer } from "./webgpu-foil.js";
 
       (() => {
         const card = document.getElementById("card");
@@ -438,6 +437,8 @@
         const tiltRange = document.getElementById("tiltRange");
         const tiltValue = document.getElementById("tiltValue");
         const burstLayer = card.querySelector(".burst");
+        const motion = createCardMotion(hoverTilt, card);
+        void createHoloRenderer(document.getElementById("holoCanvas"), card).catch(() => {});
         let polished = false;
 
         const updateLayout = () => {
@@ -449,155 +450,6 @@
         updateLayout();
         window.addEventListener("resize", updateLayout);
         window.addEventListener("orientationchange", updateLayout);
-
-        // Feed device orientation into HoverTilt's own pointer/spring pipeline.
-        // The component has no public gyro API, so its exposed tilt part receives
-        // synthetic pointer coordinates derived from beta/gamma.
-        if (
-          "DeviceOrientationEvent" in window ||
-          "ondeviceorientation" in window ||
-          window.matchMedia("(pointer: coarse)").matches
-        ) {
-          const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
-          const limit = { gamma: 24, beta: 28 };
-          const gyroRange = 0.35;
-          const smoothingTime = 140;
-          let baseBeta = null;
-          let baseGamma = null;
-          let filteredGamma = 0;
-          let filteredBeta = 0;
-          let lastGyroAt = null;
-          let orientationSource = null;
-          let listening = false;
-          let pointerOverrideUntil = 0;
-          let gyroEntered = false;
-          let gyroFrame = null;
-
-          const tiltPart = () => hoverTilt.shadowRoot?.querySelector('[part="tilt"]');
-          const dispatchGyroPointer = (type, x, y) => {
-            const part = tiltPart();
-            if (!part) return;
-            const event = new PointerEvent(type, {
-              bubbles: type !== "pointerenter",
-              composed: true,
-              pointerType: "mouse",
-              isPrimary: true,
-              clientX: x,
-              clientY: y,
-            });
-            part.dispatchEvent(event);
-          };
-          // Coalesce sensor events to one pointer update per frame. Sending a
-          // pointerenter on every event cancels HoverTilt's enter timer and
-          // resets its spring, which shows up as flicker on Android/Samsung.
-          const flushGyro = () => {
-            gyroFrame = null;
-            const part = tiltPart();
-            if (!part) return;
-            const rect = part.getBoundingClientRect();
-            const x = rect.left + (0.5 - (filteredGamma / limit.gamma) * gyroRange) * rect.width;
-            const y = rect.top + (0.5 - (filteredBeta / limit.beta) * gyroRange) * rect.height;
-            if (!gyroEntered) {
-              dispatchGyroPointer("pointerenter", x, y);
-              gyroEntered = true;
-            }
-            dispatchGyroPointer("pointermove", x, y);
-          };
-          const resetGyro = () => {
-            if (gyroFrame !== null) {
-              cancelAnimationFrame(gyroFrame);
-              gyroFrame = null;
-            }
-            gyroEntered = false;
-          };
-          const handleOrientation = (event) => {
-            if (event.beta == null || event.gamma == null) return;
-            if (performance.now() < pointerOverrideUntil) return;
-            if (orientationSource && event.type !== orientationSource) return;
-            orientationSource = event.type;
-            if (baseBeta === null || baseGamma === null) {
-              baseBeta = event.beta;
-              baseGamma = event.gamma;
-              filteredGamma = 0;
-              filteredBeta = 0;
-              lastGyroAt = performance.now();
-            }
-
-            const gamma = clamp(event.gamma - baseGamma, -limit.gamma, limit.gamma);
-            const beta = clamp(event.beta - baseBeta, -limit.beta, limit.beta);
-            const now = performance.now();
-            const elapsed = clamp(now - lastGyroAt, 0, 64);
-            const easing = 1 - Math.exp(-elapsed / smoothingTime);
-            lastGyroAt = now;
-            filteredGamma += (gamma - filteredGamma) * easing;
-            filteredBeta += (beta - filteredBeta) * easing;
-
-            if (gyroFrame === null) gyroFrame = requestAnimationFrame(flushGyro);
-          };
-          const startGyro = () => {
-            if (listening) return;
-            listening = true;
-            window.addEventListener("deviceorientation", handleOrientation, true);
-            window.addEventListener("deviceorientationabsolute", handleOrientation, true);
-          };
-          const requestGyroPermission = () => {
-            if (listening || typeof DeviceOrientationEvent === "undefined") return;
-            if (typeof DeviceOrientationEvent.requestPermission !== "function") {
-              startGyro();
-              return;
-            }
-            DeviceOrientationEvent.requestPermission()
-              .then((state) => {
-                if (state === "granted") startGyro();
-              })
-              .catch(() => {});
-          };
-          const overrideGyro = (event) => {
-            if (!event.isTrusted) return;
-            pointerOverrideUntil = performance.now() + 1100;
-            resetGyro();
-            baseBeta = null;
-            baseGamma = null;
-            filteredGamma = 0;
-            filteredBeta = 0;
-            lastGyroAt = null;
-          };
-
-          hoverTilt.addEventListener("pointerdown", overrideGyro, true);
-          hoverTilt.addEventListener("pointermove", overrideGyro, { capture: true, passive: true });
-          window.addEventListener("orientationchange", () => {
-            resetGyro();
-            baseBeta = null;
-            baseGamma = null;
-            filteredGamma = 0;
-            filteredBeta = 0;
-            lastGyroAt = null;
-            orientationSource = null;
-          });
-          document.addEventListener("visibilitychange", () => {
-            if (!document.hidden) {
-              resetGyro();
-              baseBeta = null;
-              baseGamma = null;
-              filteredGamma = 0;
-              filteredBeta = 0;
-              lastGyroAt = null;
-              orientationSource = null;
-            }
-          });
-
-          if (
-            typeof DeviceOrientationEvent !== "undefined" &&
-            typeof DeviceOrientationEvent.requestPermission === "function"
-          ) {
-            window.addEventListener("pointerdown", requestGyroPermission, {
-              once: true,
-              capture: true,
-            });
-          } else {
-            startGyro();
-          }
-        }
 
         const openModal = () => {
           modal.hidden = false;
@@ -629,7 +481,7 @@
         tiltRange.addEventListener("input", () => {
           const value = Number(tiltRange.value);
           tiltValue.textContent = `${value.toFixed(1)}×`;
-          hoverTilt.setAttribute("tilt-factor", value.toFixed(1));
+          motion.setTiltFactor(value);
         });
 
         const burst = () => {
@@ -662,7 +514,7 @@
           .addEventListener("animationend", () => card.classList.remove("is-shuffling"));
         powerBtn.addEventListener("click", () => {
           polished = !polished;
-          hoverTilt.setAttribute("scale-factor", polished ? "1.08" : "1.02");
+          motion.setScaleFactor(polished ? 1.08 : 1.02);
           card.classList.toggle("is-powered", polished);
           powerBtn.setAttribute("aria-pressed", String(polished));
           powerBtn.classList.toggle("is-active", polished);
@@ -746,13 +598,30 @@
         display: block;
         width: min(97vw, 1560px, calc(96dvh * 2));
         aspect-ratio: 2 / 1;
+        perspective: 600px;
+        touch-action: none;
       }
       body.is-portrait .card-tilt {
         width: min(88vw, 430px, calc(78dvh * 0.667));
         aspect-ratio: 1024 / 1536;
       }
-      .card-tilt::part(tilt)::before {
-        display: none;
+      .card-tilt > .card {
+        transform: scale(var(--hover-tilt-scale, 1))
+          rotateX(
+            calc(
+              var(--hover-tilt-y, 0.5) * var(--hover-tilt-rotation-y, 15deg) * 2 -
+                var(--hover-tilt-rotation-y, 15deg)
+            )
+          )
+          rotateY(
+            calc(
+              (1 - var(--hover-tilt-x, 0.5)) * var(--hover-tilt-rotation-x, 15deg) * 2 -
+                var(--hover-tilt-rotation-x, 15deg)
+            )
+          )
+          translate3d(0, 0, 0.01px);
+        transform-origin: center;
+        will-change: transform, box-shadow, opacity;
       }
 
       .card {
@@ -1635,6 +1504,28 @@
       }
 
       /* ---------- FOIL ---------- */
+      .card__gpu {
+        display: none;
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        pointer-events: none;
+        background: #000;
+        mix-blend-mode: screen;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+      }
+      .webgpu-ready .card__gpu {
+        display: block;
+      }
+      .webgpu-ready .card__holo,
+      .webgpu-ready .card__circuits {
+        visibility: hidden;
+      }
+
       /* Keep every overlay on the same face as its parent: when the card tilts
          far enough that a face turns away, these must not render in isolation. */
       .card__holo,
