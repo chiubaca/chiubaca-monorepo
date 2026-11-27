@@ -810,6 +810,7 @@
         transform-style: preserve-3d;
       }
       .card__float {
+        will-change: transform;
         animation: float 7s ease-in-out infinite;
       }
       @keyframes float {
@@ -973,25 +974,50 @@
         inset: 0;
         z-index: 2;
         pointer-events: none;
+        mix-blend-mode: screen;
+      }
+      .photo__motif::before,
+      .photo__motif::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
         background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 140'%3E%3Cg fill='none' stroke='white' stroke-width='1'%3E%3Cpath d='M8 26V8h18M92 26V8H74M8 114v18h18M92 114v18H74'/%3E%3Cpath d='M50 8v6M50 126v6M8 70h6M86 70h6'/%3E%3C/g%3E%3C/svg%3E")
           center / 100% 100% no-repeat;
-        mix-blend-mode: screen;
-        animation: motif-shimmer 4.2s ease-in-out infinite;
+        will-change: opacity;
       }
-      @keyframes motif-shimmer {
+      .photo__motif::before {
+        opacity: 0.28;
+        animation: motif-fade-out 4.2s ease-in-out infinite;
+      }
+      .photo__motif::after {
+        filter: hue-rotate(70deg);
+        animation: motif-fade-in 4.2s ease-in-out infinite;
+      }
+      @keyframes motif-fade-out {
         0%,
         100% {
           opacity: 0.28;
-          filter: hue-rotate(0deg);
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      @keyframes motif-fade-in {
+        0%,
+        100% {
+          opacity: 0;
         }
         50% {
           opacity: 0.6;
-          filter: hue-rotate(70deg);
         }
       }
       @media (prefers-reduced-motion: reduce) {
-        .photo__motif {
+        .photo__motif::before,
+        .photo__motif::after {
           animation: none;
+        }
+        .photo__motif::before {
           opacity: 0.38;
         }
       }
@@ -1612,6 +1638,14 @@
         z-index: 1;
         border-radius: inherit;
         pointer-events: none;
+        mix-blend-mode: screen;
+      }
+      .card__holo::before,
+      .card__holo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
         background:
           radial-gradient(ellipse 85% 65% at 22% 18%, rgba(255, 77, 109, 0.42), transparent 62%),
           radial-gradient(ellipse 80% 60% at 78% 32%, rgba(255, 209, 102, 0.34), transparent 60%),
@@ -1627,23 +1661,41 @@
             rgba(181, 23, 158, 0.26)
           );
         background-blend-mode: screen, screen, screen, screen, normal;
-        mix-blend-mode: screen;
-        animation: oil-slick-shimmer 7s ease-in-out infinite;
+        will-change: opacity;
       }
-      @keyframes oil-slick-shimmer {
+      .card__holo::before {
+        filter: saturate(1.15) brightness(0.9);
+        opacity: 0.24;
+        animation: oil-slick-fade-out 7s ease-in-out infinite;
+      }
+      .card__holo::after {
+        filter: saturate(1.5) brightness(1.08) hue-rotate(55deg);
+        animation: oil-slick-fade-in 7s ease-in-out infinite;
+      }
+      @keyframes oil-slick-fade-out {
         0%,
         100% {
           opacity: 0.24;
-          filter: saturate(1.15) brightness(0.9) hue-rotate(0deg);
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      @keyframes oil-slick-fade-in {
+        0%,
+        100% {
+          opacity: 0;
         }
         50% {
           opacity: 0.46;
-          filter: saturate(1.5) brightness(1.08) hue-rotate(55deg);
         }
       }
       @media (prefers-reduced-motion: reduce) {
-        .card__holo {
+        .card__holo::before,
+        .card__holo::after {
           animation: none;
+        }
+        .card__holo::before {
           opacity: 0.34;
         }
       }
@@ -1656,25 +1708,50 @@
         z-index: 2;
         border-radius: inherit;
         pointer-events: none;
+        mix-blend-mode: screen;
+      }
+      .card__circuits::before,
+      .card__circuits::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
         background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='white' stroke-width='0.8'%3E%3Cpath d='M0 30h160M0 120h160M80 0v160M40 30v45h40M120 120v-35h-40'/%3E%3Cg fill='white' stroke='none'%3E%3Ccircle cx='80' cy='30' r='2.4'/%3E%3Ccircle cx='80' cy='120' r='2.4'/%3E%3Ccircle cx='40' cy='75' r='2'/%3E%3Ccircle cx='120' cy='85' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
           0 0 / 34cqw 34cqw repeat;
-        mix-blend-mode: screen;
-        animation: circuit-shimmer 5.5s ease-in-out infinite;
+        will-change: opacity;
       }
-      @keyframes circuit-shimmer {
+      .card__circuits::before {
+        opacity: 0.08;
+        animation: circuit-fade-out 5.5s ease-in-out infinite;
+      }
+      .card__circuits::after {
+        filter: hue-rotate(60deg);
+        animation: circuit-fade-in 5.5s ease-in-out infinite;
+      }
+      @keyframes circuit-fade-out {
         0%,
         100% {
           opacity: 0.08;
-          filter: hue-rotate(0deg);
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      @keyframes circuit-fade-in {
+        0%,
+        100% {
+          opacity: 0;
         }
         50% {
           opacity: 0.24;
-          filter: hue-rotate(60deg);
         }
       }
       @media (prefers-reduced-motion: reduce) {
-        .card__circuits {
+        .card__circuits::before,
+        .card__circuits::after {
           animation: none;
+        }
+        .card__circuits::before {
           opacity: 0.14;
         }
       }
