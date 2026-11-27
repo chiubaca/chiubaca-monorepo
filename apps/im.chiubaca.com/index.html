@@ -470,6 +470,8 @@
           let orientationSource = null;
           let listening = false;
           let pointerOverrideUntil = 0;
+          let gyroEntered = false;
+          let gyroFrame = null;
 
           const tiltPart = () => hoverTilt.shadowRoot?.querySelector('[part="tilt"]');
           const dispatchGyroPointer = (type, x, y) => {
@@ -484,6 +486,29 @@
               clientY: y,
             });
             part.dispatchEvent(event);
+          };
+          // Coalesce sensor events to one pointer update per frame. Sending a
+          // pointerenter on every event cancels HoverTilt's enter timer and
+          // resets its spring, which shows up as flicker on Android/Samsung.
+          const flushGyro = () => {
+            gyroFrame = null;
+            const part = tiltPart();
+            if (!part) return;
+            const rect = part.getBoundingClientRect();
+            const x = rect.left + (0.5 - (filteredGamma / limit.gamma) * gyroRange) * rect.width;
+            const y = rect.top + (0.5 - (filteredBeta / limit.beta) * gyroRange) * rect.height;
+            if (!gyroEntered) {
+              dispatchGyroPointer("pointerenter", x, y);
+              gyroEntered = true;
+            }
+            dispatchGyroPointer("pointermove", x, y);
+          };
+          const resetGyro = () => {
+            if (gyroFrame !== null) {
+              cancelAnimationFrame(gyroFrame);
+              gyroFrame = null;
+            }
+            gyroEntered = false;
           };
           const handleOrientation = (event) => {
             if (event.beta == null || event.gamma == null) return;
@@ -507,14 +532,7 @@
             filteredGamma += (gamma - filteredGamma) * easing;
             filteredBeta += (beta - filteredBeta) * easing;
 
-            const part = tiltPart();
-            if (!part) return;
-            const rect = part.getBoundingClientRect();
-            const x = rect.left + (0.5 - (filteredGamma / limit.gamma) * gyroRange) * rect.width;
-            const y = rect.top + (0.5 - (filteredBeta / limit.beta) * gyroRange) * rect.height;
-
-            dispatchGyroPointer("pointerenter", x, y);
-            dispatchGyroPointer("pointermove", x, y);
+            if (gyroFrame === null) gyroFrame = requestAnimationFrame(flushGyro);
           };
           const startGyro = () => {
             if (listening) return;
@@ -537,6 +555,7 @@
           const overrideGyro = (event) => {
             if (!event.isTrusted) return;
             pointerOverrideUntil = performance.now() + 1100;
+            resetGyro();
             baseBeta = null;
             baseGamma = null;
             filteredGamma = 0;
@@ -547,6 +566,7 @@
           hoverTilt.addEventListener("pointerdown", overrideGyro, true);
           hoverTilt.addEventListener("pointermove", overrideGyro, { capture: true, passive: true });
           window.addEventListener("orientationchange", () => {
+            resetGyro();
             baseBeta = null;
             baseGamma = null;
             filteredGamma = 0;
@@ -556,6 +576,7 @@
           });
           document.addEventListener("visibilitychange", () => {
             if (!document.hidden) {
+              resetGyro();
               baseBeta = null;
               baseGamma = null;
               filteredGamma = 0;
@@ -2177,6 +2198,20 @@
         .spark,
         .modal {
           animation: none;
+        }
+      }
+      /* Forced layer promotion plus blend modes is a known Android Chrome /
+         Samsung Internet compositor flicker source. Opacity-only animations
+         are already cheap, so let the mobile compositor decide instead. */
+      @media (pointer: coarse) {
+        .card__float,
+        .card__holo::before,
+        .card__holo::after,
+        .card__circuits::before,
+        .card__circuits::after,
+        .photo__motif::before,
+        .photo__motif::after {
+          will-change: auto;
         }
       }
     </style>
